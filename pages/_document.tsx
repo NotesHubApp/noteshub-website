@@ -14,14 +14,14 @@ class CustomDocument extends Document {
           <link rel="icon" type="image/x-icon" href="/favicon.png"></link>
 
           {/* Global site tag (gtag.js) - Google Analytics */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=%NEXT_PUBLIC_GOOGLE_ANALYTICS_ID%"></script>
+          <script async src={ `https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}` }></script>
 
           <script dangerouslySetInnerHTML={{__html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', '%NEXT_PUBLIC_GOOGLE_ANALYTICS_ID%');
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
           `}} />
         </Head>
         <body>
