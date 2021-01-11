@@ -10,7 +10,6 @@ class CustomDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"></meta>
           <link rel="icon" type="image/x-icon" href="/favicon.png"></link>
 
           {/* Global site tag (gtag.js) - Google Analytics */}
