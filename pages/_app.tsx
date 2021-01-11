@@ -1,8 +1,17 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { useEffect } from 'react'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    const style = document.getElementById('server-side-styles')
+
+    if (style) {
+      style.parentNode?.removeChild(style)
+    }
+  }, []);
+
   return (
     <>
       <Head>
