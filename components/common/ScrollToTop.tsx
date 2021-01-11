@@ -6,16 +6,12 @@ const useStyles = makeStyles({
     position: 'fixed',
     bottom: '0.5rem',
     right: '0.5rem',
-    animation: 'fadeIn 700ms ease-in-out 1s both',
+    animation: '$fadeIn 700ms ease-in-out 1s both',
     cursor: 'pointer'
   },
   '@keyframes fadeIn': {
-    from: {
-      opacity: 0
-    },
-    to: {
-      opacity: 1
-    }
+    from: { opacity: 0 },
+    to: { opacity: 1 }
   }
 });
 
