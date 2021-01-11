@@ -9,7 +9,7 @@ const useStyles = createUseStyles({
     animation: '$fadeIn 700ms ease-in-out both',
     cursor: 'pointer',
     color: 'white',
-    background: '#00518c',
+    background: 'var(--theme-color)',
     padding: '8px 10px'
   },
   '@keyframes fadeIn': {
