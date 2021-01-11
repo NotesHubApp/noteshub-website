@@ -8,7 +8,7 @@
 }
 
 .main {
-  padding: 5rem 0;
+  padding: 2rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -23,10 +23,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.footer img {
-  margin-left: 0.5rem;
 }
 
 .footer a {
@@ -62,8 +58,8 @@
   font-size: 1.5rem;
 }
 
-.logo {
-  height: 1em;
+.copyright-text {
+  color: #787878;
 }
 
 @media (max-width: 600px) {
