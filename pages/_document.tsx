@@ -10,7 +10,7 @@ class CustomDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" type="image/x-icon" href="/favicon.png"></link>
+          <link rel="icon" type="image/x-icon" href="/favicon.svg"></link>
 
           {/* Global site tag (gtag.js) - Google Analytics */}
           <script async src={ `https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}` }></script>
