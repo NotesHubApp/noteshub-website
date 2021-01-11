@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>{ process.env.NEXT_PUBLIC_APPNAME }</title>
+        <title>{ `${process.env.NEXT_PUBLIC_APPNAME} - ${process.env.NEXT_PUBLIC_APPTITLE}` }</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
