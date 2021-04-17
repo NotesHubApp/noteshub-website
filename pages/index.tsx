@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import ScrollToTop from '../components/common/ScrollToTop'
+import NotableFeatures from '../components/NotableFeatures'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -17,6 +18,8 @@ export default function Home() {
         <p className={styles.description}>
           {process.env.NEXT_PUBLIC_APPDESC}
         </p>
+
+        <NotableFeatures />
       </main>
 
       <footer className={styles.footer}>
