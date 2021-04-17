@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { createUseStyles } from 'react-jss';
 import Section from './common/Section';
+
+type SectionData = {
+  title: string;
+  imageSrc: string;
+  content: ReactNode | string;
+}
 
 const useStyles = createUseStyles({
   notableFeatures: {
@@ -11,24 +17,51 @@ const useStyles = createUseStyles({
 export default function NotableFeatures() {
   const classes = useStyles();
 
+  const sections: SectionData[] = [
+    {
+      title: 'Work Offline',
+      imageSrc: '/',
+      content: ''
+    },
+    {
+      title: 'Auto Sync',
+      imageSrc: '/',
+      content: ''
+    },
+    {
+      title: 'No Vendor Lock-In',
+      imageSrc: '/',
+      content: ''
+    },
+    {
+      title: 'Merge Conflicts Auto-Resolution',
+      imageSrc: '/',
+      content: ''
+    },
+    {
+      title: 'Use Everywhere',
+      imageSrc: '/',
+      content: ''
+    },
+    {
+      title: 'Go to the Dark Side',
+      imageSrc: '/',
+      content: ''
+    },
+    {
+      title: 'Collaborate',
+      imageSrc: '/',
+      content: ''
+    }
+  ]
+
   return (
     <div className={ classes.notableFeatures }>
-      <Section title="Work Offline" imageSrc="/">
-      </Section>
-      <Section title="Auto Sync" imageSrc="/">
-      </Section>
-      <Section title="No Vendor Lock-In" imageSrc="/">
-
-      </Section>
-      <Section title="Merge Conflicts Auto-Resolution" imageSrc="/">
-
-      </Section>
-      <Section title="Use Everywhere" imageSrc="/">
-      </Section>
-      <Section title="Go to the Dark Side" imageSrc="/">
-      </Section>
-      <Section title="Collaborate" imageSrc="/">
-      </Section>
+      { sections.map((v, index) => (
+        <Section title={ v.title } imageSrc={ v.imageSrc } isAlternate={ index % 2 == 1 }>
+          { v.content }
+        </Section>
+      ))}
     </div>
   );
 }

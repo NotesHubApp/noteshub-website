@@ -7,6 +7,9 @@ const useStyles = createUseStyles({
     flexDirection: 'row',
     width: '100%'
   },
+  alternateSection: {
+    flexDirection: 'row-reverse'
+  },
   column: {
     flex: '50%'
   },
@@ -23,13 +26,14 @@ type SectionProps = {
   title: string;
   imageSrc: string;
   children: ReactNode;
+  isAlternate: boolean;
 }
 
-export default function Section({ title, imageSrc, children }: SectionProps) {
+export default function Section({ title, imageSrc, children, isAlternate }: SectionProps) {
   const classes = useStyles();
 
   return (
-    <div className={ classes.section }>
+    <div className={ isAlternate ? `${classes.section} ${classes.alternateSection}` : classes.section }>
       <div className={ classes.column }>
         <img className={ classes.image } src={ imageSrc } />
       </div>
