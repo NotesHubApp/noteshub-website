@@ -20,37 +20,37 @@ export default function NotableFeatures() {
   const sections: SectionData[] = [
     {
       title: 'Work Offline',
-      imageSrc: '/',
+      imageSrc: '/images/features/placeholder-feature.jpg',
       content: ''
     },
     {
       title: 'Auto Sync',
-      imageSrc: '/',
+      imageSrc: '/images/features/placeholder-feature.jpg',
       content: ''
     },
     {
       title: 'No Vendor Lock-In',
-      imageSrc: '/',
+      imageSrc: '/images/features/placeholder-feature.jpg',
       content: ''
     },
     {
       title: 'Merge Conflicts Auto-Resolution',
-      imageSrc: '/',
+      imageSrc: '/images/features/placeholder-feature.jpg',
       content: ''
     },
     {
       title: 'Use Everywhere',
-      imageSrc: '/',
+      imageSrc: '/images/features/placeholder-feature.jpg',
       content: ''
     },
     {
       title: 'Go to the Dark Side',
-      imageSrc: '/',
+      imageSrc: '/images/features/placeholder-feature.jpg',
       content: ''
     },
     {
       title: 'Collaborate',
-      imageSrc: '/',
+      imageSrc: '/images/features/placeholder-feature.jpg',
       content: ''
     }
   ]
