@@ -5,10 +5,18 @@ const useStyles = createUseStyles({
   section: {
     display: 'flex',
     flexDirection: 'row',
-    width: '100%'
+    width: '100%',
   },
   alternateSection: {
     flexDirection: 'row-reverse'
+  },
+  '@media only screen and (max-width: 600px)': {
+    section: {
+      flexDirection: 'column'
+    },
+    alternateSection: {
+      flexDirection: 'column'
+    },
   },
   column: {
     flex: '50%'
@@ -35,12 +43,12 @@ export default function Section({ title, imageSrc, children, isAlternate }: Sect
   return (
     <div className={ isAlternate ? `${classes.section} ${classes.alternateSection}` : classes.section }>
       <div className={ classes.column }>
-        <img className={ classes.image } src={ imageSrc } />
+        <h2 className={ classes.title }>{ title }</h2>
+        { children }
       </div>
 
       <div className={ classes.column }>
-        <h2 className={ classes.title }>{ title }</h2>
-        { children }
+        <img className={ classes.image } src={ imageSrc } />
       </div>
     </div>
   )
