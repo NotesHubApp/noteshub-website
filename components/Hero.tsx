@@ -1,6 +1,12 @@
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
+  heroContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100vh',
+    justifyContent: 'center'
+  },
   title: {
     margin: '0',
     lineHeight: '1.15',
@@ -26,7 +32,7 @@ export default function Hero() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={ classes.heroContainer }>
       <h1 className={classes.title}>
         Welcome to <a href={process.env.NEXT_PUBLIC_APPURL}>{process.env.NEXT_PUBLIC_APPNAME}</a>
       </h1>
