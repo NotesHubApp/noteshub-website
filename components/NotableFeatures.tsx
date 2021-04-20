@@ -9,9 +9,12 @@ type SectionData = {
 }
 
 const useStyles = createUseStyles({
-  notableFeatures: {
+  notableFeaturesContainer: {
     width: '100%'
   },
+  header: {
+    textAlign: 'center'
+  }
 });
 
 export default function NotableFeatures() {
@@ -56,7 +59,9 @@ export default function NotableFeatures() {
   ]
 
   return (
-    <div className={ classes.notableFeatures }>
+    <div className={ classes.notableFeaturesContainer }>
+      <h1 className={ classes.header }>Features</h1>
+
       { sections.map((v, index) => (
         <Section title={ v.title } imageSrc={ v.imageSrc } isAlternate={ index % 2 == 1 }>
           { v.content }
