@@ -1,5 +1,7 @@
 import Head from 'next/head'
+import React from 'react'
 import ScrollToTop from '../components/common/ScrollToTop'
+import Hero from '../components/Hero'
 import NotableFeatures from '../components/NotableFeatures'
 import styles from '../styles/Home.module.css'
 
@@ -11,14 +13,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href={process.env.NEXT_PUBLIC_APPURL}>{process.env.NEXT_PUBLIC_APPNAME}</a>
-        </h1>
-
-        <p className={styles.description}>
-          {process.env.NEXT_PUBLIC_APPDESC}
-        </p>
-
+        <Hero />
         <NotableFeatures />
       </main>
 
