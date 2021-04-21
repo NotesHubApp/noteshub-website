@@ -7,6 +7,13 @@ const useStyles = createUseStyles({
     height: '100vh',
     justifyContent: 'center'
   },
+  /* Avoid Chrome to see Safari hack */
+  '@supports (-webkit-touch-callout: none)': {
+    heroContainer: {
+      /* The hack for Safari */
+      height: '-webkit-fill-available'
+    }
+  },
   title: {
     margin: '0',
     lineHeight: '1.15',
