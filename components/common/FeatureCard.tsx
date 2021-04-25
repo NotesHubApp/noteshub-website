@@ -2,19 +2,19 @@ import { ReactNode } from 'react';
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
-  section: {
+  featureCard: {
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
   },
-  alternateSection: {
+  alternateFeatureCard: {
     flexDirection: 'row-reverse'
   },
   '@media only screen and (max-width: 800px)': {
-    section: {
+    featureCard: {
       flexDirection: 'column'
     },
-    alternateSection: {
+    alternateFeatureCard: {
       flexDirection: 'column'
     },
   },
@@ -27,24 +27,31 @@ const useStyles = createUseStyles({
   },
   title: {
     textAlign: 'center'
+  },
+  description: {
+    fontSize: '20px',
+    padding: '0 30px'
   }
 });
 
-type SectionProps = {
+type FeatureCardProps = {
   title: string;
   imageSrc: string;
   children: ReactNode;
   isAlternate: boolean;
 }
 
-export default function Section({ title, imageSrc, children, isAlternate }: SectionProps) {
+export default function FeatureCard({ title, imageSrc, children, isAlternate }: FeatureCardProps) {
   const classes = useStyles();
+  const featureCardClass = isAlternate ?
+    `${classes.featureCard} ${classes.alternateFeatureCard}` :
+    classes.featureCard
 
   return (
-    <div className={ isAlternate ? `${classes.section} ${classes.alternateSection}` : classes.section }>
+    <div className={ featureCardClass }>
       <div className={ classes.column }>
         <h2 className={ classes.title }>{ title }</h2>
-        { children }
+        <p className={ classes.description }>{ children }</p>
       </div>
 
       <div className={ classes.column }>

@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import { createUseStyles } from 'react-jss';
-import Section from './common/Section';
+import FeatureCard from './common/FeatureCard';
 
-type SectionData = {
+type FeatureCardData = {
   title: string;
   imageSrc: string;
   content: ReactNode | string;
@@ -20,11 +20,11 @@ const useStyles = createUseStyles({
 export default function NotableFeatures() {
   const classes = useStyles();
 
-  const sections: SectionData[] = [
+  const sections: FeatureCardData[] = [
     {
       title: 'Work Offline',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: ''
+      content: 'If you in an airplane or traveling in a forest, it does not matter, your notes will be always with you. You can even edit them, delete, add. All the content will be sync once connection is restored.'
     },
     {
       title: 'Auto Sync',
@@ -63,9 +63,9 @@ export default function NotableFeatures() {
       <h1 className={ classes.header }>Features</h1>
 
       { sections.map((v, index) => (
-        <Section title={ v.title } imageSrc={ v.imageSrc } isAlternate={ index % 2 == 1 }>
+        <FeatureCard title={ v.title } imageSrc={ v.imageSrc } isAlternate={ index % 2 == 1 }>
           { v.content }
-        </Section>
+        </FeatureCard>
       ))}
     </div>
   );
