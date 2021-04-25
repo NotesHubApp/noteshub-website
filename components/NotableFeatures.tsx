@@ -24,7 +24,7 @@ export default function NotableFeatures() {
     {
       title: 'Work Offline',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: 'If you in an airplane or traveling in a forest, it does not matter, your notes will be always with you. You can even edit them, delete, add. All the content will be sync once connection is restored.'
+      content: 'If you are in an airplane or traveling in a forest, it does not matter, your notes will be always with you. You can even edit them, delete, add. All the content will be sync once connection is restored.'
     },
     {
       title: 'Auto Sync',
