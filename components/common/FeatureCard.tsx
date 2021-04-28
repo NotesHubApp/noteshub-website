@@ -19,7 +19,8 @@ const useStyles = createUseStyles({
     },
   },
   column: {
-    flex: '50%'
+    flex: '50%',
+    alignSelf: 'center'
   },
   image: {
     display: 'block',
