@@ -29,38 +29,38 @@ export default function NotableFeatures() {
     {
       title: 'Auto Sync',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: ''
+      content: 'Your notes will be periodically sync with remote location, so you can access latest versions across all of your devices.'
     },
     {
       title: 'No Vendor Lock-In',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: ''
+      content: 'All data stored in your device and sync with remote git repositories. As of today only GitHub is supported and more git providers coming in the future.'
     },
     {
       title: 'Merge Conflicts Auto-Resolution',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: ''
+      content: 'Don\'t be afraid to edit the same notes from different devices even when you are offline. Once connection restored your notes will be automatically merged. If the same lines changed you will see an alternative variant in the note.'
     },
     {
       title: 'Use Everywhere',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: ''
+      content: 'The application is built with love and using the latest web technologies (PWA). It means that it can work in any mobile device, desktop, or any other device with modern web browser. The app works offline, can be installed avoiding any app store. Works and feels like native app without compromises.'
     },
     {
       title: 'Go to the Dark Side',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: ''
+      content: 'You can choose between light and dark theme or system default to match with rest of the apps.'
     },
     {
       title: 'Collaborate',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: ''
+      content: 'Since your notes stored in GIT repo, the collaboration comes natural. Just add new collaborators to your remote repo. Native support comes in future updates.'
     }
   ]
 
   return (
     <div className={ classes.notableFeaturesContainer }>
-      <h1 className={ classes.header }>Features</h1>
+      <h1 className={ classes.header }>Highlights</h1>
 
       { sections.map((v, index) => (
         <FeatureCard title={ v.title } imageSrc={ v.imageSrc } isAlternate={ index % 2 == 1 }>
