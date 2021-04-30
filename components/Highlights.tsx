@@ -17,7 +17,7 @@ const useStyles = createUseStyles({
   }
 });
 
-export default function NotableFeatures() {
+export default function Highlights() {
   const classes = useStyles();
 
   const sections: FeatureCardData[] = [

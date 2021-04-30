@@ -10,7 +10,8 @@ const useStyles = createUseStyles({
     cursor: 'pointer',
     color: 'white',
     background: 'var(--theme-color)',
-    padding: '8px 10px'
+    padding: '7px 10px',
+    borderRadius: '100%'
   },
   '@keyframes fadeIn': {
     from: { opacity: 0 },

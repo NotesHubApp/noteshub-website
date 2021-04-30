@@ -2,7 +2,7 @@ import Head from 'next/head'
 import React from 'react'
 import ScrollToTop from '../components/common/ScrollToTop'
 import Hero from '../components/Hero'
-import NotableFeatures from '../components/NotableFeatures'
+import Highlights from '../components/Highlights'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <Hero />
-        <NotableFeatures />
+        <Highlights />
       </main>
 
       <footer className={styles.footer}>
