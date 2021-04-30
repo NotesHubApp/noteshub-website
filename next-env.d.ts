@@ -8,6 +8,9 @@ declare namespace NodeJS {
     NEXT_PUBLIC_APPTITLE: string
     NEXT_PUBLIC_APPDESC: string
     NEXT_PUBLIC_APPURL: string
+    NEXT_PUBLIC_FACEBOOK_LINK: string
+    NEXT_PUBLIC_TWITTER_LINK: string
+    NEXT_PUBLIC_INSTAGRAM_LINK: string
     NEXT_PUBLIC_COMPANYNAME: string
     NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: string
   }
