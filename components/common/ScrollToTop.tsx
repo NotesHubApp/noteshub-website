@@ -11,6 +11,7 @@ const useStyles = createUseStyles({
     color: 'white',
     background: 'var(--theme-color)',
     padding: '7px 10px',
+    borderRadius: '5px'
   },
   '@keyframes fadeIn': {
     from: { opacity: 0 },
