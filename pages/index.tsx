@@ -16,7 +16,6 @@ const useStyles = createUseStyles({
   },
   main: {
     width: '100%',
-    padding: '2rem 0',
     flex: '1',
     display: 'flex',
     flexDirection: 'column',
