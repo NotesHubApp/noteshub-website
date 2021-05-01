@@ -33,10 +33,7 @@ export default function ScrollToTop() {
   }
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    scrollToTarget(window.document.documentElement);
   }
 
   useEffect(() => {
@@ -56,3 +53,36 @@ export default function ScrollToTop() {
     </div>
   )
 }
+
+const easeInQuad = function(t: number) {
+  return t * t;
+};
+
+const scrollToTarget = function(target: Element, duration: number = 400, animationFunction: (t: number) => number = easeInQuad) {
+  const top = target.getBoundingClientRect().top;
+  const startPos = window.pageYOffset;
+  const diff = top;
+
+  let startTime: DOMHighResTimeStamp | null = null;
+  let requestId: number;
+
+  const loop = (currentTime: DOMHighResTimeStamp) => {
+      if (!startTime) {
+          startTime = currentTime;
+      }
+
+      // Elapsed time in miliseconds
+      const time = currentTime - startTime;
+
+      const percent = Math.min(time / duration, 1);
+      window.scrollTo(0, startPos + diff * animationFunction(percent));
+
+      if (time < duration) {
+          // Continue moving
+          requestId = window.requestAnimationFrame(loop);
+      } else {
+          window.cancelAnimationFrame(requestId);
+      }
+  };
+  requestId = window.requestAnimationFrame(loop);
+};
