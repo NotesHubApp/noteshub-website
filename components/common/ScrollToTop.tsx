@@ -11,7 +11,12 @@ const useStyles = createUseStyles({
     '& svg': {
       fill: 'var(--theme-color)',
       width: '35px',
-      height: '35px'
+      height: '35px',
+      opacity: '0.3',
+
+      '&:hover': {
+        opacity: '1'
+      }
     }
   },
   '@keyframes fadeIn': {
