@@ -59,11 +59,17 @@ export default function ScrollToTop() {
   )
 }
 
-const easeInQuad = function(t: number) {
-  return t * t;
-};
+/**
+ * @see https://easings.net/
+ */
+function easeOutExpo(x: number): number {
+  return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
+}
 
-const scrollToTarget = function(target: Element, duration: number = 400, animationFunction: (t: number) => number = easeInQuad) {
+/**
+ * @see https://htmldom.dev/scroll-to-an-element-smoothly/
+ */
+const scrollToTarget = function(target: Element, duration: number = 1000, animationFunction: (t: number) => number = easeOutExpo) {
   const top = target.getBoundingClientRect().top;
   const startPos = window.pageYOffset;
   const diff = top;
