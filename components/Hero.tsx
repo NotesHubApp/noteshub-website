@@ -35,7 +35,13 @@ const useStyles = createUseStyles({
     '& a': {
       border: 'solid 1px gray',
       padding: '10px 20px',
-      borderRadius: '100px 100px 100px 100px'
+      borderRadius: '100px 100px 100px 100px',
+
+      '&:hover': {
+        color: 'white',
+        borderColor: 'var(--theme-color)',
+        background: 'var(--theme-color)'
+      }
     }
   }
 });
