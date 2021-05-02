@@ -10,6 +10,7 @@ const useStyles = createUseStyles({
     columnGap: '50px',
     textAlign: 'start',
     listStyle: 'none',
+    padding: '0 20px',
 
     '@media only screen and (max-width: 800px)': {
       columnCount: '1'
@@ -17,11 +18,14 @@ const useStyles = createUseStyles({
 
     '& li': {
       lineHeight: '200%',
+      paddingLeft: '30px',
 
       '&::before': {
+        display: 'inline-block',
         content: '"•"',
         color: 'var(--theme-color)',
-        marginRight: '15px',
+        width: '1em',
+        marginLeft: '-1em',
         fontWeight: 'bold'
       }
     }
