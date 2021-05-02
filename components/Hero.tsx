@@ -18,20 +18,25 @@ const useStyles = createUseStyles({
     margin: '0',
     lineHeight: '1.15',
     fontSize: '4rem',
-    textAlign: 'center',
-
-    '& a': {
-      color: 'var(--theme-color)',
-      textDecoration: 'none'
-    },
-    '& a:hover, a:focus, a:active': {
-      textDecoration: 'underline'
-    }
+    textAlign: 'center'
+  },
+  titleAppName: {
+    color: 'var(--theme-color)'
   },
   description: {
     lineHeight: '1.5',
     fontSize: '1.5rem',
     textAlign: 'center'
+  },
+  linksContainer: {
+    textAlign: 'center',
+    margin: '20px',
+
+    '& a': {
+      border: 'solid 1px gray',
+      padding: '10px 20px',
+      borderRadius: '100px 100px 100px 100px'
+    }
   }
 });
 
@@ -41,12 +46,16 @@ export default function Hero() {
   return (
     <div className={ classes.heroContainer }>
       <h1 className={classes.title}>
-        Welcome to <a href={process.env.NEXT_PUBLIC_APPURL}>{process.env.NEXT_PUBLIC_APPNAME}</a>
+        Welcome to <span className={classes.titleAppName}>{process.env.NEXT_PUBLIC_APPNAME}</span>
       </h1>
 
       <p className={classes.description}>
         {process.env.NEXT_PUBLIC_APPDESC}
       </p>
+
+      <div className={classes.linksContainer}>
+        <a href={process.env.NEXT_PUBLIC_APPURL}><span>Web App</span></a>
+      </div>
     </div>
   )
 }
