@@ -85,7 +85,7 @@ export default function Footer() {
         </li>
       </ul>
 
-      <ScrollToTop />
+      {/*<ScrollToTop />*/}
     </footer>
   )
 }
