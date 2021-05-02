@@ -32,7 +32,11 @@ const useStyles = createUseStyles({
       },
       '& svg': {
         width: '25px',
-        height: '25px'
+        height: '25px',
+
+        '&:hover': {
+          filter: 'brightness(60%)'
+        }
       }
     }
   },
