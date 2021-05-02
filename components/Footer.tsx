@@ -4,8 +4,8 @@ import ScrollToTop from './common/ScrollToTop'
 
 const useStyles = createUseStyles({
   footer: {
+    padding: '10px',
     width: '100%',
-    height: '100px',
     borderTop: '1px solid #eaeaea',
     textAlign: 'center',
     justifyContent: 'center',
