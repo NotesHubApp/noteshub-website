@@ -59,10 +59,10 @@ export default function AllFeatures() {
   ];
 
   const nonReleasedFeatures: string[] = [
-    'List item',
-    'List item',
-    'List item',
-    'List item',
+    'Support of KaTeX for math expressions',
+    'Support of Mermaid diagrams',
+    'Syntax highlighting for code blocks',
+    'Quick notes',
   ];
 
   return (
