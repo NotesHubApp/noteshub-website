@@ -34,12 +34,12 @@ export default function Highlights() {
     {
       title: 'No Vendor Lock-In',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: 'All data stored in your device and sync with remote git repositories. As of today only GitHub is supported and more git providers coming in the future.'
+      content: 'All data stored in your device and sync with remote Git repositories. As of today only GitHub is supported and more Git providers coming in the future.'
     },
     {
       title: 'Merge Conflicts Auto-Resolution',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: 'Don\'t be afraid to edit the same notes from different devices even when you are offline. Once connection restored your notes will be automatically merged. If the same lines changed you will see an alternative variant in the note.'
+      content: 'Don\'t be afraid to edit the same notes from different devices even when you are offline. Once connection is restored your notes will be automatically merged. If the same lines changed you will see an alternative variant in the note.'
     },
     {
       title: 'Use Everywhere',
@@ -54,7 +54,7 @@ export default function Highlights() {
     {
       title: 'Collaborate',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: 'Since your notes stored in GIT repo, the collaboration comes natural. Just add new collaborators to your remote repo. Native support comes in future updates.'
+      content: 'Since your notes stored in Git repo, the collaboration comes naturaly. Just add new collaborators to your remote repo. Native support comes in future updates.'
     }
   ]
 
