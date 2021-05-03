@@ -29,6 +29,15 @@ const useStyles = createUseStyles({
         fontWeight: 'bold'
       }
     }
+  },
+  comingSoonLabel: {
+    cursor: 'help',
+    fontSize: '60%',
+    color: 'white',
+    background: 'var(--theme-color)',
+    borderRadius: '10px',
+    padding: '2px 7px',
+    marginRight: '10px'
   }
 });
 
@@ -46,7 +55,10 @@ export default function AllFeatures() {
     'Editor toolbar with all necessary commands (bold, italic, list, table, etc.)',
     'Markdown syntax guidance',
     'Automatic merge conflicts resolution',
-    'Periodic background sync of data',
+    'Periodic background sync of data'
+  ];
+
+  const nonReleasedFeatures: string[] = [
     'List item',
     'List item',
     'List item',
@@ -59,6 +71,10 @@ export default function AllFeatures() {
 
       <ul className={classes.featuresList}>
         { features.map((x, i) => (<li key={i}>{ x }.</li>)) }
+        { nonReleasedFeatures.map((x, i) => (
+          <li key={features.length + i}>
+            <span className={classes.comingSoonLabel} title="This feature planned to be released in future release.">coming</span>{ x }.
+          </li>)) }
       </ul>
     </div>
   )
