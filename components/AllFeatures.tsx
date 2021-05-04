@@ -37,7 +37,7 @@ const useStyles = createUseStyles({
     background: 'var(--theme-color)',
     borderRadius: '10px',
     padding: '2px 7px',
-    marginRight: '10px'
+    marginLeft: '5px'
   }
 });
 
@@ -70,10 +70,16 @@ export default function AllFeatures() {
       <h1>All Features</h1>
 
       <ul className={classes.featuresList}>
-        { features.map((x, i) => (<li key={i}>{ x }.</li>)) }
+        { features.map((x, i) => (<li key={i}>{ x }</li>)) }
         { nonReleasedFeatures.map((x, i) => (
           <li key={features.length + i}>
-            <span className={classes.comingSoonLabel} title="This feature planned to be released in future release.">coming</span>{ x }.
+            { x }
+            <span
+              className={classes.comingSoonLabel}
+              title="This feature planned to be released in future release"
+            >
+              coming
+            </span>
           </li>)) }
       </ul>
     </div>
