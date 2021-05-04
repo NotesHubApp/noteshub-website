@@ -24,7 +24,7 @@ export default function Highlights() {
     {
       title: 'Work Offline',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: 'If you are in an airplane or traveling in a forest, it does not matter, your notes will be always with you. You can even edit them, delete, add. All the content will be sync once connection is restored.'
+      content: 'If you are in an airplane or traveling in a forest, it does not matter, your notes will be always with you. You can even edit them, delete, add, etc. All the content will be sync once connection is restored.'
     },
     {
       title: 'Auto Sync',
@@ -54,7 +54,7 @@ export default function Highlights() {
     {
       title: 'Collaborate',
       imageSrc: '/images/features/placeholder-feature.jpg',
-      content: 'Since your notes stored in Git repo, the collaboration comes naturaly. Just add new collaborators to your remote repo. Native support comes in future updates.'
+      content: 'Since your notes stored in Git repositories, the collaboration comes naturaly, just add new collaborators to your remote repository. Native support comes in future updates.'
     }
   ]
 
