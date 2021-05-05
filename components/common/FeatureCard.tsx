@@ -24,7 +24,9 @@ const useStyles = createUseStyles({
   },
   image: {
     display: 'block',
-    margin: '20px auto'
+    margin: '20px auto',
+    maxWidth: '100%',
+    maxHeight: '80vh'
   },
   title: {
     textAlign: 'center'
