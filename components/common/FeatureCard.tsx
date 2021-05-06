@@ -26,7 +26,9 @@ const useStyles = createUseStyles({
     display: 'block',
     margin: '20px auto',
     maxWidth: '100%',
-    maxHeight: '80vh'
+    maxHeight: '80vh',
+    borderRadius: '10px',
+    boxShadow: '0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%)'
   },
   title: {
     textAlign: 'center'
