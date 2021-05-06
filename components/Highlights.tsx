@@ -28,12 +28,12 @@ export default function Highlights() {
     },
     {
       title: 'Auto Sync',
-      imageSrc: '/images/features/sync.png',
+      imageSrc: '/images/features/placeholder-feature.jpg',
       content: 'Your notes will be periodically sync with remote location, so you can access latest versions across all of your devices.'
     },
     {
       title: 'No Vendor Lock-In',
-      imageSrc: '/images/features/placeholder-feature.jpg',
+      imageSrc: '/images/features/no-vendor-lock-in.png',
       content: 'All data stored in your device and sync with remote Git repositories. As of today only GitHub is supported and more Git providers coming in the future.'
     },
     {
