@@ -43,7 +43,7 @@ export default function Highlights() {
     },
     {
       title: 'Use Everywhere',
-      imageSrc: '/images/features/placeholder-feature.jpg',
+      imageSrc: '/images/features/desktop.png',
       content: 'The application is built with love and using the latest web technologies (PWA). It means that it can work in any mobile device, desktop, or any other device with modern web browser. The app works offline, can be installed avoiding any app store. Works and feels like native app without compromises.'
     },
     {
