@@ -41,12 +41,13 @@ const useStyles = createUseStyles({
 
 type FeatureCardProps = {
   title: string;
-  imageSrc: string;
+  mobileImageSrc: string;
+  desktopImageSrc: string;
   children: ReactNode;
   isAlternate: boolean;
 }
 
-export default function FeatureCard({ title, imageSrc, children, isAlternate }: FeatureCardProps) {
+export default function FeatureCard({ title, mobileImageSrc, desktopImageSrc, children, isAlternate }: FeatureCardProps) {
   const classes = useStyles();
   const featureCardClass = isAlternate ?
     `${classes.featureCard} ${classes.alternateFeatureCard}` :
@@ -61,7 +62,8 @@ export default function FeatureCard({ title, imageSrc, children, isAlternate }: 
 
       <div className={ classes.column }>
         <picture>
-          <img className={ classes.image } src={ imageSrc } />
+          <source media="(max-width: 800px)" srcSet={ mobileImageSrc } />
+          <img className={ classes.image } src={ desktopImageSrc } />
         </picture>
       </div>
     </div>
