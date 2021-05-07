@@ -60,7 +60,9 @@ export default function FeatureCard({ title, imageSrc, children, isAlternate }: 
       </div>
 
       <div className={ classes.column }>
-        <img className={ classes.image } src={ imageSrc } />
+        <picture>
+          <img className={ classes.image } src={ imageSrc } />
+        </picture>
       </div>
     </div>
   )

@@ -23,7 +23,7 @@ export default function Highlights() {
   const sections: FeatureCardData[] = [
     {
       title: 'Work Offline',
-      imageSrc: '/images/features/offline.png',
+      imageSrc: '/images/features/mobile/offline.png',
       content: 'If you are in an airplane or traveling in a forest, it does not matter, your notes will be always with you. You can even edit them, delete, add, etc. All the content will be sync once connection is restored.'
     },
     {
@@ -33,7 +33,7 @@ export default function Highlights() {
     },
     {
       title: 'No Vendor Lock-In',
-      imageSrc: '/images/features/no-vendor-lock-in.png',
+      imageSrc: '/images/features/mobile/no-vendor-lock-in.png',
       content: 'All data stored in your device and sync with remote Git repositories. As of today only GitHub is supported and more Git providers coming in the future.'
     },
     {
@@ -48,7 +48,7 @@ export default function Highlights() {
     },
     {
       title: 'Go to the Dark Side',
-      imageSrc: '/images/features/black-theme.png',
+      imageSrc: '/images/features/mobile/black-theme.png',
       content: 'You can choose between light and dark theme or system default to match with rest of the apps.'
     },
     {
