@@ -10,6 +10,11 @@ const useStyles = createUseStyles({
   alternateFeatureCard: {
     flexDirection: 'row-reverse'
   },
+  column: {
+    flex: '50%',
+    alignSelf: 'center',
+    margin: '0 20px'
+  },
   '@media only screen and (max-width: 800px)': {
     featureCard: {
       flexDirection: 'column'
@@ -17,11 +22,9 @@ const useStyles = createUseStyles({
     alternateFeatureCard: {
       flexDirection: 'column'
     },
-  },
-  column: {
-    flex: '50%',
-    alignSelf: 'center',
-    margin: '0 20px'
+    column: {
+      margin: '0'
+    }
   },
   image: {
     display: 'block',
