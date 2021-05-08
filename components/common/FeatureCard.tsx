@@ -43,7 +43,7 @@ const useStyles = createUseStyles({
   description: {
     fontSize: '20px',
     padding: '0 30px',
-    textIndent: '30px'
+    textIndent: '20px'
   }
 });
 
