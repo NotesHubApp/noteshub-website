@@ -60,12 +60,12 @@ export default function Highlights() {
       desktopImageSrc: '/images/features/desktop/dark-theme.png',
       content: 'You can choose between light and dark theme or system default to match with rest of the apps.'
     },
-    {
+    /*{
       title: 'Collaborate',
       mobileImageSrc: '/images/features/placeholder-feature.jpg',
       desktopImageSrc: '/images/features/placeholder-feature.jpg',
       content: 'Since your notes stored in Git repositories, the collaboration comes naturaly, just add new collaborators to your remote repository. Native support comes in future updates.'
-    }
+    }*/
   ]
 
   return (
