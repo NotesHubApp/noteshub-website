@@ -25,7 +25,7 @@ export default function Highlights() {
     {
       title: 'Work Offline',
       mobileImageSrc: '/images/features/mobile/offline.png',
-      desktopImageSrc: '/images/features/placeholder-feature.jpg',
+      desktopImageSrc: '/images/features/desktop/offline.png',
       content: 'If you are in an airplane or traveling in a forest, it does not matter, your notes will be always with you. You can even edit them, delete, add, etc. All the content will be sync once connection is restored.'
     },
     {
@@ -42,13 +42,13 @@ export default function Highlights() {
     },
     {
       title: 'Merge Conflicts Auto-Resolution',
-      mobileImageSrc: '/images/features/placeholder-feature.jpg',
-      desktopImageSrc: '/images/features/placeholder-feature.jpg',
+      mobileImageSrc: '/images/features/mobile/merge-conflicts-auto-resolution.png',
+      desktopImageSrc: '/images/features/desktop/merge-conflicts-auto-resolution.png',
       content: 'Don\'t be afraid to edit the same notes from different devices even when you are offline. Once connection is restored your notes will be automatically merged. If the same lines changed you will see an alternative variant in the note.'
     },
     {
       title: 'Use Everywhere',
-      mobileImageSrc: '/images/features/desktop.png',
+      mobileImageSrc: '/images/features/placeholder-feature.jpg',
       desktopImageSrc: '/images/features/placeholder-feature.jpg',
       content: 'The application is built with love and using the latest web technologies (PWA). It means that it can work in any mobile device, desktop, or any other device with modern web browser. The app works offline, can be installed avoiding any app store. Works and feels like native app without compromises.'
     },
