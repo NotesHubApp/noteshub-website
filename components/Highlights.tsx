@@ -52,7 +52,7 @@ export default function Highlights() {
       mobileImageSrc: '/images/features/mobile/multi-platform.png',
       desktopImageSrc: '/images/features/desktop/multi-platform.png',
       disableImageShadow: true,
-      content: 'The application is built with love and using the latest web technologies (PWA). It means that it can work in any mobile device, desktop, or any other device with modern web browser. The app works offline, can be installed avoiding any app store. Works and feels like native app without compromises.'
+      content: 'The application is built with love and using the latest web technologies (PWA). It means that it can work in any mobile device, desktop, or any other device with modern web browser. The app works offline and can be installed. Works and feels like native app without compromises.'
     },
     {
       title: 'Go to the Dark Side',
