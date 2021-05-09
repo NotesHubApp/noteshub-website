@@ -14,7 +14,7 @@ const useStyles = createUseStyles({
   column: {
     flex: '50%',
     alignSelf: 'center',
-    margin: '0 25px'
+    margin: '0 30px'
   },
   '@media only screen and (max-width: 800px)': {
     featureCard: {
@@ -29,7 +29,7 @@ const useStyles = createUseStyles({
   },
   image: {
     display: 'block',
-    margin: '25px auto',
+    margin: '30px auto',
     maxWidth: '100%',
     maxHeight: 'min(80vh, 600px)',
     borderRadius: '8px',
@@ -39,7 +39,8 @@ const useStyles = createUseStyles({
     boxShadow: 'none'
   },
   title: {
-    textAlign: 'center'
+    textAlign: 'center',
+    margin: '20px 30px'
   },
   description: {
     fontSize: '20px',

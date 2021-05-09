@@ -5,7 +5,8 @@ const useStyles = createUseStyles({
     display: 'flex',
     flexDirection: 'column',
     height: '100vh',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    margin: '0 30px'
   },
   /* Avoid Chrome to see Safari hack */
   '@supports (-webkit-touch-callout: none)': {
