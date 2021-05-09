@@ -31,8 +31,8 @@ export default function Highlights() {
     },
     {
       title: 'Auto Sync',
-      mobileImageSrc: '/images/features/placeholder-feature.jpg',
-      desktopImageSrc: '/images/features/placeholder-feature.jpg',
+      mobileImageSrc: '/images/features/mobile/auto-sync.png',
+      desktopImageSrc: '/images/features/desktop/auto-sync.png',
       content: 'Your notes will be periodically sync with remote location, so you can access latest versions across all of your devices.'
     },
     {
