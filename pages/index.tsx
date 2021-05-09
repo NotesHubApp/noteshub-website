@@ -9,7 +9,6 @@ import AllFeatures from '../components/AllFeatures'
 const useStyles = createUseStyles({
   container: {
     minHeight: '100%',
-    padding: '0 0.5rem',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
