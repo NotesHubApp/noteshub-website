@@ -6,8 +6,10 @@ declare namespace NodeJS {
     NODE_ENV: 'development' | 'production' | 'test'
     NEXT_PUBLIC_APPNAME: string
     NEXT_PUBLIC_APPTITLE: string
+    NEXT_PUBLIC_APPSLOGAN: string
     NEXT_PUBLIC_APPDESC: string
     NEXT_PUBLIC_APPURL: string
+    NEXT_PUBLIC_LANDING_PAGE_URL: string
     NEXT_PUBLIC_FACEBOOK_LINK: string
     NEXT_PUBLIC_TWITTER_LINK: string
     NEXT_PUBLIC_INSTAGRAM_LINK: string
