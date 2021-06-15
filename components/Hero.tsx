@@ -53,9 +53,19 @@ const useStyles = createUseStyles({
       background: 'var(--theme-color)'
     }
   },
-  platformLink: {
-    '&:hover': {
-      
+  androidAppLink: {
+    '&:hover svg': {
+      fill: '#78C257'
+    }
+  },
+  windowsAppLink: {
+    '&:hover svg': {
+      fill: '#01A6F0'
+    }
+  },
+  appleAppLink: {
+    '&:hover svg': {
+      fill: '#A3AAAE'
     }
   }
 });
@@ -64,7 +74,7 @@ export default function Hero() {
   const classes = useStyles();
 
   const showAppStoreInstruction = () => {
-    alert('');
+    alert('To install NotesHub to Apple device, use Web App, then open share dialog and select \'Add to Home Screen\'.');
   }
 
   return (
@@ -86,7 +96,7 @@ export default function Hero() {
         </a>
 
         <a
-          className={ classes.platformLink }
+          className={ classes.androidAppLink }
           href={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL }
           target="_blank"
           rel="noopener noreferrer"
@@ -97,7 +107,7 @@ export default function Hero() {
         </a>
 
         <a
-          className={ classes.platformLink }
+          className={ classes.windowsAppLink }
           href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL }
           target="_blank"
           rel="noopener noreferrer"
@@ -108,7 +118,7 @@ export default function Hero() {
         </a>
 
         <a
-          className={ classes.platformLink }
+          className={ classes.appleAppLink }
           href="javascript:void(0)"
           onClick={ showAppStoreInstruction }
         >
