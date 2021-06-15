@@ -97,6 +97,7 @@ export default function Hero() {
 
         <a
           className={ classes.androidAppLink }
+          title="Android App"
           href={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL }
           target="_blank"
           rel="noopener noreferrer"
@@ -108,6 +109,7 @@ export default function Hero() {
 
         <a
           className={ classes.windowsAppLink }
+          title="Windows App"
           href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL }
           target="_blank"
           rel="noopener noreferrer"
@@ -119,6 +121,7 @@ export default function Hero() {
 
         <a
           className={ classes.appleAppLink }
+          title="Apple App"
           href="javascript:void(0)"
           onClick={ showAppStoreInstruction }
         >
