@@ -1,22 +1,5 @@
 /// <reference types="next" />
-/// <reference types="next/types/global" />
+/// <reference types="next/image-types/global" />
 
-declare namespace NodeJS {
-  interface ProcessEnv {
-    NODE_ENV: 'development' | 'production' | 'test'
-    NEXT_PUBLIC_APPNAME: string
-    NEXT_PUBLIC_APPTITLE: string
-    NEXT_PUBLIC_APPSLOGAN: string
-    NEXT_PUBLIC_APPDESC: string
-    NEXT_PUBLIC_APPURL: string
-    NEXT_PUBLIC_GOOGLEPLAY_APPURL: string
-    NEXT_PUBLIC_WINDOWSSTORE_APPURL: string
-    NEXT_PUBLIC_APPSTORE_APPURL: string
-    NEXT_PUBLIC_LANDING_PAGE_URL: string
-    NEXT_PUBLIC_FACEBOOK_LINK: string
-    NEXT_PUBLIC_TWITTER_LINK: string
-    NEXT_PUBLIC_INSTAGRAM_LINK: string
-    NEXT_PUBLIC_COMPANYNAME: string
-    NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: string
-  }
-}
+// NOTE: This file should not be edited
+// see https://nextjs.org/docs/basic-features/typescript for more information.
