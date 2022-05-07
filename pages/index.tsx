@@ -45,6 +45,8 @@ export default function Home() {
         <meta property="twitter:title" content={process.env.NEXT_PUBLIC_APPSLOGAN} />
         <meta property="twitter:description" content={ process.env.NEXT_PUBLIC_APPDESC } />
         <meta property="twitter:image" content={`${process.env.NEXT_PUBLIC_LANDING_PAGE_URL}/images/promo-banner.png`} />
+
+        <meta name="apple-itunes-app" content={ `app-id=${process.env.NEXT_PUBLIC_APPSTORE_APPID}` }></meta>
       </Head>
 
       <main className={classes.main}>
