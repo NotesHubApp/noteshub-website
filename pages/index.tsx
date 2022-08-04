@@ -5,6 +5,7 @@ import Highlights from '../components/Highlights'
 import { createUseStyles } from 'react-jss'
 import Footer from '../components/Footer'
 import AllFeatures from '../components/AllFeatures'
+import Donation from '../components/Donation'
 
 const useStyles = createUseStyles({
   container: {
@@ -53,6 +54,7 @@ export default function Home() {
         <Hero />
         <Highlights />
         <AllFeatures />
+        <Donation />
       </main>
 
       <Footer />

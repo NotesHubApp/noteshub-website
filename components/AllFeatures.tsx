@@ -45,6 +45,7 @@ export default function AllFeatures() {
   const classes = useStyles();
 
   const features: string[] = [
+    'Generic Git notebook provider',
     'GitHub notebook provider',
     'Local notebook provider (non syncable)',
     'Dark and light themes support',

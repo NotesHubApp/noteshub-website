@@ -39,7 +39,7 @@ export default function Highlights() {
       title: 'No Vendor Lock-In',
       mobileImageSrc: '/images/features/mobile/no-vendor-lock-in.png',
       desktopImageSrc: '/images/features/desktop/no-vendor-lock-in.png',
-      content: 'All data stored in your device and sync with remote Git repositories. As of today only GitHub is supported and more Git providers coming in the future.'
+      content: 'All data stored in your device and sync with remote Git repositories. Choose GitHub or any other Git provider.'
     },
     {
       title: 'Merge Conflicts Auto-Resolution',
