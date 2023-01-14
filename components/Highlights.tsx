@@ -74,6 +74,7 @@ export default function Highlights() {
 
       { sections.map((v, index) => (
         <FeatureCard
+          key={ v.title }
           title={ v.title }
           mobileImageSrc={ v.mobileImageSrc }
           desktopImageSrc={ v.desktopImageSrc }
