@@ -45,9 +45,12 @@ export default function AllFeatures() {
   const classes = useStyles();
 
   const features: string[] = [
-    'Generic Git notebook provider',
+    'Git notebook provider',
     'GitHub notebook provider',
+    'iCloud Drive notebook provider',
+    'File System notebook provider',
     'Local notebook provider (non syncable)',
+    'Kanban boards',
     'Dark and light themes support',
     'Markdown preview with scroll sync',
     'Attach/upload image file on paste from clipboard',
@@ -55,8 +58,7 @@ export default function AllFeatures() {
     'Convert html content to markdown on paste from clipboard',
     'Editor toolbar with all necessary commands (bold, italic, list, table, etc.)',
     'Markdown syntax guidance',
-    'Automatic merge conflicts resolution',
-    'Periodic background sync of data'
+    'Automatic merge conflicts resolution'
   ];
 
   const nonReleasedFeatures: string[] = [
