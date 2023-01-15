@@ -73,10 +73,6 @@ const useStyles = createUseStyles({
 export default function Hero() {
   const classes = useStyles();
 
-  const showAppStoreInstruction = () => {
-    alert('To install NotesHub on Apple device: use Web App, then open share dialog and select \'Add to Home Screen\'.');
-  }
-
   return (
     <div className={ classes.heroContainer }>
       <h1 className={classes.title}>
