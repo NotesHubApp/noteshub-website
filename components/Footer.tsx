@@ -39,9 +39,6 @@ const useStyles = createUseStyles({
         }
       }
     }
-  },
-  emailIcon: {
-    color: 'black'
   }
 });
 
@@ -76,12 +73,6 @@ export default function Footer() {
         <p>&copy; { new Date().getFullYear() } {process.env.NEXT_PUBLIC_COMPANYNAME} All rights reserved.</p>
       </div>
       <ul className={ classes.socialList } id="contacts">
-        <li>
-          <a   target="_blank" rel="noopener noreferrer">
-
-          </a>
-        </li>
-
         <SocialLink title="Facebook page" href={ process.env.NEXT_PUBLIC_FACEBOOK_LINK } color="#4267B2">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
             <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
@@ -113,14 +104,12 @@ export default function Footer() {
           </svg>
         </SocialLink>
 
-        <li>
-          <a href={ `mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}` } title="Contact/support" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className={ classes.emailIcon } viewBox="0 0 24 24" data-testid="EmailIcon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path></svg>
-          </a>
-        </li>
+        <SocialLink title="Contact/support" href={ `mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}` } color="black">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
+        </SocialLink>
       </ul>
-
-      {/*<ScrollToTop />*/}
     </footer>
   )
 }
