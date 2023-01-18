@@ -48,6 +48,12 @@ export default function Highlights() {
       content: 'Don\'t be afraid to edit the same notes from different devices even when you are offline. Once connection is restored your notes will be automatically merged. If the same lines changed you will see an alternative variant in the note.'
     },
     {
+      title: 'Kanban Boards',
+      mobileImageSrc: '/images/features/mobile/kanban.png',
+      desktopImageSrc: '/images/features/desktop/kanban.png',
+      content: 'Use Kanban boards as a tool for workflow visualization, which is designed to help bring clarity to your work progress and enhance efficiency.'
+    },
+    {
       title: 'Use Everywhere',
       mobileImageSrc: '/images/features/mobile/multi-platform.png',
       desktopImageSrc: '/images/features/desktop/multi-platform.png',
