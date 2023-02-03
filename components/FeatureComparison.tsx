@@ -23,6 +23,9 @@ const useStyles = createUseStyles({
       padding: '20px',
       textAlign: 'left',
       fontWeight: 'normal'
+    },
+    '& tr th, tr hd': {
+      minWidth: '120px'
     }
   },
   alternateRow: {

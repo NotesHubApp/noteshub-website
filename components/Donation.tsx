@@ -1,11 +1,9 @@
 import { createUseStyles } from 'react-jss';
+import { Section } from './common/Section';
 import { SectionTitle } from './common/SectionTitle';
 
 const useStyles = createUseStyles({
-  donationContainer: {
-    textAlign: 'center',
-    margin: '50px 0',
-
+  container: {
     '& p': {
       fontSize: '1.5rem'
     }
@@ -33,7 +31,7 @@ const useStyles = createUseStyles({
   '@media only screen and (max-width: 800px)': {
     donateButtonLink: {
       display: 'block',
-      margin: '10px'
+      margin: '10px 0'
     }
   },
 });
@@ -42,7 +40,7 @@ export default function Donation() {
   const classes = useStyles();
 
   return (
-    <div className={ classes.donationContainer }>
+    <Section id='donation' className={ classes.container }>
       <SectionTitle>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className={ classes.coffeeIcon } viewBox="0 0 16 16">
           <path fillRule="evenodd" d="M.5 6a.5.5 0 0 0-.488.608l1.652 7.434A2.5 2.5 0 0 0 4.104 16h5.792a2.5 2.5 0 0 0 2.44-1.958l.131-.59a3 3 0 0 0 1.3-5.854l.221-.99A.5.5 0 0 0 13.5 6H.5ZM13 12.5a2.01 2.01 0 0 1-.316-.025l.867-3.898A2.001 2.001 0 0 1 13 12.5Z"/>
@@ -60,6 +58,6 @@ export default function Donation() {
             buy a coffee
         </a>
       </p>
-    </div>
+    </Section>
   );
 }
