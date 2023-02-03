@@ -32,6 +32,9 @@ const useStyles = createUseStyles({
   alternateRow: {
     backgroundColor: 'rgb(249, 250, 251)',
   },
+  platformLink: {
+    textDecoration: 'underline'
+  },
   featureNameContainer: {
     display: 'flex',
     alignItems: 'center',
@@ -83,10 +86,26 @@ export default function FeatureComparison() {
           <thead>
             <tr>
               <th>Included Features</th>
-              <th><ExternalLink href={ process.env.NEXT_PUBLIC_APPURL }>Web</ExternalLink></th>
-              <th><ExternalLink href={ process.env.NEXT_PUBLIC_APPSTORE_APPURL }>iOS / macOS</ExternalLink></th>
-              <th><ExternalLink href={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL }>Android</ExternalLink></th>
-              <th><ExternalLink href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL }>Windows</ExternalLink></th>
+              <th>
+                <ExternalLink href={ process.env.NEXT_PUBLIC_APPURL } className={ classes.platformLink }>
+                  Web
+                </ExternalLink>
+              </th>
+              <th>
+                <ExternalLink href={ process.env.NEXT_PUBLIC_APPSTORE_APPURL } className={ classes.platformLink }>
+                  iOS / macOS
+                </ExternalLink>
+              </th>
+              <th>
+                <ExternalLink href={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL } className={ classes.platformLink }>
+                  Android
+                </ExternalLink>
+              </th>
+              <th>
+                <ExternalLink href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL } className={ classes.platformLink }>
+                  Windows
+                </ExternalLink>
+              </th>
             </tr>
           </thead>
 
