@@ -6,6 +6,7 @@ import { createUseStyles } from 'react-jss'
 import Footer from '../components/Footer'
 import AllFeatures from '../components/AllFeatures'
 import Donation from '../components/Donation'
+import FeatureComparison from '../components/FeatureComparison'
 
 const useStyles = createUseStyles({
   container: {
@@ -53,6 +54,7 @@ export default function Home() {
       <main className={classes.main}>
         <Hero />
         <Highlights />
+        <FeatureComparison />
         <AllFeatures />
         <Donation />
       </main>

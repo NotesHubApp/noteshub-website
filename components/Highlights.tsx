@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { createUseStyles } from 'react-jss';
 import FeatureCard from './common/FeatureCard';
+import { SectionTitle } from './common/SectionTitle';
 
 type FeatureCardData = {
   title: string;
@@ -13,9 +14,6 @@ type FeatureCardData = {
 const useStyles = createUseStyles({
   notableFeaturesContainer: {
     width: '100%'
-  },
-  header: {
-    textAlign: 'center'
   }
 });
 
@@ -76,7 +74,7 @@ export default function Highlights() {
 
   return (
     <div className={ classes.notableFeaturesContainer }>
-      <h1 className={ classes.header }>Highlights</h1>
+      <SectionTitle>Highlights</SectionTitle>
 
       { sections.map((v, index) => (
         <FeatureCard

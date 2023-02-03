@@ -1,10 +1,8 @@
 import { createUseStyles } from 'react-jss';
+import { Section } from './common/Section';
+import { SectionTitle } from './common/SectionTitle';
 
 const useStyles = createUseStyles({
-  featuresContainer: {
-    textAlign: 'center',
-    margin: '50px 0'
-  },
   featuresList: {
     columnCount: '2',
     columnGap: '50px',
@@ -69,8 +67,8 @@ export default function AllFeatures() {
   ];
 
   return (
-    <div className={classes.featuresContainer}>
-      <h1>All Features</h1>
+    <Section id='all-features'>
+      <SectionTitle>All Features</SectionTitle>
 
       <ul className={classes.featuresList}>
         { features.map((x, i) => (<li key={i}>{ x }</li>)) }
@@ -85,6 +83,6 @@ export default function AllFeatures() {
             </span>
           </li>)) }
       </ul>
-    </div>
+    </Section>
   )
 }
