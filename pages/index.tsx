@@ -7,6 +7,7 @@ import Footer from '../components/Footer'
 import AllFeatures from '../components/AllFeatures'
 import Donation from '../components/Donation'
 import FeatureComparison from '../components/FeatureComparison'
+import Faq from '../components/FAQ'
 
 const useStyles = createUseStyles({
   container: {
@@ -55,6 +56,7 @@ export default function Home() {
         <Hero />
         <Highlights />
         <FeatureComparison />
+        {/* <Faq /> */}
         <AllFeatures />
         <Donation />
       </main>

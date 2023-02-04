@@ -1,4 +1,6 @@
 import { createUseStyles } from 'react-jss';
+import { Feature, FeatureStatus } from '../models/ComparisonFeature';
+import allFeatures from '../data/comparisonFeatures';
 import { ExternalLink } from './common/ExternalLink';
 import { Hint } from './common/Hint';
 import { Section } from './common/Section';
@@ -54,31 +56,11 @@ const useStyles = createUseStyles({
 })
 
 
-type Feature = {
-  name: string
-  hint?: string
-  web: boolean
-  iOS: boolean
-  android: boolean
-  windows: boolean
+type FeatureComparisonProps = {
+  features?: Feature[]
 }
 
-const features: Feature[] = [
-  { name: 'Git Notebooks', web: true, iOS: true, android: true, windows: true },
-  { name: 'GitHub Notebooks', web: true, iOS: true, android: true, windows: true },
-  {
-    name: 'Large Git/GitHub Notebooks',
-    hint: 'Large notebooks are considered with a size of more than 5MB',
-    web: false,
-    iOS: true,
-    android: true,
-    windows: true
-  },
-  { name: 'File System Notebooks', web: true, iOS: false, android: false, windows: true },
-  { name: 'iCloud Drive Notebooks', web: false, iOS: true, android: false, windows: false }
-]
-
-export default function FeatureComparison() {
+export default function FeatureComparison({ features = allFeatures }: FeatureComparisonProps) {
   const classes = useStyles();
 
   return (
@@ -135,7 +117,7 @@ export default function FeatureComparison() {
   )
 }
 
-function FeatureStatus(props: { status: boolean }) {
+function FeatureStatus(props: { status: FeatureStatus }) {
   const classes = useStyles();
 
   const Present = (
@@ -150,5 +132,5 @@ function FeatureStatus(props: { status: boolean }) {
     </svg>
   )
 
-  return props.status ? Present : Absent
+  return props.status === 'present' ? Present : Absent
 }

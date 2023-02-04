@@ -1,6 +1,11 @@
 import { createUseStyles } from 'react-jss';
 import { Section } from './common/Section';
 import { SectionTitle } from './common/SectionTitle';
+import {
+  features as featuresData,
+  nonReleasedFeatures as nonReleasedFeaturesData
+} from '../data/allFeatures';
+
 
 const useStyles = createUseStyles({
   featuresList: {
@@ -39,33 +44,16 @@ const useStyles = createUseStyles({
   }
 });
 
-export default function AllFeatures() {
+type AllFeaturesProps = {
+  features?: string[]
+  nonReleasedFeatures?: string[]
+}
+
+export default function AllFeatures({
+  features = featuresData,
+  nonReleasedFeatures = nonReleasedFeaturesData
+} : AllFeaturesProps) {
   const classes = useStyles();
-
-  const features: string[] = [
-    'Git notebooks',
-    'GitHub notebooks',
-    'iCloud Drive notebooks',
-    'File System notebooks',
-    'Local notebooks (non syncable)',
-    'Kanban boards',
-    'Dark and light themes support',
-    'Markdown preview with scroll sync',
-    'Move/copy notes across notebooks',
-    'Attach/upload image file on paste from clipboard',
-    'Attach/upload image file from local disk/storage',
-    'Convert html content to markdown on paste from clipboard',
-    'Editor toolbar with all necessary commands (bold, list, table, etc.)',
-    'Markdown syntax guidance',
-    'Automatic merge conflicts resolution'
-  ];
-
-  const nonReleasedFeatures: string[] = [
-    'Support of KaTeX for math expressions',
-    'Support of Mermaid diagrams',
-    'Syntax highlighting for code blocks',
-    'Quick notes',
-  ];
 
   return (
     <Section id='all-features'>
