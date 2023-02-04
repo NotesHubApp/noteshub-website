@@ -8,7 +8,8 @@ const useStyles = createUseStyles({
   tableWrap: {
     maxWidth: '100%',
     overflowX: 'auto',
-    wordBreak: 'initial'
+    wordBreak: 'initial',
+    whiteSpace: 'nowrap'
   },
   comparisonTable: {
     borderCollapse: 'collapse',
@@ -26,14 +27,17 @@ const useStyles = createUseStyles({
       fontWeight: 'normal'
     },
     '& tr th, tr hd': {
-      minWidth: '120px'
+      minWidth: '100px'
     }
   },
   alternateRow: {
     backgroundColor: 'rgb(249, 250, 251)',
   },
   platformLink: {
-    textDecoration: 'underline'
+    textDecoration: 'underline',
+    '&:hover': {
+      textDecoration: 'none'
+    }
   },
   featureNameContainer: {
     display: 'flex',
