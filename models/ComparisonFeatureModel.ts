@@ -1,6 +1,6 @@
 export type FeatureStatus = 'present' | 'absent'
 
-export type Feature = {
+export type ComparisonFeatureModel = {
   name: string
   hint?: string
   web: FeatureStatus

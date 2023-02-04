@@ -1,4 +1,4 @@
-export type FeatureCardData = {
+export type FeatureCardModel = {
   title: string;
   mobileImageSrc: string;
   desktopImageSrc: string;

@@ -1,6 +1,6 @@
-import { Feature } from '../models/ComparisonFeature';
+import { ComparisonFeatureModel } from 'models/ComparisonFeatureModel';
 
-const features: Feature[] = [
+const features: ComparisonFeatureModel[] = [
   {
     name: 'Git Notebooks',
     web: 'present',

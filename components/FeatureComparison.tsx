@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
-import { Feature, FeatureStatus } from '../models/ComparisonFeature';
-import allFeatures from '../data/comparisonFeatures';
+import { ComparisonFeatureModel, FeatureStatus } from 'models/ComparisonFeatureModel';
+import allFeatures from 'data/comparisonFeatures';
 import { ExternalLink } from './common/ExternalLink';
 import { Hint } from './common/Hint';
 import { Section } from './common/Section';
@@ -57,7 +57,7 @@ const useStyles = createUseStyles({
 
 
 type FeatureComparisonProps = {
-  features?: Feature[]
+  features?: ComparisonFeatureModel[]
 }
 
 export default function FeatureComparison({ features = allFeatures }: FeatureComparisonProps) {

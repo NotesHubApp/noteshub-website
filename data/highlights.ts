@@ -1,7 +1,7 @@
-import { FeatureCardData } from '../models/FeatureCardData';
+import { FeatureCardModel } from 'models/FeatureCardModel';
 
 
-const sections: FeatureCardData[] = [
+const highlights: FeatureCardModel[] = [
   {
     title: 'Work Offline',
     mobileImageSrc: '/images/features/mobile/offline.png',
@@ -53,4 +53,4 @@ const sections: FeatureCardData[] = [
   }*/
 ]
 
-export default sections;
+export default highlights;
