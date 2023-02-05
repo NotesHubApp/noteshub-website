@@ -44,7 +44,11 @@ const useStyles = createUseStyles({
     lineHeight: '1.5em',
     backgroundColor: 'white',
     overflow: 'hidden',
-    transition: 'height 0.2s ease-out'
+    transition: 'height 0.2s ease-out',
+
+    '& a': {
+      textDecoration: 'underline'
+    }
   },
   panelContentInner: {
     padding: '10px 0'
