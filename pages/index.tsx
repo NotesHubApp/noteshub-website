@@ -55,9 +55,9 @@ export default function Home() {
       <main className={classes.main}>
         <Hero />
         <Highlights />
-        <FeatureComparison />
-        {/* <Faq /> */}
         <AllFeatures />
+        <FeatureComparison />
+        <Faq />
         <Donation />
       </main>
 
