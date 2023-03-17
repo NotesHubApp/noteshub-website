@@ -85,12 +85,13 @@ export default function Hero() {
       </p>
 
       <div className={classes.linksContainer}>
-        <a
+        <ExternalLink
           className={ classes.webAppLink }
+          title="Web App"
           href={process.env.NEXT_PUBLIC_APPURL}
         >
           <span>Web App</span>
-        </a>
+        </ExternalLink>
 
         <ExternalLink
           className={ classes.appleAppLink }
