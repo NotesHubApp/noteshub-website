@@ -1,13 +1,13 @@
-import React from 'react'
+import AllFeatures from '../components/AllFeatures'
+import Donation from '../components/Donation'
+import Faq from '../components/FAQ'
+import FeatureComparison from '../components/FeatureComparison'
+import Footer from '../components/Footer'
 import Head from 'next/head'
 import Hero from '../components/Hero'
 import Highlights from '../components/Highlights'
+import React from 'react'
 import { createUseStyles } from 'react-jss'
-import Footer from '../components/Footer'
-import AllFeatures from '../components/AllFeatures'
-import Donation from '../components/Donation'
-import FeatureComparison from '../components/FeatureComparison'
-import Faq from '../components/FAQ'
 
 const useStyles = createUseStyles({
   container: {
@@ -34,6 +34,7 @@ export default function Home() {
     <div className={classes.container}>
       <Head>
         <title>{ `${process.env.NEXT_PUBLIC_APPNAME} - ${process.env.NEXT_PUBLIC_APPTITLE}` }</title>
+        <meta name="theme-color" content="#005A9C" />
         <meta name="description" content={ process.env.NEXT_PUBLIC_APPDESC } />
 
         {/* Open Graph / Facebook */}
