@@ -1,6 +1,5 @@
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
-import { SheetsRegistry, JssProvider, createGenerateId } from 'react-jss'
-
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
+import { JssProvider, SheetsRegistry, createGenerateId } from 'react-jss'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -31,7 +30,7 @@ export default class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html lang="en">
+      <Html lang="en" data-color-scheme="light">
         <Head>
           <link rel="icon" type="image/x-icon" href="/favicon.svg"></link>
 

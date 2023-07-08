@@ -33,7 +33,7 @@ const useStyles = createUseStyles({
     }
   },
   alternateRow: {
-    backgroundColor: 'rgb(249, 250, 251)',
+    backgroundColor: 'var(--alternative-raw-color)',
   },
   platformLink: {
     textDecoration: 'underline',

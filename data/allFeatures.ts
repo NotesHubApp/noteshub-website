@@ -25,7 +25,8 @@ export const allFeatures = {
     'Syntax highlighting of code blocks',
     'Support of Mermaid diagrams',
     'Support of math expressions using LaTeX notation',
-    'Drag-and-drop files to make attachments'
+    'Drag-and-drop files to make attachments',
+    'Embed YouTube videos and tweets'
   ],
   nonReleasedFeatures: [
     'Quick notes',

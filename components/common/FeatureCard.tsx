@@ -9,7 +9,7 @@ const useStyles = createUseStyles({
   },
   alternateFeatureCard: {
     flexDirection: 'row-reverse',
-    background: '#fafafa'
+    background: 'var(--alternative-raw-color)'
   },
   column: {
     flex: '50%',

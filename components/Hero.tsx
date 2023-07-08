@@ -1,5 +1,5 @@
-import { createUseStyles } from 'react-jss';
 import { ExternalLink } from './common/ExternalLink';
+import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
   heroContainer: {
@@ -55,16 +55,25 @@ const useStyles = createUseStyles({
     }
   },
   androidAppLink: {
+    '& svg': {
+      fill: 'currentColor'
+    },
     '&:hover svg': {
       fill: '#78C257'
     }
   },
   windowsAppLink: {
+    '& svg': {
+      fill: 'currentColor'
+    },
     '&:hover svg': {
       fill: '#01A6F0'
     }
   },
   appleAppLink: {
+    '& svg': {
+      fill: 'currentColor'
+    },
     '&:hover svg': {
       fill: '#A3AAAE'
     }
