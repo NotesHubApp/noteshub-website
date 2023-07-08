@@ -1,11 +1,8 @@
-import { createUseStyles } from 'react-jss';
 import { Section } from './common/Section';
 import { SectionTitle } from './common/SectionTitle';
-import {
-  features as featuresData,
-  nonReleasedFeatures as nonReleasedFeaturesData
-} from '../data/allFeatures';
-
+import { allFeatures } from '../data/allFeatures';
+import clsx from 'clsx';
+import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
   featuresList: {
@@ -14,6 +11,7 @@ const useStyles = createUseStyles({
     textAlign: 'start',
     listStyle: 'none',
     padding: '0 20px',
+    fontSize: '1.1em',
 
     '@media only screen and (max-width: 800px)': {
       columnCount: '1'
@@ -33,26 +31,31 @@ const useStyles = createUseStyles({
       }
     }
   },
-  comingSoonLabel: {
+  label: {
     cursor: 'help',
     fontSize: '60%',
     color: 'white',
     background: 'var(--theme-color)',
     borderRadius: '10px',
     padding: '2px 7px',
-    marginLeft: '5px'
+    marginLeft: '5px',
+    verticalAlign: 'bottom',
+    textTransform: 'uppercase'
+  },
+  comingLabel: {
+    background: 'gray'
   }
 });
 
 type AllFeaturesProps = {
-  features?: string[]
-  nonReleasedFeatures?: string[]
+  data?: {
+    features: string[]
+    newFeatures: string[]
+    nonReleasedFeatures: string[]
+  }
 }
 
-export default function AllFeatures({
-  features = featuresData,
-  nonReleasedFeatures = nonReleasedFeaturesData
-} : AllFeaturesProps) {
+export default function AllFeatures({ data = allFeatures }: AllFeaturesProps) {
   const classes = useStyles();
 
   return (
@@ -60,17 +63,29 @@ export default function AllFeatures({
       <SectionTitle>All Features</SectionTitle>
 
       <ul className={classes.featuresList}>
-        { features.map((x, i) => (<li key={i}>{ x }</li>)) }
-        { nonReleasedFeatures.map((x, i) => (
-          <li key={features.length + i}>
+      { data.newFeatures.map((x, i) => (
+          <li key={data.newFeatures.length + i}>
             { x }
             <span
-              className={classes.comingSoonLabel}
+              className={classes.label}
+              title="This feature just released"
+            >
+              new
+            </span>
+          </li>))
+        }
+        { data.features.map((x, i) => (<li key={i}>{ x }</li>)) }
+        { data.nonReleasedFeatures.map((x, i) => (
+          <li key={data.features.length + i}>
+            { x }
+            <span
+              className={clsx(classes.label, classes.comingLabel)}
               title="This feature planned to be released in future release"
             >
               coming
             </span>
-          </li>)) }
+          </li>))
+        }
       </ul>
     </Section>
   )
