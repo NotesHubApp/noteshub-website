@@ -43,9 +43,10 @@ const useStyles = createUseStyles({
     margin: '20px 30px'
   },
   description: {
-    fontSize: '20px',
+    fontSize: '1.3em',
     padding: '0 30px',
-    textIndent: '20px'
+    textIndent: '20px',
+    lineHeight: '1.5'
   }
 });
 

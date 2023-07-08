@@ -17,14 +17,15 @@ export const allFeatures = {
     'Move/copy notes across notebooks',
     'Attach/upload files on paste from clipboard',
     'Attach/upload files from local disk/storage',
-    'Convert html content to markdown on paste from clipboard',
+    'Convert HTML content to Markdown on paste from clipboard',
     'Editor toolbar with all necessary commands (bold, list, table, etc.)',
     'Automatic merge conflicts resolution'
   ],
   newFeatures: [
-    'Syntax highlighting for code blocks',
+    'Syntax highlighting of code blocks',
     'Support of Mermaid diagrams',
     'Support of math expressions using LaTeX notation',
+    'Drag-and-drop files to make attachments'
   ],
   nonReleasedFeatures: [
     'Quick notes',
