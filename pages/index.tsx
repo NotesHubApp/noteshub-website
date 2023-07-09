@@ -7,6 +7,7 @@ import Head from 'next/head'
 import Hero from '../components/Hero'
 import Highlights from '../components/Highlights'
 import React from 'react'
+import { ThemeSwitcher } from 'components/common/ThemeSwitcher'
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
@@ -60,6 +61,8 @@ export default function Home() {
         <FeatureComparison />
         <Faq />
         <Donation />
+
+        <ThemeSwitcher />
       </main>
 
       <Footer />

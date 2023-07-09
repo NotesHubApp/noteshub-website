@@ -44,6 +44,25 @@ export default class MyDocument extends Document {
 
             gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
           `}} />
+
+          <script dangerouslySetInnerHTML={{__html: `
+            (function () {
+              const setTheme = (prefersDark) => {
+                const AppThemeStorageKey = 'appTheme';
+                const currentTheme = localStorage.getItem(AppThemeStorageKey) ?? 'system';
+                const systemTheme = prefersDark ? 'dark' : 'light';
+                const colorScheme = currentTheme === 'system' ? systemTheme : currentTheme;
+                document.documentElement.setAttribute('data-color-scheme', colorScheme);
+              }
+
+              const prefersDark = matchMedia('(prefers-color-scheme: dark)');
+              setTheme(prefersDark.matches);
+
+              prefersDark.addEventListener('change', (event) => {
+                setTheme(event.matches);
+              });
+            })();
+          `}} />
         </Head>
         <body>
           <Main />
