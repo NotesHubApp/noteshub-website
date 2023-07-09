@@ -5,7 +5,7 @@ const useStyles = createUseStyles({
   footer: {
     padding: '10px',
     width: '100%',
-    borderTop: '1px solid #eaeaea',
+    borderTop: '1px solid var(--divider-color)',
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',

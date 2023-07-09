@@ -16,7 +16,6 @@ const useStyles = createUseStyles({
     alignItems: 'center',
     gap: '10px',
     backgroundColor: 'var(--alternative-raw-color)',
-    color: '#444',
     cursor: 'pointer',
     padding: '18px',
     width: '100%',
@@ -28,11 +27,12 @@ const useStyles = createUseStyles({
     transition: '0.4s',
 
     '&:hover': {
-      backgroundColor: 'rgb(239, 240, 241)'
+      filter: 'contrast(0.9)'
     }
   },
   panelTitle: {
-    flexGrow: 1
+    flexGrow: 1,
+    filter: 'contrast(0.5)'
   },
   sign: {
     stroke: 'var(--theme-color)',
