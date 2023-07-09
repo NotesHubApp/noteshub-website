@@ -1,10 +1,9 @@
-import React from 'react';
-import { createUseStyles } from 'react-jss';
 import FeatureCard from './common/FeatureCard';
-import { SectionTitle } from './common/SectionTitle';
-import highlightsData from 'data/highlights';
 import { FeatureCardModel } from 'models/FeatureCardModel';
-
+import React from 'react';
+import { SectionTitle } from './common/SectionTitle';
+import { createUseStyles } from 'react-jss';
+import highlightsData from 'data/highlights';
 
 const useStyles = createUseStyles({
   notableFeaturesContainer: {

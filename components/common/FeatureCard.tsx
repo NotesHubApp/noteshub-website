@@ -1,4 +1,10 @@
-import { ReactNode } from 'react';
+import {
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState
+} from 'react';
+
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
@@ -59,8 +65,44 @@ type FeatureCardProps = {
   disableImageShadow?: boolean;
 }
 
-export default function FeatureCard({ title, mobileImageSrc, desktopImageSrc, disableImageShadow, children, isAlternate }: FeatureCardProps) {
+export default function FeatureCard({
+  title,
+  mobileImageSrc,
+  desktopImageSrc,
+  disableImageShadow,
+  children,
+  isAlternate
+}: FeatureCardProps) {
   const classes = useStyles();
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const colorSchemeAttrName = 'data-color-scheme';
+    setDarkMode(document.documentElement.getAttribute(colorSchemeAttrName) === 'dark');
+
+    const callback: MutationCallback = (mutationList, observer) => {
+      for (const mutation of mutationList) {
+        if (mutation.attributeName === colorSchemeAttrName) {
+          setDarkMode(document.documentElement.getAttribute(colorSchemeAttrName) === 'dark');
+        }
+      }
+    }
+
+    const observer = new MutationObserver(callback);
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const getUrl = useCallback((baseUrl: string) => {
+    if (!darkMode) {
+      return baseUrl;
+    }
+
+    const extDelimiter = baseUrl.lastIndexOf('.');
+    return baseUrl.substring(0, extDelimiter) + '-dark' + baseUrl.substring(extDelimiter);
+  }, [darkMode]);
+
   const featureCardClasses = isAlternate ?
     `${classes.featureCard} ${classes.alternateFeatureCard}` :
     classes.featureCard;
@@ -79,7 +121,7 @@ export default function FeatureCard({ title, mobileImageSrc, desktopImageSrc, di
       <div className={ classes.column }>
         <picture>
           <source media="(max-width: 800px)" srcSet={ mobileImageSrc } />
-          <img className={ imageClasses } src={ desktopImageSrc } />
+          <img className={ imageClasses } src={ getUrl(desktopImageSrc) } />
         </picture>
       </div>
     </div>
