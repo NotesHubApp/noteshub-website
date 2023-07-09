@@ -25,9 +25,14 @@ const useStyles = createUseStyles({
       cursor: 'pointer',
       margin: 0,
       padding: 0,
+      filter: 'contrast(0.2)',
 
       '&[data-active=true]': {
         backgroundColor: '#7c7c7c4d'
+      },
+
+      '&:hover': {
+        filter: 'none'
       },
 
       '& svg': {
