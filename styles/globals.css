@@ -5,6 +5,8 @@
   --text-primary: black;
   --alternative-raw-color: #f9fafb;
   --divider-color: #eaeaea;
+
+  --header-bg: hsla(0, 0%, 100%, .8);
 }
 
 @media only screen {
@@ -15,6 +17,8 @@
     --text-primary: white;
     --alternative-raw-color: #151515;
     --divider-color: #2c2c2c;
+
+    --header-bg: rgba(0, 0, 0, 0.8);
   }
 }
 

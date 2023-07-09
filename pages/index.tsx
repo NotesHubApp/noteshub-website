@@ -4,6 +4,7 @@ import Faq from '../components/FAQ'
 import FeatureComparison from '../components/FeatureComparison'
 import Footer from '../components/Footer'
 import Head from 'next/head'
+import Header from 'components/common/Header'
 import Hero from '../components/Hero'
 import Highlights from '../components/Highlights'
 import React from 'react'
@@ -35,7 +36,6 @@ export default function Home() {
     <div className={classes.container}>
       <Head>
         <title>{ `${process.env.NEXT_PUBLIC_APPNAME} - ${process.env.NEXT_PUBLIC_APPTITLE}` }</title>
-        <meta name="theme-color" content="#005A9C" />
         <meta name="description" content={ process.env.NEXT_PUBLIC_APPDESC } />
 
         {/* Open Graph / Facebook */}
@@ -53,6 +53,8 @@ export default function Home() {
 
         <meta name="apple-itunes-app" content={ `app-id=${process.env.NEXT_PUBLIC_APPSTORE_APPID}` }></meta>
       </Head>
+
+      <Header />
 
       <main className={classes.main}>
         <Hero />
