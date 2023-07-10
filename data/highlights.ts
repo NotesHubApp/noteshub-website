@@ -1,6 +1,5 @@
 import { FeatureCardModel } from 'models/FeatureCardModel';
 
-
 const highlights: FeatureCardModel[] = [
   {
     title: 'Work Offline',
@@ -18,7 +17,7 @@ const highlights: FeatureCardModel[] = [
     title: 'No Vendor Lock-In',
     mobileImageSrc: '/images/features/mobile/no-vendor-lock-in.png',
     desktopImageSrc: '/images/features/desktop/no-vendor-lock-in.png',
-    content: 'All data stored in your device and sync with remote Git repositories. Choose GitHub or any other Git provider.'
+    content: 'All data stored in your device in plain text files. You choose how to sync your data between devices: remote Git repository (including self-hosted), GitHub, file system, iCloud Drive and more.'
   },
   {
     title: 'Merge Conflicts Auto-Resolution',
