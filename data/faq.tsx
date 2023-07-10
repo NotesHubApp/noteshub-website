@@ -29,12 +29,20 @@ const faq: FaqModel[] = [
     'answer': (
       <div>
         <p>
-          When you use <strong>native NotesHub applicaiton (iOS/macOS/Android/Windows)</strong> we use the <a href="https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow" target="_blank" rel="noopener noreferrer">device auth-flow</a> while connecting your GitHub account. With device auth-flow your device recieve the auth token directly from GitHub without any interaction with our servers. When data is pulled/pushed from/to GitHub the device is making direct calls without any middle man. There are no network calls at all to our backend servers, so you can be sure that your account details will not be leaked anywhere or misused. There are variety of ways to check this, the most simple one if you use iPhone go to App Privacy Report/App Network Activity.
+          With <strong>native NotesHub applicaitons (iOS/macOS/Android/Windows)</strong> we use the <a href="https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow" target="_blank" rel="noopener noreferrer">device auth-flow</a> while connecting your GitHub account. With this type of auth your device recieve the auth token directly from GitHub without any interaction with our servers. When data is pulled/pushed from/to GitHub the device is making direct calls without any middle man. In fact, there are no network calls at all to our backend servers, so you can be sure that your account details will not be leaked anywhere or misused. There are variety of ways to check this, the most simple one if you use iPhone go to App Privacy Report/App Network Activity.
         </p>
         <p>
-          When you use <strong>web version</strong> of NotesHub due to some limitations of GitHub and web technologies we have to proxy all GitHub network requests through our <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank" rel="noopener noreferrer">CORS</a> proxy servers.
+          With <strong>web version of NotesHub</strong> due to some limitations of GitHub and web technologies we have to proxy all GitHub network requests through our <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank" rel="noopener noreferrer">CORS</a> proxy servers.
           In addition device-auth flow can't be used in browser and standard <a href="https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow" target="_blank" rel="noopener noreferrer">web application flow</a> is used instead. Taking into account those facts if you have any concerns regarding this matter we recommned using native NotesHub applicaiton for maximum protection of your data.
         </p>
+      </div>
+    )
+  },
+  {
+    'question': 'Can I connect only specific GitHub repositories instead of the whole account?',
+    'answer': (
+      <div>
+        To accomplish this scenario select generic <strong>Git notebook provider</strong> (instead of GitHub) and for the password field put <a href="https://github.blog/2022-10-18-introducing-fine-grained-personal-access-tokens-for-github" target="_blank" rel="noopener noreferrer">fine-grained personal access token</a> which can be generated to have access only to certain repositories.
       </div>
     )
   },
