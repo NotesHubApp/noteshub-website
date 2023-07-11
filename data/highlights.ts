@@ -29,14 +29,15 @@ const highlights: FeatureCardModel[] = [
     title: 'Kanban Boards',
     mobileImageSrc: '/images/features/mobile/kanban.png',
     desktopImageSrc: '/images/features/desktop/kanban.png',
-    content: 'Use Kanban boards as a tool for workflow visualization, which is designed to help bring clarity to your work progress and enhance efficiency.'
+    content: 'A kanban board is a tool that helps you visualize your work, and maximize your efficiency. You can use for managing personal tasks, goals, hobbies, or learning. This will help you to organize your time, focus on what matters, and achieve more.'
+    //content: 'Use Kanban boards as a tool for workflow visualization, which is designed to help bring clarity to your work progress and enhance efficiency.'
   },
   {
     title: 'Use Everywhere',
     mobileImageSrc: '/images/features/mobile/multi-platform.png',
     desktopImageSrc: '/images/features/desktop/multi-platform.png',
     disableImageShadow: true,
-    content: 'We have native apps for all major platforms like iOS/macOS/Android/Windows. If something is not covered by your scenario you can use web application.'
+    content: 'We have native apps for all major platforms: iOS/macOS/Android/Windows. For all other scenarios you can use our web application.'
   },
   {
     title: 'Go to the Dark Side',
