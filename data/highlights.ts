@@ -17,7 +17,7 @@ const highlights: FeatureCardModel[] = [
     title: 'No Vendor Lock-In',
     mobileImageSrc: '/images/features/mobile/no-vendor-lock-in.png',
     desktopImageSrc: '/images/features/desktop/no-vendor-lock-in.png',
-    content: 'All data stored in your device in plain text files. You choose how to sync your data between devices: remote Git repository (including self-hosted), GitHub, file system, iCloud Drive and more.'
+    content: 'All data stored in your device in plain text files. You choose how to sync your data between devices: remote Git repository (including self-hosting), GitHub, file system sync, iCloud Drive and more.'
   },
   {
     title: 'Merge Conflicts Auto-Resolution',
@@ -30,7 +30,6 @@ const highlights: FeatureCardModel[] = [
     mobileImageSrc: '/images/features/mobile/kanban.png',
     desktopImageSrc: '/images/features/desktop/kanban.png',
     content: 'A kanban board is a tool that helps you visualize your work, and maximize your efficiency. You can use for managing personal tasks, goals, hobbies, or learning. This will help you to organize your time, focus on what matters, and achieve more.'
-    //content: 'Use Kanban boards as a tool for workflow visualization, which is designed to help bring clarity to your work progress and enhance efficiency.'
   },
   {
     title: 'Use Everywhere',
