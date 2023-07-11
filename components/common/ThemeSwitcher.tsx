@@ -11,11 +11,11 @@ const useStyles = createUseStyles({
     padding: '3px',
     margin: '0 auto',
     marginBottom: '20px',
-    gap: '2px',
+    gap: '4px',
 
     '& button': {
-      width: '32px',
-      height: '32px',
+      width: '28px',
+      height: '28px',
       border: 0,
       borderRadius: 'inherit',
       display: 'flex',
