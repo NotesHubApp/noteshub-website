@@ -39,7 +39,7 @@ const useStyles = createUseStyles({
     maxWidth: '100%',
     maxHeight: 'min(80vh, 600px)',
     borderRadius: '8px',
-    boxShadow: '0 5px 10px rgb(0 0 0 / 12%)'
+    boxShadow: 'var(--box-shadow)'
   },
   noShadow: {
     boxShadow: 'none'
