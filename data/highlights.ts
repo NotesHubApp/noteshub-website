@@ -11,7 +11,7 @@ const highlights: FeatureCardModel[] = [
     title: 'Auto Sync',
     mobileImageSrc: '/images/features/mobile/auto-sync.png',
     desktopImageSrc: '/images/features/desktop/auto-sync.png',
-    content: 'Your notes will be periodically sync with remote location, so you can access latest versions across all of your devices.'
+    content: 'Your notes will be periodically synced with the remote location, so you can access the latest versions across all of your devices.'
   },
   {
     title: 'No Vendor Lock-In',
