@@ -29,7 +29,7 @@ const highlights: FeatureCardModel[] = [
     title: 'Kanban Boards',
     mobileImageSrc: '/images/features/mobile/kanban.png',
     desktopImageSrc: '/images/features/desktop/kanban.png',
-    content: 'A kanban board is a tool that helps you visualize your work, and maximize your efficiency. You can use for managing personal tasks, goals, hobbies, or learning. This will help you to organize your time, focus on what matters, and achieve more.'
+    content: 'A kanban board is a tool that helps you visualize your work, and maximize your efficiency. You can use it for managing personal tasks, goals, hobbies, or learning. This will help you to organize your time, focus on what matters, and achieve more.'
   },
   {
     title: 'Use Everywhere',
