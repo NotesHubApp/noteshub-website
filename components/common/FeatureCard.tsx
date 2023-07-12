@@ -120,7 +120,7 @@ export default function FeatureCard({
 
       <div className={ classes.column }>
         <picture>
-          <source media="(max-width: 800px)" srcSet={ mobileImageSrc } />
+          <source media="(max-width: 800px)" srcSet={ getUrl(mobileImageSrc) } />
           <img className={ imageClasses } src={ getUrl(desktopImageSrc) } />
         </picture>
       </div>
