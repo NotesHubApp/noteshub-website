@@ -5,7 +5,7 @@ const highlights: FeatureCardModel[] = [
     title: 'Work Offline',
     mobileImageSrc: '/images/features/mobile/offline.png',
     desktopImageSrc: '/images/features/desktop/offline.png',
-    content: 'If you are in an airplane or traveling in a forest, it does not matter, your notes will be always with you. You can even edit them, delete, add, etc. All the content will be sync once connection is restored.'
+    content: 'If you are in an airplane or traveling in a forest, it does not matter, your notes will be always with you. You can even edit them, delete, add, etc. All the content will be synced once the connection is restored.'
   },
   {
     title: 'Auto Sync',
