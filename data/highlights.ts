@@ -2,10 +2,10 @@ import { FeatureCardModel } from 'models/FeatureCardModel';
 
 const highlights: FeatureCardModel[] = [
   {
-    title: 'Work Offline',
+    title: 'Offline-First',
     mobileImageSrc: '/images/features/mobile/offline.png',
     desktopImageSrc: '/images/features/desktop/offline.png',
-    content: 'If you are in an airplane or traveling in a forest, it does not matter, your notes will be always with you. You can even edit them, delete, add, etc. All the content will be synced once the connection is restored.'
+    content: 'Whether you\'re soaring through the skies or exploring the wilderness, your notes will always be at your fingertips. You can even edit them, delete, add, etc. All the content will be synced once the connection is restored.'
   },
   {
     title: 'Auto Sync',
@@ -17,7 +17,7 @@ const highlights: FeatureCardModel[] = [
     title: 'No Vendor Lock-In',
     mobileImageSrc: '/images/features/mobile/no-vendor-lock-in.png',
     desktopImageSrc: '/images/features/desktop/no-vendor-lock-in.png',
-    content: 'All data stored in your device in plain text files. You choose how to sync your data between devices: remote Git repository (including self-hosting), GitHub, file system sync, iCloud Drive and more.'
+    content: 'All data is stored in your device in plain text files. You choose how to sync your data between devices: remote Git repository (including self-hosting), GitHub, file system sync, iCloud Drive, and more.'
   },
   {
     title: 'Merge Conflicts Auto-Resolution',
