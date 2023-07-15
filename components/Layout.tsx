@@ -1,6 +1,6 @@
 import Footer from './Footer'
 import Head from 'next/head'
-import Header from './Header'
+import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 import { ThemeSwitcher } from './common/ThemeSwitcher'
 import { createUseStyles } from 'react-jss'
@@ -10,6 +10,21 @@ const useStyles = createUseStyles({
     minHeight: '100%',
     display: 'flex',
     flexDirection: 'column',
+  },
+  nav: {
+    position: 'sticky',
+    top: 0,
+    display: 'flex',
+    width: '100%',
+    height: 'var(--header-height)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backdropFilter: 'saturate(180%) blur(5px)',
+    borderBottom: '1px solid var(--divider-color)',
+    background: 'var(--header-bg)',
+    color: 'gray',
+    gap: '20px',
+    zIndex: 200
   }
 });
 
@@ -43,7 +58,11 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
         <meta name="apple-itunes-app" content={ `app-id=${process.env.NEXT_PUBLIC_APPSTORE_APPID}` }></meta>
       </Head>
 
-      <Header />
+      <nav className={ classes.nav }>
+        <Link href="/">Home</Link>
+        <Link href="/blog">Blog</Link>
+        <a>About</a>
+      </nav>
 
       { props.children }
 
