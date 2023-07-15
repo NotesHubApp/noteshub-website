@@ -78,7 +78,7 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
   const classes = useStyles();
 
   useEffect(() => {
-    selectMenuItem('nav', props.pageId, 'active');
+    selectMenuItem('#main-menu', props.pageId, 'active');
   }, []);
 
   const selectMenuItem = (menuSelector: string, munuItem: string, selectClass: string) => {
@@ -115,7 +115,7 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
         <meta name="apple-itunes-app" content={ `app-id=${process.env.NEXT_PUBLIC_APPSTORE_APPID}` }></meta>
       </Head>
 
-      <nav className={ classes.nav }>
+      <nav id="main-menu" className={ classes.nav }>
         <Link href="/" data-menu-item-id="home">Home</Link>
         <Link href="/blog" data-menu-item-id="blog">Blog</Link>
         <a>About</a>
