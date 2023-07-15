@@ -3,6 +3,7 @@ import { PropsWithChildren, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { ThemeSwitcher } from './common/ThemeSwitcher'
+import clsx from 'clsx'
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
@@ -29,6 +30,10 @@ const useStyles = createUseStyles({
     '& .active': {
       color: 'var(--theme-color)'
     }
+  },
+  main: {
+    width: '100%',
+    flexGrow: 1
   },
   footer: {
     padding: '10px',
@@ -71,7 +76,8 @@ const useStyles = createUseStyles({
 
 
 type LayoutProps = {
-  pageId: string;
+  pageId: string
+  className?: string
 }
 
 export function Layout(props: PropsWithChildren<LayoutProps>) {
@@ -121,7 +127,9 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
         <a>About</a>
       </nav>
 
-      { props.children }
+      <main className={ clsx(classes.main, props.className) }>
+        { props.children }
+      </main>
 
       <ThemeSwitcher />
       <Footer />

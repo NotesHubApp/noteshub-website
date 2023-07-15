@@ -9,9 +9,7 @@ import React from 'react'
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
-  main: {
-    width: '100%',
-    flex: '1',
+  home: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center'
@@ -22,15 +20,13 @@ export default function Home() {
   const classes = useStyles();
 
   return (
-    <Layout pageId="home">
-      <main className={classes.main}>
-        <Hero />
-        <Highlights />
-        <AllFeatures />
-        <FeatureComparison />
-        <Faq />
-        <Donation />
-      </main>
+    <Layout pageId="home" className={ classes.home }>
+      <Hero />
+      <Highlights />
+      <AllFeatures />
+      <FeatureComparison />
+      <Faq />
+      <Donation />
     </Layout>
   )
 }
