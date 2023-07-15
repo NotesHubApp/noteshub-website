@@ -1,8 +1,9 @@
-import { Accordion, AccordionModel } from './common/Accordion';
-import { Section } from './common/Section';
-import { SectionTitle } from './common/SectionTitle';
-import faqData from 'data/faq';
+import { Accordion, AccordionModel } from '../common/Accordion';
+
 import { FaqModel } from 'models/FaqModel';
+import { Section } from './Section';
+import { SectionTitle } from './SectionTitle';
+import faqData from 'data/faq';
 import { useState } from 'react';
 
 type FaqProps = {

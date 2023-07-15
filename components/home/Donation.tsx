@@ -1,6 +1,6 @@
+import { Section } from './Section';
+import { SectionTitle } from './SectionTitle';
 import { createUseStyles } from 'react-jss';
-import { Section } from './common/Section';
-import { SectionTitle } from './common/SectionTitle';
 
 const useStyles = createUseStyles({
   container: {

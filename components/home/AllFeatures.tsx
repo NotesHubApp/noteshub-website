@@ -1,6 +1,6 @@
-import { Section } from './common/Section';
-import { SectionTitle } from './common/SectionTitle';
-import { allFeatures } from '../data/allFeatures';
+import { Section } from './Section';
+import { SectionTitle } from './SectionTitle';
+import { allFeatures } from '../../data/allFeatures';
 import clsx from 'clsx';
 import { createUseStyles } from 'react-jss';
 

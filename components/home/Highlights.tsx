@@ -1,7 +1,7 @@
-import FeatureCard from './common/FeatureCard';
+import FeatureCard from './FeatureCard';
 import { FeatureCardModel } from 'models/FeatureCardModel';
 import React from 'react';
-import { SectionTitle } from './common/SectionTitle';
+import { SectionTitle } from './SectionTitle';
 import { createUseStyles } from 'react-jss';
 import highlightsData from 'data/highlights';
 

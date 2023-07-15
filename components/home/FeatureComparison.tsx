@@ -1,10 +1,10 @@
 import { createUseStyles } from 'react-jss';
 import { ComparisonFeatureModel, FeatureStatus } from 'models/ComparisonFeatureModel';
 import allFeatures from 'data/comparisonFeatures';
-import { ExternalLink } from './common/ExternalLink';
-import { Hint } from './common/Hint';
-import { Section } from './common/Section';
-import { SectionTitle } from './common/SectionTitle';
+import { ExternalLink } from '../common/ExternalLink';
+import { Hint } from '../common/Hint';
+import { Section } from './Section';
+import { SectionTitle } from './SectionTitle';
 
 const useStyles = createUseStyles({
   tableWrap: {
