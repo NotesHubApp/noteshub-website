@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
     display: 'flex',
     flexDirection: 'column',
   },
-  nav: {
+  header: {
     position: 'sticky',
     top: 0,
     display: 'flex',
@@ -26,10 +26,24 @@ const useStyles = createUseStyles({
     color: 'gray',
     gap: '20px',
     zIndex: 200,
+  },
+  navList: {
+    margin: 0,
+    padding: 0,
+    display: 'flex',
+    listStyle: 'none',
+    gap: '20px',
 
     '& .active': {
       color: 'var(--theme-color)'
-    }
+    },
+
+    '& li': {
+      opacity: 0.8,
+    },
+    '& li:hover': {
+      opacity: 1
+    },
   },
   main: {
     width: '100%',
@@ -91,7 +105,7 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
     const menu = document.querySelector(menuSelector);
 
     if (menu && munuItem) {
-      const item = menu.querySelector(`a[data-menu-item-id~="${munuItem}"]`);
+      const item = menu.querySelector(`[data-menu-item-id~="${munuItem}"]`);
 
       if (item != null) {
         item.classList.add(selectClass);
@@ -121,11 +135,21 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
         <meta name="apple-itunes-app" content={ `app-id=${process.env.NEXT_PUBLIC_APPSTORE_APPID}` }></meta>
       </Head>
 
-      <nav id="main-menu" className={ classes.nav }>
-        <Link href="/" data-menu-item-id="home">Home</Link>
-        <Link href="/blog" data-menu-item-id="blog">Blog</Link>
-        <a>About</a>
-      </nav>
+      <header className={ classes.header }>
+        <nav id="main-menu">
+          <ul className={ classes.navList }>
+            <li data-menu-item-id="home">
+              <Link href="/">Home</Link>
+            </li>
+            <li data-menu-item-id="blog">
+              <Link href="/blog">Blog</Link>
+            </li>
+            <li>
+              <a>About</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
 
       <main className={ clsx(classes.main, props.className) }>
         { props.children }
