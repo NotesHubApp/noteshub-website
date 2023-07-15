@@ -24,7 +24,7 @@ export default function Header() {
 
   return (
     <div className={ styles.container }>
-      <a>Home</a>
+      <Link href="/">Home</Link>
       <Link href="/blog">Blog</Link>
       <a>About</a>
     </div>
