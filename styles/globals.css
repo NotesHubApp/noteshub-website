@@ -1,3 +1,7 @@
+:root {
+  --header-height: 60px;
+}
+
 :root,
 [data-color-scheme=light] {
   --theme-color: #005A9C;

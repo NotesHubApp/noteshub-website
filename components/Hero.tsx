@@ -5,7 +5,7 @@ const useStyles = createUseStyles({
   heroContainer: {
     display: 'flex',
     flexDirection: 'column',
-    height: '100vh',
+    height: 'calc(100vh - var(--header-height))',
     justifyContent: 'center',
     margin: '0 30px'
   },
