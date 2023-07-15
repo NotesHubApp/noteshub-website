@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
@@ -24,7 +25,7 @@ export default function Header() {
   return (
     <div className={ styles.container }>
       <a>Home</a>
-      <a>Blog</a>
+      <Link href="/blog">Blog</Link>
       <a>About</a>
     </div>
   )

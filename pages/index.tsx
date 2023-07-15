@@ -7,6 +7,7 @@ import Head from 'next/head'
 import Header from 'components/Header'
 import Hero from '../components/Hero'
 import Highlights from '../components/Highlights'
+import { Layout } from 'components/Layout'
 import React from 'react'
 import { ThemeSwitcher } from 'components/common/ThemeSwitcher'
 import { createUseStyles } from 'react-jss'
@@ -33,41 +34,43 @@ export default function Home() {
   const classes = useStyles();
 
   return (
-    <div className={classes.container}>
-      <Head>
-        <title>{ `${process.env.NEXT_PUBLIC_APPNAME} - ${process.env.NEXT_PUBLIC_APPTITLE}` }</title>
-        <meta name="description" content={ process.env.NEXT_PUBLIC_APPDESC } />
+    <Layout>
+      <div className={classes.container}>
+        <Head>
+          <title>{ `${process.env.NEXT_PUBLIC_APPNAME} - ${process.env.NEXT_PUBLIC_APPTITLE}` }</title>
+          <meta name="description" content={ process.env.NEXT_PUBLIC_APPDESC } />
 
-        {/* Open Graph / Facebook */}
-        <meta property="og:url" content={process.env.NEXT_PUBLIC_LANDING_PAGE_URL} />
-        <meta property="og:title" content={process.env.NEXT_PUBLIC_APPSLOGAN} />
-        <meta property="og:description" content={ process.env.NEXT_PUBLIC_APPDESC } />
-        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_LANDING_PAGE_URL}/images/promo-banner.webp`} />
+          {/* Open Graph / Facebook */}
+          <meta property="og:url" content={process.env.NEXT_PUBLIC_LANDING_PAGE_URL} />
+          <meta property="og:title" content={process.env.NEXT_PUBLIC_APPSLOGAN} />
+          <meta property="og:description" content={ process.env.NEXT_PUBLIC_APPDESC } />
+          <meta property="og:image" content={`${process.env.NEXT_PUBLIC_LANDING_PAGE_URL}/images/promo-banner.webp`} />
 
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={process.env.NEXT_PUBLIC_LANDING_PAGE_URL} />
-        <meta property="twitter:title" content={process.env.NEXT_PUBLIC_APPSLOGAN} />
-        <meta property="twitter:description" content={ process.env.NEXT_PUBLIC_APPDESC } />
-        <meta property="twitter:image" content={`${process.env.NEXT_PUBLIC_LANDING_PAGE_URL}/images/promo-banner.webp`} />
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content={process.env.NEXT_PUBLIC_LANDING_PAGE_URL} />
+          <meta property="twitter:title" content={process.env.NEXT_PUBLIC_APPSLOGAN} />
+          <meta property="twitter:description" content={ process.env.NEXT_PUBLIC_APPDESC } />
+          <meta property="twitter:image" content={`${process.env.NEXT_PUBLIC_LANDING_PAGE_URL}/images/promo-banner.webp`} />
 
-        <meta name="apple-itunes-app" content={ `app-id=${process.env.NEXT_PUBLIC_APPSTORE_APPID}` }></meta>
-      </Head>
+          <meta name="apple-itunes-app" content={ `app-id=${process.env.NEXT_PUBLIC_APPSTORE_APPID}` }></meta>
+        </Head>
 
-      <Header />
+        <Header />
 
-      <main className={classes.main}>
-        <Hero />
-        <Highlights />
-        <AllFeatures />
-        <FeatureComparison />
-        <Faq />
-        <Donation />
+        <main className={classes.main}>
+          <Hero />
+          <Highlights />
+          <AllFeatures />
+          <FeatureComparison />
+          <Faq />
+          <Donation />
 
-        <ThemeSwitcher />
-      </main>
+          <ThemeSwitcher />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </Layout>
   )
 }
