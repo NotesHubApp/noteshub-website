@@ -22,7 +22,7 @@ export default function Home() {
   const classes = useStyles();
 
   return (
-    <Layout>
+    <Layout pageId="home">
       <main className={classes.main}>
         <Hero />
         <Highlights />

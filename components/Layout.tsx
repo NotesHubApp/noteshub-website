@@ -1,7 +1,8 @@
+import { PropsWithChildren, useEffect } from 'react'
+
 import Footer from './Footer'
 import Head from 'next/head'
 import Link from 'next/link'
-import { PropsWithChildren } from 'react'
 import { ThemeSwitcher } from './common/ThemeSwitcher'
 import { createUseStyles } from 'react-jss'
 
@@ -24,17 +25,37 @@ const useStyles = createUseStyles({
     background: 'var(--header-bg)',
     color: 'gray',
     gap: '20px',
-    zIndex: 200
+    zIndex: 200,
+
+    '& .active': {
+      color: 'var(--theme-color)'
+    }
   }
 });
 
 
 type LayoutProps = {
-
+  pageId: string;
 }
 
 export function Layout(props: PropsWithChildren<LayoutProps>) {
   const classes = useStyles();
+
+  useEffect(() => {
+    selectMenuItem('nav', props.pageId, 'active');
+  }, []);
+
+  const selectMenuItem = (menuSelector: string, munuItem: string, selectClass: string) => {
+    const menu = document.querySelector(menuSelector);
+
+    if (menu && munuItem) {
+      const item = menu.querySelector(`a[data-menu-item-id~="${munuItem}"]`);
+
+      if (item != null) {
+        item.classList.add(selectClass);
+      }
+    }
+  }
 
   return (
     <div className={ classes.pageContainer }>
@@ -59,8 +80,8 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
       </Head>
 
       <nav className={ classes.nav }>
-        <Link href="/">Home</Link>
-        <Link href="/blog">Blog</Link>
+        <Link href="/" data-menu-item-id="home">Home</Link>
+        <Link href="/blog" data-menu-item-id="blog">Blog</Link>
         <a>About</a>
       </nav>
 
