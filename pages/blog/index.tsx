@@ -4,7 +4,7 @@ export default function BlogPage() {
   return (
     <Layout
       pageId="blog"
-      title="Blog"
+      pageTitle="Blog"
     >
       Blog
     </Layout>

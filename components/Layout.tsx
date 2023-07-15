@@ -91,7 +91,8 @@ const useStyles = createUseStyles({
 
 type LayoutProps = {
   pageId: string
-  title: string
+  pageTitle: string
+  mediaTitle?: string
   description?: string
   imageUrl?: string
   className?: string
@@ -120,17 +121,17 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
   return (
     <div className={ classes.pageContainer }>
       <Head>
-        <title>{ props.title }</title>
+        <title>{ props.pageTitle }</title>
         <meta name="description" content={ pageDescription } />
 
         {/* Open Graph / Facebook */}
-        <meta property="og:title" content={ process.env.NEXT_PUBLIC_APPSLOGAN } />
+        <meta property="og:title" content={ props.mediaTitle || process.env.NEXT_PUBLIC_APPSLOGAN } />
         <meta property="og:description" content={ pageDescription } />
         { props.imageUrl && <meta property="og:image" content={ props.imageUrl } /> }
 
         {/* Twitter */}
         <meta property="twitter:card" content={ props.imageUrl ? 'summary_large_image' : 'summary' } />
-        <meta property="twitter:title" content={ process.env.NEXT_PUBLIC_APPSLOGAN } />
+        <meta property="twitter:title" content={ props.mediaTitle || process.env.NEXT_PUBLIC_APPSLOGAN } />
         <meta property="twitter:description" content={ pageDescription } />
         { props.imageUrl && <meta property="twitter:image" content={ props.imageUrl } /> }
 
