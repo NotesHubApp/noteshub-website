@@ -20,7 +20,12 @@ export default function Home() {
   const classes = useStyles();
 
   return (
-    <Layout pageId="home" className={ classes.home }>
+    <Layout
+      pageId="home"
+      title={ `${process.env.NEXT_PUBLIC_APPNAME} - ${process.env.NEXT_PUBLIC_APPTITLE}` }
+      imageUrl={ `${process.env.NEXT_PUBLIC_LANDING_PAGE_URL}/images/promo-banner.webp` }
+      className={ classes.home }
+    >
       <Hero />
       <Highlights />
       <AllFeatures />

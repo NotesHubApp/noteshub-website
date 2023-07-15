@@ -91,11 +91,15 @@ const useStyles = createUseStyles({
 
 type LayoutProps = {
   pageId: string
+  title: string
+  description?: string
+  imageUrl?: string
   className?: string
 }
 
 export function Layout(props: PropsWithChildren<LayoutProps>) {
   const classes = useStyles();
+  const pageDescription = props.description || process.env.NEXT_PUBLIC_APPDESC;
 
   useEffect(() => {
     selectMenuItem('#main-menu', props.pageId, 'active');
@@ -116,21 +120,21 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
   return (
     <div className={ classes.pageContainer }>
       <Head>
-        <title>{ `${process.env.NEXT_PUBLIC_APPNAME} - ${process.env.NEXT_PUBLIC_APPTITLE}` }</title>
-        <meta name="description" content={ process.env.NEXT_PUBLIC_APPDESC } />
+        <title>{ props.title }</title>
+        <meta name="description" content={ pageDescription } />
 
         {/* Open Graph / Facebook */}
-        <meta property="og:url" content={process.env.NEXT_PUBLIC_LANDING_PAGE_URL} />
-        <meta property="og:title" content={process.env.NEXT_PUBLIC_APPSLOGAN} />
-        <meta property="og:description" content={ process.env.NEXT_PUBLIC_APPDESC } />
-        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_LANDING_PAGE_URL}/images/promo-banner.webp`} />
+        <meta property="og:url" content={ process.env.NEXT_PUBLIC_LANDING_PAGE_URL } />
+        <meta property="og:title" content={ process.env.NEXT_PUBLIC_APPSLOGAN } />
+        <meta property="og:description" content={ pageDescription } />
+        { props.imageUrl && <meta property="og:image" content={ props.imageUrl } /> }
 
         {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={process.env.NEXT_PUBLIC_LANDING_PAGE_URL} />
-        <meta property="twitter:title" content={process.env.NEXT_PUBLIC_APPSLOGAN} />
-        <meta property="twitter:description" content={ process.env.NEXT_PUBLIC_APPDESC } />
-        <meta property="twitter:image" content={`${process.env.NEXT_PUBLIC_LANDING_PAGE_URL}/images/promo-banner.webp`} />
+        <meta property="twitter:card" content={ props.imageUrl ? 'summary_large_image' : 'summary' } />
+        <meta property="twitter:url" content={ process.env.NEXT_PUBLIC_LANDING_PAGE_URL} />
+        <meta property="twitter:title" content={ process.env.NEXT_PUBLIC_APPSLOGAN } />
+        <meta property="twitter:description" content={ pageDescription } />
+        { props.imageUrl && <meta property="twitter:image" content={ props.imageUrl } /> }
 
         <meta name="apple-itunes-app" content={ `app-id=${process.env.NEXT_PUBLIC_APPSTORE_APPID}` }></meta>
       </Head>
