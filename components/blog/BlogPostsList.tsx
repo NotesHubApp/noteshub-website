@@ -1,7 +1,26 @@
+import { Badge } from 'components/common/Badge';
 import { BlogPostAnnotation } from 'models/BlogPost';
 import BlogPostContent from './BlogPostContent';
 import Link from 'next/link';
+import { createUseStyles } from 'react-jss';
 import { dateToString } from 'utils/dateUtils';
+
+const useStyles = createUseStyles({
+  container: {
+    maxWidth: 'var(--max-content-width)',
+    padding: '15px 15px',
+    margin: '0 auto'
+  },
+  postsList: {
+    listStyleType: 'none',
+    margin: 0,
+    padding: 0
+  },
+  postDate: {
+    color: '#7f919e'
+  }
+})
+
 
 type BlogPostsListProps = {
   subtitle: string;
@@ -9,6 +28,8 @@ type BlogPostsListProps = {
 }
 
 export default function BlogPostsList(props: BlogPostsListProps) {
+  const classes = useStyles();
+
   // const keywords = props.posts
   //   .map(x => x.tags)
   //   .reduce((a, b) => a.concat(b), [])
@@ -17,13 +38,15 @@ export default function BlogPostsList(props: BlogPostsListProps) {
   //   .concat([ appConfig.brandName ]);
 
   return (
-    <div className="container">
+    <div className={ classes.container }>
       <section id="content">
-        <div className="result">
-          <span>{ `1 - ${props.posts.length} of ${props.posts.length} posts` }</span>
+        <div>
+          <Badge>
+            { `1 - ${props.posts.length} of ${props.posts.length} posts` }
+          </Badge>
         </div>
 
-        <ul className="reset list">
+        <ul className={ classes.postsList }>
           { props.posts.map(post => <li key={ post.urlSlug }><PostDescription post={ post } /></li>) }
         </ul>
       </section>
@@ -32,6 +55,8 @@ export default function BlogPostsList(props: BlogPostsListProps) {
 }
 
 function PostDescription(props: { post: BlogPostAnnotation }) {
+  const classes = useStyles();
+
   return (
     <div className="post-template">
       <h1 className="post-title">
@@ -44,7 +69,7 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
       </h1>
 
       {/* Posted date */}
-      <div className="post-date">
+      <div className={ classes.postDate }>
         <i className="fa fa-clock-o"></i> { dateToString(new Date(props.post.postedOn)) }
       </div>
 

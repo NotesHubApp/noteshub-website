@@ -2,7 +2,17 @@ import { BlogPost } from 'models/BlogPost'
 import BlogPostContent from 'components/blog/BlogPostContent';
 import { BlogRepository } from 'repositories/BlogRepository';
 import { Layout } from 'components/Layout'
+import { createUseStyles } from 'react-jss';
 import { dateToString } from 'utils/dateUtils';
+
+const useStyles = createUseStyles({
+  container: {
+    maxWidth: 'var(--max-content-width)',
+    padding: '15px 15px',
+    margin: '0 auto'
+  }
+});
+
 
 type PageParams = {
   year: number
@@ -36,6 +46,8 @@ export async function getStaticProps({ params }: { params: PageParams }) {
 
 
 export default function BlogPostPage(props: BlogPost) {
+  const classes = useStyles();
+
   return (
     <Layout
       pageId="blog"
@@ -45,7 +57,7 @@ export default function BlogPostPage(props: BlogPost) {
       imageUrl={ getImageUrl(props.image) }
     >
       <div className="jumbotron page-header">
-        <div className="container">
+        <div className={ classes.container }>
           <h1 itemProp="name">{props.title}</h1>
           <p>
             <i className={ props.published ? " fa fa-clock-o" : "glyphicon glyphicon-hourglass"}></i>&nbsp;
@@ -54,7 +66,7 @@ export default function BlogPostPage(props: BlogPost) {
         </div>
       </div>
 
-      <div className="container" itemScope itemType="http://schema.org/BlogPosting">
+      <div className={ classes.container } itemScope itemType="http://schema.org/BlogPosting">
         <section id="content" itemProp="blogPost" className="blog-post-content">
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
         </section>
