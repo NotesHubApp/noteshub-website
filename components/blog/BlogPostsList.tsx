@@ -28,6 +28,11 @@ const useStyles = createUseStyles({
   },
   postDate: {
     color: '#7f919e'
+  },
+  blogPostFooterDelimiter: {
+    height: '1px',
+    backgroundColor: 'var(--divider-color)',
+    border: 'none'
   }
 })
 
@@ -87,7 +92,7 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
         <BlogPostContent urlSlug={props.post.urlSlug} markdownContent={props.post.annotation} />
       </div>
 
-      <hr className="blog-post-footer-delimiter" />
+      <hr className={ classes.blogPostFooterDelimiter } />
 
       {/* <BlogPostFooter post={props.post} /> */}
     </div>
