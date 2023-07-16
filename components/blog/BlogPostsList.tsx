@@ -16,6 +16,16 @@ const useStyles = createUseStyles({
     margin: 0,
     padding: 0
   },
+  postTitle: {
+    color: 'var(--theme-color)',
+    fontWeight: 'bold',
+    fontSize: '2em',
+    marginBottom: '10px',
+
+    '& a:hover': {
+      textDecoration: 'underline'
+    }
+  },
   postDate: {
     color: '#7f919e'
   }
@@ -59,11 +69,11 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
 
   return (
     <div className="post-template">
-      <h1 className="post-title">
+      <h1 className={ classes.postTitle }>
         <Link
           title={ props.post.title }
           href="/blog/archive/[year]/[month]/[slug]"
-          as={`/blog/archive/${new Date(props.post.postedOn).getFullYear()}/${new Date(props.post.postedOn).getMonth()}/${props.post.urlSlug}`}>
+          as={postUrl(props.post)}>
           { props.post.title }
         </Link>
       </h1>
@@ -82,4 +92,9 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
       {/* <BlogPostFooter post={props.post} /> */}
     </div>
   );
+}
+
+function postUrl(post: BlogPostAnnotation) {
+  const postedOn = new Date(post.postedOn);
+  return `/blog/archive/${postedOn.getFullYear()}/${postedOn.getMonth()}/${post.urlSlug}`;
 }
