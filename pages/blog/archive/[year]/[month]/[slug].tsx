@@ -1,7 +1,7 @@
 import { BlogPost } from 'models/BlogPost'
 import BlogPostContent from 'components/blog/BlogPostContent';
-import { BlogRepository } from 'repositories/BlogRepository';
 import { Layout } from 'components/Layout'
+import { blogRepository } from 'data/blogConfig';
 import { createUseStyles } from 'react-jss';
 import { dateToString } from 'utils/dateUtils';
 
@@ -19,8 +19,6 @@ type PageParams = {
   month: number
   slug: string
 }
-
-const blogRepository = new BlogRepository();
 
 export async function getStaticPaths() {
   const allPosts = blogRepository.getAllPublishedPosts();

@@ -1,14 +1,13 @@
 import { BlogPostAnnotation } from 'models/BlogPost';
 import BlogPostsList from 'components/blog/BlogPostsList';
-import { BlogRepository } from 'repositories/BlogRepository';
 import { Layout } from 'components/Layout';
+import { blogRepository } from 'data/blogConfig';
 
 type BlogProps = {
   posts: BlogPostAnnotation[]
 }
 
 export async function getStaticProps() {
-  const blogRepository = new BlogRepository();
   const posts = blogRepository.getAllPublishedPosts();
   return { props: { posts } };
 }
