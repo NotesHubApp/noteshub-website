@@ -1,5 +1,5 @@
 import fs from 'fs'
-import glob from 'glob'
+import { glob } from 'glob'
 import path from 'path'
 import matter from 'gray-matter'
 import { BlogPostAnnotation, BlogPost } from 'models/BlogPost'
@@ -123,7 +123,7 @@ export class BlogRepository {
      return new Date(b.postedOn).getTime() - new Date(a.postedOn).getTime();
     }
 
-    var posts = glob.sync(postsFilePattern).map(filePath => {
+    let posts = glob.sync(postsFilePattern).map(filePath => {
       const rawContent = fs.readFileSync(filePath, 'utf8');
       return BlogRepository.parseBlogPost(filePath, rawContent);
     });

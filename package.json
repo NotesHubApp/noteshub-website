@@ -20,6 +20,7 @@
     "@types/react": "^18.2.14",
     "glob": "^10.3.3",
     "gray-matter": "^4.0.3",
+    "react-markdown": "^8.0.7",
     "typescript": "^5.1.6"
   }
 }

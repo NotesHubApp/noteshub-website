@@ -1,5 +1,9 @@
 ---
+description: New huge release of NotesHub
+postedOn: 7/15/2023
 published: true
 ---
 
-Test post
+# New Features
+
+- Markdown highliting in the editor
