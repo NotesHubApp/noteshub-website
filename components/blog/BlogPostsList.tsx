@@ -1,8 +1,9 @@
-import { Badge } from 'components/common/Badge';
+import { RssIcon, TimeIcon } from 'components/icons';
+
 import { BlogPostAnnotation } from 'models/BlogPost';
 import BlogPostContent from './BlogPostContent';
+import BlogPostFooter from './BlogPostFooter';
 import Link from 'next/link';
-import { TimeIcon } from 'components/icons';
 import { createUseStyles } from 'react-jss';
 import { dateToString } from 'utils/dateUtils';
 
@@ -12,6 +13,21 @@ const useStyles = createUseStyles({
     padding: '15px 15px',
     margin: '0 auto'
   },
+  listSubtitle: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '0.2em',
+    fontSize: 'var(--heading1-size)',
+
+    '& a': {
+      height: '1em'
+    },
+
+    '& svg': {
+      width: '1em'
+    }
+  },
   postsList: {
     listStyleType: 'none',
     margin: 0,
@@ -20,7 +36,7 @@ const useStyles = createUseStyles({
   postTitle: {
     color: 'var(--theme-color)',
     fontWeight: 'bold',
-    fontSize: '2em',
+    fontSize: '2.5em',
     marginBottom: '10px',
 
     '& a:hover': {
@@ -62,11 +78,12 @@ export default function BlogPostsList(props: BlogPostsListProps) {
   return (
     <div className={ classes.container }>
       <section id="content">
-        <div>
-          <Badge>
-            { `1 - ${props.posts.length} of ${props.posts.length} posts` }
-          </Badge>
-        </div>
+        <h1 className={ classes.listSubtitle }>
+          <span>{ props.subtitle }</span>
+          <a href="feed.xml">
+            <RssIcon />
+          </a>
+        </h1>
 
         <ul className={ classes.postsList }>
           { props.posts.map(post => <li key={ post.urlSlug }><PostDescription post={ post } /></li>) }
@@ -101,7 +118,7 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
 
       <hr className={ classes.blogPostFooterDelimiter } />
 
-      {/* <BlogPostFooter post={props.post} /> */}
+      <BlogPostFooter post={props.post} />
     </div>
   );
 }

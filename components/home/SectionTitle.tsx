@@ -3,7 +3,7 @@ import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
   title: {
-    fontSize: '45px',
+    fontSize: 'var(--heading1-size)',
     textAlign: 'center'
   }
 })

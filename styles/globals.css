@@ -1,6 +1,7 @@
 :root {
   --header-height: 60px;
   --max-content-width: 900px;
+  --heading1-size: 45px;
 }
 
 :root,
