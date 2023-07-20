@@ -8,7 +8,12 @@ const blogConfig: BlogRepositoryConfig = {
       name: 'Press Release'
     }
   ],
-  tags: []
+  tags: [],
+  feed: {
+    id: 'https://www.noteshub.app',
+    title: 'NotesHub Blog',
+    copyright: `${new Date().getFullYear()} TALEX All rights reserved`
+  }
 }
 
 export const blogRepository = new BlogRepository(blogConfig);

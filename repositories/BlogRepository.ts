@@ -1,5 +1,6 @@
 import fs from 'fs'
 import { glob } from 'glob'
+import { Feed } from 'feed'
 import path from 'path'
 import matter from 'gray-matter'
 import { BlogPostAnnotation, BlogPost } from 'models/BlogPost'
@@ -9,10 +10,17 @@ import { fileNameToUrlSlug, getDirectoryName, getFileNameWithoutExtension } from
 import { Lazy } from 'utils/Lazy'
 
 
+export type BlogFeedConfig = {
+  id: string
+  title: string
+  copyright: string
+}
+
 export type BlogRepositoryConfig = {
   postsFilePattern: string
   categories: BlogCategory[]
   tags: BlogTag[]
+  feed: BlogFeedConfig
 }
 
 export class BlogRepository {
@@ -122,6 +130,20 @@ export class BlogRepository {
         .map(x => BlogRepository.getTagInternal(x.trim(), config.tags)),
       content: obj.content
     };
+  }
+
+  public generateFeed(): string {
+    const feed = new Feed(this.config.feed);
+
+    this.blogPosts.value.filter(x => x.published).forEach(post => {
+      feed.addItem({
+        title: post.title,
+        link: `${post.urlSlug}`,
+        date: new Date(post.postedOn)
+      })
+    });
+
+    return feed.rss2();
   }
 
   private getAllPosts(): BlogPost[] {
