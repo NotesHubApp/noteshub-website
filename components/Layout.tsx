@@ -136,6 +136,9 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
         { props.imageUrl && <meta property="twitter:image" content={ props.imageUrl } /> }
 
         <meta name="apple-itunes-app" content={ `app-id=${process.env.NEXT_PUBLIC_APPSTORE_APPID}` }></meta>
+
+        <link rel="alternate" type="application/rss+xml" title={`${process.env.NEXT_PUBLIC_APPNAME}'s blog feed`} href="/feed.xml"
+/>
       </Head>
 
       <header className={ classes.header }>
