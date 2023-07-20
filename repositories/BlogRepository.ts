@@ -16,9 +16,9 @@ export type BlogRepositoryConfig = {
 }
 
 export class BlogRepository {
-  private readonly blogPosts = new Lazy<BlogPost[]>(() => BlogRepository.getAllPosts(this.config));
-  private readonly blogCategories = new Lazy<BlogCategory[]>(() => BlogRepository.getAllCategories(this.blogPosts));
-  private readonly blogTags = new Lazy<BlogTag[]>(() => BlogRepository.getAllTags(this.blogPosts));
+  private readonly blogPosts = new Lazy<BlogPost[]>(() => this.getAllPosts());
+  private readonly blogCategories = new Lazy<BlogCategory[]>(() => this.getAllCategoriesForPosts());
+  private readonly blogTags = new Lazy<BlogTag[]>(() => this.getAllTagsForPosts());
 
   constructor(private readonly config: BlogRepositoryConfig) {}
 
@@ -99,7 +99,7 @@ export class BlogRepository {
     const urlSlug = getUrlSlugFromFilePath(filePath);
     let category: BlogCategory;
     if (metadata['category']) {
-      category = this.getCategoryInternal(metadata['category'], config.categories);
+      category = BlogRepository.getCategoryInternal(metadata['category'], config.categories);
     } else {
       const directoryName = getDirectoryName(filePath);
       category = { name: directoryName, urlSlug: fileNameToUrlSlug(directoryName) }
@@ -119,33 +119,33 @@ export class BlogRepository {
       tags: (<string>metadata['tags'] ?? '')
         .split(',')
         .filter(x => x)
-        .map(x => this.getTagInternal(x.trim(), config.tags)),
+        .map(x => BlogRepository.getTagInternal(x.trim(), config.tags)),
       content: obj.content
     };
   }
 
-  private static getAllPosts(config: BlogRepositoryConfig): BlogPost[] {
+  private getAllPosts(): BlogPost[] {
     function sortPosts(a: BlogPost, b: BlogPost) {
      return new Date(b.postedOn).getTime() - new Date(a.postedOn).getTime();
     }
 
-    let posts = glob.sync(config.postsFilePattern).map(filePath => {
+    const posts = glob.sync(this.config.postsFilePattern).map(filePath => {
       const rawContent = fs.readFileSync(filePath, 'utf8');
-      return BlogRepository.parseBlogPost(filePath, rawContent, config);
+      return BlogRepository.parseBlogPost(filePath, rawContent, this.config);
     });
 
     posts.sort(sortPosts);
     return posts;
   }
 
-  private static getAllCategories(blogPosts: Lazy<ReadonlyArray<BlogPost>>): BlogCategory[] {
-    return blogPosts.value
+  private getAllCategoriesForPosts(): BlogCategory[] {
+    return this.blogPosts.value
       .map(x => x.category)
       .filter((value, index, self) => self.findIndex(x => x.urlSlug === value.urlSlug) === index);
   }
 
-  private static getAllTags(blogPosts: Lazy<ReadonlyArray<BlogPost>>): BlogTag[] {
-    return blogPosts.value
+  private getAllTagsForPosts(): BlogTag[] {
+    return this.blogPosts.value
       .flatMap(x => x.tags)
       .filter((value, index, self) => self.findIndex(x => x.urlSlug === value.urlSlug) === index);
   }
