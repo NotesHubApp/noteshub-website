@@ -17,6 +17,7 @@ export type BlogFeedConfig = {
   copyright: string
   link: string
   language?: string
+  postUrlGenerator: (post: BlogPost) => string
 }
 
 export type BlogRepositoryConfig = {
@@ -141,7 +142,7 @@ export class BlogRepository {
     this.blogPosts.value.filter(x => x.published).forEach(post => {
       feed.addItem({
         title: post.title,
-        link: `${post.urlSlug}`,
+        link: this.config.feed.postUrlGenerator(post),
         date: new Date(post.postedOn)
       })
     });
