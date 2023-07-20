@@ -13,7 +13,10 @@ import { Lazy } from 'utils/Lazy'
 export type BlogFeedConfig = {
   id: string
   title: string
+  description: string
   copyright: string
+  link: string
+  language?: string
 }
 
 export type BlogRepositoryConfig = {

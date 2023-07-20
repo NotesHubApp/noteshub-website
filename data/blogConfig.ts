@@ -10,9 +10,12 @@ const blogConfig: BlogRepositoryConfig = {
   ],
   tags: [],
   feed: {
-    id: 'https://www.noteshub.app',
+    id: process.env.NEXT_PUBLIC_LANDING_PAGE_URL!,
     title: 'NotesHub Blog',
-    copyright: `${new Date().getFullYear()} TALEX All rights reserved`
+    description: 'The latest news about NotesHub app',
+    link: `${process.env.NEXT_PUBLIC_LANDING_PAGE_URL!}/blog`,
+    copyright: `${new Date().getFullYear()} TALEX All rights reserved`,
+    language: 'en-US'
   }
 }
 
