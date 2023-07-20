@@ -2,6 +2,7 @@ import { Badge } from 'components/common/Badge';
 import { BlogPostAnnotation } from 'models/BlogPost';
 import BlogPostContent from './BlogPostContent';
 import Link from 'next/link';
+import { TimeIcon } from 'components/icons';
 import { createUseStyles } from 'react-jss';
 import { dateToString } from 'utils/dateUtils';
 
@@ -27,7 +28,13 @@ const useStyles = createUseStyles({
     }
   },
   postDate: {
-    color: '#7f919e'
+    display: 'flex',
+    gap: '5px',
+    color: '#7f919e',
+    fill: '#7f919e',
+    '& svg': {
+      width: '1em'
+    }
   },
   blogPostFooterDelimiter: {
     height: '1px',
@@ -85,7 +92,7 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
 
       {/* Posted date */}
       <div className={ classes.postDate }>
-        <i className="fa fa-clock-o"></i> { dateToString(new Date(props.post.postedOn)) }
+        <TimeIcon /> { dateToString(new Date(props.post.postedOn)) }
       </div>
 
       <div className="post-desc blog-post-content">
