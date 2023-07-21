@@ -40,6 +40,7 @@ const useStyles = createUseStyles({
 
     '& li': {
       opacity: 0.8,
+      fontWeight: 500
     },
     '& li:hover': {
       opacity: 1
