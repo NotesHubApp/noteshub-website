@@ -1,8 +1,6 @@
 import { RssIcon, TimeIcon } from 'components/icons';
 
 import { BlogPostAnnotation } from 'models/BlogPost';
-import BlogPostContent from './BlogPostContent';
-import BlogPostFooter from './BlogPostFooter';
 import Link from 'next/link';
 import { createUseStyles } from 'react-jss';
 import { dateToString } from 'utils/dateUtils';
@@ -36,7 +34,7 @@ const useStyles = createUseStyles({
   postTitle: {
     color: 'var(--theme-color)',
     fontWeight: 'bold',
-    fontSize: '2.5em',
+    fontSize: '2.2em',
     marginBottom: '10px',
 
     '& a:hover': {
@@ -52,10 +50,8 @@ const useStyles = createUseStyles({
       width: '1em'
     }
   },
-  blogPostFooterDelimiter: {
-    height: '1px',
-    backgroundColor: 'var(--divider-color)',
-    border: 'none'
+  category: {
+    textTransform: 'uppercase'
   }
 })
 
@@ -67,13 +63,6 @@ type BlogPostsListProps = {
 
 export default function BlogPostsList(props: BlogPostsListProps) {
   const classes = useStyles();
-
-  // const keywords = props.posts
-  //   .map(x => x.tags)
-  //   .reduce((a, b) => a.concat(b), [])
-  //   .map(y => y.name)
-  //   .filter((value, index, self) => self.indexOf(value) === index)
-  //   .concat([ appConfig.brandName ]);
 
   return (
     <div className={ classes.container }>
@@ -109,16 +98,12 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
 
       {/* Posted date */}
       <div className={ classes.postDate }>
-        <TimeIcon /> { dateToString(new Date(props.post.postedOn)) }
+        <TimeIcon /> { dateToString(new Date(props.post.postedOn)) } • <span className={ classes.category }>{ props.post.category.name }</span>
       </div>
 
       <div className="post-desc blog-post-content">
-        <BlogPostContent urlSlug={props.post.urlSlug} markdownContent={props.post.annotation} />
+        <p>{ props.post.description }</p>
       </div>
-
-      <hr className={ classes.blogPostFooterDelimiter } />
-
-      <BlogPostFooter post={props.post} />
     </div>
   );
 }
