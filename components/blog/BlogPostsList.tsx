@@ -43,15 +43,20 @@ const useStyles = createUseStyles({
   },
   postInfo: {
     display: 'flex',
-    gap: '5px',
+    gap: '3px',
     color: '#7f919e',
     fill: '#7f919e',
+    fontSize: '0.8em',
     '& svg': {
       width: '1em'
     }
   },
   category: {
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    marginRight: '0.6em'
+  },
+  postDescription: {
+    fontSize: '1.2em'
   }
 })
 
@@ -97,12 +102,13 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
       </h1>
 
       <div className={ classes.postInfo }>
-        <TimeIcon /> { dateToString(new Date(props.post.postedOn)) } •
-        <span className={ classes.category }>{ props.post.category.name }</span>
+      <span className={ classes.category }>{ props.post.category.name }</span>
+        <TimeIcon /> { dateToString(new Date(props.post.postedOn)) }
+
       </div>
 
       <div className="post-desc blog-post-content">
-        <p>{ props.post.description }</p>
+        <p className={ classes.postDescription }>{ props.post.description }</p>
       </div>
     </div>
   );
