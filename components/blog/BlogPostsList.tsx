@@ -41,7 +41,7 @@ const useStyles = createUseStyles({
       textDecoration: 'underline'
     }
   },
-  postDate: {
+  postInfo: {
     display: 'flex',
     gap: '5px',
     color: '#7f919e',
@@ -96,9 +96,9 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
         </Link>
       </h1>
 
-      {/* Posted date */}
-      <div className={ classes.postDate }>
-        <TimeIcon /> { dateToString(new Date(props.post.postedOn)) } • <span className={ classes.category }>{ props.post.category.name }</span>
+      <div className={ classes.postInfo }>
+        <TimeIcon /> { dateToString(new Date(props.post.postedOn)) } •
+        <span className={ classes.category }>{ props.post.category.name }</span>
       </div>
 
       <div className="post-desc blog-post-content">

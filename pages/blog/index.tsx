@@ -22,7 +22,7 @@ export default function BlogPage(props: BlogProps) {
       pageId="blog"
       pageTitle="Blog"
     >
-      <BlogPostsList subtitle="Latest posts" posts={ props.posts } />
+      <BlogPostsList subtitle="Latest Posts" posts={ props.posts } />
     </Layout>
   )
 }
