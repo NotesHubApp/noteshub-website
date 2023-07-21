@@ -161,7 +161,6 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
         { props.children }
       </main>
 
-      <ThemeSwitcher />
       <Footer />
     </div>
   )
@@ -236,6 +235,8 @@ function Footer() {
           </svg>
         </SocialLink>
       </ul>
+
+      <ThemeSwitcher />
     </footer>
   )
 }

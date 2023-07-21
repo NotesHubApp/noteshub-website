@@ -11,7 +11,7 @@ const useStyles = createUseStyles({
     padding: '3px',
     margin: '0 auto',
     marginBottom: '20px',
-    gap: '4px',
+    gap: '6px',
 
     '& button': {
       width: '28px',
