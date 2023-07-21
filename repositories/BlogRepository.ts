@@ -123,7 +123,7 @@ export class BlogRepository {
       urlSlug: urlSlug,
       image: metadata['image'] || metadata['preview'] || metadata['hero'] || null,
       published: (/true/i).test(metadata['published']) || (/false/i).test(metadata['draft']),
-      postedOn: metadata['postedOn'] || metadata['pubDate'] || metadata['date'],
+      postedOn: metadata['postedOn'] || metadata['pubDate'] || metadata['date'] || null,
       modified: metadata['modified'] ?? null,
       description: metadata['description'],
       annotation: obj.content.split('<!--more-->')[0],
@@ -144,7 +144,7 @@ export class BlogRepository {
         title: post.title,
         description: post.description,
         link: this.config.feed.postUrlGenerator(post),
-        date: new Date(post.postedOn),
+        date: parseDate(post.postedOn),
       })
     });
 
@@ -201,4 +201,20 @@ export class BlogRepository {
     const {content, ...annotation} = post;
     return annotation;
   }
+}
+
+function parseDate(date: any) {
+  if (date == null) {
+    return new Date(0);
+  }
+
+  if (date instanceof Date) {
+    return date;
+  }
+
+  if (typeof date === 'string') {
+    return new Date(date);
+  }
+
+  return parseDate(date.toString());
 }
