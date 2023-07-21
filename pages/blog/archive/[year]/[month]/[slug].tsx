@@ -1,6 +1,8 @@
 import { BlogPost } from 'models/BlogPost'
 import BlogPostContent from 'components/blog/BlogPostContent';
 import { Layout } from 'components/Layout'
+import { Sharesheet } from 'components/common/Sharesheet';
+import { TimeIcon } from 'components/icons';
 import { blogRepository } from 'data/blogConfig';
 import { createUseStyles } from 'react-jss';
 import { dateToString } from 'utils/dateUtils';
@@ -10,6 +12,10 @@ const useStyles = createUseStyles({
     maxWidth: 'var(--max-content-width)',
     padding: '15px 15px',
     margin: '0 auto'
+  },
+  postInfo: {
+    display: 'flex',
+    alignItems: 'center'
   }
 });
 
@@ -57,10 +63,12 @@ export default function BlogPostPage(props: BlogPost) {
       <div className="jumbotron page-header">
         <div className={ classes.container }>
           <h1 itemProp="name">{props.title}</h1>
-          <p>
-            <i className={ props.published ? " fa fa-clock-o" : "glyphicon glyphicon-hourglass"}></i>&nbsp;
+          <p className={ classes.postInfo }>
+            { props.published ? <TimeIcon /> : <></> }
             <span itemProp="datePublished">{ dateToString(new Date(props.postedOn)) }</span>
           </p>
+
+          <Sharesheet />
         </div>
       </div>
 
