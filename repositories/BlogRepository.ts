@@ -121,9 +121,9 @@ export class BlogRepository {
       id: metadata['id'] ?? urlSlug,
       title: title,
       urlSlug: urlSlug,
-      image: metadata['image'] ?? null,
-      published: (/true/i).test(metadata['published']),
-      postedOn: metadata['postedOn'],
+      image: metadata['image'] || metadata['preview'] || metadata['hero'] || null,
+      published: (/true/i).test(metadata['published']) || (/false/i).test(metadata['draft']),
+      postedOn: metadata['postedOn'] || metadata['pubDate'] || metadata['date'],
       modified: metadata['modified'] ?? null,
       description: metadata['description'],
       annotation: obj.content.split('<!--more-->')[0],
@@ -142,8 +142,9 @@ export class BlogRepository {
     this.blogPosts.value.filter(x => x.published).forEach(post => {
       feed.addItem({
         title: post.title,
+        description: post.description,
         link: this.config.feed.postUrlGenerator(post),
-        date: new Date(post.postedOn)
+        date: new Date(post.postedOn),
       })
     });
 
