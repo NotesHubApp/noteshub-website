@@ -207,7 +207,7 @@ function Footer() {
         <p>&copy; { new Date().getFullYear() } {process.env.NEXT_PUBLIC_COMPANYNAME} All rights reserved.</p>
       </div>
       <ul className={ classes.socialList } id="contacts">
-        <SocialLink title="Facebook page" href={ process.env.NEXT_PUBLIC_FACEBOOK_LINK } color="#4267B2">
+        <SocialLink title="Facebook page" href={ process.env.NEXT_PUBLIC_FACEBOOK_LINK } color="var(--facebook-color)">
           <FacebookIcon />
         </SocialLink>
 

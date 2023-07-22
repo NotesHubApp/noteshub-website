@@ -1,6 +1,7 @@
 import { BlogPost } from 'models/BlogPost'
 import BlogPostContent from 'components/blog/BlogPostContent';
 import { Layout } from 'components/Layout'
+import { Routes } from 'utils/Routes';
 import { Sharesheet } from 'components/common/Sharesheet';
 import { TimeIcon } from 'components/icons';
 import { blogRepository } from 'data/blogConfig';
@@ -68,7 +69,7 @@ export default function BlogPostPage(props: BlogPost) {
             <span itemProp="datePublished">{ dateToString(new Date(props.postedOn)) }</span>
           </p>
 
-          <Sharesheet />
+          <Sharesheet url={ Routes.blogPost(props, true) } title={ props.title } />
         </div>
       </div>
 

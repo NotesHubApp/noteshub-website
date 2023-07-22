@@ -2,6 +2,7 @@ import { RssIcon, TimeIcon } from 'components/icons';
 
 import { BlogPostAnnotation } from 'models/BlogPost';
 import Link from 'next/link';
+import { Routes } from 'utils/Routes';
 import { createUseStyles } from 'react-jss';
 import { dateToString } from 'utils/dateUtils';
 
@@ -96,7 +97,7 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
         <Link
           title={ props.post.title }
           href="/blog/archive/[year]/[month]/[slug]"
-          as={postUrl(props.post)}>
+          as={Routes.blogPost(props.post)}>
           { props.post.title }
         </Link>
       </h1>
@@ -112,9 +113,4 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
       </div>
     </div>
   );
-}
-
-function postUrl(post: BlogPostAnnotation) {
-  const postedOn = new Date(post.postedOn);
-  return `/blog/archive/${postedOn.getFullYear()}/${postedOn.getMonth()}/${post.urlSlug}`;
 }
