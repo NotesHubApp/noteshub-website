@@ -6,6 +6,11 @@ import { Routes } from 'utils/Routes';
 
 const blogConfig: BlogRepositoryConfig = {
   postsFilePattern: 'data/posts/**/*.md',
+  assetsFilePattern: 'data/posts/**/.attachments/*',
+  assetsDestination: 'public/posts/attachments',
+  assetsUrlTransformer: (rawContent: string) => {
+    return rawContent.replaceAll('.attachments/', '/posts/attachments/');
+  },
   categories: [
     {
       urlSlug: 'release',
@@ -14,10 +19,9 @@ const blogConfig: BlogRepositoryConfig = {
   ],
   tags: [],
   feed: {
-    id: env.baseUrl,
+    origin: env.baseUrl,
     title: `${process.env.NEXT_PUBLIC_APPNAME} Blog`,
     description: `The latest news about ${process.env.NEXT_PUBLIC_APPNAME} app`,
-    link: `${env.baseUrl}/blog`,
     copyright: `${new Date().getFullYear()} TALEX All rights reserved`,
     language: 'en-US',
     postUrlGenerator: (post) => Routes.blogPost(post, true)

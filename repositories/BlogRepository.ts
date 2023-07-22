@@ -11,17 +11,19 @@ import { Lazy } from 'utils/Lazy'
 
 
 export type BlogFeedConfig = {
-  id: string
+  origin: string
   title: string
   description: string
   copyright: string
-  link: string
   language?: string
   postUrlGenerator: (post: BlogPost) => string
 }
 
 export type BlogRepositoryConfig = {
   postsFilePattern: string
+  assetsFilePattern: string
+  assetsDestination: string
+  assetsUrlTransformer: (rawContent: string) => string
   categories: BlogCategory[]
   tags: BlogTag[]
   feed: BlogFeedConfig
@@ -104,7 +106,7 @@ export class BlogRepository {
       return fileNameToUrlSlug(fileNameWithoutExtension);
     }
 
-    const obj = matter(rawContent);
+    const obj = matter(config.assetsUrlTransformer(rawContent));
     const metadata = obj.data;
 
     const title = metadata['title'] ?? getFileNameWithoutExtension(path.basename(filePath));
@@ -137,7 +139,11 @@ export class BlogRepository {
   }
 
   public generateFeed(): string {
-    const feed = new Feed(this.config.feed);
+    const feed = new Feed({
+      id: this.config.feed.origin,
+      link: this.config.feed.origin,
+      ...(this.config.feed)
+    });
 
     this.blogPosts.value.filter(x => x.published).forEach(post => {
       feed.addItem({
@@ -145,10 +151,20 @@ export class BlogRepository {
         description: post.description,
         link: this.config.feed.postUrlGenerator(post),
         date: parseDate(post.postedOn),
-      })
+        image: `${this.config.feed.origin}${post.image}`
+      });
     });
 
-    return feed.atom1();
+    return feed.rss2();
+  }
+
+  public copyAssets() {
+    fs.mkdirSync(this.config.assetsDestination, { recursive: true });
+
+    glob.sync(this.config.assetsFilePattern).forEach(filePath => {
+      const fileName = path.basename(filePath);
+      fs.copyFileSync(filePath, path.join(this.config.assetsDestination, fileName));
+    });
   }
 
   private getAllPosts(): BlogPost[] {

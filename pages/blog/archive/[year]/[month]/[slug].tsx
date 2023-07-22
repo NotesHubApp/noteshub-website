@@ -21,6 +21,11 @@ const useStyles = createUseStyles({
   postInfo: {
     display: 'flex',
     alignItems: 'center'
+  },
+  heroImage: {
+    maxWidth: '100%',
+    borderRadius: '5px',
+    marginTop: '15px'
   }
 });
 
@@ -72,17 +77,18 @@ export default function BlogPostPage(props: BlogPost) {
           <span itemProp="datePublished">{ dateToString(new Date(props.postedOn)) }</span>
         </p>
 
+        <section id="content" itemProp="blogPost" className="blog-post-content">
+          <img className={ classes.heroImage } src={ `${props.image}` } />
+
+          <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
+        </section>
+
+        <h2>Share article</h2>
         <Sharesheet
           url={ Routes.blogPost(props, true) }
           title={ props.title }
           twitterHandle={ process.env.NEXT_PUBLIC_TWITTER_HANDLE }
         />
-
-        <section id="content" itemProp="blogPost" className="blog-post-content">
-          <img src={ `${props.image}` } />
-
-          <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
-        </section>
       </div>
     </Layout>
   )

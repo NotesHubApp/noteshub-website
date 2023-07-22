@@ -12,6 +12,8 @@ export async function getStaticProps() {
   const feed = blogRepository.generateFeed();
   fs.writeFileSync('./public/feed.xml', feed);
 
+  blogRepository.copyAssets();
+
   const posts = blogRepository.getAllPublishedPosts();
   return { props: { posts } };
 }
