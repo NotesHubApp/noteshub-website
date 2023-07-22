@@ -19,17 +19,16 @@ const useStyles = createUseStyles({
     textAlign: 'center',
     fontSize: 'var(--heading1-size)'
   },
-  postInfo: {
-    display: 'flex',
-    alignItems: 'center'
-  },
   heroImage: {
     maxWidth: '100%',
     borderRadius: '10px',
     marginTop: '15px'
   },
-  sharesheetSection: {
-    padding: '20px 0'
+  postFooter: {
+    padding: '20px 0',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '15px'
   }
 });
 
@@ -76,13 +75,12 @@ export default function BlogPostPage(props: BlogPost) {
       <div className={ classes.container } itemScope itemType="http://schema.org/BlogPosting">
         <article>
           <h1 className={ classes.postTitle } itemProp="name">{props.title}</h1>
-          <BlogPostInfo post={ props } />
           <img className={ classes.heroImage } src={ `${props.image}` } />
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
         </article>
 
-        <div className={ classes.sharesheetSection }>
-          <h3>Share article</h3>
+        <div className={ classes.postFooter }>
+          <BlogPostInfo post={ props } />
           <Sharesheet
             url={ Routes.blogPost(props, true) }
             title={ props.title }
