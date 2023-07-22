@@ -62,6 +62,8 @@ const useStyles = createUseStyles({
 type SharesheetProps = {
   url: string
   title: string
+  twitterHandle?: string
+  tags?: string[]
 }
 
 export function Sharesheet(props: SharesheetProps) {
@@ -95,7 +97,12 @@ export function Sharesheet(props: SharesheetProps) {
       <li className={ classes.twitter }>
         <ShareButton
           url="https://twitter.com/share"
-          urlParams={{ url: props.url, text: props.title }}
+          urlParams={{
+            url: props.url,
+            text: props.title,
+            via: props.twitterHandle,
+            hashtags: props.tags ? props.tags.join(',') : undefined
+          }}
         >
           <TwitterIcon />
         </ShareButton>
@@ -105,6 +112,8 @@ export function Sharesheet(props: SharesheetProps) {
         <ShareButton
           url="https://linkedin.com/shareArticle"
           urlParams={{ url: props.url, mini: 'true', title: props.title }}
+          width={750}
+          height={600}
         >
           <LinkedInIcon />
         </ShareButton>
@@ -114,6 +123,8 @@ export function Sharesheet(props: SharesheetProps) {
         <ShareButton
           url="https://www.reddit.com/submit"
           urlParams={{ url: props.url, title: props.title }}
+          width={660}
+          height={460}
         >
           <RedditIcon />
         </ShareButton>
@@ -136,7 +147,7 @@ export function Sharesheet(props: SharesheetProps) {
 
 type ShareButtonProps = {
   url: string
-  urlParams: {[key: string]: string}
+  urlParams: {[key: string]: string | undefined}
   width?: number
   height?: number
 }
@@ -164,7 +175,7 @@ function ShareButton(props: PropsWithChildren<ShareButtonProps>) {
     const windowFeatures = Object.entries(windowFeaturesObj).map(([p, d]) => `${p}=${d}`).join(", ");
     const urlParams = Object.entries(props.urlParams)
       .filter(([key, value]) => value != null)
-      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value!)}`)
       .join("&");
     const url = `${props.url}?${urlParams}`;
     window.open(url, '', windowFeatures);

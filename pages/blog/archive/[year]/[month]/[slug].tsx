@@ -72,7 +72,11 @@ export default function BlogPostPage(props: BlogPost) {
           <span itemProp="datePublished">{ dateToString(new Date(props.postedOn)) }</span>
         </p>
 
-        <Sharesheet url={ Routes.blogPost(props, true) } title={ props.title } />
+        <Sharesheet
+          url={ Routes.blogPost(props, true) }
+          title={ props.title }
+          twitterHandle={ process.env.NEXT_PUBLIC_TWITTER_HANDLE }
+        />
 
         <section id="content" itemProp="blogPost" className="blog-post-content">
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
