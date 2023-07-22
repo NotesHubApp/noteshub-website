@@ -2,13 +2,12 @@ import * as env from 'utils/env';
 
 import { BlogPost } from 'models/BlogPost'
 import BlogPostContent from 'components/blog/BlogPostContent';
+import { BlogPostInfo } from 'components/blog/BlogPostInfo';
 import { Layout } from 'components/Layout'
 import { Routes } from 'utils/Routes';
 import { Sharesheet } from 'components/common/Sharesheet';
-import { TimeIcon } from 'components/icons';
 import { blogRepository } from 'data/blogConfig';
 import { createUseStyles } from 'react-jss';
-import { dateToString } from 'utils/dateUtils';
 
 const useStyles = createUseStyles({
   container: {
@@ -28,6 +27,9 @@ const useStyles = createUseStyles({
     maxWidth: '100%',
     borderRadius: '5px',
     marginTop: '15px'
+  },
+  sharesheetSection: {
+    padding: '20px 0'
   }
 });
 
@@ -74,10 +76,7 @@ export default function BlogPostPage(props: BlogPost) {
     >
       <div className={ classes.container } itemScope itemType="http://schema.org/BlogPosting">
         <h1 className={ classes.postTitle } itemProp="name">{props.title}</h1>
-        <p className={ classes.postInfo }>
-          { props.published ? <TimeIcon /> : <></> }
-          <span itemProp="datePublished">{ dateToString(new Date(props.postedOn)) }</span>
-        </p>
+        <BlogPostInfo post={ props } />
 
         <section id="content" itemProp="blogPost" className="blog-post-content">
           <img className={ classes.heroImage } src={ `${props.image}` } />
@@ -85,12 +84,14 @@ export default function BlogPostPage(props: BlogPost) {
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
         </section>
 
-        <h2>Share article</h2>
-        <Sharesheet
-          url={ Routes.blogPost(props, true) }
-          title={ props.title }
-          twitterHandle={ process.env.NEXT_PUBLIC_TWITTER_HANDLE }
-        />
+        <div className={ classes.sharesheetSection }>
+          <h3>Share article</h3>
+          <Sharesheet
+            url={ Routes.blogPost(props, true) }
+            title={ props.title }
+            twitterHandle={ process.env.NEXT_PUBLIC_TWITTER_HANDLE }
+          />
+        </div>
       </div>
     </Layout>
   )

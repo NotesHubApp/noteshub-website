@@ -1,10 +1,9 @@
-import { RssIcon, TimeIcon } from 'components/icons';
-
 import { BlogPostAnnotation } from 'models/BlogPost';
+import { BlogPostInfo } from './BlogPostInfo';
 import Link from 'next/link';
 import { Routes } from 'utils/Routes';
+import { RssIcon } from 'components/icons';
 import { createUseStyles } from 'react-jss';
-import { dateToString } from 'utils/dateUtils';
 
 const useStyles = createUseStyles({
   container: {
@@ -41,20 +40,6 @@ const useStyles = createUseStyles({
     '& a:hover': {
       textDecoration: 'underline'
     }
-  },
-  postInfo: {
-    display: 'flex',
-    gap: '3px',
-    color: '#7f919e',
-    fill: '#7f919e',
-    fontSize: '0.8em',
-    '& svg': {
-      width: '1em'
-    }
-  },
-  category: {
-    textTransform: 'uppercase',
-    marginRight: '0.6em'
   },
   postDescription: {
     fontSize: '1.2em'
@@ -102,11 +87,7 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
         </Link>
       </h1>
 
-      <div className={ classes.postInfo }>
-      <span className={ classes.category }>{ props.post.category.name }</span>
-        <TimeIcon /> { dateToString(new Date(props.post.postedOn)) }
-
-      </div>
+      <BlogPostInfo post={props.post} />
 
       <div className="post-desc blog-post-content">
         <p className={ classes.postDescription }>{ props.post.description }</p>

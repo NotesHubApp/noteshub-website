@@ -30,6 +30,7 @@ const useStyles = createUseStyles({
     '& svg': {
       width: '20px',
       height: '20px',
+      color: 'var(--text-primary)',
       opacity: 0.5,
 
       '&:hover': {

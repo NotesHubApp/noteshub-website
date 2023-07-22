@@ -36,7 +36,7 @@ const useStyles = createUseStyles({
       },
 
       '& svg': {
-        fill: 'currentcolor',
+        fill: 'var(--text-primary)',
         height: '16px'
       }
     }
