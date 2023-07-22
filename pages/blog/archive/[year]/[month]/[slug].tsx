@@ -1,3 +1,5 @@
+import * as env from 'utils/env';
+
 import { BlogPost } from 'models/BlogPost'
 import BlogPostContent from 'components/blog/BlogPostContent';
 import { Layout } from 'components/Layout'
@@ -103,8 +105,5 @@ function getImageUrl(image?: string) {
     return image;
   }
 
-  return new URL(
-    image.startsWith('/') ? `/posts${image}` : `/posts/${image}`,
-    process.env.NEXT_PUBLIC_LANDING_PAGE_URL
-  ).href;
+  return new URL(image, env.baseUrl).href;
 }
