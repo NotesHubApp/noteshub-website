@@ -148,7 +148,7 @@ export class BlogRepository {
       })
     });
 
-    return feed.rss2();
+    return feed.atom1();
   }
 
   private getAllPosts(): BlogPost[] {
