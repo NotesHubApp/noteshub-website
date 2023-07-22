@@ -32,7 +32,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en" data-color-scheme="light">
         <Head>
-          <link rel="icon" type="image/x-icon" href="/favicon.svg"></link>
+          <link rel="icon" type="image/png" sizes="512x512" href="/images/app/icon-512.png"></link>
+          <link rel="shortcut icon" type="image/svg+xml" href="/images/app/favicon.svg"></link>
 
           {/* Global site tag (gtag.js) - Google Analytics */}
           <script async src={ `https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}` }></script>

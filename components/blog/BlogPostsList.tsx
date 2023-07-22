@@ -77,7 +77,7 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
   const classes = useStyles();
 
   return (
-    <div className="post-template">
+    <article>
       <h1 className={ classes.postTitle }>
         <Link
           title={ props.post.title }
@@ -88,10 +88,7 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
       </h1>
 
       <BlogPostInfo post={props.post} />
-
-      <div className="post-desc blog-post-content">
-        <p className={ classes.postDescription }>{ props.post.description }</p>
-      </div>
-    </div>
+      <p className={ classes.postDescription }>{ props.post.description }</p>
+    </article>
   );
 }
