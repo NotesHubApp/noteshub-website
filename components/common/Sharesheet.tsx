@@ -3,6 +3,7 @@ import {
   FacebookIcon,
   LinkedInIcon,
   RedditIcon,
+  ShareIcon,
   TwitterIcon
 } from 'components/icons';
 
@@ -16,7 +17,7 @@ const useStyles = createUseStyles({
     padding: 0,
     display: 'flex',
     alignItems: 'center',
-    gap: '0.8em',
+    gap: '0.9em',
 
     '& button': {
       border: 'none',
@@ -28,7 +29,12 @@ const useStyles = createUseStyles({
 
     '& svg': {
       width: '20px',
-      height: '20px'
+      height: '20px',
+      opacity: 0.5,
+
+      '&:hover': {
+        opacity: 1
+      }
     }
   },
   facebook: {
@@ -60,6 +66,20 @@ type SharesheetProps = {
 
 export function Sharesheet(props: SharesheetProps) {
   const classes = useStyles();
+
+  const share = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          url: props.url,
+          title: props.title
+        })
+      } catch {}
+    } else if (navigator.clipboard) {
+      await navigator.clipboard.writeText(props.url);
+      window.alert('Url has been copied to the clipboard.');
+    }
+  }
 
   return (
     <ul className={ classes.shareList }>
@@ -103,6 +123,12 @@ export function Sharesheet(props: SharesheetProps) {
         <a href={ `mailto:?subject=${encodeURIComponent(props.title)}&body=${encodeURIComponent(props.url)}` }>
           <EmailIcon />
         </a>
+      </li>
+
+      <li>
+        <button onClick={ share }>
+          <ShareIcon />
+        </button>
       </li>
     </ul>
   )
