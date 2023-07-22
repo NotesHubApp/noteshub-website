@@ -25,7 +25,7 @@ const useStyles = createUseStyles({
   },
   heroImage: {
     maxWidth: '100%',
-    borderRadius: '5px',
+    borderRadius: '10px',
     marginTop: '15px'
   },
   sharesheetSection: {
@@ -62,7 +62,6 @@ export async function getStaticProps({ params }: { params: PageParams }) {
   return { props: post };
 }
 
-
 export default function BlogPostPage(props: BlogPost) {
   const classes = useStyles();
 
@@ -75,14 +74,12 @@ export default function BlogPostPage(props: BlogPost) {
       imageUrl={ getImageUrl(props.image) }
     >
       <div className={ classes.container } itemScope itemType="http://schema.org/BlogPosting">
-        <h1 className={ classes.postTitle } itemProp="name">{props.title}</h1>
-        <BlogPostInfo post={ props } />
-
-        <section id="content" itemProp="blogPost" className="blog-post-content">
+        <article>
+          <h1 className={ classes.postTitle } itemProp="name">{props.title}</h1>
+          <BlogPostInfo post={ props } />
           <img className={ classes.heroImage } src={ `${props.image}` } />
-
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
-        </section>
+        </article>
 
         <div className={ classes.sharesheetSection }>
           <h3>Share article</h3>
