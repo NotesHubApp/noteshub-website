@@ -14,6 +14,10 @@ const useStyles = createUseStyles({
     padding: '15px 15px',
     margin: '0 auto'
   },
+  postTitle: {
+    textAlign: 'center',
+    fontSize: 'var(--heading1-size)'
+  },
   postInfo: {
     display: 'flex',
     alignItems: 'center'
@@ -61,19 +65,15 @@ export default function BlogPostPage(props: BlogPost) {
       description={ props.description }
       imageUrl={ getImageUrl(props.image) }
     >
-      <div className="jumbotron page-header">
-        <div className={ classes.container }>
-          <h1 itemProp="name">{props.title}</h1>
-          <p className={ classes.postInfo }>
-            { props.published ? <TimeIcon /> : <></> }
-            <span itemProp="datePublished">{ dateToString(new Date(props.postedOn)) }</span>
-          </p>
-
-          <Sharesheet url={ Routes.blogPost(props, true) } title={ props.title } />
-        </div>
-      </div>
-
       <div className={ classes.container } itemScope itemType="http://schema.org/BlogPosting">
+        <h1 className={ classes.postTitle } itemProp="name">{props.title}</h1>
+        <p className={ classes.postInfo }>
+          { props.published ? <TimeIcon /> : <></> }
+          <span itemProp="datePublished">{ dateToString(new Date(props.postedOn)) }</span>
+        </p>
+
+        <Sharesheet url={ Routes.blogPost(props, true) } title={ props.title } />
+
         <section id="content" itemProp="blogPost" className="blog-post-content">
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
         </section>

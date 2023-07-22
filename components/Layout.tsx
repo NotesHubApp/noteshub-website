@@ -211,19 +211,19 @@ function Footer() {
           <FacebookIcon />
         </SocialLink>
 
-        <SocialLink title="Twitter page" href={ process.env.NEXT_PUBLIC_TWITTER_LINK } color="#1DA1F2">
+        <SocialLink title="Twitter page" href={ process.env.NEXT_PUBLIC_TWITTER_LINK } color="var(--twitter-color)">
           <TwitterIcon />
         </SocialLink>
 
-        <SocialLink title="Instagram page" href={ process.env.NEXT_PUBLIC_INSTAGRAM_LINK } color="#C13584">
+        <SocialLink title="Instagram page" href={ process.env.NEXT_PUBLIC_INSTAGRAM_LINK } color="var(--instagram-color)">
           <InstagramIcon />
         </SocialLink>
 
-        <SocialLink title="Reddit" href={ process.env.NEXT_PUBLIC_REDDIT_LINK } color="#FF4500">
+        <SocialLink title="Reddit" href={ process.env.NEXT_PUBLIC_REDDIT_LINK } color="var(--reddit-color)">
           <RedditIcon />
         </SocialLink>
 
-        <SocialLink title="LinkedIn" href={ process.env.NEXT_PUBLIC_LINKEDIN_LINK } color="#0A66C2">
+        <SocialLink title="LinkedIn" href={ process.env.NEXT_PUBLIC_LINKEDIN_LINK } color="var(--linkedin-color)">
           <LinkedInIcon />
         </SocialLink>
 

@@ -1,6 +1,7 @@
 import {
   EmailIcon,
   FacebookIcon,
+  LinkedInIcon,
   RedditIcon,
   TwitterIcon
 } from 'components/icons';
@@ -14,7 +15,8 @@ const useStyles = createUseStyles({
     margin: 0,
     padding: 0,
     display: 'flex',
-    gap: '0.7em',
+    alignItems: 'center',
+    gap: '0.8em',
 
     '& button': {
       border: 'none',
@@ -22,6 +24,31 @@ const useStyles = createUseStyles({
       margin: 0,
       padding: 0,
       cursor: 'pointer'
+    },
+
+    '& svg': {
+      width: '20px',
+      height: '20px'
+    }
+  },
+  facebook: {
+    '& :hover': {
+      color: 'var(--facebook-color)'
+    }
+  },
+  twitter: {
+    '& :hover': {
+      color: 'var(--twitter-color)'
+    }
+  },
+  linkedin: {
+    '& :hover': {
+      color: 'var(--linkedin-color)'
+    }
+  },
+  reddit: {
+    '& :hover': {
+      color: 'var(--reddit-color)'
     }
   }
 })
@@ -34,13 +61,9 @@ type SharesheetProps = {
 export function Sharesheet(props: SharesheetProps) {
   const classes = useStyles();
 
-  const onClick = () => {
-    window.open()
-  }
-
   return (
     <ul className={ classes.shareList }>
-      <li>
+      <li className={ classes.facebook }>
         <ShareButton
           url="https://www.facebook.com/sharer/sharer.php"
           urlParams={{ u: props.url }}
@@ -49,7 +72,7 @@ export function Sharesheet(props: SharesheetProps) {
         </ShareButton>
       </li>
 
-      <li>
+      <li className={ classes.twitter }>
         <ShareButton
           url="https://twitter.com/share"
           urlParams={{ url: props.url, text: props.title }}
@@ -58,7 +81,16 @@ export function Sharesheet(props: SharesheetProps) {
         </ShareButton>
       </li>
 
-      <li>
+      <li className={ classes.linkedin }>
+        <ShareButton
+          url="https://linkedin.com/shareArticle"
+          urlParams={{ url: props.url, mini: 'true', title: props.title }}
+        >
+          <LinkedInIcon />
+        </ShareButton>
+      </li>
+
+      <li className={ classes.reddit }>
         <ShareButton
           url="https://www.reddit.com/submit"
           urlParams={{ url: props.url, title: props.title }}
@@ -67,11 +99,11 @@ export function Sharesheet(props: SharesheetProps) {
         </ShareButton>
       </li>
 
-      {/* <li>
-        <ShareButton>
+      <li>
+        <a href={ `mailto:?subject=${encodeURIComponent(props.title)}&body=${encodeURIComponent(props.url)}` }>
           <EmailIcon />
-        </ShareButton>
-      </li> */}
+        </a>
+      </li>
     </ul>
   )
 }
