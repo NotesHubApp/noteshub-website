@@ -79,6 +79,8 @@ export default function BlogPostPage(props: BlogPost) {
         />
 
         <section id="content" itemProp="blogPost" className="blog-post-content">
+          <img src={ `${props.image}` } />
+
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
         </section>
       </div>
