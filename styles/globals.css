@@ -60,3 +60,13 @@ a {
 #__next {
   height: 100%;
 }
+
+.mermaid {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
+[data-color-scheme=dark] .mermaid {
+  filter: invert(1) brightness(3);
+}

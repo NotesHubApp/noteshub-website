@@ -1,4 +1,6 @@
 import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
 
 type BlogPostContentProps = {
   urlSlug: string;
@@ -37,6 +39,9 @@ export default function BlogPostContent(props: BlogPostContentProps) {
       children={props.markdownContent}
       transformImageUri={(uri) => transformInternalUri(uri) }
       transformLinkUri={(uri) => transformInternalUri(uri) }
-      components={ components } />
+      rehypePlugins={[rehypeRaw]}
+      remarkPlugins={[remarkGfm]}
+      components={ components }
+    />
   );
 }
