@@ -19,11 +19,11 @@ const components = {
       { props.children }
     </a>
   ),
-  code: (props: any) => (
-    <pre className={`language-${props.language}`}>
-      <code className={`language-${props.language}`}>{ props.value }</code>
-    </pre>
-  )
+  // code: (props: any) => (
+  //   <pre className={`language-${props.language}`}>
+  //     <code className={`language-${props.language}`}>{ props.value }</code>
+  //   </pre>
+  // )
 };
 
 export default function BlogPostContent(props: BlogPostContentProps) {
@@ -36,6 +36,7 @@ export default function BlogPostContent(props: BlogPostContentProps) {
 
   return (
     <ReactMarkdown
+      className='blog-post-content'
       children={props.markdownContent}
       transformImageUri={(uri) => transformInternalUri(uri) }
       transformLinkUri={(uri) => transformInternalUri(uri) }

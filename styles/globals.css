@@ -8,6 +8,8 @@
   --instagram-color: #C13584;
   --reddit-color: #FF4500;
   --linkedin-color: #0A66C2;
+
+  --monospace-font: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 :root,
@@ -20,6 +22,8 @@
   --box-shadow: 0 5px 10px rgb(0 0 0 / 12%);
 
   --header-bg: hsla(0, 0%, 100%, .8);
+
+  --codeBlock-backgroundColor: #f5f5f5;
 }
 
 @media only screen {
@@ -33,6 +37,8 @@
     --box-shadow: 0 5px 10px rgb(0 0 0 / 45%);
 
     --header-bg: rgba(0, 0, 0, 0.8);
+
+    --codeBlock-backgroundColor: #1e1e1e;
   }
 }
 
@@ -59,6 +65,26 @@ a {
 
 #__next {
   height: 100%;
+}
+
+/*******************************************/
+code {
+  font-family: var(--monospace-font);
+}
+
+.blog-post-content {
+  line-height: 1.5;
+  font-size: 1.2em;
+}
+
+.blog-post-content pre {
+  background-color: var(--codeBlock-backgroundColor);
+  border-radius: 7px;
+  padding: 10px;
+}
+
+.blog-post-content code {
+  font-size: 80%;
 }
 
 .mermaid {
