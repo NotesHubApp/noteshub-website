@@ -41,7 +41,7 @@ export default function BlogPostContent(props: BlogPostContentProps) {
       transformImageUri={(uri) => transformInternalUri(uri) }
       transformLinkUri={(uri) => transformInternalUri(uri) }
       rehypePlugins={[rehypeRaw]}
-      remarkPlugins={[remarkGfm]}
+      remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
       components={ components }
     />
   );
