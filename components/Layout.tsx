@@ -4,6 +4,7 @@ import {
   InstagramIcon,
   LinkedInIcon,
   RedditIcon,
+  RssIcon,
   TwitterIcon
 } from './icons'
 import { PropsWithChildren, useEffect } from 'react'
@@ -83,11 +84,11 @@ const useStyles = createUseStyles({
       display: 'inline-block',
 
       '& a': {
-        margin: '0 10px'
+        margin: '0 8px'
       },
       '& svg': {
-        width: '25px',
-        height: '25px',
+        width: '23px',
+        height: '23px',
 
         '&:hover': {
           filter: 'brightness(60%)'
@@ -229,6 +230,10 @@ function Footer() {
 
         <SocialLink title="Contact/support" href={ `mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}` } color="currentColor">
           <EmailIcon />
+        </SocialLink>
+
+        <SocialLink title="Blog feed" href="/feed.xml" color="currentColor">
+          <RssIcon />
         </SocialLink>
       </ul>
 
