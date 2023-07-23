@@ -92,6 +92,12 @@ code {
   font-size: 80%;
 }
 
+.blog-post-content h1,
+.blog-post-content h2,
+.blog-post-content h3 {
+  color: var(--theme-color);
+}
+
 .mermaid {
   display: block;
   margin: 0 auto;
