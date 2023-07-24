@@ -103,6 +103,15 @@ code {
   border-radius: 10px;
 }
 
+/* Image caption */
+.blog-post-content img+em {
+  display: block;
+  text-align: center;
+  font-size: 90%;
+  padding-bottom: 20px;
+  color: gray;
+}
+
 .mermaid {
   display: block;
   margin: 0 auto;

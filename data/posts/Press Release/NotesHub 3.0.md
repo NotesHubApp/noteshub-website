@@ -13,9 +13,11 @@ This is arguably the most important change in this release and the most noticeab
 
 Let's see the real-life difference:
 
-![](.attachments/nh30_markdown_syntax_before.webp)
+![NotesHub 2.x](.attachments/nh30_markdown_syntax_before.webp "Before")
+_NotesHub 2.x_
 
-![](.attachments/nh30_markdown_syntax_after.webp)
+![NotesHub 3.0](.attachments/nh30_markdown_syntax_after.webp)
+_NotesHub 3.0_
 
 ## Highlight tool
 
