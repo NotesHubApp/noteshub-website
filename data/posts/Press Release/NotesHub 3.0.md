@@ -13,9 +13,9 @@ This is arguably the most important change in this release and the most noticeab
 
 Let's see the real-life difference:
 
-![](.attachments/nh30_markdown_syntax_before.png)
+![](.attachments/nh30_markdown_syntax_before.webp)
 
-![](.attachments/nh30_markdown_syntax_after.png)
+![](.attachments/nh30_markdown_syntax_after.webp)
 
 ## Highlight tool
 
