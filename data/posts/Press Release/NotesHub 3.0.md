@@ -15,7 +15,7 @@ Let's see the real-life difference:
 
 ![](.attachments/nh30_markdown_syntax_before.png)
 
-![](.attachments/nh30_markdown_syntax_after.webp)
+![](.attachments/nh30_markdown_syntax_after.png)
 
 ## Highlight tool
 
