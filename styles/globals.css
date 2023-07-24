@@ -98,6 +98,10 @@ code {
   color: var(--theme-color);
 }
 
+.blog-post-content .img-responsive {
+  max-width: 100%;
+}
+
 .mermaid {
   display: block;
   margin: 0 auto;
