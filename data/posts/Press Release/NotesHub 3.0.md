@@ -9,7 +9,7 @@ This is the most significant release as of Today. It has many new features, but 
 
 ## Markdown syntax highliting in the editor
 
-This is arguably the most important change in this release and the most noticeable since it will touch the experience of every user. The Markdown editing experience is still a split-view of editor and preview but compare to the previous release you will see Markdown syntax highlighted in the editor. In addition to the changed font colors for different syntactic elements, you may see different font sizes (for headings) and more. All of that is designed to make navigation faster and improve the orientation in the document. This is especially important on mobile devices where due to small screen size instead of split-view you just see editor or preview but not both.
+This is arguably the most important change in this release and the most noticeable since it will touch the experience of every user. The Markdown editing experience is still a split-view of editor and preview but compare to the previous release you will see Markdown syntax highlighted in the editor. In addition to the changed font colors for different syntactic elements, you may see different font sizes (for headings) and more. All of that is designed to make navigation faster and improve the orientation in the document. This is especially important on mobile devices where due to small screen size instead of split-view you just see the editor or the preview but not both.
 
 Let's see the real-life difference:
 

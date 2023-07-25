@@ -75,7 +75,7 @@ export default function BlogPostPage(props: BlogPost) {
       <div className={ classes.container } itemScope itemType="http://schema.org/BlogPosting">
         <article>
           <h1 className={ classes.postTitle } itemProp="name">{props.title}</h1>
-          <img className={ classes.heroImage } src={ `${props.image}` } />
+          <img className={ classes.heroImage } src={ `${props.image}` } alt="Hero image" />
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
         </article>
 
