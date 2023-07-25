@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
+import { remarkFigureCaption } from 'components/remarkPlugins/remarkFigureCaption'
 import remarkGfm from 'remark-gfm'
 
 type BlogPostContentProps = {
@@ -12,7 +13,14 @@ function isExternalUrl(url: string) {
 }
 
 const components = {
-  img: (props: any) => (<img className="img-responsive" src={props.src} alt={props.alt} />),
+  img: (props: any) => (
+    <img
+      className="img-responsive"
+      src={ props.src }
+      alt={ props.alt }
+      title={ props.title }
+    />
+  ),
   table: (props: any) => (<table className="table">{ props.children }</table>),
   a: (props: any) => (
     <a href={props.href} {...(isExternalUrl(props.href) ? { target: '_blank', rel: 'nofollow' } : {}) }>
@@ -27,7 +35,10 @@ export default function BlogPostContent(props: BlogPostContentProps) {
       className='blog-post-content'
       children={props.markdownContent}
       rehypePlugins={[rehypeRaw]}
-      remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
+      remarkPlugins={[
+        [remarkGfm, { singleTilde: false }],
+        remarkFigureCaption
+      ]}
       components={ components }
     />
   );

@@ -104,11 +104,15 @@ code {
 }
 
 /* Image caption */
-.blog-post-content img+em {
-  display: block;
+.blog-post-content figure {
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.blog-post-content figcaption {
+  font-style: italic;
   text-align: center;
   font-size: 90%;
-  padding-bottom: 20px;
   color: gray;
 }
 
