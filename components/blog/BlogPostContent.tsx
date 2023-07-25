@@ -17,6 +17,7 @@ const components = {
     <img
       className="img-responsive"
       src={ props.src }
+      srcSet={ `${props.src} 1x, ${props.src} 2x` }
       alt={ props.alt }
       title={ props.title }
     />

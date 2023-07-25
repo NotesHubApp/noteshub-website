@@ -18,10 +18,22 @@ Let's see the real-life difference:
 
 ## Syntax highlighting in code-blocks
 
+In addition to Markdown, this release expands syntax highlighting to code blocks for the most popular programming languages.
+
 ![NotesHub 2.x](.attachments/nh30_code_highlight_before.webp "NotesHub 2.x")
 ![NotesHub 3.0](.attachments/nh30_code_highlight_after.webp "NotesHub 3.0")
 
-## Highlight tool
+## Search/replace inside notes
+
+Finally, you can search and replace text inside notes. In order to show the search panel on the Desktop, use `Ctrl+F` (`Cmd+F` on macOS) hotkey, or on mobile devices use `Search` button from the editor toolbar.
+
+As search options, you can toggle _match case_, _match whole word_, or _use regular expression_. All options are available as buttons inside the search field.
+
+![Search inside note](.attachments/nh30-search.webp "Search")
+![Search and replace inside note](.attachments/nh30-replace.webp "Search & Replace")
+
+
+## Highlight (marker) tool
 
 Allows you to highlight text. To highlight words, use two equal signs (==) before and after the words.
 
@@ -69,3 +81,4 @@ This is an inline math expression: <svg xmlns="http://www.w3.org/2000/svg" width
 Will be rendered to:
 
 
+## Embed YouTube videos and tweets

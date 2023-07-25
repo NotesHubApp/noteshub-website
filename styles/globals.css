@@ -77,6 +77,14 @@ code {
   font-size: 1.1em;
 }
 
+.blog-post-content code {
+  padding: 2px 4px;
+  font-size: 90%;
+  border-radius: 7px;
+  color: gray;
+  background-color: var(--codeBlock-backgroundColor);
+}
+
 .blog-post-content pre {
   background-color: var(--codeBlock-backgroundColor);
   border-radius: 7px;
@@ -87,6 +95,7 @@ code {
 }
 
 .blog-post-content pre code {
+  color: var(--text-primary);
   display: block;
   overflow: auto;
   font-size: 80%;
@@ -99,7 +108,9 @@ code {
 }
 
 .blog-post-content .img-responsive {
+  display: block;
   max-width: 100%;
+  margin: 0 auto;
   border-radius: 10px;
 }
 
@@ -114,6 +125,7 @@ code {
   text-align: center;
   font-size: 90%;
   color: gray;
+  margin-top: 10px;
 }
 
 .mermaid {
