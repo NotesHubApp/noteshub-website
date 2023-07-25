@@ -106,7 +106,7 @@ code {
 /* Image caption */
 .blog-post-content figure {
   margin: 0;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .blog-post-content figcaption {

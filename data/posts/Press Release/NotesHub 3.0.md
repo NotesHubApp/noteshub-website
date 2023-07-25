@@ -16,6 +16,11 @@ Let's see the real-life difference:
 ![NotesHub 2.x](.attachments/nh30_markdown_syntax_before.webp "NotesHub 2.x")
 ![NotesHub 3.0](.attachments/nh30_markdown_syntax_after.webp "NotesHub 3.0")
 
+## Syntax highlighting in code-blocks
+
+![NotesHub 2.x](.attachments/nh30_code_highlight_before.webp "NotesHub 2.x")
+![NotesHub 3.0](.attachments/nh30_code_highlight_after.webp "NotesHub 3.0")
+
 ## Highlight tool
 
 Allows you to highlight text. To highlight words, use two equal signs (==) before and after the words.
