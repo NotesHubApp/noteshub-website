@@ -25,7 +25,7 @@ In addition to Markdown, this release expands syntax highlighting to code blocks
 
 ## Search/replace inside notes
 
-Finally, you can search and replace text inside notes. In order to show the search panel on the Desktop, use `Ctrl+F` (`Cmd+F` on macOS) hotkey, or on mobile devices use `Search` button from the editor toolbar.
+Finally, you can search and replace text inside notes. In order to show the search panel on the Desktop, use `Ctrl+F` (`Cmd+F` on macOS) hotkey, or on mobile devices use _Search_ button from the editor toolbar.
 
 As search options, you can toggle _match case_, _match whole word_, or _use regular expression_. All options are available as buttons inside the search field.
 
@@ -35,8 +35,11 @@ As search options, you can toggle _match case_, _match whole word_, or _use regu
 
 ## Highlight (marker) tool
 
-Allows you to highlight text. To highlight words, use two equal signs (==) before and after the words.
+The new tool allows you to highlight text by marking it with a vivid, translucent yellow color, that will help to bring attention to sections of text.
+To highlight text, use two equal signs `==` before and after the words. Also, you can achieve the same effect by selecting the text and clicking _Highlight_ button from the editor toolbar.
 
+
+As an example the following Markdown:
 ```markdown
 I need to highlight these ==very important words==.
 ```
@@ -47,8 +50,13 @@ I need to highlight these <mark>very important words</mark>.
 
 ## Mermaid diagrams
 
-The following Markdown block:
+[Mermaid](https://mermaid.js.org/intro/) is a flowchart and diagram visualization tool, it uses syntax inspired by Markdown in order to create and modify diagrams dynamically. If you are familiar with Markdown you should have no problem learning [Mermaid's Syntax](https://mermaid.js.org/intro/n00b-syntaxReference.html).
+It supports many [types of diagrams](https://mermaid.js.org/intro/) such as flowcharts, sequence diagrams, class diagrams, Gantt, mindmap, and many more.
 
+To add a diagram, create a `mermaid` code block.
+For example, the following Markdown block:
+
+````markdown
 ```mermaid
 sequenceDiagram
     Alice->>+John: Hello John, how are you?
@@ -56,6 +64,7 @@ sequenceDiagram
     John-->>-Alice: Hi Alice, I can hear you!
     John-->>-Alice: I feel great!
 ```
+````
 
 Will be rendered to:
 

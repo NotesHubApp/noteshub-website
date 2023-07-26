@@ -128,6 +128,14 @@ code {
   margin-top: 10px;
 }
 
+.blog-post-content a {
+  text-decoration: underline;
+}
+
+.blog-post-content a:hover {
+  text-decoration: none;
+}
+
 .mermaid {
   display: block;
   margin: 0 auto;
