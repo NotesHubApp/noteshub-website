@@ -17,6 +17,7 @@ export const remarkFigureCaption: Plugin<[FigureCaption?], Root> = (options = {}
 			}
 
 			remove(node, 'text')
+      remove(node, 'break')
 
       if (parent && index) {
         parent.children.splice(index, 1, ...node.children)
@@ -70,7 +71,7 @@ const createNodes = (imageNode: any) => {
 
 const hasOnlyImages = (node: Parent) => {
 	return node.children.every((child) => {
-		return child.type === 'image' || whitespace(child)
+		return child.type === 'image' || child.type === 'break' || whitespace(child)
 	})
 }
 

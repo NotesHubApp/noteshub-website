@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
+import remarkBreaks from 'remark-breaks'
 import { remarkFigureCaption } from 'components/remarkPlugins/remarkFigureCaption'
 import remarkGfm from 'remark-gfm'
 
@@ -38,6 +39,7 @@ export default function BlogPostContent(props: BlogPostContentProps) {
       rehypePlugins={[rehypeRaw]}
       remarkPlugins={[
         [remarkGfm, { singleTilde: false }],
+        remarkBreaks,
         remarkFigureCaption
       ]}
       components={ components }
