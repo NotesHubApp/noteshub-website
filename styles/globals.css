@@ -142,6 +142,11 @@ code {
   height: auto;
 }
 
+.math-block {
+  display: block;
+  margin: 0 auto;
+}
+
 [data-color-scheme=dark] .mermaid {
   filter: invert(1) brightness(3);
 }
