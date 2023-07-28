@@ -134,3 +134,8 @@ Will be rendered to:
 ![Callout](.attachments/nh30-callout.webp "Callout")
 
 ## Embed YouTube videos and tweets
+
+Use Markdown image syntax to embed YouTube videos and tweets into your notes.
+Just copy the URL from the browser and place it as an image URL.
+
+![Embed YouTube vidoes and tweets](.attachments/nh30-youtube-tweets.webp "YouTube and Twitter content")
