@@ -139,3 +139,10 @@ Use Markdown image syntax to embed YouTube videos and tweets into your notes.
 Just copy the URL from the browser and place it as an image URL.
 
 ![Embed YouTube vidoes and tweets](.attachments/nh30-youtube-tweets.webp "YouTube and Twitter content")
+
+## Markdown support in Kanban cards
+
+By many customer support requests, we have added Markdown support in Kanban cards so that you can add your tasks, links, images, etc.
+
+![Markdown in Kanban cards - Preview](.attachments/nh30-markdown-in-kanban-preview.webp "Markdown in Kanban cards - Preview")
+![Markdown in Kanban cards - Editor](.attachments/nh30-markdown-in-kanban-edit.webp "Markdown in Kanban cards - Editor")
