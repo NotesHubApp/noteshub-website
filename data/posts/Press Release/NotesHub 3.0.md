@@ -141,20 +141,19 @@ By many customer support requests, we have added Markdown support in Kanban card
 ![Markdown in Kanban cards - Editor](.attachments/nh30-markdown-in-kanban-edit.webp "Markdown in Kanban cards - Editor")
 
 ## Other notable features
-- In-note blocks folding.
-- Multi-cursor mode.
-- Rectangular selection.
+- In-note blocks folding (headings, lists, code blocks, etc).
+- Multi-cursor mode (see the instruction on how to use it in _Tips_ tab of _Info_ panel).
+- Rectangular selection (see the instruction on how to use it in _Tips_ tab of _Info_ panel).
 - Autocompletion of close brackets.
-- Highlighting of matching brackets.
-- Highlighting of matching selections.
+- Highlighting of matching brackets and selections.
 - Statements autocompletion in code blocks.
-- Subscript/superscript support.
-- Advance key-mapping in editor.
-- Adding attachments by drag-and-drop files into the editor.
-- Attachments support of any type.
-- `iframe`, `svg` and `center` tags support in Markdown.
-- Easy change the status of the checkbox in the editor with an inline widget.
-- Paste as plain text command in native apps.
+- Subscript and superscript support in Markdown.
+- Advanced key-mapping in the editor (the list of available key-bindings you can find in the _Info_ panel).
+- Drag-and-drop support for adding file attachments into the editor.
+- Support for file attachments of any type.
+- `iframe`, `svg` and `center` HTML tags support in Markdown.
+- Easy change of a checkbox status in the editor with an inline widget.
+- _Paste as plain text_ command in native apps.
 
 ## Important fixes
 - Fixes numerous issues while converting HTML into Markdown on paste.
