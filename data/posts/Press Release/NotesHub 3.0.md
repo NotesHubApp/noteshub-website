@@ -135,7 +135,7 @@ Just copy the URL from the browser and place it as an image URL.
 
 ## Markdown support in Kanban cards
 
-By many customer support requests, we have added Markdown support in Kanban cards so that you can add your tasks, links, images, etc.
+By many customer support requests, we have added Markdown support in Kanban cards so that you can add your tasks, links, images, etc. By default you see the rendered Markdown, in order to enter the edit mode simply click anywhere in the details field.
 
 ![Markdown in Kanban cards - Preview](.attachments/nh30-markdown-in-kanban-preview.webp "Markdown in Kanban cards - Preview")
 ![Markdown in Kanban cards - Editor](.attachments/nh30-markdown-in-kanban-edit.webp "Markdown in Kanban cards - Editor")
