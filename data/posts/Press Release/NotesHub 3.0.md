@@ -139,3 +139,29 @@ By many customer support requests, we have added Markdown support in Kanban card
 
 ![Markdown in Kanban cards - Preview](.attachments/nh30-markdown-in-kanban-preview.webp "Markdown in Kanban cards - Preview")
 ![Markdown in Kanban cards - Editor](.attachments/nh30-markdown-in-kanban-edit.webp "Markdown in Kanban cards - Editor")
+
+## Other notable features
+- In-note blocks folding.
+- Multi-cursor mode.
+- Rectangular selection.
+- Autocompletion of close brackets.
+- Highlighting of matching brackets.
+- Highlighting of matching selections.
+- Statements autocompletion in code blocks.
+- Subscript/superscript support.
+- Advance key-mapping in editor.
+- Adding attachments by drag-and-drop files into the editor.
+- Attachments support of any type.
+- `iframe`, `svg` and `center` tags support in Markdown.
+- Easy change the status of the checkbox in the editor with an inline widget.
+- Paste as plain text command in native apps.
+
+## Important fixes
+- Fixes numerous issues while converting HTML into Markdown on paste.
+- Reduces the typing latency on big notes.
+- Disables spell check for code and math blocks.
+- Fixes rendering of nested checklists.
+- Fixes the issue when in some scenarios due date was showing the wrong value after the board reopening (Kanban Boards).
+- Fixes layout shift when the soft keyboard opens (iOS).
+- Adds auto-focus on input when creating new notes/kanban boards (iOS).
+- The dark theme now applies to the soft keyboard and status bar (iOS).
