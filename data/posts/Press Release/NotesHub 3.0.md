@@ -122,16 +122,9 @@ All supported callout types:
 - **danger**
 - **bug**
 
-Here is the simple info callout:
+Various callout examples:
 
-```markdown
-> [!INFO] Custom title
-> Some details here
-```
-
-Will be rendered to:
-
-![Callout](.attachments/nh30-callout.webp "Callout")
+![Callout](.attachments/nh30-callouts.webp "Callouts")
 
 ## Embed YouTube videos and tweets
 
