@@ -6,6 +6,6 @@ export class Routes {
   public static blogPost(post: BlogPostAnnotation, absolute: boolean = false) {
     const postedOn = new Date(post.postedOn);
     const baseUrl = absolute ? `${env.baseUrl}/` : ''
-    return `${baseUrl}blog/archive/${postedOn.getFullYear()}/${postedOn.getMonth()}/${post.urlSlug}`
+    return `${baseUrl}blog/archive/${postedOn.getFullYear()}/${postedOn.getMonth() + 1}/${post.urlSlug}`
   }
 }

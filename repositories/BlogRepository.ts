@@ -52,10 +52,13 @@ export class BlogRepository {
   }
 
   public getPost(year: number, month: number, slug: string): BlogPost {
-    return this.blogPosts.value.find(x =>
-      new Date(x.postedOn).getFullYear() == year &&
-      new Date(x.postedOn).getMonth() == month &&
-      x.urlSlug.toLowerCase() === slug.toLowerCase())!;
+    return this.blogPosts.value.find(x => {
+        const postedOn = new Date(x.postedOn);
+
+        return postedOn.getFullYear() == year &&
+          (postedOn.getMonth() + 1) == month &&
+          x.urlSlug.toLowerCase() === slug.toLowerCase();
+      })!
   }
 
   public getTag(tagSlug: string): BlogTag {
