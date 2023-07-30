@@ -6,6 +6,7 @@ import Hero from '../components/home/Hero'
 import Highlights from '../components/home/Highlights'
 import { Layout } from 'components/Layout'
 import React from 'react'
+import Testimonials from 'components/home/Testimonials'
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
@@ -30,6 +31,7 @@ export default function Home() {
       <Highlights />
       <AllFeatures />
       <FeatureComparison />
+      <Testimonials />
       <Faq />
       <Donation />
     </Layout>
