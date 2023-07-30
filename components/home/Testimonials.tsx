@@ -44,10 +44,7 @@ const useStyles = createUseStyles({
     lineClamp: 10,
     boxOrient: 'vertical',
     overflow: 'hidden',
-
-    '& p': {
-
-    }
+    margin: '10px 0'
   },
   postedOn: {
     fontSize: '90%',
