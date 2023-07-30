@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
   },
   testimonialCard: {
     textAlign: 'initial',
-    boxShadow: '0 4px 6px -1px #5d5dff40, 0 2px 4px -2px #5d5dff40',
+    boxShadow: 'var(--box-shadow)',
     borderRadius: '10px',
     padding: '20px'
   },
