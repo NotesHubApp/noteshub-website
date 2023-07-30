@@ -28,6 +28,7 @@ const useStyles = createUseStyles({
   testimonialCard: {
     textAlign: 'initial',
     boxShadow: 'var(--box-shadow)',
+    background: 'var(--card-background)',
     borderRadius: '10px',
     padding: '20px',
     marginBottom: '20px'

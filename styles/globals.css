@@ -20,6 +20,7 @@
   --alternative-raw-color: #f9fafb;
   --divider-color: #eaeaea;
   --box-shadow: 0 5px 10px rgb(0 0 0 / 12%);
+  --card-background: transparent;
 
   --header-bg: hsla(0, 0%, 100%, .8);
 
@@ -35,6 +36,7 @@
     --alternative-raw-color: #151515;
     --divider-color: #2c2c2c;
     --box-shadow: 0 5px 10px rgb(0 0 0 / 45%);
+    --card-background: #181818;
 
     --header-bg: rgba(0, 0, 0, 0.8);
 
