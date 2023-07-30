@@ -1,6 +1,7 @@
 import { Testimonial } from 'models/Testimonial';
 
 const testimonials: Testimonial[] = [
+  // App Store
   {
     author: {
       name: 'Mmemonic4'
@@ -32,6 +33,63 @@ const testimonials: Testimonial[] = [
     rating: 5,
     date: new Date('Mar 8, 2023'),
     origin: 'AppStore'
+  },
+
+  // Play Store
+  {
+    author: {
+      name: 'fullmetal chocobo'
+    },
+    content: (
+      <p>
+        So easy to take simple notes and organize thoughts, I have used this daily for years now. And it is even more useful now with the addition of kanban boards. I ABSOLUTELY LOVE THIS APP!!
+      </p>
+    ),
+    rating: 5,
+    date: new Date('Apr 23, 2023'),
+    origin: 'PlayStore'
+  },
+
+  {
+    author: {
+      name: 'Roman Kurnovskii'
+    },
+    content: (
+      <p>
+        Excellent app, cross platform, can sync with private repos
+      </p>
+    ),
+    rating: 5,
+    date: new Date('Mar 3, 2023'),
+    origin: 'PlayStore'
+  },
+
+  // Windows Store
+  {
+    author: {
+      name: 'Luuk'
+    },
+    content: (
+      <p>
+        I love the simplicity of this app. All you need is a git repository somewhere (I use GitHub) and you can start writing markdown. No worrying about your data only being available from a single vendor somewhere in the cloud; even if this app would become unavailable, your data is safe. It's not super rich in features, but if you just need markdown support (including images!) and/or simple Kanban it's perfect.
+      </p>
+    ),
+    rating: 5,
+    date: new Date('Jul 27, 2023'),
+    origin: 'WindowsStore'
+  },
+  {
+    author: {
+      name: 'Emeka Michael Dante'
+    },
+    content: (
+      <p>
+        Amazing note taking app, with lots of optionality in how you take notes, highlight important parts and add visual aids to your notes.
+      </p>
+    ),
+    rating: 5,
+    date: new Date('Jun 08, 2023'),
+    origin: 'WindowsStore'
   }
 ];
 

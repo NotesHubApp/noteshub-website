@@ -7,14 +7,29 @@ import testimonials from 'data/testimonials';
 
 const useStyles = createUseStyles({
   testimonialsList: {
-    display: 'flex',
-    gap: '20px'
+    display: 'block',
+    columnCount: 3,
+    gap: '20px',
+
+    /* Force new columns */
+    '&::before,&::after': {
+      content: '""',
+      flexBasis: '100%',
+      width: '0',
+      order: 2
+    }
   },
   testimonialCard: {
     textAlign: 'initial',
     boxShadow: 'var(--box-shadow)',
     borderRadius: '10px',
-    padding: '20px'
+    padding: '20px',
+    columnBreakInside: 'avoid',
+
+    /* Re-order items into rows */
+    '&:nth-child(3n+1)': { order: 1 },
+    '&:nth-child(3n+2)': { order: 2 },
+    '&:nth-child(3n)':   { order: 3 }
   },
   testimonialContent: {
     lineHeight: 1.5
