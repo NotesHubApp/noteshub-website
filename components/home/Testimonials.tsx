@@ -10,30 +10,47 @@ const useStyles = createUseStyles({
     display: 'block',
     columnCount: 3,
     gap: '20px',
+    listStyle: 'none',
+    padding: 0,
 
-    /* Force new columns */
-    '&::before,&::after': {
-      content: '""',
-      flexBasis: '100%',
-      width: '0',
-      order: 2
-    }
+    '@media (max-width: 750px)': {
+      columnCount: 2
+    },
+    '@media (max-width: 500px)': {
+      columnCount: 1
+    },
+  },
+  testimonialCardWrapper: {
+    columnBreakInside: 'avoid',
+    // This is to fix box-shadow in multi-column combination in Safari
+    padding: '5px'
   },
   testimonialCard: {
     textAlign: 'initial',
     boxShadow: 'var(--box-shadow)',
     borderRadius: '10px',
     padding: '20px',
-    marginBottom: '20px',
-    columnBreakInside: 'avoid',
-
-    /* Re-order items into rows */
-    '&:nth-child(3n+1)': { order: 1 },
-    '&:nth-child(3n+2)': { order: 2 },
-    '&:nth-child(3n)':   { order: 3 }
+    marginBottom: '20px'
+  },
+  authorName: {
+    marginTop: 0
   },
   testimonialContent: {
-    lineHeight: 1.5
+    lineHeight: 1.5,
+
+    // Make ellipsis on long content
+    display: 'box',
+    lineClamp: 10,
+    boxOrient: 'vertical',
+    overflow: 'hidden',
+
+    '& p': {
+
+    }
+  },
+  postedOn: {
+    fontSize: '90%',
+    color: 'gray'
   }
 })
 
@@ -47,13 +64,13 @@ export default function Testimonials({ data = testimonials }: TestimonialsProps)
   return (
     <Section id="testimonials">
       <SectionTitle>Wall of Love</SectionTitle>
-      <div className={ classes.testimonialsList }>
+      <ul className={ classes.testimonialsList }>
         { data.map(testimonial => (
           <TestimonialCard
             key={ `${testimonial.origin}-${testimonial.author.name}` }
             testimonial={testimonial} />)
         )}
-      </div>
+      </ul>
     </Section>
   )
 }
@@ -62,16 +79,18 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const classes = useStyles();
 
   return (
-    <article className={ classes.testimonialCard }>
-      <header>
-        <h3>{ testimonial.author.name }</h3>
-        { testimonial.rating && <Rating value={ testimonial.rating } /> }
-      </header>
-      <div className={ classes.testimonialContent }>{ testimonial.content }</div>
-      <footer>
-        { testimonial.date.toLocaleDateString(undefined, { dateStyle: 'medium' }) }
-      </footer>
-    </article>
+    <li className={ classes.testimonialCardWrapper }>
+      <article className={ classes.testimonialCard }>
+        <header>
+          <h3 className={ classes.authorName }>{ testimonial.author.name }</h3>
+          { testimonial.rating && <Rating value={ testimonial.rating } /> }
+        </header>
+        <div className={ classes.testimonialContent }>{ testimonial.content }</div>
+        <footer className={ classes.postedOn }>
+          { testimonial.date.toLocaleDateString(undefined, { dateStyle: 'medium' }) }
+        </footer>
+      </article>
+    </li>
   )
 }
 
