@@ -4,6 +4,19 @@ const testimonials: Testimonial[] = [
   // App Store
   {
     author: {
+      name: 'FOF_Gaming'
+    },
+    content: (
+      <p>
+        Make it easy to sync notes with github
+      </p>
+    ),
+    rating: 5,
+    date: new Date('Jun 21, 2023'),
+    origin: 'AppStore'
+  },
+  {
+    author: {
       name: 'Mmemonic4'
     },
     content: (
@@ -13,6 +26,34 @@ const testimonials: Testimonial[] = [
     ),
     rating: 5,
     date: new Date('Jun 19, 2023'),
+    origin: 'AppStore'
+  },
+
+  {
+    author: {
+      name: 'SammyDuck'
+    },
+    content: (
+      <>
+        <p>
+          If you like the sharing and security advantages of storing your notes in GitHub repositories, you likely will feel at home in this versatile notetaker/organizer/keeper. From there you can use your notes to feed a public website or blog. For those who prefer iCloud Drive, that option is available as well.
+        </p>
+        <p>
+          You’ll find yourself quickly and easily setting up a hierarchical folder structure and navigating it by simply tapping oval icons in a horizontal row at the top of your screen. Couldn’t be more intuitive. In that structure you can store almost anything: text, images and photos, names, addresses, phone numbers, geolocations, dates and times, etc. You could even set up a zettelkasten, a knowledge management database in hierarchical form—for business record keeping, research, study, or just personal reference.
+        </p>
+        <p>
+          The markdown editor is fully featured and included is a primer that you can refer to as you write. Tables, code blocks, html tags, even footnotes are all supported.
+        </p>
+        <p>
+          What attracted me initially was the kanban board feature. I experimented by setting up an archplot structure “template” for novel plotting using the “Save the Cat” method. I simply brainstorm and add event summaries or setting descriptions or dialogue or whatever in vertical columns below each horizontal plot element. Don’t know how much that will help me yet, but so far I’m pleased with the results.
+        </p>
+        <p>
+          Lots of potential with this NotesHub app, and the one-time purchase price can’t be beat.
+        </p>
+      </>
+    ),
+    rating: 5,
+    date: new Date('Apr 25, 2023'),
     origin: 'AppStore'
   },
 
@@ -32,6 +73,20 @@ const testimonials: Testimonial[] = [
     ),
     rating: 5,
     date: new Date('Mar 8, 2023'),
+    origin: 'AppStore'
+  },
+
+  {
+    author: {
+      name: 'Med Kay',
+    },
+    content: (
+      <p>
+        This app is great for even text-heavy writing. And it keeps getting better!
+      </p>
+    ),
+    rating: 5,
+    date: new Date('Mar 3, 2023'),
     origin: 'AppStore'
   },
 

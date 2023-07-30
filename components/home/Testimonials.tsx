@@ -24,6 +24,7 @@ const useStyles = createUseStyles({
     boxShadow: 'var(--box-shadow)',
     borderRadius: '10px',
     padding: '20px',
+    marginBottom: '20px',
     columnBreakInside: 'avoid',
 
     /* Re-order items into rows */
