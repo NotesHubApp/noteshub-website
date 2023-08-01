@@ -34,11 +34,14 @@ const useStyles = createUseStyles({
     }
   },
   testimonialCard: {
+    display: 'flex',
+    flexDirection: 'column',
     textAlign: 'initial',
     boxShadow: 'var(--box-shadow)',
     background: 'var(--card-background)',
     borderRadius: '10px',
     padding: '20px',
+    overflowY: 'auto'
   },
   authorName: {
     marginTop: 0
@@ -60,6 +63,8 @@ const useStyles = createUseStyles({
     color: 'gray'
   },
   fullScreenCard: {
+    display: 'flex',
+    flexDirection: 'column',
     maxWidth: 'var(--max-content-width)',
     border: 'none',
     outline: 'none',
