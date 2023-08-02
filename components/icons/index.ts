@@ -1,5 +1,6 @@
 export { AndroidIcon } from './Android'
 export { AppleIcon } from './Apple'
+export { AppStoreIcon } from './AppStore'
 export { EmailIcon } from './Email'
 export { FacebookIcon } from './Facebook'
 export { GooglePlayIcon } from './GooglePlay'
