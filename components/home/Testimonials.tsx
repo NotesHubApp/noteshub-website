@@ -1,9 +1,11 @@
+import { AppStoreIcon, GooglePlayIcon, WindowsIcon } from 'components/icons';
+import { Testimonial, TestimonialOrigin } from 'models/Testimonial';
 import { useRef, useState } from 'react';
 
 import { Rating } from 'components/common/Rating';
 import { Section } from './Section';
 import { SectionTitle } from './SectionTitle';
-import { Testimonial } from 'models/Testimonial';
+import { Spacer } from 'components/common/Spacer';
 import clsx from 'clsx';
 import { createUseStyles } from 'react-jss';
 import testimonials from 'data/testimonials';
@@ -44,7 +46,17 @@ const useStyles = createUseStyles({
     overflowY: 'auto'
   },
   authorName: {
-    marginTop: 0
+    margin: 0
+  },
+  headerLine: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+
+    '& svg': {
+      width: '1.5em',
+      height: '1.5em'
+    }
   },
   testimonialContent: {
     lineHeight: 1.5,
@@ -98,10 +110,12 @@ export default function Testimonials({ data = testimonials }: TestimonialsProps)
       <SectionTitle>Wall of Love</SectionTitle>
       <ul className={ classes.testimonialsList }>
         { data.map(testimonial => (
-          <li className={ classes.testimonialCardWrapper } onClick={ () => onCardClick(testimonial) }>
-            <TestimonialCard
-              key={ `${testimonial.origin}-${testimonial.author.name}` }
-              testimonial={testimonial} />
+          <li
+            key={ `${testimonial.origin}-${testimonial.author.name}` }
+            className={ classes.testimonialCardWrapper }
+            onClick={ () => onCardClick(testimonial) }
+          >
+            <TestimonialCard testimonial={testimonial} />
           </li>
 
         ))}
@@ -131,7 +145,12 @@ function TestimonialCard({ testimonial, fullScreen }: TestimonialCardProps) {
   return (
     <article className={ classes.testimonialCard }>
       <header>
-        <h3 className={ classes.authorName }>{ testimonial.author.name }</h3>
+        <div className={ classes.headerLine }>
+          <h3 className={ classes.authorName }>{ testimonial.author.name }</h3>
+          <Spacer />
+          <TestimonialSource origin={ testimonial.origin } sourceUrl={ testimonial.sourceUrl } />
+        </div>
+
         { testimonial.rating && <Rating value={ testimonial.rating } /> }
       </header>
       <div className={ clsx(classes.testimonialContent, !fullScreen && classes.truncatedContent) }>{ testimonial.content }</div>
@@ -142,3 +161,24 @@ function TestimonialCard({ testimonial, fullScreen }: TestimonialCardProps) {
   )
 }
 
+type TestimonialSourceProps = {
+  origin: TestimonialOrigin
+  sourceUrl?: string
+}
+
+function TestimonialSource(props: TestimonialSourceProps) {
+  switch (props.origin) {
+    case 'AppStore':
+      return <a><AppStoreIcon /></a>
+
+    case 'PlayStore':
+      return <a><GooglePlayIcon /></a>
+
+    case 'WindowsStore':
+      return <a><WindowsIcon /></a>
+  }
+
+  return (
+    <div></div>
+  );
+}
