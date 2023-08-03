@@ -1,6 +1,10 @@
-import { AppStoreIcon, GooglePlayIcon, WindowsIcon } from 'components/icons';
+import {
+  AppStoreIcon,
+  GooglePlayIcon,
+  WindowsStoreIcon
+} from 'components/icons';
+import { MouseEvent, PropsWithChildren, useRef, useState } from 'react';
 import { Testimonial, TestimonialOrigin } from 'models/Testimonial';
-import { useRef, useState } from 'react';
 
 import { Rating } from 'components/common/Rating';
 import { Section } from './Section';
@@ -52,10 +56,16 @@ const useStyles = createUseStyles({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-
+  },
+  testimonialSourceIcon: {
     '& svg': {
-      width: '1.5em',
-      height: '1.5em'
+      width: '1.7em',
+      height: '1.7em',
+      opacity: 0.3,
+
+      '&:hover': {
+        opacity: 1
+      }
     }
   },
   testimonialContent: {
@@ -169,16 +179,45 @@ type TestimonialSourceProps = {
 function TestimonialSource(props: TestimonialSourceProps) {
   switch (props.origin) {
     case 'AppStore':
-      return <a><AppStoreIcon /></a>
+      return (
+        <IconWithLink url={ process.env.NEXT_PUBLIC_APPSTORE_APPURL }>
+          <AppStoreIcon />
+        </IconWithLink>
+      )
 
     case 'PlayStore':
-      return <a><GooglePlayIcon /></a>
+      return (
+        <IconWithLink url={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL }>
+          <GooglePlayIcon />
+        </IconWithLink>
+      )
 
     case 'WindowsStore':
-      return <a><WindowsIcon /></a>
+      return (
+        <IconWithLink url={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL }>
+          <WindowsStoreIcon />
+        </IconWithLink>
+      )
+  }
+
+  return null;
+}
+
+function IconWithLink(props: PropsWithChildren<{ url?: string}>) {
+  const classes = useStyles();
+
+  const onLinkClick = (e: MouseEvent) => {
+    e.stopPropagation();
   }
 
   return (
-    <div></div>
-  );
+    <a
+      className={ classes.testimonialSourceIcon }
+      href={ props.url }
+      onClick={ onLinkClick }
+      target='_blank' rel='noopener noreferrer'
+    >
+      { props.children }
+    </a>
+  )
 }
