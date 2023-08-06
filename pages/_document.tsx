@@ -32,7 +32,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en" data-color-scheme="light">
         <Head>
-          <link rel="shortcut icon" href="/images/app/favicon.ico" sizes="any"></link>
+          <link rel="shortcut icon" href="/images/app/favicon.ico"></link>
+          <link rel="icon" type="image/png" sizes="512x512" href="/images/app/icon-512.png"></link>
           <meta property="artykul:site_name" content="NotesHub"></meta>
           <meta property="artykul:site_description" content="The latest news about NotesHub app"></meta>
           <meta property="artykul:site_icon" content="/images/app/artykul-icon.png"></meta>
