@@ -33,6 +33,8 @@ export default class MyDocument extends Document {
       <Html lang="en" data-color-scheme="light">
         <Head>
           <link rel="shortcut icon" href="/images/app/favicon.ico" sizes="any"></link>
+          <meta property="artykul:site_name" content="NotesHub"></meta>
+          <meta property="artykul:site_description" content="The latest news about NotesHub app"></meta>
           <meta property="artykul:site_icon" content="/images/app/artykul-icon.png"></meta>
 
           {/* Global site tag (gtag.js) - Google Analytics */}
