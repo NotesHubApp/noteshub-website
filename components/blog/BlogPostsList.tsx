@@ -31,10 +31,35 @@ const useStyles = createUseStyles({
     margin: 0,
     padding: 0
   },
+  postCardContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    backgroundColor: 'var(--card-background)',
+    boxShadow: 'var(--box-shadow)',
+    borderRadius: '10px',
+    overflow: 'hidden',
+
+    '@media (max-width: 550px)': {
+      flexDirection: 'column'
+    }
+  },
+  postHero: {
+    width: '40%',
+    minHeight: '220px',
+    objectFit: 'cover',
+
+    '@media (max-width: 550px)': {
+      width: '100%'
+    }
+  },
+  postContent: {
+    padding: '15px'
+  },
   postTitle: {
     color: 'var(--theme-color)',
     fontWeight: 'bold',
-    fontSize: '2.2em',
+    fontSize: '2em',
+    marginTop: 0,
     marginBottom: '10px',
 
     '& a:hover': {
@@ -42,7 +67,8 @@ const useStyles = createUseStyles({
     }
   },
   postDescription: {
-    fontSize: '1.2em'
+    fontSize: '1.2em',
+    lineHeight: 1.5
   }
 })
 
@@ -66,29 +92,36 @@ export default function BlogPostsList(props: BlogPostsListProps) {
         </h1>
 
         <ul className={ classes.postsList }>
-          { props.posts.map(post => <li key={ post.urlSlug }><PostDescription post={ post } /></li>) }
+          { props.posts.map(post => <li key={ post.urlSlug }><PostCard post={ post } /></li>) }
         </ul>
       </section>
     </div>
   )
 }
 
-function PostDescription(props: { post: BlogPostAnnotation }) {
+function PostCard(props: { post: BlogPostAnnotation }) {
   const classes = useStyles();
 
   return (
-    <article>
-      <h1 className={ classes.postTitle }>
-        <Link
-          title={ props.post.title }
-          href="/blog/archive/[year]/[month]/[slug]"
-          as={Routes.blogPost(props.post)}>
-          { props.post.title }
-        </Link>
-      </h1>
+    <div className={ classes.postCardContainer }>
+      { props.post.image && (
+        <img className={ classes.postHero } src={ props.post.image } />
+      )}
 
-      <BlogPostInfo post={props.post} />
-      <p className={ classes.postDescription }>{ props.post.description }</p>
-    </article>
+      <article className={ classes.postContent }>
+        <h1 className={ classes.postTitle }>
+          <Link
+            title={ props.post.title }
+            href="/blog/archive/[year]/[month]/[slug]"
+            as={Routes.blogPost(props.post)}>
+            { props.post.title }
+          </Link>
+        </h1>
+
+        <BlogPostInfo post={props.post} />
+        <p className={ classes.postDescription }>{ props.post.description }</p>
+      </article>
+    </div>
+
   );
 }
