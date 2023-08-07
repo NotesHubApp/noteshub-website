@@ -32,7 +32,7 @@ const useStyles = createUseStyles({
     padding: 0
   },
   postListItem: {
-    marginBottom: '15px'
+    marginBottom: '20px'
   },
   postCardContainer: {
     display: 'flex',
@@ -44,16 +44,30 @@ const useStyles = createUseStyles({
 
     '@media (max-width: 550px)': {
       flexDirection: 'column'
+    },
+
+    '&:hover': {
+      '--scale': 1.03
+    }
+  },
+  postHeroContainer: {
+    overflow: 'hidden',
+    width: '40%',
+    minWidth: '40%',
+
+    '@media (max-width: 550px)': {
+      width: '100%',
+      minWidth: '100%',
+      aspectRatio: '16/9'
     }
   },
   postHero: {
-    width: '40%',
+    width: '100%',
+    height: '100%',
     minHeight: '220px',
     objectFit: 'cover',
-
-    '@media (max-width: 550px)': {
-      width: '100%'
-    }
+    transform: 'scale(var(--scale))',
+    transition: 'transform 400ms cubic-bezier(0.4, 0, 0.25, 1) 0ms, opacity 1s cubic-bezier(0.4, 0, 0.25, 1) 0ms'
   },
   postContent: {
     padding: '15px'
@@ -117,7 +131,9 @@ function PostCard(props: { post: BlogPostAnnotation }) {
     >
       <div className={ classes.postCardContainer }>
         { props.post.image && (
-          <img className={ classes.postHero } src={ props.post.image } />
+          <div className={ classes.postHeroContainer }>
+            <img className={ classes.postHero } src={ props.post.image } />
+          </div>
         )}
 
         <article className={ classes.postContent }>
