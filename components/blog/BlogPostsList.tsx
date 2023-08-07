@@ -31,6 +31,9 @@ const useStyles = createUseStyles({
     margin: 0,
     padding: 0
   },
+  postListItem: {
+    marginBottom: '15px'
+  },
   postCardContainer: {
     display: 'flex',
     flexDirection: 'row',
@@ -92,7 +95,11 @@ export default function BlogPostsList(props: BlogPostsListProps) {
         </h1>
 
         <ul className={ classes.postsList }>
-          { props.posts.map(post => <li key={ post.urlSlug }><PostCard post={ post } /></li>) }
+          { props.posts.map(post => (
+            <li key={ post.urlSlug } className={ classes.postListItem }>
+              <PostCard post={ post } />
+            </li>
+          ))}
         </ul>
       </section>
     </div>
@@ -103,25 +110,25 @@ function PostCard(props: { post: BlogPostAnnotation }) {
   const classes = useStyles();
 
   return (
-    <div className={ classes.postCardContainer }>
-      { props.post.image && (
-        <img className={ classes.postHero } src={ props.post.image } />
-      )}
+    <Link
+      title={ props.post.title }
+      href="/blog/archive/[year]/[month]/[slug]"
+      as={Routes.blogPost(props.post)}
+    >
+      <div className={ classes.postCardContainer }>
+        { props.post.image && (
+          <img className={ classes.postHero } src={ props.post.image } />
+        )}
 
-      <article className={ classes.postContent }>
-        <h1 className={ classes.postTitle }>
-          <Link
-            title={ props.post.title }
-            href="/blog/archive/[year]/[month]/[slug]"
-            as={Routes.blogPost(props.post)}>
+        <article className={ classes.postContent }>
+          <h1 className={ classes.postTitle }>
             { props.post.title }
-          </Link>
-        </h1>
+          </h1>
 
-        <BlogPostInfo post={props.post} />
-        <p className={ classes.postDescription }>{ props.post.description }</p>
-      </article>
-    </div>
-
+          <BlogPostInfo post={props.post} />
+          <p className={ classes.postDescription }>{ props.post.description }</p>
+        </article>
+      </div>
+    </Link>
   );
 }
