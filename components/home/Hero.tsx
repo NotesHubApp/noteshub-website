@@ -1,12 +1,12 @@
 import {
   AndroidIcon,
   AppleIcon,
-  ArrowCircleRightIcon,
   WebIcon,
   WindowsIcon
 } from 'components/icons';
 
 import { Announcement } from 'models/Announcement';
+import { AnnouncementBadge } from './AnnouncementBadge';
 import { ExternalLink } from '../common/ExternalLink';
 import { createUseStyles } from 'react-jss';
 
@@ -84,41 +84,6 @@ const useStyles = createUseStyles({
     '&:hover svg': {
       fill: '#A3AAAE'
     }
-  },
-  announcementContainer: {
-    display: 'flex',
-    alignSelf: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '7px',
-    padding: '5px 7px',
-    borderRadius: '9999px',
-    borderColor: 'var(--divider-color)',
-    borderStyle: 'solid',
-    color: 'gray',
-    margin: '20px',
-
-    '& svg': {
-      width: '14px',
-      height: '14px'
-    },
-
-    '&:hover': {
-      borderColor: 'gray'
-    }
-  },
-  announcementIndicator: {
-    borderRadius: '100%',
-    backgroundColor: 'var(--theme-color)',
-    width: '8px',
-    height: '8px'
-  },
-  announcementText: {
-    fontSize: '80%',
-    maxWidth: '250px',
-    overflowX: 'hidden',
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis'
   }
 });
 
@@ -173,15 +138,7 @@ export default function Hero({ announcement }: HeroProps) {
         </ExternalLink>
       </div>
 
-      {
-        announcement && (
-          <a className={ classes.announcementContainer } href={ announcement.url }>
-            <div className={ classes.announcementIndicator } />
-            <span className={ classes.announcementText }>{ announcement.title }</span>
-            <ArrowCircleRightIcon />
-          </a>
-        )
-      }
+      <AnnouncementBadge announcement={ announcement } />
     </div>
   )
 }

@@ -23,12 +23,19 @@ const useStyles = createUseStyles({
 export async function getStaticProps() {
   const latestPost = blogRepository.getLatestPublishedPost();
 
-  const announcement: Announcement | undefined = latestPost ? {
+  const postAnnouncement: Announcement | undefined = latestPost ? {
+    type: 'post',
     title: latestPost.title,
     url: Routes.blogPost(latestPost)
   } : undefined
 
-  return { props: { announcement } }
+  const productHuntAnnouncement: Announcement = {
+    type: 'productHunt',
+    postId: '378905',
+    postSlug: 'noteshub-2-x'
+  }
+
+  return { props: { announcement: postAnnouncement } }
 }
 
 type HomeProps = {
