@@ -2,7 +2,8 @@ import { useColorScheme } from 'hooks/useColorScheme'
 
 type ProductHuntAnnouncementBadgeProps = {
   postId: string
-  postSlug: string
+  postSlug: string,
+  className?: string
 }
 
 export function ProductHuntAnnouncementBadge(props: ProductHuntAnnouncementBadgeProps) {
@@ -11,7 +12,11 @@ export function ProductHuntAnnouncementBadge(props: ProductHuntAnnouncementBadge
   const imgSrc = `https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=${props.postId}&theme=${theme}`;
 
   return (
-    <a href={ `https://www.producthunt.com/posts/${props.postSlug}` } target="_blank">
+    <a
+      href={ `https://www.producthunt.com/posts/${props.postSlug}` }
+      target="_blank"
+      className={ props.className }
+    >
       <img
         src={ imgSrc }
         alt="Product Hunt announcement badge"

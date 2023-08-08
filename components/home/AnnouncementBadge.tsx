@@ -5,6 +5,11 @@ import { ProductHuntAnnouncementBadge } from 'components/common/ProductHuntAnnou
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
+  container: {
+    display: 'flex',
+    alignSelf: 'center',
+    margin: '20px'
+  },
   announcementContainer: {
     display: 'flex',
     alignSelf: 'center',
@@ -66,6 +71,7 @@ export function AnnouncementBadge({ announcement }: AnnouncementBadgeProps) {
           <ProductHuntAnnouncementBadge
             postId={ announcement.postId }
             postSlug={ announcement.postSlug }
+            className={ classes.container }
           />
         )
     }
