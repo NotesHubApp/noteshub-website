@@ -29,7 +29,11 @@ const useStyles = createUseStyles({
     margin: '0',
     lineHeight: '1.15',
     fontSize: '4rem',
-    textAlign: 'center'
+    textAlign: 'center',
+
+    '@media (max-width: 500px)': {
+      fontSize: '3.5rem'
+    }
   },
   titleAppName: {
     color: 'var(--theme-color)'
