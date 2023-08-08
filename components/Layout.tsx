@@ -5,7 +5,7 @@ import {
   LinkedInIcon,
   RedditIcon,
   RssIcon,
-  TwitterIcon
+  XIcon
 } from './icons'
 import { PropsWithChildren, useEffect } from 'react'
 
@@ -212,8 +212,8 @@ function Footer() {
           <FacebookIcon />
         </SocialLink>
 
-        <SocialLink title="Twitter page" href={ process.env.NEXT_PUBLIC_TWITTER_LINK } color="var(--twitter-color)">
-          <TwitterIcon />
+        <SocialLink title="Twitter page" href={ process.env.NEXT_PUBLIC_TWITTER_LINK } color="currentColor">
+          <XIcon />
         </SocialLink>
 
         <SocialLink title="Instagram page" href={ process.env.NEXT_PUBLIC_INSTAGRAM_LINK } color="var(--instagram-color)">

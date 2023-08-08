@@ -4,7 +4,7 @@ import {
   LinkedInIcon,
   RedditIcon,
   ShareIcon,
-  TwitterIcon
+  XIcon
 } from 'components/icons';
 
 import { PropsWithChildren } from 'react';
@@ -41,11 +41,6 @@ const useStyles = createUseStyles({
   facebook: {
     '& :hover': {
       color: 'var(--facebook-color)'
-    }
-  },
-  twitter: {
-    '& :hover': {
-      color: 'var(--twitter-color)'
     }
   },
   linkedin: {
@@ -95,7 +90,7 @@ export function Sharesheet(props: SharesheetProps) {
         </ShareButton>
       </li>
 
-      <li className={ classes.twitter }>
+      <li>
         <ShareButton
           url="https://twitter.com/share"
           urlParams={{
@@ -105,7 +100,7 @@ export function Sharesheet(props: SharesheetProps) {
             hashtags: props.tags ? props.tags.join(',') : undefined
           }}
         >
-          <TwitterIcon />
+          <XIcon />
         </ShareButton>
       </li>
 

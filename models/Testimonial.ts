@@ -2,7 +2,7 @@ export type TestimonialOrigin =
   | 'AppStore'
   | 'PlayStore'
   | 'WindowsStore'
-  | 'Twitter'
+  | 'X'
   | 'LinkedIn'
 
 export type TestimonialAuthor = {
