@@ -1,4 +1,5 @@
 import AllFeatures from '../components/home/AllFeatures'
+import { Announcement } from 'models/Announcement'
 import Donation from '../components/home/Donation'
 import Faq from '../components/home/FAQ'
 import FeatureComparison from '../components/home/FeatureComparison'
@@ -6,7 +7,9 @@ import Hero from '../components/home/Hero'
 import Highlights from '../components/home/Highlights'
 import { Layout } from 'components/Layout'
 import React from 'react'
+import { Routes } from 'utils/Routes'
 import Testimonials from 'components/home/Testimonials'
+import { blogRepository } from 'data/blogConfig'
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
@@ -17,7 +20,22 @@ const useStyles = createUseStyles({
   }
 });
 
-export default function Home() {
+export async function getStaticProps() {
+  const latestPost = blogRepository.getLatestPublishedPost();
+
+  const announcement: Announcement | undefined = latestPost ? {
+    title: latestPost.title,
+    url: Routes.blogPost(latestPost)
+  } : undefined
+
+  return { props: { announcement } }
+}
+
+type HomeProps = {
+  announcement?: Announcement
+}
+
+export default function Home(props: HomeProps) {
   const classes = useStyles();
 
   return (
@@ -27,7 +45,7 @@ export default function Home() {
       imageUrl={ `${process.env.NEXT_PUBLIC_LANDING_PAGE_URL}/images/promo-banner.webp` }
       className={ classes.home }
     >
-      <Hero />
+      <Hero announcement={ props.announcement } />
       <Highlights />
       <AllFeatures />
       <FeatureComparison />

@@ -1,5 +1,11 @@
-import { AndroidIcon, AppleIcon, WindowsIcon } from 'components/icons';
+import {
+  AndroidIcon,
+  AppleIcon,
+  ArrowCircleRightIcon,
+  WindowsIcon
+} from 'components/icons';
 
+import { Announcement } from 'models/Announcement';
 import { ExternalLink } from '../common/ExternalLink';
 import { createUseStyles } from 'react-jss';
 
@@ -79,10 +85,45 @@ const useStyles = createUseStyles({
     '&:hover svg': {
       fill: '#A3AAAE'
     }
+  },
+  notificationContainer: {
+    display: 'flex',
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '7px',
+    padding: '5px 7px',
+    borderRadius: '9999px',
+    borderColor: 'var(--divider-color)',
+    borderStyle: 'solid',
+    color: 'gray',
+    margin: '20px',
+
+    '& svg': {
+      width: '14px',
+      height: '14px'
+    }
+  },
+  notificationIndicator: {
+    borderRadius: '100%',
+    backgroundColor: 'var(--theme-color)',
+    width: '8px',
+    height: '8px'
+  },
+  notificationText: {
+    fontSize: '80%',
+    maxWidth: '250px',
+    overflowX: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis'
   }
 });
 
-export default function Hero() {
+type HeroProps = {
+  announcement?: Announcement
+}
+
+export default function Hero({ announcement }: HeroProps) {
   const classes = useStyles();
 
   return (
@@ -128,6 +169,16 @@ export default function Hero() {
           <WindowsIcon />
         </ExternalLink>
       </div>
+
+      {
+        announcement && (
+          <a className={ classes.notificationContainer } href={ announcement.url }>
+            <div className={ classes.notificationIndicator } />
+            <span className={ classes.notificationText }>{ announcement.title }</span>
+            <ArrowCircleRightIcon />
+          </a>
+        )
+      }
     </div>
   )
 }

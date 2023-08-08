@@ -43,6 +43,11 @@ export class BlogRepository {
       .filter(x => x.published);
   }
 
+  public getLatestPublishedPost(): BlogPostAnnotation | undefined {
+    const allPosts = this.getAllPublishedPosts();
+    return allPosts.length > 0 ? allPosts[0] : undefined;
+  }
+
   public getAllCategories(): BlogCategory[] {
     return this.blogCategories.value;
   }
