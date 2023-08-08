@@ -86,7 +86,7 @@ const useStyles = createUseStyles({
       fill: '#A3AAAE'
     }
   },
-  notificationContainer: {
+  announcementContainer: {
     display: 'flex',
     alignSelf: 'center',
     alignItems: 'center',
@@ -102,15 +102,19 @@ const useStyles = createUseStyles({
     '& svg': {
       width: '14px',
       height: '14px'
+    },
+
+    '&:hover': {
+      borderColor: 'gray'
     }
   },
-  notificationIndicator: {
+  announcementIndicator: {
     borderRadius: '100%',
     backgroundColor: 'var(--theme-color)',
     width: '8px',
     height: '8px'
   },
-  notificationText: {
+  announcementText: {
     fontSize: '80%',
     maxWidth: '250px',
     overflowX: 'hidden',
@@ -172,9 +176,9 @@ export default function Hero({ announcement }: HeroProps) {
 
       {
         announcement && (
-          <a className={ classes.notificationContainer } href={ announcement.url }>
-            <div className={ classes.notificationIndicator } />
-            <span className={ classes.notificationText }>{ announcement.title }</span>
+          <a className={ classes.announcementContainer } href={ announcement.url }>
+            <div className={ classes.announcementIndicator } />
+            <span className={ classes.announcementText }>{ announcement.title }</span>
             <ArrowCircleRightIcon />
           </a>
         )
