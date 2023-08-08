@@ -2,6 +2,7 @@ import {
   AndroidIcon,
   AppleIcon,
   ArrowCircleRightIcon,
+  WebIcon,
   WindowsIcon
 } from 'components/icons';
 
@@ -52,14 +53,8 @@ const useStyles = createUseStyles({
     }
   },
   webAppLink: {
-    border: 'solid 1px gray',
-    padding: '10px 20px !important',
-    borderRadius: '100px 100px 100px 100px',
-
-    '&:hover': {
-      color: 'white',
-      borderColor: 'var(--theme-color)',
-      background: 'var(--theme-color)'
+    '&:hover svg': {
+      fill: 'var(--theme-color)',
     }
   },
   androidAppLink: {
@@ -146,7 +141,7 @@ export default function Hero({ announcement }: HeroProps) {
           title="Web App"
           href={process.env.NEXT_PUBLIC_APPURL}
         >
-          <span>Web App</span>
+          <WebIcon />
         </ExternalLink>
 
         <ExternalLink
