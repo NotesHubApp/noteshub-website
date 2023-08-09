@@ -50,10 +50,10 @@ export default function About() {
               In the last day before going to vacation in Cancun, I made the final commit to finalize MVP version of the project and ended the 6-month journey from the idea to first stable release. Project was finally available to public.
             </p>
             <p>
-              I hope you will enjoy using <strong>NotesHub</strong> as much as I enjoyed creating it.
+            I hope you will enjoy using <strong>NotesHub</strong> as much as I'm enjoying creating it.
             </p>
             <address className={ classes.author }>
-              - Alex Titarenko
+              — <a rel="author noopener noreferrer" href="https://twitter.com/al_titarenko" target="_blank">Alex Titarenko</a>
             </address>
           </article>
         </section>
