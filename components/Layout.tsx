@@ -160,8 +160,8 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
             <li data-menu-item-id="blog">
               <Link href="/blog">Blog</Link>
             </li>
-            <li>
-              <a>About</a>
+            <li data-menu-item-id="about">
+              <Link href="/about">About</Link>
             </li>
           </ul>
         </nav>
