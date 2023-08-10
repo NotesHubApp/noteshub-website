@@ -20,6 +20,7 @@ const useStyles = createUseStyles({
     borderRadius: '9999px',
     borderColor: 'var(--divider-color)',
     borderStyle: 'solid',
+    borderWidth: '1px',
     color: 'gray',
     margin: '20px',
 

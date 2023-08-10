@@ -3,7 +3,13 @@ import {
   GooglePlayIcon,
   WindowsStoreIcon
 } from 'components/icons';
-import { MouseEvent, PropsWithChildren, useRef, useState } from 'react';
+import {
+  MouseEvent,
+  PropsWithChildren,
+  useEffect,
+  useRef,
+  useState
+} from 'react';
 import { Testimonial, TestimonialOrigin } from 'models/Testimonial';
 
 import { Rating } from 'components/common/Rating';
@@ -108,12 +114,25 @@ export default function Testimonials({ data = testimonials }: TestimonialsProps)
   const onCardClick = (testimonial: Testimonial) => {
     setFullScreenCard(testimonial);
     fullCardDialorRef.current?.showModal();
+    document.documentElement.style.overflowY = 'hidden';
   }
 
   const onFullScreenCardClick = () => {
     fullCardDialorRef.current?.close();
-    setFullScreenCard(undefined);
   }
+
+  useEffect(() => {
+    const onDialogClose = () => {
+      document.documentElement.style.overflowY = 'auto';
+      setFullScreenCard(undefined);
+    }
+
+    fullCardDialorRef.current?.addEventListener('close', onDialogClose);
+
+    return () => {
+      fullCardDialorRef.current?.removeEventListener('close', onDialogClose);
+    }
+  }, []);
 
   return (
     <Section id="testimonials">
