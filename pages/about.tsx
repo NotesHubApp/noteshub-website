@@ -18,7 +18,15 @@ const useStyles = createUseStyles({
   },
   author: {
     textAlign: 'right',
-    fontStyle: 'italic'
+    fontStyle: 'italic',
+
+    '& a': {
+      textDecoration: 'underline',
+
+      '&:hover': {
+        textDecoration: 'none'
+      }
+    }
   }
 })
 
@@ -38,10 +46,10 @@ export default function About() {
 
           <article className={ classes.article }>
             <p>
-            I started thinking about ideas behind the <strong>NotesHub</strong> project in the late Fall of 2020.
+              I started thinking about ideas behind the <strong>NotesHub</strong> project in the late Fall of 2020.
               At that time I switched multiple note-taking apps.
               I wanted the app with the robust support of Markdown because it allows me easily migrate my data if needed and strictly control formatting.
-              From another hand, I wanted to avoid paying the monthly subscription fee but have good cross-device sync support and ideally fully control my data without being strictly tight to a single particular vendor.
+              From another hand, I wanted to avoid paying the monthly subscription fee but have seamless cross-device sync support and ideally fully control my data without being strictly tight to a single particular vendor.
               I have not found any application that would satisfy all my requirements.
               The solution was obvious, create my own.
             </p>
@@ -50,10 +58,14 @@ export default function About() {
               The project was finally available to the public.
             </p>
             <p>
-            I hope you will enjoy using <strong>NotesHub</strong> as much as I'm enjoying developing it.
+              Even though many things changed since then, the main principles remain intact. Simplicity without sacrificing functionality, rich Markdown editing, support of multiple sources for your notes (hence the name <strong>NotesHub</strong>), cross-platform support, and a one-time purchase plan.
+            </p>
+            <p>
+              I hope you will enjoy using <strong>NotesHub</strong> as much as I'm enjoying developing it.
+              Let the story continue.
             </p>
             <address className={ classes.author }>
-              — <a rel="author noopener noreferrer" href="https://twitter.com/al_titarenko" target="_blank">Alex Titarenko</a>
+              <a rel="author noopener noreferrer" href="https://twitter.com/al_titarenko" target="_blank">Alex Titarenko</a>
             </address>
           </article>
         </section>
