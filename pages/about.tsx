@@ -38,19 +38,19 @@ export default function About() {
 
           <article className={ classes.article }>
             <p>
-              I started thinking about the idea of <strong>NotesHub</strong> project in late Fall 2020.
+            I started thinking about ideas behind the <strong>NotesHub</strong> project in the late Fall of 2020.
               At that time I switched multiple note-taking apps.
               I wanted the app with the robust support of Markdown because it allows me easily migrate my data if needed and strictly control formatting.
-              From another hand, I wanted to avoid paying the monthly subscription fee but have good cross-device sync of data and ideally fully control my data without being strict tight to a single particular vendor.
+              From another hand, I wanted to avoid paying the monthly subscription fee but have good cross-device sync support and ideally fully control my data without being strictly tight to a single particular vendor.
               I have not found any application that would satisfy all my requirements.
               The solution was obvious, create my own.
             </p>
             <p>
-              In October 30, 2020 I made my first commit.
-              In the last day before going to vacation in Cancun, I made the final commit to finalize MVP version of the project and ended the 6-month journey from the idea to first stable release. Project was finally available to public.
+              On October 30, 2020, I made the first commit, and 6 months later I pushed the final changes to finalize the MVP version of the project going from the idea to the first stable release.
+              The project was finally available to the public.
             </p>
             <p>
-            I hope you will enjoy using <strong>NotesHub</strong> as much as I'm enjoying creating it.
+            I hope you will enjoy using <strong>NotesHub</strong> as much as I'm enjoying developing it.
             </p>
             <address className={ classes.author }>
               — <a rel="author noopener noreferrer" href="https://twitter.com/al_titarenko" target="_blank">Alex Titarenko</a>
