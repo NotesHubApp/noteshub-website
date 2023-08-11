@@ -49,7 +49,7 @@ export default function About() {
               I started thinking about ideas behind the <strong>NotesHub</strong> project in the late Fall of 2020.
               At that time I switched multiple note-taking apps.
               I wanted the app with the robust support of Markdown because it allows me easily migrate my data if needed and strictly control formatting.
-              From another hand, I wanted to avoid paying the monthly subscription fee but have seamless cross-device sync support and ideally fully control my data without being strictly tight to a single particular vendor.
+              From another hand, I wanted seamless cross-device sync support without a monthly subscription fee and ideally fully control my data without being strictly tight to a single particular vendor.
               I have not found any application that would satisfy all my requirements.
               The solution was obvious, create my own.
             </p>
