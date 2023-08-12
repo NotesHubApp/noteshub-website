@@ -1,6 +1,6 @@
 export const allFeatures = {
   features: [
-    'Works offline',
+    'Offline work',
     'No vendor lock-in',
     'Periodic sync of data',
     'Fully cross-platform',
@@ -26,7 +26,8 @@ export const allFeatures = {
     'Support of Mermaid diagrams',
     'Support of math expressions using LaTeX notation',
     'Drag-and-drop files to make attachments',
-    'Embed YouTube videos and tweets'
+    'Embed YouTube videos and tweets',
+    'Search/replace inside notes'
   ],
   nonReleasedFeatures: [
     'Quick notes',
