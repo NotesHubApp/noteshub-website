@@ -5,6 +5,7 @@ import { ExternalLink } from '../common/ExternalLink';
 import { Hint } from '../common/Hint';
 import { Section } from './Section';
 import { SectionTitle } from './SectionTitle';
+import { RecommendedIcon } from 'components/icons';
 
 const useStyles = createUseStyles({
   tableWrap: {
@@ -32,6 +33,12 @@ const useStyles = createUseStyles({
       minWidth: '100px'
     }
   },
+  columnCaption: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '7px'
+  },
   alternateRow: {
     backgroundColor: 'var(--alternative-raw-color)',
   },
@@ -52,6 +59,11 @@ const useStyles = createUseStyles({
   featureStatus: {
     width: '1.5em',
     height: '1.5em'
+  },
+  recommendedIcon: {
+    width: '30px',
+    height: '30px',
+    fill: 'var(--text-primary)'
   }
 })
 
@@ -78,19 +90,28 @@ export default function FeatureComparison({ features = allFeatures }: FeatureCom
                 </ExternalLink>
               </th>
               <th>
-                <ExternalLink href={ process.env.NEXT_PUBLIC_APPSTORE_APPURL } className={ classes.platformLink }>
-                  iOS / macOS
-                </ExternalLink>
+                <div className={ classes.columnCaption }>
+                  <ExternalLink href={ process.env.NEXT_PUBLIC_APPSTORE_APPURL } className={ classes.platformLink }>
+                    iOS / macOS
+                  </ExternalLink>
+                  <RecommendedBadge />
+                </div>
               </th>
               <th>
-                <ExternalLink href={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL } className={ classes.platformLink }>
-                  Android
-                </ExternalLink>
+                <div className={ classes.columnCaption }>
+                  <ExternalLink href={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL } className={ classes.platformLink }>
+                    Android
+                  </ExternalLink>
+                  <RecommendedBadge />
+                </div>
               </th>
               <th>
-                <ExternalLink href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL } className={ classes.platformLink }>
-                  Windows
-                </ExternalLink>
+                <div className={ classes.columnCaption }>
+                  <ExternalLink href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL } className={ classes.platformLink }>
+                    Windows
+                  </ExternalLink>
+                  <RecommendedBadge />
+                </div>
               </th>
             </tr>
           </thead>
@@ -133,4 +154,15 @@ function FeatureStatus(props: { status: FeatureStatus }) {
   )
 
   return props.status === 'present' ? Present : Absent
+}
+
+function RecommendedBadge() {
+  const classes = useStyles();
+
+  return (
+    <RecommendedIcon
+      className={ classes.recommendedIcon }
+      title='Recommended'
+    />
+  )
 }
