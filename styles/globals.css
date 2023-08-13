@@ -160,3 +160,8 @@ code {
 [data-color-scheme=dark] .mermaid {
   filter: invert(1) brightness(3);
 }
+
+/* Fix Arrow placement for rc-tooltip */
+.rc-tooltip-placement-right .rc-tooltip-arrow {
+  left: 4px !important;
+}
