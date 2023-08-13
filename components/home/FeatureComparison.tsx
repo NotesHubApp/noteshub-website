@@ -61,8 +61,8 @@ const useStyles = createUseStyles({
     height: '1.5em'
   },
   recommendedIcon: {
-    width: '30px',
-    height: '30px',
+    width: '35px',
+    height: '35px',
     fill: 'var(--text-primary)'
   }
 })

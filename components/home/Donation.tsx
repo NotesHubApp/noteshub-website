@@ -16,16 +16,12 @@ const useStyles = createUseStyles({
     marginRight: '10px'
   },
   donateButtonLink: {
-    border: 'solid 1px gray',
-    padding: '10px 20px !important',
     marginLeft: '10px',
-    borderRadius: '100px 100px 100px 100px',
     whiteSpace: 'nowrap',
+    textDecoration: 'underline',
 
     '&:hover': {
-      color: 'white',
-      borderColor: 'var(--theme-color)',
-      background: 'var(--theme-color)'
+      textDecoration: 'none'
     }
   },
   '@media only screen and (max-width: 800px)': {
@@ -56,7 +52,7 @@ export default function Donation() {
           target="_blank"
           href={ process.env.NEXT_PUBLIC_DONATION_URL }>
             buy a coffee
-        </a>
+        </a>!
       </p>
     </Section>
   );
