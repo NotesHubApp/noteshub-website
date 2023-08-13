@@ -9,6 +9,7 @@ import {
 } from './icons'
 import { PropsWithChildren, useEffect } from 'react'
 
+import { DiscountLabel } from './common/DiscountLabel'
 import Head from 'next/head'
 import Link from 'next/link'
 import { ThemeSwitcher } from './common/ThemeSwitcher'
@@ -166,6 +167,8 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
           </ul>
         </nav>
       </header>
+
+      <DiscountLabel value={ 25 } />
 
       <main className={ clsx(classes.main, props.className) }>
         { props.children }
