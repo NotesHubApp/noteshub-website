@@ -7,9 +7,8 @@ import Hero from '../components/home/Hero'
 import Highlights from '../components/home/Highlights'
 import { Layout } from 'components/Layout'
 import React from 'react'
-import { Routes } from 'utils/Routes'
 import Testimonials from 'components/home/Testimonials'
-import { blogRepository } from 'data/blogConfig'
+import announcement from 'data/announcement'
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
@@ -21,21 +20,7 @@ const useStyles = createUseStyles({
 });
 
 export async function getStaticProps() {
-  const latestPost = blogRepository.getLatestPublishedPost();
-
-  const postAnnouncement: Announcement | undefined = latestPost ? {
-    type: 'post',
-    title: latestPost.title,
-    url: Routes.blogPost(latestPost)
-  } : undefined
-
-  const productHuntAnnouncement: Announcement = {
-    type: 'productHunt',
-    postId: '378905',
-    postSlug: 'noteshub-2-x'
-  }
-
-  return { props: { announcement: postAnnouncement } }
+  return { props: { announcement: announcement } }
 }
 
 type HomeProps = {
