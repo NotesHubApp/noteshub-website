@@ -1,11 +1,13 @@
 import { createUseStyles } from 'react-jss';
 import { ComparisonFeatureModel, FeatureStatus } from 'models/ComparisonFeatureModel';
 import allFeatures from 'data/comparisonFeatures';
+import { discounts as allDiscounts } from 'data/discounts'
 import { ExternalLink } from '../common/ExternalLink';
 import { Hint } from '../common/Hint';
 import { Section } from './Section';
 import { SectionTitle } from './SectionTitle';
 import { RecommendedIcon, SaleIcon } from 'components/icons';
+import { Discounts } from 'models/Discounts';
 
 const useStyles = createUseStyles({
   tableWrap: {
@@ -70,9 +72,13 @@ const useStyles = createUseStyles({
 
 type FeatureComparisonProps = {
   features?: ComparisonFeatureModel[]
+  discounts?: Discounts
 }
 
-export default function FeatureComparison({ features = allFeatures }: FeatureComparisonProps) {
+export default function FeatureComparison(
+  { features = allFeatures,
+    discounts = allDiscounts
+  }: FeatureComparisonProps) {
   const classes = useStyles();
 
   return (
@@ -94,7 +100,7 @@ export default function FeatureComparison({ features = allFeatures }: FeatureCom
                   <ExternalLink href={ process.env.NEXT_PUBLIC_APPSTORE_APPURL } className={ classes.platformLink }>
                     iOS / macOS
                   </ExternalLink>
-                  <RecommendedBadge />
+                  { discounts.amount && discounts.forAppStore ? <SaleBadge /> : <RecommendedBadge /> }
                 </div>
               </th>
               <th>
@@ -102,7 +108,7 @@ export default function FeatureComparison({ features = allFeatures }: FeatureCom
                   <ExternalLink href={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL } className={ classes.platformLink }>
                     Android
                   </ExternalLink>
-                  <RecommendedBadge />
+                  { discounts.amount && discounts.forPlayStore ? <SaleBadge /> : <RecommendedBadge /> }
                 </div>
               </th>
               <th>
@@ -110,7 +116,7 @@ export default function FeatureComparison({ features = allFeatures }: FeatureCom
                   <ExternalLink href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL } className={ classes.platformLink }>
                     Windows
                   </ExternalLink>
-                  <RecommendedBadge />
+                  { discounts.amount && discounts.forWindowsStore ? <SaleBadge /> : <RecommendedBadge /> }
                 </div>
               </th>
             </tr>
@@ -160,10 +166,17 @@ function RecommendedBadge() {
   const classes = useStyles();
 
   return (
+    <RecommendedIcon
+      className={ classes.recommendedIcon }
+      title='Recommended'
+    />
+  )
+}
+
+function SaleBadge() {
+  const classes = useStyles();
+
+  return (
     <SaleIcon className={ classes.recommendedIcon } />
-    // <RecommendedIcon
-    //   className={ classes.recommendedIcon }
-    //   title='Recommended'
-    // />
   )
 }

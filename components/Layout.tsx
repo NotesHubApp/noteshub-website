@@ -15,6 +15,7 @@ import Link from 'next/link'
 import { ThemeSwitcher } from './common/ThemeSwitcher'
 import clsx from 'clsx'
 import { createUseStyles } from 'react-jss'
+import { discounts } from 'data/discounts'
 
 const useStyles = createUseStyles({
   pageContainer: {
@@ -168,7 +169,9 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
         </nav>
       </header>
 
-      <DiscountLabel value={ 25 } />
+      { discounts.amount && (
+        <DiscountLabel value={ discounts.amount } />
+      )}
 
       <main className={ clsx(classes.main, props.className) }>
         { props.children }
