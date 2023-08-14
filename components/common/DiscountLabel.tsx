@@ -40,7 +40,7 @@ export function DiscountLabel(props: DiscountLabelProps) {
   const classes = useStyles();
 
   return (
-    <Link href="/">
+    <Link href="/#feature-comparison">
       <div className={ classes.container }>
         <div className={ classes.line }>
           <span>{ props.value }%</span>

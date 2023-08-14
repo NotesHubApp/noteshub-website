@@ -5,7 +5,7 @@ import { ExternalLink } from '../common/ExternalLink';
 import { Hint } from '../common/Hint';
 import { Section } from './Section';
 import { SectionTitle } from './SectionTitle';
-import { RecommendedIcon } from 'components/icons';
+import { RecommendedIcon, SaleIcon } from 'components/icons';
 
 const useStyles = createUseStyles({
   tableWrap: {
@@ -160,9 +160,10 @@ function RecommendedBadge() {
   const classes = useStyles();
 
   return (
-    <RecommendedIcon
-      className={ classes.recommendedIcon }
-      title='Recommended'
-    />
+    <SaleIcon className={ classes.recommendedIcon } />
+    // <RecommendedIcon
+    //   className={ classes.recommendedIcon }
+    //   title='Recommended'
+    // />
   )
 }
