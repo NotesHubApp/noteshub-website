@@ -11,7 +11,7 @@ const highlights: FeatureCardModel[] = [
     title: 'Auto Sync',
     mobileImageSrc: '/images/features/mobile/auto-sync.png',
     desktopImageSrc: '/images/features/desktop/auto-sync.png',
-    content: 'Your notes will be periodically synced with the remote location, so you can access the latest versions across all of your devices.'
+    content: 'Your notes will be periodically synced with the remote location using built-in providers, so you can access the latest versions across all of your devices.'
   },
   {
     title: 'No Vendor Lock-In',
@@ -20,11 +20,17 @@ const highlights: FeatureCardModel[] = [
     content: 'All data is stored in your device in plain text files. You choose how to sync your data between devices: remote Git repository (including self-hosting), GitHub, file system sync, iCloud Drive, and more.'
   },
   {
-    title: 'Merge Conflicts Auto-Resolution',
-    mobileImageSrc: '/images/features/mobile/merge-conflicts-auto-resolution.png',
-    desktopImageSrc: '/images/features/desktop/merge-conflicts-auto-resolution.png',
-    content: 'Don\'t be afraid to edit the same notes from different devices even when you are offline. Once connection is restored your notes will be automatically merged. If the same lines changed you will see an alternative variant in the note.'
+    title: 'Advanced Markdown Support',
+    mobileImageSrc: 'images/features/mobile/advanced-markdown.png',
+    desktopImageSrc: 'images/features/desktop/advanced-markdown.png',
+    content: 'In addition to classic Markdown syntax, we support advanced constructions such as Mermaid diagrams, LaTex math expressions, callouts, YouTube video/tweet embeds, and more.'
   },
+  // {
+  //   title: 'Merge Conflicts Auto-Resolution',
+  //   mobileImageSrc: '/images/features/mobile/merge-conflicts-auto-resolution.png',
+  //   desktopImageSrc: '/images/features/desktop/merge-conflicts-auto-resolution.png',
+  //   content: 'Don\'t be afraid to edit the same notes from different devices even when you are offline. Once connection is restored your notes will be automatically merged. If the same lines changed you will see an alternative variant in the note.'
+  // },
   {
     title: 'Kanban Boards',
     mobileImageSrc: '/images/features/mobile/kanban.png',
