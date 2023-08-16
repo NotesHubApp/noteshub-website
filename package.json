@@ -10,7 +10,7 @@
   "dependencies": {
     "clsx": "^1.2.1",
     "next": "^13.4.8",
-    "rc-tooltip": "^6.0.1",
+    "rc-tooltip": "^5.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-jss": "^10.10.0"

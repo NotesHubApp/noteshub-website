@@ -39,7 +39,7 @@ const features: ComparisonFeatureModel[] = [
   },
   {
     name: 'Native app experience',
-    hint: 'Better dark theme support, system-level integration and more',
+    hint: 'Better dark theme support, enhanced security, system-level integration, and more...',
     web: 'absent',
     iOS: 'present',
     android: 'present',
