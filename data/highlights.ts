@@ -23,7 +23,7 @@ const highlights: FeatureCardModel[] = [
     title: 'Advanced Markdown Support',
     mobileImageSrc: 'images/features/mobile/advanced-markdown.png',
     desktopImageSrc: 'images/features/desktop/advanced-markdown.png',
-    content: 'In addition to classic Markdown syntax, we support advanced constructions such as Mermaid diagrams, LaTex math expressions, callouts, YouTube video/tweet embeds, and more.'
+    content: 'In addition to the standard Markdown syntax, we support advanced constructions such as Mermaid diagrams, LaTex math expressions, callouts, YouTube video/tweet embeds, and more.'
   },
   // {
   //   title: 'Merge Conflicts Auto-Resolution',
