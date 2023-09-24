@@ -1,6 +1,6 @@
 ---
 description: The major release that brings a much-improved markdown editing experience and much more.
-postedOn: 9/15/2023
+postedOn: 10/15/2023
 published: true
 image: .attachments/nh30-hero.webp
 ---
