@@ -88,6 +88,20 @@ const testimonials: Testimonial[] = [
   // Play Store
   {
     author: {
+      name: 'Coroeanu Andrei'
+    },
+    content: (
+      <>
+        It works really great. Syncing works flawlessly, and the markdown preview helps a lot in making sure the content is displayed as intended. Even if on web the app is free, I chose to buy it since there's no other app on the market that does this so effortlessly. Kudos to the devs, it's a great job!
+      </>
+    ),
+    rating: 5,
+    date: new Date('Oct 2, 2023'),
+    origin: 'PlayStore'
+  },
+
+  {
+    author: {
       name: 'fullmetal chocobo'
     },
     content: (
@@ -100,19 +114,19 @@ const testimonials: Testimonial[] = [
     origin: 'PlayStore'
   },
 
-  {
-    author: {
-      name: 'Roman Kurnovskii'
-    },
-    content: (
-      <>
-        Excellent app, cross platform, can sync with private repos
-      </>
-    ),
-    rating: 5,
-    date: new Date('Mar 3, 2023'),
-    origin: 'PlayStore'
-  },
+  // {
+  //   author: {
+  //     name: 'Roman Kurnovskii'
+  //   },
+  //   content: (
+  //     <>
+  //       Excellent app, cross platform, can sync with private repos
+  //     </>
+  //   ),
+  //   rating: 5,
+  //   date: new Date('Mar 3, 2023'),
+  //   origin: 'PlayStore'
+  // },
 
   // Windows Store
   {
