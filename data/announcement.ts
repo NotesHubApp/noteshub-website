@@ -11,8 +11,8 @@ const postAnnouncement: Announcement | undefined = latestPost ? {
 
 const productHuntAnnouncement: Announcement = {
   type: 'productHunt',
-  postId: '378905',
-  postSlug: 'noteshub-2-x'
+  postId: '419902',
+  postSlug: 'noteshub-3-0'
 }
 
-export default postAnnouncement
+export default productHuntAnnouncement
