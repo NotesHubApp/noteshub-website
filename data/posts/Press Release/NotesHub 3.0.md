@@ -141,6 +141,7 @@ By many customer support requests, we have added Markdown support in Kanban card
 ![Markdown in Kanban cards - Editor](.attachments/nh30-markdown-in-kanban-edit.webp "Markdown in Kanban cards - Editor")
 
 ## Other notable features
+- _Tips_ and _Hot Keys_ tabs in _Info_ panel.
 - In-note blocks folding (headings, lists, code blocks, etc).
 - Multi-cursor mode (see the instruction on how to use it in _Tips_ tab of _Info_ panel).
 - Rectangular selection (see the instruction on how to use it in _Tips_ tab of _Info_ panel).
@@ -164,3 +165,4 @@ By many customer support requests, we have added Markdown support in Kanban card
 - Fixes layout shift when the soft keyboard opens (iOS).
 - Adds auto-focus on input when creating new notes/kanban boards (iOS).
 - The dark theme now applies to the soft keyboard and status bar (iOS).
+- iCloud Drive notebooks and folders with special characters in their names are now properly supported.
