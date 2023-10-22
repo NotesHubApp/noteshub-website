@@ -1,29 +1,35 @@
-export const features: string[] = [
-  'Works offline',
-  'No vendor lock-in',
-  'Periodic sync of data',
-  'Fully cross-platform',
-  'Adaptive UI',
-  'Seamless GitHub integration',
-  'Git notebooks',
-  'GitHub notebooks',
-  'iCloud Drive notebooks*',
-  'File System notebooks*',
-  'Printing notes and export to PDF',
-  'Kanban boards',
-  'Dark mode',
-  'Markdown preview with scroll sync',
-  'Move/copy notes across notebooks',
-  'Attach/upload image file on paste from clipboard',
-  'Attach/upload image file from local disk/storage',
-  'Convert html content to markdown on paste from clipboard',
-  'Editor toolbar with all necessary commands (bold, list, table, etc.)',
-  'Automatic merge conflicts resolution'
-];
-
-export const nonReleasedFeatures: string[] = [
-  'Support of KaTeX for math expressions',
-  'Support of Mermaid diagrams',
-  'Syntax highlighting for code blocks',
-  'Quick notes',
-];
+export const allFeatures = {
+  features: [
+    'Offline work',
+    'No vendor lock-in',
+    'Periodic sync of data',
+    'Fully cross-platform',
+    'Adaptive UI',
+    'Seamless GitHub integration',
+    'Git notebooks',
+    'GitHub notebooks',
+    'iCloud Drive notebooks*',
+    'File System notebooks*',
+    'Printing notes and export to PDF',
+    'Kanban boards',
+    'Dark mode',
+    'Markdown preview with scroll sync',
+    'Move/copy notes across notebooks',
+    'Attach/upload files on paste from clipboard',
+    'Attach/upload files from local disk/storage',
+    'Convert HTML content to Markdown on paste from clipboard',
+    'Editor toolbar with all necessary commands (bold, list, table, etc.)',
+    'Automatic merge conflicts resolution'
+  ],
+  newFeatures: [
+    'Syntax highlighting of code blocks',
+    'Support of Mermaid diagrams',
+    'Support of math expressions using LaTeX notation',
+    'Drag-and-drop files to make attachments',
+    'Embed YouTube videos and tweets',
+    'Search/replace inside notes'
+  ],
+  nonReleasedFeatures: [
+    'Quick notes',
+  ]
+}

@@ -1,6 +1,6 @@
 import React, { Dispatch, ReactNode, SetStateAction, useEffect, useRef } from 'react'
-import { createUseStyles } from 'react-jss'
 
+import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
   container: {
@@ -15,8 +15,7 @@ const useStyles = createUseStyles({
     flexDirection: 'row',
     alignItems: 'center',
     gap: '10px',
-    backgroundColor: 'rgb(249, 250, 251)',
-    color: '#444',
+    backgroundColor: 'var(--alternative-raw-color)',
     cursor: 'pointer',
     padding: '18px',
     width: '100%',
@@ -28,11 +27,12 @@ const useStyles = createUseStyles({
     transition: '0.4s',
 
     '&:hover': {
-      backgroundColor: 'rgb(239, 240, 241)'
+      filter: 'contrast(0.9)'
     }
   },
   panelTitle: {
-    flexGrow: 1
+    flexGrow: 1,
+    filter: 'contrast(0.5)'
   },
   sign: {
     stroke: 'var(--theme-color)',
@@ -42,7 +42,7 @@ const useStyles = createUseStyles({
   panelContent: {
     padding: '0 18px',
     lineHeight: '1.5em',
-    backgroundColor: 'white',
+    backgroundColor: 'var(--background-paper)',
     overflow: 'hidden',
     transition: 'height 0.2s ease-out',
 

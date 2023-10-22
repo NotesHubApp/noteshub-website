@@ -1,43 +1,48 @@
 import { FeatureCardModel } from 'models/FeatureCardModel';
 
-
 const highlights: FeatureCardModel[] = [
   {
-    title: 'Work Offline',
+    title: 'Offline-First',
     mobileImageSrc: '/images/features/mobile/offline.png',
     desktopImageSrc: '/images/features/desktop/offline.png',
-    content: 'If you are in an airplane or traveling in a forest, it does not matter, your notes will be always with you. You can even edit them, delete, add, etc. All the content will be sync once connection is restored.'
+    content: 'Whether you\'re soaring through the skies or exploring the wilderness, your notes will always be at your fingertips. You can even edit them, delete, add, etc. All the content will be synced once the connection is restored.'
   },
   {
     title: 'Auto Sync',
     mobileImageSrc: '/images/features/mobile/auto-sync.png',
     desktopImageSrc: '/images/features/desktop/auto-sync.png',
-    content: 'Your notes will be periodically sync with remote location, so you can access latest versions across all of your devices.'
+    content: 'Your notes will be periodically synced with the remote location using built-in providers, so you can access the latest versions across all of your devices.'
   },
   {
     title: 'No Vendor Lock-In',
     mobileImageSrc: '/images/features/mobile/no-vendor-lock-in.png',
     desktopImageSrc: '/images/features/desktop/no-vendor-lock-in.png',
-    content: 'All data stored in your device and sync with remote Git repositories. Choose GitHub or any other Git provider.'
+    content: 'All data is stored in your device in plain text files. You choose how to sync your data between devices: remote Git repository (including self-hosting), GitHub, file system sync, iCloud Drive, and more.'
   },
   {
-    title: 'Merge Conflicts Auto-Resolution',
-    mobileImageSrc: '/images/features/mobile/merge-conflicts-auto-resolution.png',
-    desktopImageSrc: '/images/features/desktop/merge-conflicts-auto-resolution.png',
-    content: 'Don\'t be afraid to edit the same notes from different devices even when you are offline. Once connection is restored your notes will be automatically merged. If the same lines changed you will see an alternative variant in the note.'
+    title: 'Advanced Markdown Support',
+    mobileImageSrc: 'images/features/mobile/advanced-markdown.png',
+    desktopImageSrc: 'images/features/desktop/advanced-markdown.png',
+    content: 'In addition to the standard Markdown syntax, we support advanced constructions such as Mermaid diagrams, LaTex math expressions, callouts, YouTube video/tweet embeds, and more.'
   },
+  // {
+  //   title: 'Merge Conflicts Auto-Resolution',
+  //   mobileImageSrc: '/images/features/mobile/merge-conflicts-auto-resolution.png',
+  //   desktopImageSrc: '/images/features/desktop/merge-conflicts-auto-resolution.png',
+  //   content: 'Don\'t be afraid to edit the same notes from different devices even when you are offline. Once connection is restored your notes will be automatically merged. If the same lines changed you will see an alternative variant in the note.'
+  // },
   {
     title: 'Kanban Boards',
     mobileImageSrc: '/images/features/mobile/kanban.png',
     desktopImageSrc: '/images/features/desktop/kanban.png',
-    content: 'Use Kanban boards as a tool for workflow visualization, which is designed to help bring clarity to your work progress and enhance efficiency.'
+    content: 'A kanban board is a tool that helps you visualize your work, and maximize your efficiency. You can use it for managing personal tasks, goals, hobbies, or learning. This will help you to organize your time, focus on what matters, and achieve more.'
   },
   {
     title: 'Use Everywhere',
     mobileImageSrc: '/images/features/mobile/multi-platform.png',
     desktopImageSrc: '/images/features/desktop/multi-platform.png',
     disableImageShadow: true,
-    content: 'The application is built with love and using the latest web technologies (PWA). It means that it can work in any mobile device, desktop, or any other device with modern web browser. The app works offline and can be installed. Works and feels like native app without compromises.'
+    content: 'We have native apps for all major platforms: iOS/macOS/Android/Windows. For all other scenarios you can use our web application.'
   },
   {
     title: 'Go to the Dark Side',
