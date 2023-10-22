@@ -5,7 +5,7 @@ published: true
 image: .attachments/nh30-hero.webp
 ---
 
-This is the most significant release as of Today. It has many new features, but most are related to enhanced Markdown editing experience. Let's dive into what's new.
+This is the most significant release to date. It has many new features, but most are related to enhanced Markdown editing experience. Let's dive into what's new.
 
 ## Markdown syntax highlighting in the editor
 
