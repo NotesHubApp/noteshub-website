@@ -8,15 +8,15 @@ const testimonials: Testimonial[] = [
   // App Store
   {
     author: {
-      name: 'FOF_Gaming'
+      name: 'Monbun123'
     },
     content: (
       <>
-        Make it easy to sync notes with github
+        I’ve been using this app for a while now and it’s amazing. Has so many great features and I’m able to sync it with all my devices. Highly recommend for anyone who needs an efficient notes app!
       </>
     ),
     rating: 5,
-    date: new Date('Jun 21, 2023'),
+    date: new Date('Oct 23, 2023'),
     origin: 'AppStore'
   },
   {
@@ -113,20 +113,6 @@ const testimonials: Testimonial[] = [
     date: new Date('Apr 23, 2023'),
     origin: 'PlayStore'
   },
-
-  // {
-  //   author: {
-  //     name: 'Roman Kurnovskii'
-  //   },
-  //   content: (
-  //     <>
-  //       Excellent app, cross platform, can sync with private repos
-  //     </>
-  //   ),
-  //   rating: 5,
-  //   date: new Date('Mar 3, 2023'),
-  //   origin: 'PlayStore'
-  // },
 
   // Windows Store
   {
