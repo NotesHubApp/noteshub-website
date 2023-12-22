@@ -18,6 +18,7 @@ Many studies show the importance of limiting maximum line length in the text for
 With this release we are introducing new setting **Optimal Line Length** which is turned on by default and will limit lines to 75 characters. You can turn it off in _Settings -> Appearance -> Optimal Line Length_.
 
 ## Multi-window support
+There are situations when you want to have multiple notes side by side in order to compare content or copy/paste some parts, etc. Before Today it was particularly challanging operations in native versions of NotesHub (macOS, Windows). There are several posible solutions to this problem. One of them is using tabs, but in order to preserve the minimalizm and simplicity of the app this solutions was dismissed. The another most obvious solution is to use multiple windows. When using Web app this works out of the box since all browsers can do this, but it was not the options for native apps. Now you have two options to open a new window: select _Create a new window_ from Dock/Taskbar for the app, or click _Open Link in New Window_ for any internal link in the app.
 
 ## Other notable features
 - Settings such as theme, language, and others are now synced between tabs/windows on change.
