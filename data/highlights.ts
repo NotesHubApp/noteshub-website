@@ -25,12 +25,12 @@ const highlights: FeatureCardModel[] = [
     desktopImageSrc: 'images/features/desktop/advanced-markdown.png',
     content: 'In addition to the standard Markdown syntax, we support advanced constructions such as Mermaid diagrams, LaTex math expressions, callouts, YouTube video/tweet embeds, and more.'
   },
-  // {
-  //   title: 'Merge Conflicts Auto-Resolution',
-  //   mobileImageSrc: '/images/features/mobile/merge-conflicts-auto-resolution.png',
-  //   desktopImageSrc: '/images/features/desktop/merge-conflicts-auto-resolution.png',
-  //   content: 'Don\'t be afraid to edit the same notes from different devices even when you are offline. Once connection is restored your notes will be automatically merged. If the same lines changed you will see an alternative variant in the note.'
-  // },
+  {
+    title: 'ABC Musical Notation Support',
+    mobileImageSrc: 'images/features/mobile/abc-notation.png',
+    desktopImageSrc: 'images/features/desktop/abc-notation.png',
+    content: 'Display musical scores using the ABC notation and play generated MIDI'
+  },
   {
     title: 'Kanban Boards',
     mobileImageSrc: '/images/features/mobile/kanban.png',
