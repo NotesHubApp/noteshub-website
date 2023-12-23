@@ -32,7 +32,7 @@ const useStyles = createUseStyles({
     padding: 0
   },
   postListItem: {
-    marginBottom: '20px'
+    marginBottom: '30px'
   },
   postCardContainer: {
     display: 'flex',

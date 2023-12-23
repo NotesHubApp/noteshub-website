@@ -11,9 +11,9 @@ Navigation in large notes can be difficult. Luckily now you have the right tool 
 ![TOC](.attachments/nh31-toc.webp "Table of contents (TOC)")
 
 ## Support of ABC musical notation
-It's fascinating how many things you can describe with just plain text. In addition to Mermaid diagrams and math expressions which were added in previous release we are pleased to announce that now we have something to offer to musicians as well. [ABC musical notation](https://en.wikipedia.org/wiki/ABC_notation) is supported now and can be added via fenced code blocks when marked as <code>abc</code> language.
+It's fascinating how many things you can describe with just plain text. In addition to Mermaid diagrams and math expressions which were added in previous release we are pleased to announce that now we have something to offer to musicians as well. [ABC musical notation](https://en.wikipedia.org/wiki/ABC_notation) is supported now and can be added via fenced code blocks when marked as `abc` language.
 
-For stringed instruments, you can also display tabs by adding the following line <code>%tab YOUR_INSTRUMENT</code> where <code>YOUR_INSTRUMENT</code> can be one of the following values: _guitar, mandolin, fiddle, violin_.
+For stringed instruments, you can also display tabs by adding the following line `%tab YOUR_INSTRUMENT` where `YOUR_INSTRUMENT` can be one of the following values: _guitar, mandolin, fiddle, violin_.
 
 MIDI playback is also supported with ability to play/pause and seek.
 
@@ -25,6 +25,8 @@ Mermaid is a great library for defining diagrams in simple text format. The prob
 ![Pan & Zoom for Mermaid](.attachments/nh31-mermaid_pan_zoom.webp "Pan & Zoom for Mermaid")
 
 ## New settings for editor and preview
+
+Under Settings you will find a new _Appearance_ section where there are customization options like: _Theme_, _Text Font_, _Code Font_, _Font Size_, _Line Height_ and _Optimal Line Length_.
 
 ![Appearance Settings](.attachments/nh31-appearance-settings.webp "Appearance Settings")
 
