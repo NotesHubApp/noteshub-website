@@ -5,6 +5,8 @@ published: true
 image: .attachments/nh31-hero.webp
 ---
 
+This is first significant release after major overhaul of NotesHub 3.0. It comes with set of good features and improvements in response to customers feedbacks.
+
 ## Auto-generated table of contents (TOC)
 Navigation in large notes can be difficult. Luckily now you have the right tool to make it easier. It's always accessible (when you have more than one heading in your note) in preview mode under _Table of Contents_ menu item.
 
@@ -26,16 +28,16 @@ Mermaid is a great library for defining diagrams in simple text format. The prob
 
 ## New settings for editor and preview
 
-Under Settings you will find a new _Appearance_ section where there are customization options like: _Theme_, _Text Font_, _Code Font_, _Font Size_, _Line Height_ and _Optimal Line Length_.
+Under _Settings_ you will find a new _Appearance_ section where there are customization options like: _Theme_, _Text Font_, _Code Font_, _Font Size_, _Line Height_ and _Optimal Line Length_.
 
 ![Appearance Settings](.attachments/nh31-appearance-settings.webp "Appearance Settings")
 
 ## Optimal line length
-Many studies show the importance of limiting maximum line length in the text for content readability. If the lines are too short then the text becomes disjointed; if they are too long, the content loses rhythm as the reader searches for the start of each line. That's is why you can see this limit imposed in many blogs, news sites, apps, etc. You can read more about the line length [here](https://en.wikipedia.org/wiki/Line_length#Electronic_text).
+Many studies show the importance of limiting maximum line length in the text for content readability. If the lines are too short then the text becomes disjointed; if they are too long, the content loses rhythm as the reader searches for the start of each line. That's why you can see this limit imposed in many blogs, news sites, apps, etc. You can read more about the line length [here](https://en.wikipedia.org/wiki/Line_length#Electronic_text).
 With this release we are introducing new setting **Optimal Line Length** which is turned on by default and will limit lines to 75 characters. You can turn it off in _Settings -> Appearance -> Optimal Line Length_.
 
 ## Multi-window support
-There are situations when you want to have multiple notes side by side in order to compare content or copy/paste some parts, etc. Before Today it was particularly challanging operations in native versions of NotesHub (macOS, Windows). There are several posible solutions to this problem. One of them is using tabs, but in order to preserve the minimalizm and simplicity of the app this solutions was dismissed. The another most obvious solution is to use multiple windows. When using Web app this works out of the box since all browsers can do this, but it was not the options for native apps. Now you have two options to open a new window: select _Create a new window_ from Dock/Taskbar for the app, or click _Open Link in New Window_ for any internal link in the app.
+There are situations when you want to have multiple notes side by side in order to compare content or copy/paste some parts, etc. Before Today it was particularly challanging operations in native versions of NotesHub (macOS, Windows). There are several posible solutions to this problem. One of them is using tabs, but in order to preserve the minimalizm and simplicity of the app this solutions was dismissed. Another most obvious solution is to use multiple windows. When using Web app this works out of the box since all browsers can do this, but it was not the option for native apps. Now you have two options to open a new window: select _Create a new window_ from Dock/Taskbar for the app, or click _Open Link in New Window_ for any internal link in the app.
 
 ## Other notable features
 - Settings such as theme, language, and others are now synced between tabs/windows on change.
