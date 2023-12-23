@@ -10,6 +10,9 @@ image: .attachments/nh31-hero.webp
 ## Support of ABC musical notation
 
 ## Pan & zoom support for Mermaid diagrams
+Mermaid is a great library for defining diagrams in simple text format. The problem however can arise while previewing large complex diagrams and especially when screen real estate is limited (smartphones, etc). Since the library does not have any build-in solution for this we came up with our own. Simply by clicking on diagram's preview will open full-window sized dialog where you can pan and zoom the diagram and it works even with touch screen devices using your fingers.
+
+![Pan & Zoom for Mermaid](.attachments/nh31-mermaid_pan_zoom.webp "Pan & Zoom for Mermaid")
 
 ## New settings for editor and preview
 
