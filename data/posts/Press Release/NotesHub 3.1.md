@@ -6,6 +6,9 @@ image: .attachments/nh31-hero.webp
 ---
 
 ## Auto-generated table of contents (TOC)
+Navigation in large notes can be difficult. Luckily now you have the right tool to make it easier. It's always accessible (when you have more than one heading in your note) in preview mode under _Table of Contents_ menu item.
+
+![TOC](.attachments/nh31-toc.webp "Table of contents (TOC)")
 
 ## Support of ABC musical notation
 It's fascinating how many things you can describe with just plain text. In addition to Mermaid diagrams and math expressions which were added in previous release we are pleased to announce that now we have something to offer to musicians as well. [ABC musical notation](https://en.wikipedia.org/wiki/ABC_notation) is supported now and can be added via fenced code blocks when marked as <code>abc</code> language.
