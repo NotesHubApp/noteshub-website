@@ -8,6 +8,13 @@ image: .attachments/nh31-hero.webp
 ## Auto-generated table of contents (TOC)
 
 ## Support of ABC musical notation
+It's fascinating how many things you can describe with just plain text. In addition to Mermaid diagrams and math expressions which were added in previous release we are pleased to announce that now we have something to offer to musicians as well. [ABC musical notation](https://en.wikipedia.org/wiki/ABC_notation) is supported now and can be added via fenced code blocks when marked as <code>abc</code> language.
+
+For stringed instruments, you can also display tabs by adding the following line <code>%tab YOUR_INSTRUMENT</code> where <code>YOUR_INSTRUMENT</code> can be one of the following values: _guitar, mandolin, fiddle, violin_.
+
+MIDI playback is also supported with ability to play/pause and seek.
+
+![ABC Notation](.attachments/nh31-abc.webp "ABC Notation")
 
 ## Pan & zoom support for Mermaid diagrams
 Mermaid is a great library for defining diagrams in simple text format. The problem however can arise while previewing large complex diagrams and especially when screen real estate is limited (smartphones, etc). Since the library does not have any build-in solution for this we came up with our own. Simply by clicking on diagram's preview will open full-window sized dialog where you can pan and zoom the diagram and it works even with touch screen devices using your fingers.
