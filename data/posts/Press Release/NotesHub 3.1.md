@@ -26,6 +26,8 @@ Mermaid is a great library for defining diagrams in simple text format. The prob
 
 ## New settings for editor and preview
 
+![Appearance Settings](.attachments/nh31-appearance-settings.webp "Appearance Settings")
+
 ## Optimal line length
 Many studies show the importance of limiting maximum line length in the text for content readability. If the lines are too short then the text becomes disjointed; if they are too long, the content loses rhythm as the reader searches for the start of each line. That's is why you can see this limit imposed in many blogs, news sites, apps, etc. You can read more about the line length [here](https://en.wikipedia.org/wiki/Line_length#Electronic_text).
 With this release we are introducing new setting **Optimal Line Length** which is turned on by default and will limit lines to 75 characters. You can turn it off in _Settings -> Appearance -> Optimal Line Length_.
