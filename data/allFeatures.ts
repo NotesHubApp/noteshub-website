@@ -13,6 +13,12 @@ export const allFeatures = {
     'Printing notes and export to PDF',
     'Kanban boards',
     'Dark mode',
+    'Syntax highlighting of code blocks',
+    'Support of Mermaid diagrams',
+    'Support of math expressions using LaTeX notation',
+    'Drag-and-drop files to make attachments',
+    'Embed YouTube videos and tweets',
+    'Search/replace inside notes',
     'Markdown preview with scroll sync',
     'Move/copy notes across notebooks',
     'Attach/upload files on paste from clipboard',
@@ -22,14 +28,9 @@ export const allFeatures = {
     'Automatic merge conflicts resolution'
   ],
   newFeatures: [
-    'Syntax highlighting of code blocks',
-    'Support of Mermaid diagrams',
-    'Support of math expressions using LaTeX notation',
-    'Drag-and-drop files to make attachments',
-    'Embed YouTube videos and tweets',
-    'Search/replace inside notes'
+    'Auto-generated table of contents (TOC)',
+    'Support of ABC musical notation'
   ],
   nonReleasedFeatures: [
-    'Quick notes',
   ]
 }
