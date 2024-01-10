@@ -2,7 +2,7 @@ import { Announcement } from 'models/Announcement'
 import { Routes } from 'utils/Routes';
 import { blogRepository } from './blogConfig';
 
-const latestPost = blogRepository.getLatestPublishedPost();
+const latestPost = blogRepository.getLatestPublishedPostAnnotation();
 const postAnnouncement: Announcement | undefined = latestPost ? {
   type: 'post',
   title: latestPost.title,

@@ -37,14 +37,19 @@ export class BlogRepository {
   constructor(private readonly config: BlogRepositoryConfig) {}
 
 
-  public getAllPublishedPosts(): BlogPostAnnotation[] {
+  public getAllPostAnnotations(): BlogPostAnnotation[] {
+    return this.blogPosts.value
+    .map(BlogRepository.toAnnotation);
+  }
+
+  public getAllPublishedPostAnnotations(): BlogPostAnnotation[] {
     return this.blogPosts.value
       .map(BlogRepository.toAnnotation)
       .filter(x => x.published);
   }
 
-  public getLatestPublishedPost(): BlogPostAnnotation | undefined {
-    const allPosts = this.getAllPublishedPosts();
+  public getLatestPublishedPostAnnotation(): BlogPostAnnotation | undefined {
+    const allPosts = this.getAllPublishedPostAnnotations();
     return allPosts.length > 0 ? allPosts[0] : undefined;
   }
 

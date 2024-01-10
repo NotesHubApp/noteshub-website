@@ -40,7 +40,7 @@ type PageParams = {
 }
 
 export async function getStaticPaths() {
-  const allPosts = blogRepository.getAllPublishedPosts();
+  const allPosts = blogRepository.getAllPostAnnotations();
   return {
     paths: allPosts.map(post => {
       const postedOnDate = new Date(post.postedOn);

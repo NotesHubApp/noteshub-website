@@ -14,7 +14,7 @@ export async function getStaticProps() {
 
   blogRepository.copyAssets();
 
-  const posts = blogRepository.getAllPublishedPosts();
+  const posts = blogRepository.getAllPublishedPostAnnotations();
   return { props: { posts } };
 }
 
