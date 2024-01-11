@@ -6,7 +6,7 @@ image: .attachments/selfhosting-hero.webp
 ---
 
 In this tutorial we will learn how to self-host your notes in Git on home server and access them with **NotesHub** from the internet.
-As a home server we'll be using [Orange Pi](http://www.orangepi.org) with Ubuntu installed, but any single board computer or Debian-based Linux server should work.
+As a home server we'll be using [Orange Pi](http://www.orangepi.org) with Ubuntu installed, but any single board computer ([Raspberry Pi](https://www.raspberrypi.com), etc) or Debian-based Linux server should work.
 
 ## Setup Git server
 [Gitea](https://about.gitea.com) is very popular open-source solution for self-hosting a Git server.
@@ -49,6 +49,77 @@ Exit the PostgreSQL terminal: `\q`
 
 ### Install Gitea
 
-## Setup acccess from the internet
+First we start by creating a new user under which we will run the Gitea service. Use `–disabled-login` as we don't want to use it for login into our server. Use `–gecos` to allow us to set a name for the user, _gitea_.
+
+```sh
+sudo adduser --disabled-login --gecos 'Gitea' gitea
+```
+
+Switch to the newly created user:
+
+```sh
+sudo su gitea
+```
+
+Change to the home directory of user _gitea_ and create a new directory where we will store the Gitea binaries. We also switch to the new directory.
+
+```sh
+cd ~
+mkdir gitea
+cd gitea
+```
+
+Now we need to download the correct Gitea binaries. First go to https://dl.gitea.io/gitea/ and pick the latest version, than find the file with the `-linux-arm64` ending, since our home server is Linux based with the processor on ARM architecture. Copy the link of the actual file, and in the command below replace `GITEA_BINARY_URL` with that url.
+
+```sh
+wget GITEA_BINARY_URL -O gitea
+```
+
+To be able to run it as a service, we first need to give execution rights to the file for the user _gitea_.
+Finally we exit from user _gitea_
+
+```sh
+chmod +x gitea
+exit
+```
+
+Now we need to make sure that Gitea will be automatically launched at startup and we can also easily stop and start the service.
+Let's create a service file with the following command:
+
+```sh
+sudo nano /etc/systemd/system/gitea.service
+```
+
+Copy the following content to the file:
+
+```ini
+[Unit]
+Description=Gitea (Git with a cup of tea)
+After=syslog.target
+After=network.target
+
+[Service]
+# Modify these two values ​​and uncomment them if you have
+# repos with lots of files and get to HTTP error 500 because of that
+###
+# LimitMEMLOCK=infinity
+# LimitNOFILE=65535
+RestartSec=2s
+Type=simple
+User=git
+Group=git
+WorkingDirectory=/home/git/gitea
+ExecStart=/home/git/gitea/gitea web
+Restart=always
+Environment=USER=git
+HOME=/home/git
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Save the file with `Ctrl+X` followed by y and then enter.
+
+## Open acccess from the internet
 
 ## Connect notes to NotesHub
