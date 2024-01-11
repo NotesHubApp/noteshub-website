@@ -49,19 +49,19 @@ Exit the PostgreSQL terminal: `\q`
 
 ### Install Gitea
 
-First we start by creating a new user under which we will run the Gitea service. Use `–disabled-login` as we don't want to use it for login into our server. Use `–gecos` to allow us to set a name for the user, _gitea_.
+First we start by creating a new user under which we will run the Gitea service. Use `–disabled-login` as we don't want to use it for login into our server. Use `–gecos` to allow us to set a name for the user, _git_.
 
 ```sh
-sudo adduser --disabled-login --gecos 'Gitea' gitea
+sudo adduser --disabled-login --gecos 'Git Version Control' git
 ```
 
 Switch to the newly created user:
 
 ```sh
-sudo su gitea
+sudo su git
 ```
 
-Change to the home directory of user _gitea_ and create a new directory where we will store the Gitea binaries. We also switch to the new directory.
+Change to the home directory of user _git_ and create a new directory where we will store the Gitea binaries. We also switch to the new directory.
 
 ```sh
 cd ~
@@ -119,6 +119,13 @@ WantedBy=multi-user.target
 ```
 
 Save the file with `Ctrl+X` followed by y and then enter.
+
+If everything is correct we should now be able to enable and finally start our service:
+
+```sh
+sudo systemctl enable gitea.service
+sudo systemctl start gitea.service
+```
 
 ## Open acccess from the internet
 
