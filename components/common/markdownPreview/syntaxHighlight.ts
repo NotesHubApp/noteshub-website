@@ -1,5 +1,5 @@
 import autohotkey from 'refractor/lang/autohotkey';
-import bash from 'refractor/lang/bash';
+import bash from './prismLanguages/bash';
 import cpp from 'refractor/lang/cpp';
 import csharp from 'refractor/lang/csharp';
 import css from 'refractor/lang/css';

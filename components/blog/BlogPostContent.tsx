@@ -1,8 +1,8 @@
 import ReactMarkdown from 'react-markdown'
-import rehypePrism from 'components/rehypePlugins/rehypePrism'
+import rehypePrism from 'components/common/markdownPreview/rehypePlugins/rehypePrism'
 import rehypeRaw from 'rehype-raw'
 import remarkBreaks from 'remark-breaks'
-import { remarkFigureCaption } from 'components/remarkPlugins/remarkFigureCaption'
+import { remarkFigureCaption } from 'components/common/markdownPreview/remarkPlugins/remarkFigureCaption'
 import remarkGfm from 'remark-gfm'
 
 type BlogPostContentProps = {

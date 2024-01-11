@@ -2,7 +2,7 @@ import type { Root, Element } from 'hast'
 import { type Plugin } from 'unified'
 import { visit } from 'unist-util-visit';
 import { toString as nodeToString } from 'hast-util-to-string';
-import { canHighlight, highlight } from 'utils/syntaxHighlight';
+import { canHighlight, highlight } from 'components/common/markdownPreview/syntaxHighlight';
 
 
 type RehypePrismOptions = {

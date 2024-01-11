@@ -33,7 +33,7 @@ CREATE USER gitea CREATEDB;
 
 To set the password for user _gitea_, type:
 
-```sh
+```sql
 \password gitea
 ```
 You will be asked to enter a password. Keep it for future reference.
