@@ -25,6 +25,30 @@
   --header-bg: hsla(0, 0%, 100%, .8);
 
   --codeBlock-backgroundColor: #f5f5f5;
+
+    /* Code blocks */
+    /* HTML */
+    --nh-palette-code-tok-tag: #800000;
+    --nh-palette-code-tok-attrName: #e50000;
+    --nh-palette-code-tok-attrValue: #0000ff;
+    --nh-palette-code-tok-angleBracket: #808080;
+    /* CSS */
+    --nh-palette-code-tok-selector: #800000;
+    /* Common */
+    --nh-palette-code-tok-monospace: #c7254e;
+    --nh-palette-code-tok-comment: #008000;
+    --nh-palette-code-tok-string: #a31515;
+    --nh-palette-code-tok-regex: #811f3f;
+    --nh-palette-code-tok-number: #098658;
+    --nh-palette-code-tok-boolean: #0000ff;
+    --nh-palette-code-tok-propName: #0451a5;
+    --nh-palette-code-tok-propValue: #e50000;
+    --nh-palette-code-tok-keyword: #0000ff;
+    --nh-palette-code-tok-varName: #0070c1;
+    --nh-palette-code-tok-funcName: #795e26;
+    --nh-palette-code-tok-className: #267f99;
+    --nh-palette-code-tok-operator: #000000;
+    --nh-palette-code-tok-punctuation: black;
 }
 
 [data-color-scheme=light] ::backdrop {
@@ -45,6 +69,30 @@
     --header-bg: rgba(0, 0, 0, 0.8);
 
     --codeBlock-backgroundColor: #1e1e1e;
+
+    /* Code blocks */
+    /* HTML */
+    --nh-palette-code-tok-tag: #569cd6;
+    --nh-palette-code-tok-attrName: #9cdcfe;
+    --nh-palette-code-tok-attrValue: #ce9178;
+    --nh-palette-code-tok-angleBracket: #808080;
+    /* CSS */
+    --nh-palette-code-tok-selector: #d7ba7d;
+    /* Common */
+    --nh-palette-code-tok-monospace: #c7254e;
+    --nh-palette-code-tok-comment: #6a9955;
+    --nh-palette-code-tok-string: #ce9178;
+    --nh-palette-code-tok-regex: #d16969;
+    --nh-palette-code-tok-number: #b5cea8;
+    --nh-palette-code-tok-boolean: #569cd6;
+    --nh-palette-code-tok-propName: #9cdcfe;
+    --nh-palette-code-tok-propValue: #ce9178;
+    --nh-palette-code-tok-keyword: #569cd6;
+    --nh-palette-code-tok-varName: #4fc1ff;
+    --nh-palette-code-tok-funcName: #dcdcaa;
+    --nh-palette-code-tok-className: #4ec9b0;
+    --nh-palette-code-tok-operator: #d4d4d4;
+    --nh-palette-code-tok-punctuation: #d4d4d4;
   }
 
   [data-color-scheme=dark] ::backdrop {
@@ -159,4 +207,154 @@ code {
 
 [data-color-scheme=dark] .mermaid {
   filter: invert(1) brightness(3);
+}
+
+/*************************************/
+/* PrismJS */
+/*************************************/
+
+/* HTML */
+.token.doctype,
+.token.doctype .punctuation {
+  color: var(--nh-palette-code-tok-angleBracket);
+}
+
+.token.cdata {
+  color: var(--nh-palette-code-tok-angleBracket);
+}
+
+.token.tag {
+  color: var(--nh-palette-code-tok-tag);
+}
+
+.token.tag .token.punctuation {
+  color: var(--nh-palette-code-tok-angleBracket);
+}
+
+.token.attr-name {
+  color: var(--nh-palette-code-tok-attrName);
+}
+
+.token.attr-value {
+  color: var(--nh-palette-code-tok-attrValue);
+}
+
+.token.attr-value .token.punctuation {
+  color: var(--nh-palette-code-tok-punctuation);
+}
+
+/* CSS */
+.token.selector {
+  color: var(--nh-palette-code-tok-selector);
+}
+
+/* @ rules (statements) in stylesheets. */
+.token.atrule {
+  color: var(--nh-palette-code-tok-keyword);
+}
+
+.token.atrule .token.url .token.function {
+  color: var(--nh-palette-code-tok-funcName);
+}
+
+.token.atrule .token.url .token.punctuation {
+  color: var(--nh-palette-code-tok-punctuation);
+}
+
+/* JavaScript */
+.token.console {
+  color: var(--nh-palette-code-tok-varName) !important;
+}
+
+.token.regex {
+  color: var(--nh-palette-code-tok-regex);
+}
+
+/* Markdown */
+.token.italic {
+  font-style: italic;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+/* Common */
+.token.comment,
+.token.prolog {
+  color: var(--nh-palette-code-tok-comment);
+}
+
+.token.punctuation {
+  color: var(--nh-palette-code-tok-punctuation);
+}
+
+.token.number,
+.token.constant,
+.token.symbol,
+.token.inserted,
+.token.unit {
+  color: var(--nh-palette-code-tok-number);
+}
+
+.token.string,
+.token.char,
+.token.builtin,
+.token.deleted {
+  color: var(--nh-palette-code-tok-string);
+}
+
+.token.boolean {
+  color: var(--nh-palette-code-tok-boolean);
+}
+
+.token.operator,
+.token.entity {
+  color: var(--nh-palette-code-tok-operator);
+}
+
+.token.keyword {
+  color: var(--nh-palette-code-tok-keyword);
+}
+
+.token.function,
+.token.function .token.maybe-class-name {
+  color: var(--nh-palette-code-tok-funcName);
+}
+
+.token.constant {
+  color: var(--nh-palette-code-tok-varName);
+}
+
+.token.class-name,
+.token.maybe-class-name {
+  color: var(--nh-palette-code-tok-className);
+}
+
+.token.parameter {
+  color: var(--nh-palette-code-tok-varName);
+}
+
+.token.interpolation {
+  color: var(--nh-palette-code-tok-varName);
+}
+
+.token.punctuation.interpolation-punctuation {
+  color: var(--nh-palette-code-tok-punctuation);
+}
+
+.token.property,
+.token.variable {
+  color: var(--nh-palette-code-tok-propName);
+}
+
+.token.namespace {
+  opacity: .7;
+  color: var(--nh-palette-code-tok-className);
+}
+
+/* Language Specific */
+pre[class*="language-css"],
+code[class*="language-css"] {
+  color: var(--nh-palette-code-tok-propValue);
 }
