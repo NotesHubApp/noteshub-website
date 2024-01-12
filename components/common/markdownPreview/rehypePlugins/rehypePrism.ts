@@ -34,7 +34,10 @@ const rehypePrismPlugin: Plugin<[RehypePrismOptions?], Root> = (options = {}) =>
         parent.properties.className = (parent.properties.className as string[] || []).concat(
           'language-' + lang
         );
-        result = highlight(nodeToString(node), lang);
+
+        const sourceCode = nodeToString(node);
+        parent.properties.sourceCode = sourceCode;
+        result = highlight(sourceCode, lang);
       } catch (err) {
         const message = (err as { message: string }).message;
         if (options.ignoreMissing && /Unknown language/.test(message)) {

@@ -1,4 +1,6 @@
+import { CodeBlock } from 'components/common/CodeBlock'
 import ReactMarkdown from 'react-markdown'
+import { ReactNode } from 'react'
 import rehypePrism from 'components/common/markdownPreview/rehypePlugins/rehypePrism'
 import rehypeRaw from 'rehype-raw'
 import remarkBreaks from 'remark-breaks'
@@ -29,6 +31,11 @@ const components = {
     <a href={props.href} {...(isExternalUrl(props.href) ? { target: '_blank', rel: 'nofollow' } : {}) }>
       { props.children }
     </a>
+  ),
+  pre: (props: { children: ReactNode, sourceCode?: string, className?: string }) => (
+    <CodeBlock sourceCode={ props.sourceCode } className={ props.className }>
+      { props.children }
+    </CodeBlock>
   )
 };
 

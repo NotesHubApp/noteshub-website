@@ -9,6 +9,8 @@
   --reddit-color: #FF4500;
   --linkedin-color: #0A66C2;
 
+  --success-color: green;
+
   --monospace-font: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
@@ -24,6 +26,8 @@
 
   --header-bg: hsla(0, 0%, 100%, .8);
 
+  --codeBlock-textColor: #333;
+  --codeBlock-borderColor: #ccc;
   --codeBlock-backgroundColor: #f5f5f5;
 
     /* Code blocks */
@@ -68,6 +72,8 @@
 
     --header-bg: rgba(0, 0, 0, 0.8);
 
+    --codeBlock-textColor: #cccccc;
+    --codeBlock-borderColor: #464646;
     --codeBlock-backgroundColor: #1e1e1e;
 
     /* Code blocks */
