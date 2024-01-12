@@ -6,7 +6,7 @@ image: .attachments/selfhosting-hero.webp
 ---
 
 In this tutorial we will learn how to self-host your notes in Git on home server and access them with **NotesHub** from the internet.
-As a home server we'll be using [Orange Pi](http://www.orangepi.org) with Ubuntu installed, but any single board computer ([Raspberry Pi](https://www.raspberrypi.com), etc) or Debian-based Linux server should work.
+As a home server we'll be using [Orange Pi](http://www.orangepi.org) with Ubuntu installed, but any single board computer ([Raspberry Pi](https://www.raspberrypi.com), etc) or Debian-based Linux server should work. Depending on your home setup some commands may very.
 
 ## Setup Git server
 [Gitea](https://about.gitea.com) is very popular open-source solution for self-hosting a Git server.
@@ -46,6 +46,13 @@ CREATE DATABASE gitea OWNER gitea;
 
 Exit the PostgreSQL terminal: `\q`
 
+### Install Git
+
+Check that Git is installed on the server. If it is not, install it first. Gitea requires Git version >= 2.0.
+
+```sh
+sudo apt install git
+```
 
 ### Install Gitea
 
@@ -69,7 +76,7 @@ mkdir gitea
 cd gitea
 ```
 
-Now we need to download the correct Gitea binaries. First go to https://dl.gitea.io/gitea/ and pick the latest version, than find the file with the `-linux-arm64` ending, since our home server is Linux based with the processor on ARM architecture. Copy the link of the actual file, and in the command below replace `GITEA_BINARY_URL` with that url.
+Now we need to download the correct Gitea binaries. First go to https://dl.gitea.io/gitea/ and pick the latest version, than find the file with the `-linux-arm64` ending, since our home server is Linux-based with the processor on ARM architecture. Copy the link of the actual file, and in the command below replace `GITEA_BINARY_URL` with that url.
 
 ```sh
 wget GITEA_BINARY_URL -O gitea
@@ -127,6 +134,6 @@ sudo systemctl enable gitea.service
 sudo systemctl start gitea.service
 ```
 
-## Open acccess from the internet
+## Make Git server accessible from the internet
 
-## Connect notes to NotesHub
+## Access notes from NotesHub
