@@ -5,11 +5,11 @@ published: true
 image: .attachments/selfhosting-hero.webp
 ---
 
-In this tutorial we will learn how to self-host your notes in Git on home server and access them with **NotesHub** from the internet.
-As a home server we'll be using [Orange Pi](http://www.orangepi.org) with Ubuntu installed, but any single board computer ([Raspberry Pi](https://www.raspberrypi.com), etc) or Debian-based Linux server should work. Depending on your home setup some commands may very.
+In this tutorial we will learn how to self-host your notes in Git on home server and access them with [NotesHub](/) from the internet.
+As a home server we'll be using [Orange Pi](http://www.orangepi.org) with Ubuntu installed, but any single board computer ([Raspberry Pi](https://www.raspberrypi.com), etc) or Debian-based Linux server should work. Depending on your specific setup some commands may very.
 
 ## Setup Git server
-[Gitea](https://about.gitea.com) is very popular open-source solution for self-hosting a Git server.
+In our setup we will use [Gitea](https://about.gitea.com) as it's very popular open-source solution for self-hosting a Git server and it will be very familiar for GitHub users.
 
 ### Install a database
 
