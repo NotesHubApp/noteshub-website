@@ -35,7 +35,8 @@ const rehypePrismPlugin: Plugin<[RehypePrismOptions?], Root> = (options = {}) =>
           'language-' + lang
         );
 
-        const sourceCode = nodeToString(node);
+        let sourceCode = nodeToString(node);
+        sourceCode = sourceCode.replace(/\r?\n$/, ''); // trim last new line
         parent.properties.sourceCode = sourceCode;
         result = highlight(sourceCode, lang);
       } catch (err) {

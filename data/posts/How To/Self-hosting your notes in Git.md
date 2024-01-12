@@ -5,7 +5,10 @@ published: true
 image: .attachments/selfhosting-hero.webp
 ---
 
-In this tutorial we will learn how to self-host your notes in Git on home server and access them with [NotesHub](/) from the internet.
+In this tutorial we will learn how to self-host your notes in Git on home server and access them with [NotesHub](/) from the internet completely for free!
+
+I would like to start with answering question why you may want this.
+
 As a home server we'll be using [Orange Pi](http://www.orangepi.org) with Ubuntu installed, but any single board computer ([Raspberry Pi](https://www.raspberrypi.com), etc) or Debian-based Linux server should work. Depending on your specific setup some commands may very.
 
 ## Setup Git server
