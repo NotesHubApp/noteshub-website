@@ -27,7 +27,7 @@ import { refractor } from 'refractor/lib/core';
 import ruby from 'refractor/lang/ruby';
 import rust from 'refractor/lang/rust';
 import scala from 'refractor/lang/scala';
-import sql from 'refractor/lang/sql';
+import sql from './prismLanguages/sql';
 import swift from 'refractor/lang/swift';
 import typescript from 'refractor/lang/typescript';
 
