@@ -134,6 +134,14 @@ sudo systemctl enable gitea.service
 sudo systemctl start gitea.service
 ```
 
-## Make Git server accessible from the internet
+## Expose Git server to the Internet
 
-## Access notes from NotesHub
+### IP reservation & port forwarding
+The local IP address changes automatically by router when we connect/disconnect from the network and in some other circumstances.
+That is way it's important to make sure that our home server will keep his local IP address.
+
+### DDNS
+
+### Reverse proxy & SSL certificate
+
+## Access notes with NotesHub
