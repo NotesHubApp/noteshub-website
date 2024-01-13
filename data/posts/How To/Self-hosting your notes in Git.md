@@ -217,8 +217,35 @@ Let's adjust firewall rules to enable full traffic to Nginx.
 sudo ufw allow 'Nginx Full'
 ```
 
-Also, for security reasons we need to make sure to encrypt our traffic with Git server on transit.
+Now we can configure Nginx to server our Gitea service, by creating new configuration file (replace `your_domain` with your own).
+
+```sh
+sudo nano /etc/nginx/sites-available/your_domain
+```
+
+```nginx
+server {
+  listen 80;
+  server_name git.example.com;
+
+  location / {
+    client_max_body_size 512M;
+    proxy_pass http://localhost:3000;
+    proxy_set_header Connection $http_connection;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
+}
+```
+
+For security reasons we need to make sure to encrypt our traffic with Git server on transit.
 We will use [Let’s Encrypt](https://letsencrypt.org) which is a Certificate Authority (CA) that provides an easy way to obtain and install free TLS/SSL certificates, thereby enabling encrypted HTTPS on web servers.
+
+The first step to using Let’s Encrypt to obtain an SSL certificate is to install the _Certbot_ software on your server.
+Install Certbot and it’s Nginx plugin with apt:
 
 ```sh
 sudo apt install certbot python3-certbot-nginx

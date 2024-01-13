@@ -17,6 +17,7 @@ import jsx from 'refractor/lang/jsx';
 import kotlin from 'refractor/lang/kotlin';
 import kusto from 'refractor/lang/kusto';
 import markdown from 'refractor/lang/markdown';
+import nginx from 'refractor/lang/nginx';
 import objectivec from 'refractor/lang/objectivec';
 import perl from 'refractor/lang/perl';
 import php from 'refractor/lang/php';
@@ -51,6 +52,7 @@ import typescript from 'refractor/lang/typescript';
   kotlin,
   kusto,
   markdown,
+  nginx,
   objectivec,
   perl,
   php,
