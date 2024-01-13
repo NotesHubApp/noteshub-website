@@ -242,6 +242,12 @@ server {
 }
 ```
 
+Let's reload Nginx configuration
+
+```sh
+sudo service nginx reload
+```
+
 For security reasons we need to make sure to encrypt our traffic with Git server on transit.
 We will use [Let’s Encrypt](https://letsencrypt.org) which is a Certificate Authority (CA) that provides an easy way to obtain and install free TLS/SSL certificates, thereby enabling encrypted HTTPS on web servers.
 
