@@ -179,6 +179,24 @@ For this purupose we will use [ddclient](https://github.com/ddclient/ddclient), 
 sudo apt install ddclient
 ```
 
+Upon installation you will be greated with _Configuration ddclient_ screen.
+If your domain registrar listed in the list, select it, otherwise choose other and follow other prompts.
+Since those promts may depend on your domain registrar we will omit them here.
+As a general rule you should research how to get DDNS credentials for your particular registrar.
+Also, if your registrar was not in the initial list, you would have manually update `ddclient.conf` file by following instructions here: https://ddclient.net/protocols.html.
+
+Finally, once everything is setup we can go ahead and enable automatic startup of _ddclient_ when booting
+
+```sh
+systemctl enable ddclient.service
+```
+
+And start the first time by hand
+
+```sh
+systemctl start ddclient.service
+```
+
 ### Reverse proxy & SSL certificate
 
 ## Access notes with NotesHub
