@@ -137,6 +137,11 @@ sudo systemctl enable gitea.service
 sudo systemctl start gitea.service
 ```
 
+### Configure Gitea
+
+Now that we have installed Gitea we can proceed with the configuration part.
+Navigate in the browser to the following URL `http://localhost:3000` from our home server and you should be greeted with the Gitea _Initial Configuration_ screen.
+
 ## Expose Git server to the Internet
 
 ### IP reservation & port forwarding
