@@ -203,4 +203,8 @@ In our case we will use [NGINX](https://www.nginx.com), let's install it:
 sudo apt install nginx
 ```
 
+```sh
+sudo apt install certbot python3-certbot-nginx
+```
+
 ## Access notes with NotesHub
