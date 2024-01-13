@@ -226,6 +226,7 @@ sudo nano /etc/nginx/sites-available/your_domain
 ```nginx
 server {
   listen 80;
+  # replace domain with your own
   server_name git.example.com;
 
   location / {
