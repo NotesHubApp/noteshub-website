@@ -2,7 +2,7 @@
 description: The tutorial on how to self-host your notes in Git and access them from the internet with NotesHub
 postedOn: 01/22/2024
 published: true
-image: .attachments/selfhosting-hero.webp
+image: .attachments/selfhost-hero.webp
 ---
 
 In this tutorial we will learn how to self-host your notes in Git on home server and access them with [NotesHub](/) from the internet completely for free!
@@ -141,6 +141,8 @@ sudo systemctl start gitea.service
 
 Now that we have installed Gitea we can proceed with the configuration part.
 Navigate in the browser to the following URL `http://localhost:3000` from our home server and you should be greeted with the Gitea _Initial Configuration_ screen.
+
+![](.attachments/selfhost-gitea-init-config.png "Gitea Initial Configuration")
 
 ## Expose Git server to the Internet
 
