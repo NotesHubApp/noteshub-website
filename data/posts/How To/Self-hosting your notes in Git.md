@@ -171,6 +171,14 @@ That is way it's important to make sure that our home server will keep his local
 
 ### DDNS
 
+DDNS, most commonly known as Dynamic DNS, is an automatic method of refreshing a name server. It can dynamically update DNS records without the need for human interaction. It is extremely useful for updating A and AAAA records when the host has changed its IP address. Since most houses don't have static IPs, this is an essential step to make sure your home server is accessible outside of local network.
+
+For this purupose we will use [ddclient](https://github.com/ddclient/ddclient), go ahead and install it
+
+```sh
+sudo apt install ddclient
+```
+
 ### Reverse proxy & SSL certificate
 
 ## Access notes with NotesHub
