@@ -176,6 +176,7 @@ DDNS, most commonly known as Dynamic DNS, is an automatic method of refreshing a
 For this purupose we will use [ddclient](https://github.com/ddclient/ddclient), go ahead and install it
 
 ```sh
+sudo apt install libio-socket-ssl-perl # depended Perl module
 sudo apt install ddclient
 ```
 
@@ -185,16 +186,11 @@ Since those promts depend on your domain registrar we will omit them here.
 As a general rule you should research how to get DDNS credentials for your particular registrar.
 Also, if your registrar was not in the initial list, you would have manually update `/etc/ddclient.conf` file by following instructions here: https://ddclient.net/protocols.html.
 
-Finally, once everything is setup we can go ahead and enable automatic startup of _ddclient_ when booting
+Finally, once everything is setup we can go ahead and enable automatic startup of _ddclient_ when booting and perform the first start
 
 ```sh
-sudo systemctl enable ddclient.service
-```
-
-And start the first time by hand
-
-```sh
-sudo systemctl start ddclient.service
+sudo systemctl enable ddclient.service # enable automatic startup
+sudo systemctl start ddclient.service # perform first start
 ```
 
 ### Reverse proxy & SSL certificate
