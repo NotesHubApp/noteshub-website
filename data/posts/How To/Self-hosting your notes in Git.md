@@ -195,4 +195,12 @@ sudo systemctl start ddclient.service # perform first start
 
 ### Reverse proxy & SSL certificate
 
+A reverse proxy serves as a sort of dispatcher by acting as a central contact point for clients. Based on the information requested by the client, it then routes the request to the appropriate backend server and makes sure the backend server’s response makes it back to the appropriate client.
+
+In our case we will use [NGINX](https://www.nginx.com), let's install it:
+
+```sh
+sudo apt install nginx
+```
+
 ## Access notes with NotesHub
