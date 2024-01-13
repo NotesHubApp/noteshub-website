@@ -5,11 +5,16 @@ published: true
 image: .attachments/selfhost-hero.webp
 ---
 
-In this tutorial we will learn how to self-host your notes in Git on home server and access them with [NotesHub](/) from the internet completely for free!
+In this tutorial we will learn how to self-host your notes in Git on home server and access them with [NotesHub](/) from the internet completely for free _(assuming that you already have everything from prerequisites section)_!
 
 I would like to start with answering question why you may want this.
 
 As a home server we'll be using [Orange Pi](http://www.orangepi.org) with Ubuntu installed, but any single board computer ([Raspberry Pi](https://www.raspberrypi.com), etc) or Debian-based Linux server should work. Depending on your specific setup some commands may very.
+
+## Prerequisites
+- _Home server:_ Single Board Computer (Orange Pi, Raspberry Pi, etc.) or Desktop computer
+- _Linux OS:_ preferably Debian-based like Ubuntu, Raspberry Pi OS, etc.
+- _Domain name_
 
 ## Setup Git server
 In our setup we will use [Gitea](https://about.gitea.com) as it's very popular open-source solution for self-hosting a Git server and it will be very familiar for GitHub users.
@@ -140,9 +145,23 @@ sudo systemctl start gitea.service
 ### Configure Gitea
 
 Now that we have installed Gitea we can proceed with the configuration part.
-Navigate in the browser to the following URL `http://localhost:3000` from our home server and you should be greeted with the Gitea _Initial Configuration_ screen.
+Navigate in the browser to the following URL `http://localhost:3000` from your home server and you should be greeted with the Gitea _Initial Configuration_ screen.
 
 ![](.attachments/selfhost-gitea-init-config.png "Gitea Initial Configuration")
+
+If you strictly followed the instruction, it will require minimum input from you:
+
+- **Database Settings**
+  - _Password:_ enter the PostgreSQL user password used on previous steps
+- **General Settings**
+  - _Gitea Base URL:_ enter the intended entry point URL for your Git server (example: `https://git.example.com`), please note that you must own that domain name
+  - _Enable Update Checker:_ check
+- **Optional Settings**
+  - _Disable Self-Registration:_ check
+  - _Require Sign-In to View Pages:_ check
+  - _Administrator Account Settings:_ enter username, email and password for new administrative account of Gitea server
+
+Once you have set everything, you can go ahead and press the _Install Gitea_ button located at the bottom of the web page.
 
 ## Expose Git server to the Internet
 
