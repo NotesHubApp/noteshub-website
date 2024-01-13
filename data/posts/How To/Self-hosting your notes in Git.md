@@ -217,7 +217,7 @@ Let's adjust firewall rules to enable full traffic to Nginx.
 sudo ufw allow 'Nginx Full'
 ```
 
-Now we can configure Nginx to server our Gitea service, by creating new configuration file (replace `your_domain` with your own).
+Now we can configure Nginx to serve our Gitea service, by creating new configuration file (replace `your_domain` with your own).
 
 ```sh
 sudo nano /etc/nginx/sites-available/your_domain
