@@ -183,7 +183,7 @@ Upon installation you will be greated with _Configuration ddclient_ screen.
 If your domain registrar listed in the list, select it, otherwise choose _other_ and follow prompts.
 Since those promts depend on your domain registrar we will omit them here.
 As a general rule you should research how to get DDNS credentials for your particular registrar.
-Also, if your registrar was not in the initial list, you would have manually update `ddclient.conf` file by following instructions here: https://ddclient.net/protocols.html.
+Also, if your registrar was not in the initial list, you would have manually update `/etc/ddclient.conf` file by following instructions here: https://ddclient.net/protocols.html.
 
 Finally, once everything is setup we can go ahead and enable automatic startup of _ddclient_ when booting
 
