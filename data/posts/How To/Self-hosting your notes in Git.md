@@ -242,6 +242,12 @@ server {
 }
 ```
 
+Next, let’s enable the file by creating a link from it to the `sites-enabled` directory, which Nginx reads from during startup:
+
+```sh
+sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/
+```
+
 Let's reload Nginx configuration
 
 ```sh
