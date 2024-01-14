@@ -217,10 +217,10 @@ Let's adjust firewall rules to enable full traffic to Nginx.
 sudo ufw allow 'Nginx Full'
 ```
 
-Now we can configure Nginx to serve our Gitea service, by creating new configuration file (replace `your_domain` with your own).
+Now we can configure Nginx to serve our Gitea service, by creating new configuration file (replace `git.example.com` with your own).
 
 ```sh
-sudo nano /etc/nginx/sites-available/your_domain
+sudo nano /etc/nginx/sites-available/git.example.com
 ```
 
 ```nginx
@@ -262,6 +262,12 @@ Install Certbot and it’s Nginx plugin with apt:
 
 ```sh
 sudo apt install certbot python3-certbot-nginx
+```
+
+Now we can obtain an SSL certificate by running the following command
+
+```sh
+sudo certbot --nginx -d git.example.com
 ```
 
 ## Access notes with NotesHub
