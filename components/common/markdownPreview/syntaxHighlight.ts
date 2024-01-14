@@ -31,6 +31,7 @@ import scala from 'refractor/lang/scala';
 import sql from './prismLanguages/sql';
 import swift from 'refractor/lang/swift';
 import typescript from 'refractor/lang/typescript';
+import vbnet from 'refractor/lang/vbnet';
 
 [
   autohotkey,
@@ -65,10 +66,12 @@ import typescript from 'refractor/lang/typescript';
   sql,
   swift,
   typescript,
+  vbnet
 ].forEach(x => refractor.register(x));
 
 refractor.alias({ jsx: ['js'] });
 refractor.alias({ autohotkey: ['ahk'] });
+refractor.alias({ vbnet: ['vb.net', 'vbscript'] });
 
 
 export function highlight(value: string, language: string) {

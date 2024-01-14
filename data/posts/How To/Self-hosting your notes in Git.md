@@ -270,4 +270,7 @@ Now we can obtain an SSL certificate by running the following command
 sudo certbot --nginx -d git.example.com
 ```
 
+Then follow a few prompts and your certificate should be issued and as a bonus auto-redirect from http to https will be configured.
+
+
 ## Access notes with NotesHub
