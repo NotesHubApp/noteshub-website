@@ -165,13 +165,13 @@ Once you have set everything, you can go ahead and press the _Install Gitea_ but
 
 ## Expose Git server to the Internet
 
-### IP reservation & port forwarding
-The local IP address changes automatically by router when we connect/disconnect from the network and in some other circumstances.
-That is way it's important to make sure that our home server will keep his local IP address.
+### Port forwarding
 
-### DDNS
+Port forwarding is a technique that enables remote servers and devices on the internet to access devices that are on a private network. If port forwarding is not enabled, only devices on the private internal network can communicate with each other or your network. Since we want to access our notes not only from home but from any place on earth, we need to enable it.
 
-DDNS, most commonly known as Dynamic DNS, is an automatic method of refreshing a name server. It can dynamically update DNS records without the need for human interaction. It is extremely useful for updating A and AAAA records when the host has changed its IP address. Since most houses don't have static IPs, this is an essential step to make sure your home server is accessible outside of local network.
+### Dynamic DNS
+
+Dynamic DNS or DDNS, is an automatic method of refreshing a name server. It can dynamically update DNS records without the need for human interaction. It is extremely useful for updating A and AAAA records when the host has changed its IP address. Since most houses don't have static IPs, this is an essential step to make sure your home server is accessible outside of local network.
 
 For this purupose we will use [ddclient](https://github.com/ddclient/ddclient), go ahead and install it
 
@@ -193,7 +193,7 @@ sudo systemctl enable ddclient.service # enable automatic startup
 sudo systemctl start ddclient.service # perform first start
 ```
 
-### Reverse proxy & SSL certificate
+### Reverse proxy
 
 A reverse proxy serves as a sort of dispatcher by acting as a central contact point for clients. Based on the information requested by the client, it then routes the request to the appropriate backend server and makes sure the backend server’s response makes it back to the appropriate client.
 
@@ -253,6 +253,8 @@ Let's reload Nginx configuration
 ```sh
 sudo service nginx reload
 ```
+
+### SSL certificate
 
 For security reasons we need to make sure to encrypt our traffic with Git server on transit.
 We will use [Let’s Encrypt](https://letsencrypt.org) which is a Certificate Authority (CA) that provides an easy way to obtain and install free TLS/SSL certificates, thereby enabling encrypted HTTPS on web servers.
