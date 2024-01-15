@@ -169,9 +169,13 @@ Once you have set everything, you can go ahead and press the _Install Gitea_ but
 
 Port forwarding is a technique that enables remote servers and devices on the internet to access devices that are on a private network. If port forwarding is not enabled, only devices on the private internal network can communicate with each other or your network. Since we want to access our notes not only from home but from any place on earth, we need to enable it.
 
+How to do this is highly depends on your router model, so we will not be able to cover all posible variants. You would have to search how to enable port forwarding for your particular model of router.
+
+As an general rule we want all request for ports _80_ and _443_ to be forwarded to our home server in our local network.
+
 ### Dynamic DNS
 
-Dynamic DNS or DDNS, is an automatic method of refreshing a name server. It can dynamically update DNS records without the need for human interaction. It is extremely useful for updating A and AAAA records when the host has changed its IP address. Since most houses don't have static IPs, this is an essential step to make sure your home server is accessible outside of local network.
+Dynamic DNS or DDNS, is an automatic method of refreshing a name server. It can dynamically update DNS records without the need for human interaction. It is extremely useful for updating A and AAAA records when the host has changed its IP address. Since most houses don't have static IPs, this is an essential step to make sure your home server is accessible via human readable URL outside of local network.
 
 For this purupose we will use [ddclient](https://github.com/ddclient/ddclient), go ahead and install it
 
@@ -195,7 +199,7 @@ sudo systemctl start ddclient.service # perform first start
 
 ### Reverse proxy
 
-A reverse proxy serves as a sort of dispatcher by acting as a central contact point for clients. Based on the information requested by the client, it then routes the request to the appropriate backend server and makes sure the backend server’s response makes it back to the appropriate client.
+A reverse proxy serves as a sort of dispatcher by acting as a central contact point for clients. Based on the information requested by the client, it then routes the request to the appropriate backend service and makes sure the backend service’s response makes it back to the appropriate client. This will allow us to host multiple services (for future expansion) on the same server.
 
 In our case we will use [NGINX](https://www.nginx.com), let's install it:
 
