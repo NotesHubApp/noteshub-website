@@ -201,7 +201,7 @@ sudo systemctl start ddclient.service # perform first start
 
 ### Reverse proxy
 
-A reverse proxy serves as a sort of dispatcher by acting as a central contact point for clients. Based on the information requested by the client, it then routes the request to the appropriate backend service and makes sure the backend service’s response makes it back to the appropriate client. This will allow us to host multiple services (for future expansion) on the same server.
+A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) acts as a central contact point for clients and routes their requests to the appropriate backend service. It ensures that the backend service’s response is delivered to the correct client. This will allow us to access multiple services (applications) hosted on the same home server from the internet, which can be useful for future expansion.
 
 In our case we will use [NGINX](https://www.nginx.com), let's install it:
 
@@ -210,20 +210,20 @@ sudo apt install nginx
 ```
 
 Before testing Nginx, the firewall software needs to be adjusted to allow access to the service.
-Let's install `ufw` (Uncomplicated Firewall) package to make appropriate configuration.
+Let's install `ufw` (Uncomplicated Firewall) package to make the appropriate configuration:
 
 ```sh
 sudo apt install ufw
 sudo ufw enable
 ```
 
-Let's adjust firewall rules to enable full traffic to Nginx.
+Let's adjust firewall rules to enable full traffic to Nginx:
 
 ```sh
 sudo ufw allow 'Nginx Full'
 ```
 
-Now we can configure Nginx to serve our Gitea service, by creating new configuration file (replace `git.example.com` with your own).
+Now we can configure Nginx to serve our Gitea service, by creating a new configuration file (replace `git.example.com` with your own):
 
 ```sh
 sudo nano /etc/nginx/sites-available/git.example.com
@@ -254,7 +254,7 @@ Next, let’s enable the file by creating a link from it to the `sites-enabled` 
 sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/
 ```
 
-Let's reload Nginx configuration
+Let's reload Nginx configuration:
 
 ```sh
 sudo service nginx reload
@@ -272,7 +272,7 @@ Install Certbot and it’s Nginx plugin with apt:
 sudo apt install certbot python3-certbot-nginx
 ```
 
-Now we can obtain an SSL certificate by running the following command
+Now we can obtain an SSL certificate by running the following command:
 
 ```sh
 sudo certbot --nginx -d git.example.com
