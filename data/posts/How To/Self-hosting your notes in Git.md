@@ -282,5 +282,6 @@ sudo certbot --nginx -d git.example.com
 
 Then follow a few prompts and your certificate should be issued. As a bonus auto-redirect from HTTP to HTTPS will be configured alongside certificate auto-renewal.
 
-
 ## Access notes with NotesHub
+
+![](.attachments/selfhost-gitea.webp "Gitea UI (Repository)")
