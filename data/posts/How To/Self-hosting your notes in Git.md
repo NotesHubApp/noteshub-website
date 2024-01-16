@@ -113,9 +113,8 @@ After=syslog.target
 After=network.target
 
 [Service]
-# Modify these two values ​​and uncomment them if you have
-# repos with lots of files and get to HTTP error 500 because of that
-###
+# Modify and uncomment the following two properties if you have
+# repos with lots of files and you get HTTP error 500
 # LimitMEMLOCK=infinity
 # LimitNOFILE=65535
 RestartSec=2s
