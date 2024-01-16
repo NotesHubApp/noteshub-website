@@ -5,23 +5,23 @@ published: true
 image: .attachments/selfhost-hero.webp
 ---
 
-In this tutorial we will learn how to self-host your notes in Git on home server and access them with [NotesHub](/) from the internet completely for free _(assuming that you already have everything from prerequisites section)_!
+In this tutorial, we will learn how to self-host your notes in Git on a home server and access them with [NotesHub](/) from the internet completely for free _(assuming that you already have everything from the prerequisites section)_!
 
-I would like to start with answering question why you may want this.
+I would like to start by answering the question of why you may want this. Well, some people may not completely trust their data to be hosted by big companies and they also can change policies on how they handle your data, also this could be just a cool home project. If you are on board, let's dive in.
 
-As a home server we'll be using [Orange Pi](http://www.orangepi.org) with Ubuntu installed, but any single board computer ([Raspberry Pi](https://www.raspberrypi.com), etc) or Debian-based Linux server should work. Depending on your specific setup some commands may very.
+We'll use [Orange Pi](http://www.orangepi.org/) with Ubuntu installed as a home server, but any single-board computer ([Raspberry Pi](https://www.raspberrypi.com), etc) or Debian-based Linux server should work. Depending on your specific setup some commands may vary. It's important to follow the order of steps because some depend on each other.
 
 ## Prerequisites
-- _Home server:_ Single Board Computer (Orange Pi, Raspberry Pi, etc.) or Desktop computer
+- _Home server:_ a single-board computer (Orange Pi, Raspberry Pi, etc.) or Desktop computer
 - _Linux OS:_ preferably Debian-based like Ubuntu, Raspberry Pi OS, etc.
-- _Domain name_
+- _Domain name:_ for demonstration in this tutorial, we will use `git.example.com` but you should replace it with something you own
 
 ## Setup Git server
-In our setup we will use [Gitea](https://about.gitea.com) as it's very popular open-source solution for self-hosting a Git server and it will be very familiar for GitHub users.
+In our setup, we will use [Gitea](https://about.gitea.com) as it's a very popular open-source solution for self-hosting a Git server and it will be very familiar to GitHub users.
 
 ### Install a database
 
-You need a database to use Gitea. Gitea supports PostgreSQL (>= 12), MySQL (>= 8.0), MariaDB (>= 10.4), SQLite (builtin), and MSSQL (>= 2012 SP4). For this installation we will use PostgreSQL.
+You need a database to use Gitea. Gitea supports PostgreSQL (>= 12), MySQL (>= 8.0), MariaDB (>= 10.4), SQLite (builtin), and MSSQL (>= 2012 SP4). For this installation, we will use PostgreSQL.
 
 Install PostgreSQL by using the following command:
 
@@ -29,7 +29,7 @@ Install PostgreSQL by using the following command:
 sudo apt install postgresql
 ```
 
-Open PostgreSQL terminal to create a user for Gitea.
+Open PostgreSQL terminal to create a user for Gitea:
 
 ```sh
 sudo -u postgres psql -d template1
@@ -56,7 +56,7 @@ Exit the PostgreSQL terminal: `\q`
 
 ### Install Git
 
-Check that Git is installed on the server. If it is not, install it first. Gitea requires Git version >= 2.0.
+Check that Git is installed on the server. If it is not, install it first. Gitea requires Git version >= 2.0:
 
 ```sh
 sudo apt install git
@@ -64,7 +64,7 @@ sudo apt install git
 
 ### Install Gitea
 
-First we start by creating a new user under which we will run the Gitea service. Use `–disabled-login` as we don't want to use it for login into our server. Use `–gecos` to allow us to set a name for the user, _git_.
+First, we start by creating a new user under which we will run the Gitea service. Use `–disabled-login` as we don't want to use it for login into our server. Use `–gecos` to allow us to set a name for the user, _git_:
 
 ```sh
 sudo adduser --disabled-login --gecos 'Git Version Control' git
@@ -76,7 +76,7 @@ Switch to the newly created user:
 sudo su git
 ```
 
-Change to the home directory of user _git_ and create a new directory where we will store the Gitea binaries. We also switch to the new directory.
+Change to the home directory of user _git_ and create a new directory where we will store the Gitea binaries. We also switch to the new directory:
 
 ```sh
 cd ~
@@ -84,22 +84,21 @@ mkdir gitea
 cd gitea
 ```
 
-Now we need to download the correct Gitea binaries. First go to https://dl.gitea.io/gitea/ and pick the latest version, than find the file with the `-linux-arm64` ending, since our home server is Linux-based with the processor on ARM architecture. Copy the link of the actual file, and in the command below replace `GITEA_BINARY_URL` with that url.
+Now we need to download the correct Gitea binaries. First, go to https://dl.gitea.io/gitea/ and pick the latest version, then find the file with the `-linux-arm64` ending, since our home server is Linux-based with the processor on ARM architecture. Copy the link of the actual file, and in the command below replace `GITEA_BINARY_URL` with that URL:
 
 ```sh
 wget GITEA_BINARY_URL -O gitea
 ```
 
-To be able to run it as a service, we first need to give execution rights to the file for the user _gitea_.
-Finally we exit from user _gitea_
+To be able to run it as a service, we first need to give execution rights to the file for the user _git_.
+Finally, we exit from that user:
 
 ```sh
 chmod +x gitea
 exit
 ```
 
-Now we need to make sure that Gitea will be automatically launched at startup and we can also easily stop and start the service.
-Let's create a service file with the following command:
+Now we need to make sure that Gitea will be automatically launched at startup. Let's create a service file with the following command:
 
 ```sh
 sudo nano /etc/systemd/system/gitea.service
