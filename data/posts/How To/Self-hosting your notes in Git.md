@@ -284,4 +284,16 @@ Then follow a few prompts and your certificate should be issued. As a bonus auto
 
 ## Access notes with NotesHub
 
+If you get this far, my congratulations, the most heavy lifting is done!
+You should be able to navigate to `https://git.example.com` and create your first repository to store your notes.
+
 ![](.attachments/selfhost-gitea.webp "Gitea UI (Repository)")
+
+Almost everything is ready to use it with NotesHub. Now we need to create app specific _access token_ to use it instead of the admin account password. Navigate in Gitea to _Settings -> Applications_, choose a token name (example: NotesHub) and click _Generate Token_.
+
+Now open NotesHub and click the "+" button to add a new notebook, and choose Git provider.
+- _Username_: could be anything since we use the access token instead of a password
+- _Password_: specify here the newly generated access token from Gitea and keep it for future reference in case you want to add more notebooks
+- _Clone URL_: on Gitea repository page you can find the value near the label _HTTPS_
+
+![](.attachments/selfhost-add-to-noteshub.webp "Add Git-based notebook in NotesHub")
