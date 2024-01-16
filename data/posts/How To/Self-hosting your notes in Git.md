@@ -298,4 +298,5 @@ Now open NotesHub and click the "+" button to add a new notebook, and choose Git
 
 ![](.attachments/selfhost-add-to-noteshub.webp "Add Git-based notebook in NotesHub")
 
-Now as everything is done is the right time to drink tea.
+Click _Add_ and your notebook will be cloned for offline use in the app.
+Now as everything is done is the right time to drink tea!
