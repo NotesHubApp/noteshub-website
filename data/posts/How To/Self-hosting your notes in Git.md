@@ -262,11 +262,13 @@ sudo service nginx reload
 
 ### SSL certificate
 
-For security reasons we need to make sure to encrypt our traffic with Git server on transit.
+To make our service more secure let's add SSL certificate to serve our requests over HTTPS protocol.
+
 We will use [Let’s Encrypt](https://letsencrypt.org) which is a Certificate Authority (CA) that provides an easy way to obtain and install free TLS/SSL certificates, thereby enabling encrypted HTTPS on web servers.
 
 The first step to using Let’s Encrypt to obtain an SSL certificate is to install the _Certbot_ software on your server.
-Install Certbot and it’s Nginx plugin with apt:
+
+Install Certbot and it’s Nginx plugin with `apt`:
 
 ```sh
 sudo apt install certbot python3-certbot-nginx
@@ -278,7 +280,7 @@ Now we can obtain an SSL certificate by running the following command:
 sudo certbot --nginx -d git.example.com
 ```
 
-Then follow a few prompts and your certificate should be issued and as a bonus auto-redirect from http to https will be configured.
+Then follow a few prompts and your certificate should be issued. As a bonus auto-redirect from HTTP to HTTPS will be configured alongside certificate auto-renewal.
 
 
 ## Access notes with NotesHub
