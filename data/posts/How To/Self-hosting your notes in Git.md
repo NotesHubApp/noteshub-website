@@ -154,43 +154,45 @@ If you strictly followed the instructions, it will require minimum input from yo
   - _Database Type:_ choose PostgreSQL
   - _Password:_ enter the PostgreSQL user password used in previous steps
 - **General Settings**
-  - _Gitea Base URL:_ enter the intended entry point URL for your Git server (example: `https://git.example.com`), please note that you must own that domain name
-  - _Enable Update Checker:_ check
+  - _Gitea Base URL:_ enter the intended public URL for your Git server (example: `https://git.example.com`), please note that you must own that domain name
+  - _Enable Update Checker:_ check the option
 - **Optional Settings**
-  - _Disable Self-Registration:_ check
-  - _Require Sign-In to View Pages:_ check
+  - _Disable Self-Registration:_ check the option
+  - _Require Sign-In to View Pages:_ check the option
   - _Administrator Account Settings:_ enter username, email and password for new administrative account of Gitea server
 
 Once you have set everything, you can go ahead and press the _Install Gitea_ button located at the bottom of the web page.
 
 ## Expose Git server to the Internet
 
+If you get to this point than your Gitea instance should be accessible from `http://localhost:3000` (when navigating from home server). Our goal is to access it even outside the home. Let's continue our setup.
+
 ### Port forwarding
 
 Port forwarding is a technique that enables remote servers and devices on the internet to access devices that are on a private network. If port forwarding is not enabled, only devices on the private internal network can communicate with each other or your network. Since we want to access our notes not only from home but from any place on earth, we need to enable it.
 
-How to do this is highly depends on your router model, so we will not be able to cover all posible variants. You would have to search how to enable port forwarding for your particular model of router.
+How to do this highly depends on your network router model, so we will not be able to cover all possible variants. You would have to search for how to enable port forwarding for your particular model.
 
-As an general rule we want all request for ports _80_ and _443_ to be forwarded to our home server in our local network.
+As a general idea, we want all requests for ports _80_ and _443_ to be forwarded to our home server in our local network. Once it's done, you can move on to the next step.
 
 ### Dynamic DNS
 
-Dynamic DNS or DDNS, is an automatic method of refreshing a name server. It can dynamically update DNS records without the need for human interaction. It is extremely useful for updating A and AAAA records when the host has changed its IP address. Since most houses don't have static IPs, this is an essential step to make sure your home server is accessible via human readable URL outside of local network.
+Dynamic DNS or DDNS, is an automatic method of refreshing a name server. It can dynamically update DNS records without the need for human interaction. It is extremely useful for updating A and AAAA records when the host has changed its IP address. Since most houses don't have static IPs, this is an essential step to make sure your home server is accessible via a human-readable URL outside of the local network.
 
-For this purupose we will use [ddclient](https://github.com/ddclient/ddclient), go ahead and install it
+For this purpose, we will use [ddclient](https://github.com/ddclient/ddclient), go ahead and install it:
 
 ```sh
 sudo apt install libio-socket-ssl-perl # depended Perl module
 sudo apt install ddclient
 ```
 
-Upon installation you will be greated with _Configuration ddclient_ screen.
-If your domain registrar listed in the list, select it, otherwise choose _other_ and follow prompts.
-Since those promts depend on your domain registrar we will omit them here.
-As a general rule you should research how to get DDNS credentials for your particular registrar.
-Also, if your registrar was not in the initial list, you would have manually update `/etc/ddclient.conf` file by following instructions here: https://ddclient.net/protocols.html.
+Upon installation, you will be greeted with the _Configuration ddclient_ screen.
+If your domain registrar is listed in the list, select it, otherwise choose _other_ and follow the prompts.
+Since those prompts depend on your domain registrar we will omit them here.
+As a general rule, you should research how to get DDNS credentials for your particular registrar.
+Also, if your registrar was not on the initial list, you would have to manually update `/etc/ddclient.conf` file by following the instructions here: https://ddclient.net/protocols.html.
 
-Finally, once everything is setup we can go ahead and enable automatic startup of _ddclient_ when booting and perform the first start
+Finally, once everything is set we can go ahead and enable the automatic startup of _ddclient_ when booting and perform the first start:
 
 ```sh
 sudo systemctl enable ddclient.service # enable automatic startup
