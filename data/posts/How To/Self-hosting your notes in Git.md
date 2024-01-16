@@ -1,6 +1,6 @@
 ---
-description: The tutorial on how to self-host your notes in Git and access them from the internet with NotesHub
-postedOn: 01/22/2024
+description: Tutorial on how to self-host your notes in Git and access them from the internet with NotesHub
+postedOn: 01/17/2024
 published: true
 image: .attachments/selfhost-hero.webp
 ---
