@@ -132,7 +132,7 @@ HOME=/home/git
 WantedBy=multi-user.target
 ```
 
-Save the file with `Ctrl+X` followed by y and then enter.
+Save the file with `Ctrl+X` followed by `Y` and then hit Enter.
 
 If everything is correct we should now be able to enable and finally start our service:
 
@@ -143,15 +143,16 @@ sudo systemctl start gitea.service
 
 ### Configure Gitea
 
-Now that we have installed Gitea we can proceed with the configuration part.
-Navigate in the browser to the following URL `http://localhost:3000` from your home server and you should be greeted with the Gitea _Initial Configuration_ screen.
+Now that we have installed Gitea, we can proceed with the configuration part.
+Navigate in the browser to the following URL `http://localhost:3000` from your home server, and you should be greeted with the Gitea _Initial Configuration_ screen.
 
 ![](.attachments/selfhost-gitea-init-config.png "Gitea Initial Configuration")
 
-If you strictly followed the instruction, it will require minimum input from you:
+If you strictly followed the instructions, it will require minimum input from you:
 
 - **Database Settings**
-  - _Password:_ enter the PostgreSQL user password used on previous steps
+  - _Database Type:_ choose PostgreSQL
+  - _Password:_ enter the PostgreSQL user password used in previous steps
 - **General Settings**
   - _Gitea Base URL:_ enter the intended entry point URL for your Git server (example: `https://git.example.com`), please note that you must own that domain name
   - _Enable Update Checker:_ check
