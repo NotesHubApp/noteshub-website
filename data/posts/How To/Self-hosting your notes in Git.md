@@ -290,9 +290,9 @@ You should be able to navigate to `https://git.example.com` and create your firs
 
 Almost everything is ready to use it with NotesHub. Now we need to create app specific _access token_ to use it instead of the admin account password. Navigate in Gitea to _Settings -> Applications_, choose a token name (example: NotesHub) and click _Generate Token_.
 
-> **Please note that the Web version of NotesHub uses a proxy service when communicating with a Git server. Use desktop or mobile versions of NotesHub if you want direct communication with your Gitea instance. This will ensure maximum performance and security.**
+> **Please note that the Web version of NotesHub uses a proxy service when communicating with a Git server. Use desktop or mobile version of NotesHub if you want direct communication with your Gitea instance. This will ensure maximum performance and security.**
 
-Now open NotesHub and click the "+" button to add a new notebook, and choose Git provider.
+Now open NotesHub, click the "+" button to add a new notebook and choose Git provider.
 - _Username_: could be anything since we use the access token instead of a password
 - _Password_: specify here the newly generated access token from Gitea and keep it for future reference in case you want to add more notebooks
 - _Clone URL_: on Gitea repository page you can find the value near the label _HTTPS_
