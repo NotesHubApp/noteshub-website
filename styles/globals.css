@@ -26,33 +26,35 @@
 
   --header-bg: hsla(0, 0%, 100%, .8);
 
+  --blockquoteColor: #eee;
+
   --codeBlock-textColor: #333;
   --codeBlock-borderColor: #ccc;
   --codeBlock-backgroundColor: #f5f5f5;
 
-    /* Code blocks */
-    /* HTML */
-    --nh-palette-code-tok-tag: #800000;
-    --nh-palette-code-tok-attrName: #e50000;
-    --nh-palette-code-tok-attrValue: #0000ff;
-    --nh-palette-code-tok-angleBracket: #808080;
-    /* CSS */
-    --nh-palette-code-tok-selector: #800000;
-    /* Common */
-    --nh-palette-code-tok-monospace: #c7254e;
-    --nh-palette-code-tok-comment: #008000;
-    --nh-palette-code-tok-string: #a31515;
-    --nh-palette-code-tok-regex: #811f3f;
-    --nh-palette-code-tok-number: #098658;
-    --nh-palette-code-tok-boolean: #0000ff;
-    --nh-palette-code-tok-propName: #0451a5;
-    --nh-palette-code-tok-propValue: #e50000;
-    --nh-palette-code-tok-keyword: #0000ff;
-    --nh-palette-code-tok-varName: #0070c1;
-    --nh-palette-code-tok-funcName: #795e26;
-    --nh-palette-code-tok-className: #267f99;
-    --nh-palette-code-tok-operator: #000000;
-    --nh-palette-code-tok-punctuation: black;
+  /* Code blocks */
+  /* HTML */
+  --nh-palette-code-tok-tag: #800000;
+  --nh-palette-code-tok-attrName: #e50000;
+  --nh-palette-code-tok-attrValue: #0000ff;
+  --nh-palette-code-tok-angleBracket: #808080;
+  /* CSS */
+  --nh-palette-code-tok-selector: #800000;
+  /* Common */
+  --nh-palette-code-tok-monospace: #c7254e;
+  --nh-palette-code-tok-comment: #008000;
+  --nh-palette-code-tok-string: #a31515;
+  --nh-palette-code-tok-regex: #811f3f;
+  --nh-palette-code-tok-number: #098658;
+  --nh-palette-code-tok-boolean: #0000ff;
+  --nh-palette-code-tok-propName: #0451a5;
+  --nh-palette-code-tok-propValue: #e50000;
+  --nh-palette-code-tok-keyword: #0000ff;
+  --nh-palette-code-tok-varName: #0070c1;
+  --nh-palette-code-tok-funcName: #795e26;
+  --nh-palette-code-tok-className: #267f99;
+  --nh-palette-code-tok-operator: #000000;
+  --nh-palette-code-tok-punctuation: black;
 }
 
 [data-color-scheme=light] ::backdrop {
@@ -71,6 +73,8 @@
     --card-background: #181818;
 
     --header-bg: rgba(0, 0, 0, 0.8);
+
+    --blockquoteColor: #3c3c3c;
 
     --codeBlock-textColor: #cccccc;
     --codeBlock-borderColor: #464646;
@@ -121,6 +125,12 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+blockquote {
+  padding: 0 20px;
+  margin: 0 0 20px;
+  border-left: 5px solid var(--blockquoteColor);
 }
 
 * {
