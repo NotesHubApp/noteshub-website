@@ -47,6 +47,14 @@ const faq: FaqModel[] = [
     )
   },
   {
+    'question': 'How to self-host notes in Git to use with the app?',
+    'answer': (
+      <div>
+        Follow the steps from our blog post <a href="/blog/archive/2024/1/self-hosting-your-notes-in-git" target="_blank" rel="noopener noreferrer">Self-hosting your notes in Git</a>.
+      </div>
+    )
+  },
+  {
     'question': 'Why should I pay for the native NotesHub application if I can use the web version for free?',
     'answer': 'With the native application, you will get more platform-specific features like iCloud Drive support and better integration with the system. Moreover, the web version has a limitation on the size of Git/GitHub notebooks, which is not the case for the native application.'
   }

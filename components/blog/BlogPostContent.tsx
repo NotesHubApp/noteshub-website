@@ -1,7 +1,10 @@
+import { CodeBlock } from 'components/common/CodeBlock'
 import ReactMarkdown from 'react-markdown'
+import { ReactNode } from 'react'
+import rehypePrism from 'components/common/markdownPreview/rehypePlugins/rehypePrism'
 import rehypeRaw from 'rehype-raw'
 import remarkBreaks from 'remark-breaks'
-import { remarkFigureCaption } from 'components/remarkPlugins/remarkFigureCaption'
+import { remarkFigureCaption } from 'components/common/markdownPreview/remarkPlugins/remarkFigureCaption'
 import remarkGfm from 'remark-gfm'
 
 type BlogPostContentProps = {
@@ -28,6 +31,11 @@ const components = {
     <a href={props.href} {...(isExternalUrl(props.href) ? { target: '_blank', rel: 'nofollow' } : {}) }>
       { props.children }
     </a>
+  ),
+  pre: (props: { children: ReactNode, sourceCode?: string, className?: string }) => (
+    <CodeBlock sourceCode={ props.sourceCode } className={ props.className }>
+      { props.children }
+    </CodeBlock>
   )
 };
 
@@ -36,7 +44,10 @@ export default function BlogPostContent(props: BlogPostContentProps) {
     <ReactMarkdown
       className='blog-post-content'
       children={props.markdownContent}
-      rehypePlugins={[rehypeRaw]}
+      rehypePlugins={[
+        rehypeRaw,
+        [rehypePrism, { ignoreMissing: true }]
+      ]}
       remarkPlugins={[
         [remarkGfm, { singleTilde: false }],
         remarkBreaks,
