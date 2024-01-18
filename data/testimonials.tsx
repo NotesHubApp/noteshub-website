@@ -88,6 +88,20 @@ const testimonials: Testimonial[] = [
   // Play Store
   {
     author: {
+      name: 'Ruben Maxwell'
+    },
+    content: (
+      <>
+        INCREDIBLE. This app is criminally underrated. It's unbelievable that an Obsidian competitor of this quality exists for a tiny ONE-TIME cost when everything else is $50-$100 yearly to sync. Noteshub is truly cross-platform, it's on EVERY app store and it's free in the browser. It has all the essential features in a clean modern UI, and it appears the dev is actively improving it and building on this solid foundation.
+      </>
+    ),
+    rating: 5,
+    date: new Date('Jan 17, 2024'),
+    origin: 'PlayStore'
+  },
+
+  {
+    author: {
       name: 'Coroeanu Andrei'
     },
     content: (
@@ -100,19 +114,19 @@ const testimonials: Testimonial[] = [
     origin: 'PlayStore'
   },
 
-  {
-    author: {
-      name: 'fullmetal chocobo'
-    },
-    content: (
-      <>
-        So easy to take simple notes and organize thoughts, I have used this daily for years now. And it is even more useful now with the addition of kanban boards. I ABSOLUTELY LOVE THIS APP!!
-      </>
-    ),
-    rating: 5,
-    date: new Date('Apr 23, 2023'),
-    origin: 'PlayStore'
-  },
+  // {
+  //   author: {
+  //     name: 'fullmetal chocobo'
+  //   },
+  //   content: (
+  //     <>
+  //       So easy to take simple notes and organize thoughts, I have used this daily for years now. And it is even more useful now with the addition of kanban boards. I ABSOLUTELY LOVE THIS APP!!
+  //     </>
+  //   ),
+  //   rating: 5,
+  //   date: new Date('Apr 23, 2023'),
+  //   origin: 'PlayStore'
+  // },
 
   // Windows Store
   {
