@@ -1,5 +1,5 @@
 ---
-description: The major release that brings a much-improved markdown editing experience and much more.
+description: The major release that brings a much-improved markdown editing experience and much more
 postedOn: 10/22/2023
 published: true
 image: .attachments/nh30-hero.webp
