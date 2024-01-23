@@ -7,7 +7,14 @@ image: .attachments/nh32-hero.webp
 
 ## Interactive checkboxes in the preview
 
+You asked? We hear you. Now you are not required to go into edit mode for your notes just to check/uncheck your tasks. Checkboxes are interactive even in the preview mode.
+
 ## New hotkeys for a better editing experience
+
+To provide a better experience when working with a keyboard we added a few useful hotkeys:
+- `⌘+E` (Mac) or `Ctrl+E` (Windows) - start editing your note.
+- `⌘+S` (Mac) or `Ctrl+S` (Windows) - save your note edits.
+- `Escape` - exit edit mode.
 
 ## Action buttons for code blocks
 
