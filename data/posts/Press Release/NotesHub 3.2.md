@@ -18,6 +18,10 @@ To provide a better experience when working with a keyboard we added a few usefu
 
 ## Action buttons for code blocks
 
+Now, when you hover over code blocks new _Copy To Clipboard_ button will appear in the corner.
+In addition, if the content inside of the code block is overflowing you will see another button _Word Wrap_.
+On mobile devices, click anywhere in the block to display those buttons.
+
 ## Relative links support
 
 ## Navigation between documents
