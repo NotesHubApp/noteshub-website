@@ -23,6 +23,14 @@ In addition, if the content inside of the code block is overflowing you will see
 On mobile devices, click anywhere in the block to display those buttons.
 
 ## Relative links support
+Previously, when using internal links in the app, you were limited to `/` for notebook root access and with the path relative to the current directory. Now, you can use any relative operands like `./` for the current directory and `../` for the parent directory to reference your resources.
+
+Here are some examples of valid internal links:
+- `[My document](file.pdf)`
+- `[My document](./file.pdf)`
+- `[My document](some-folder/file.pdf)`
+- `[My document](/some-folder/file.pdf)`
+- `[My document](../../some-folder/file.pdf)`
 
 ## Navigation between documents
 
