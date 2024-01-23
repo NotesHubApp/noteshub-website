@@ -9,6 +9,8 @@ image: .attachments/nh32-hero.webp
 
 You asked? We heard you! Now, you are not required to go into edit mode for your notes just to check/uncheck your tasks. Checkboxes are interactive even in the preview mode.
 
+![Interactive checkboxes](.attachments/nh32-interactive-checkboxes.webp "Interactive checkboxes")
+
 ## New hotkeys for a better editing experience
 
 To provide a better experience when working with a keyboard we added a few useful hotkeys:
