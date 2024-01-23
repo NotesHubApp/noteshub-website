@@ -5,7 +5,15 @@ published: false
 image: .attachments/nh32-hero.webp
 ---
 
-## Interactive checkboxes in preview
+## Interactive checkboxes in the preview
+
+## New hotkeys for a better editing experience
+
+## Action buttons for code blocks
+
+## Relative links support
+
+## Navigation between documents
 
 ## Other notable features
 - Adds support for underline HTML tag `<u>` in Markdown.
