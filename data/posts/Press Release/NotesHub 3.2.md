@@ -22,6 +22,8 @@ Now, when you hover over code blocks, the new _Copy To Clipboard_ button will ap
 In addition, if the content inside of the code block is overflowing you will see another button _Word Wrap_.
 On mobile devices, click anywhere in the block to display those buttons.
 
+![New action buttons for code blocks](.attachments/nh32-codeblock-actions.webp "New action buttons for code blocks")
+
 ## Relative links support
 
 Previously, when using internal links in the app, you were limited to `/` for notebook root access and with the path relative to the current directory. Now, you can use any relative operands like `./` for the current directory and `../` for the parent directory to reference your resources.
