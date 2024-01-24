@@ -15,12 +15,22 @@ const faq: FaqModel[] = [
       <div>
         You will get a lot of things for free:
         <ul>
+          <li>Free synchronization between devices</li>
           <li>Unlimited version history, and information on when and who did what changes</li>
           <li>Ability to share notebooks with others, you can add anyone as a collaborator or viewer to your Git repository</li>
           <li>Easy self-hosting with plenty open source options, so notes will truly belong to you</li>
           <li>Better merge conflict resolution compare to traditional cloud-based file storage solutions</li>
           <li>Ability to create public websites/blogs from your notebooks</li>
         </ul>
+      </div>
+    )
+  },
+  {
+    'question': 'When and how often does data synchronization occur for Git/GitHub/iCloud Drive notebooks?',
+    'answer': (
+      <div>
+          The first-time synchronization is triggered during the <b>application startup</b> and then occurs <b>every minute</b> thereafter.<br />
+          Additionally, <b>any changes</b> to your data will also trigger synchronization (examples: <i>creating/updating a note, deleting a note, moving between folders, moving/creating/deleting a Kanban card, etc</i>).
       </div>
     )
   },
@@ -33,7 +43,7 @@ const faq: FaqModel[] = [
         </p>
         <p>
           With the <strong>web version of NotesHub</strong> due to some limitations of GitHub, we have to proxy all network requests through our <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank" rel="noopener noreferrer">CORS</a> proxy servers.
-          In addition, device-auth flow can't be used in the browser and standard <a href="https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow" target="_blank" rel="noopener noreferrer">web application flow</a> is used instead which will make a call to our backend to generate the auth token. Taking into account those facts if you have any concerns regarding this matter we recommend using native NotesHub application for the maximum protection of your data.
+          In addition, device-auth flow can't be used in the browser and standard <a href="https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow" target="_blank" rel="noopener noreferrer">web application flow</a> is used instead, which will make a call to our backend to generate the auth token. Taking into account those facts, if you have any concerns regarding this matter, we recommend using native NotesHub application for the maximum protection of your data.
         </p>
       </div>
     )
