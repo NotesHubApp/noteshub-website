@@ -19,8 +19,10 @@ image: .attachments/nh33-hero.webp
 ## Audio recording
 
 ## Slash commands
+Regardless if you are new to Markdown or an experienced user, this feature should fit you well. Now, instead of going to the help panel to discover what is possible in the editor, simply type slash `/` and you should see the contextual menu with options such as _Insert callout_, _Insert table_, _Insert link_, etc. For inexperienced users, it's a useful tool to discover different syntax elements. For expert users, it's quicker to use slash commands for some constructs than to type them from scratch. Some commands are implemented as snippets with placeholders where you can navigate between parts with the `Tab` key.
 
 ## Autocompletion for callout types
+
 
 ## Autocompletion for emojis
 Do you like to use emojis in your notes, but don't remember all of the shortcodes? Now it's easier than ever to insert and discover new emojis with autocomplete and all without touching the mouse. Type `:` and then start typing the name, fuzzy search will help you find what you are looking for. To commit your choice, press `Enter`, and the text will be replaced with a Unicode representation of the emoji.
