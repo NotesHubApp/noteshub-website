@@ -25,8 +25,10 @@ image: .attachments/nh33-hero.webp
 ## Autocompletion for emojis
 
 ## Accent color
+Tired of our branded blue color in the app? No problem, we got you covered. We love all colors, and now you can select accent color used throughout the app from the color picker, just navigate to _Settings -> Appearance -> Accent Color_.
 
 ## Subtasks completion progress for Kanban cards
+Have you ever been wondered how many subtasks in your Kanban card left to finish? We bet you do. Now you can quickly check this information from the Kanban board view without opening the card details dialog. We provided a progress ring for a visual representation as well as the number of total and completed tasks.
 
 ## Other notable features
 - New appearance setting: "Show page title on print".
