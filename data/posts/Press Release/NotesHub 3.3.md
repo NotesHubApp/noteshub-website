@@ -7,13 +7,26 @@ image: .attachments/nh33-hero.webp
 
 ## Whiteboard
 
-PLACEHOLDER
+### Notable features
+- Built-in browser for external libraries.
+- Double-tap Apple Pencil support.
+
+### Current limitations
+- Added library items do not persist between app restarts. This will be fixed in the upcoming version.
+
+## Audio/video playback in Markdown
 
 ## Audio recording
 
 ## Slash commands
 
+## Autocompletion for callout types
+
+## Autocompletion for emojis
+
 ## Accent color
+
+## Subtasks completion progress for Kanban cards
 
 ## Other notable features
 - New appearance setting: "Show page title on print".
