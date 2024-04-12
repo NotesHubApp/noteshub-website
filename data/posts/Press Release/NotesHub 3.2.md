@@ -43,7 +43,7 @@ Before this release, regardless of the type of your referenced resource, clickin
 
 ## Other notable features
 - Adds support for underline HTML tag `<u>` in Markdown.
-- Adds syntax highlighting for Ini and VB.NET languages in code blocks for preview.
+- Adds syntax highlighting for `Ini` and `VB.NET` languages in code blocks for preview.
 
 ## Important fixes
 - Fixes the reverse order for the next and previous buttons when performing in-note search.
