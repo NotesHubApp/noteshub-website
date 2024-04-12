@@ -16,6 +16,8 @@ PLACEHOLDER
 ## Accent color
 
 ## Other notable features
+- New appearance setting: "Show page title on print".
+- Adds the ability to favorite folders.
 - Adds syntax highlighting for `batch`, `log`, `YAML` languages in code blocks for preview.
 - Adds `Tab` button to Markdown toolbar on mobile devices. This could be handy for navigation between placeholders of a snippet. _Example_: navigation between callout type, title, and content when inserting callout via `slash` command.
 
