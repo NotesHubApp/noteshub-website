@@ -19,7 +19,7 @@ image: .attachments/nh33-hero.webp
 ## Audio recording
 
 ## Slash commands
-Regardless if you are new to Markdown or an experienced user, this feature should fit you well. Now, instead of going to the help panel to discover what is possible in the editor, simply type slash `/` and you should see the contextual menu with options such as _Insert callout_, _Insert table_, _Insert link_, etc. For inexperienced users, it's a useful tool to discover different syntax elements. For expert users, it's quicker to use slash commands for some constructs than to type them from scratch. Some commands are implemented as snippets with placeholders where you can navigate between parts with the `Tab` key.
+Regardless, if you are new to Markdown or an experienced user, this feature should fit you well. Now, instead of going to the help panel to discover what is possible in the editor, simply type slash `/` and you should see the contextual menu with options such as _Insert callout_, _Insert table_, _Insert link_, etc. Select the desired action and hit `Enter`. For inexperienced users, it's a useful tool to discover different syntax elements. For expert users, it's quicker to use slash commands for some constructs than to type them from scratch. Some commands are implemented as snippets with placeholders where you can navigate between parts with the `Tab` key.
 
 ## Autocompletion for callout types
 
