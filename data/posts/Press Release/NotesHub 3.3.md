@@ -23,6 +23,7 @@ image: .attachments/nh33-hero.webp
 ## Autocompletion for callout types
 
 ## Autocompletion for emojis
+Do you like to use emojis in your notes, but don't remember all of the shortcodes? Now it's easier than ever to insert and discover new emojis with autocomplete and all without touching the mouse. Type `:` and then start typing the name, fuzzy search will help you find what you are looking for. To commit your choice, press `Enter`, and the text will be replaced with a Unicode representation of the emoji.
 
 ## Accent color
 Tired of our branded blue color in the app? No problem, we got you covered. We love all colors, and now you can select accent color used throughout the app from the color picker, just navigate to _Settings -> Appearance -> Accent Color_.
