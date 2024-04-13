@@ -31,14 +31,22 @@ Let's zoom out a little and look into how you can reference other resources in M
 ## Audio recording
 Well, now we can play audio/video in your notes. What about recording? On a mobile phone, at least when you click _Attachment_ button, you have the option to take _Photo_ or _Video_, but there was no way to record just audio, well until now. With this update, if you would like to start an audio recording, click _Mic_ button. It will start the process immediately and when you are done, just press _Stop_ button and your recording will be inserted into the note as an attachment.
 
+![Audio recording](.attachments/nh33-audio-recording.webp "Recording in progress")
+
 ## Slash commands
 Regardless, if you are new to Markdown or an experienced user, this feature should fit you well. Now, instead of going to the help panel to discover what is possible in the editor, simply type slash `/` and you should see the contextual menu with options such as _Insert callout_, _Insert table_, _Insert link_, etc. Select the desired action and hit `Enter`. For inexperienced users, it's a useful tool to discover different syntax elements. For expert users, it's quicker to use slash commands for some constructs than to type them from scratch. Some commands are implemented as snippets with placeholders where you can navigate between parts with the `Tab` key.
+
+![Slash commands](.attachments/nh33-slash-commands.webp "Slash commands")
 
 ## Autocompletion for callout types
 To change the default callout icon and background color, you need to change the callout type. Before this version, the only way to know what types were available was through the help panel. Those times are a thing of the past. If you use `/` command to insert a callout, you will immediately see the autocompletion list with all available options. This also works when the editor recognizes callout syntax typed manually `> [!]`.
 
+![Autocompletion for callout types](.attachments/nh33-callout-autocompletion.webp "Autocompletion for callout types")
+
 ## Autocompletion for emojis
 Do you like to use emojis in your notes, but don't remember all of the shortcodes? Now it's easier than ever to insert and discover new emojis with autocomplete and all without touching the mouse. Type `:` and then start typing the name, fuzzy search will help you find what you are looking for. To commit your choice, press `Enter`, and the text will be replaced with a Unicode representation of the emoji.
+
+![Autocompletion for emojis](.attachments/nh33-emojis-autocompletion.webp "Autocompletion for emojis")
 
 ## Accent color
 Tired of our branded blue color in the app? No problem, we got you covered. We love all colors, and now you can select accent color used throughout the app from the color picker, just navigate to _Settings -> Appearance -> Accent Color_.
