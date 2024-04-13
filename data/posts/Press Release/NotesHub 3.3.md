@@ -58,8 +58,12 @@ Do you like to use emojis in your notes, but don't remember all of the shortcode
 ## Accent color
 Tired of our branded blue color in the app? No problem, we got you covered. We love all colors, and now you can select accent color used throughout the app from the color picker, just navigate to _Settings -> Appearance -> Accent Color_.
 
+![Accent color](.attachments/nh33-accent-color.webp "Different accent colors")
+
 ## Subtasks completion progress for Kanban cards
 Have you ever been wondered how many subtasks in your Kanban card left to finish? We bet you do. Now you can quickly check this information from the Kanban board view without opening the card details dialog. We provided a progress ring for a visual representation as well as the number of total and completed tasks.
+
+![Subtasks completion progress](.attachments/nh33-subtasks-completion-progress.webp "Subtasks completion progress")
 
 ## Other notable features
 - New appearance setting: "Show page title on print".
