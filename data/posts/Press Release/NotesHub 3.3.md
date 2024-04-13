@@ -12,8 +12,11 @@ There are situations when you have a spark in your head with a brilliant idea, a
 
 We are happy to introduce our solution, **Whiteboard**! The whiteboard is an infinite canvas for your creativity where you can place different shapes, make connections between them, make drawings, and many more, all with customizable styles. You also can create reusable blocks and add them to your library for future use. The implementation is based on [Excalidraw](https://excalidraw.com) library and this means it has a solid foundation approved by many people. For the underlying file format, we chose _SVG_ for its ultimate compatibility with all kinds of tools and services. This means your whiteboards will be accessible and look the same everywhere, and don't worry you can still edit them later.
 
+![Whiteboard](.attachments/nh33-whiteboard.webp "Whiteboard")
+
 ### Notable features
 - **Built-in browser for external libraries.** You can access hundreds of [community-created libraries](https://libraries.excalidraw.com), all without leaving the app.
+  ![Built-in libraries browser](.attachments/nh33-whiteboard-libraries.webp "Built-in libraries browser")
 - **Double-tap Apple Pencil support.** We support the following preferred double-tap actions:
   - Switch between current tool and eraser
   - Switch between current tool and last used
@@ -27,6 +30,10 @@ We are happy to introduce our solution, **Whiteboard**! The whiteboard is an inf
 
 ## Audio/video playback
 Let's zoom out a little and look into how you can reference other resources in Markdown. There is link construction `[title](resource-URL)` and there is image construction which is very similar to previous one `![alt-text](image-URL)` and if think more broadly the image syntax could be generalized as a way to preview any type of content. In case of image we see the actual picture, and for audio files it could be audio player and same for video. We already support image syntax for _YouTube videos_ and _X posts_. With this update we expanding image syntax support for audio/video files that will allow to playback them directy from your notes.
+
+![Audio playback](.attachments/nh33-audio-playback.webp "Audio playback")
+
+![Video playback](.attachments/nh33-video-playback.webp "Video playback")
 
 ## Audio recording
 Well, now we can play audio/video in your notes. What about recording? On a mobile phone, at least when you click _Attachment_ button, you have the option to take _Photo_ or _Video_, but there was no way to record just audio, well until now. With this update, if you would like to start an audio recording, click _Mic_ button. It will start the process immediately and when you are done, just press _Stop_ button and your recording will be inserted into the note as an attachment.

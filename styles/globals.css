@@ -194,6 +194,10 @@ code {
   margin-bottom: 20px;
 }
 
+.blog-post-content li figure {
+  margin-top: 20px;
+}
+
 .blog-post-content figcaption {
   font-style: italic;
   text-align: center;
