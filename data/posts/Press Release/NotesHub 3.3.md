@@ -14,7 +14,8 @@ image: .attachments/nh33-hero.webp
 ### Current limitations
 - Added library items do not persist between app restarts. This will be fixed in the upcoming version.
 
-## Audio/video playback in Markdown
+## Audio/video playback
+Let's zoom out a little and look into how you can reference other resources in Markdown. There is link construction `[title](resource-URL)` and there is image construction which is very similar to previous one `![alt-text](image-URL)` and if think more broadly the image syntax could be generalized as a way to preview any type of content. In case of image we see the actual picture, and for audio files it could be audio player and same for video. We already support image syntax for _YouTube videos_ and _X posts_. With this update we expanding image syntax support for audio/video files that will allow to playback them directy from your notes.
 
 ## Audio recording
 
