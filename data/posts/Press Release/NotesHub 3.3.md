@@ -6,10 +6,14 @@ image: .attachments/nh33-hero.webp
 ---
 
 ## Whiteboard
+There are situations when you have a spark in your head with a brilliant idea, and you want to write and draw it as quickly as possible until it's still in your head. In another situation, you create some awesome architecture diagram or sketch a wireframe for your next big thing. The common theme for those situations is that regular plain text notes may not help you much.
+
+We are happy to introduce our solution, **Whiteboard**! The whiteboard is an infinite canvas for your creativity where you can place different shapes, make connections between them, make drawings, and many more, all with customizable styles. You also can create reusable blocks and add them to your library for future use. The implementation is based on [Excalidraw](https://excalidraw.com) library and this means it has a solid foundation approved by many people. For the underlying file format, we chose _SVG_ for its ultimate compatibility with all kinds of tools and services. This means your whiteboards will be accessible and look the same everywhere, and don't worry you can still edit them later.
 
 ### Notable features
 - Built-in browser for external libraries.
 - Double-tap Apple Pencil support.
+- Interactive tool for merge conflict resolution.
 
 ### Current limitations
 - Added library items do not persist between app restarts. This will be fixed in the upcoming version.
