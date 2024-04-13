@@ -13,9 +13,14 @@ There are situations when you have a spark in your head with a brilliant idea, a
 We are happy to introduce our solution, **Whiteboard**! The whiteboard is an infinite canvas for your creativity where you can place different shapes, make connections between them, make drawings, and many more, all with customizable styles. You also can create reusable blocks and add them to your library for future use. The implementation is based on [Excalidraw](https://excalidraw.com) library and this means it has a solid foundation approved by many people. For the underlying file format, we chose _SVG_ for its ultimate compatibility with all kinds of tools and services. This means your whiteboards will be accessible and look the same everywhere, and don't worry you can still edit them later.
 
 ### Notable features
-- Built-in browser for external libraries.
-- Double-tap Apple Pencil support.
-- Interactive tool for merge conflict resolution.
+- **Built-in browser for external libraries.** You can access hundreds of [community-created libraries](https://libraries.excalidraw.com), all without leaving the app.
+- **Double-tap Apple Pencil support.** We support the following preferred double-tap actions:
+  - Switch between current tool and eraser
+  - Switch between current tool and last used
+  - Show color palette
+  - Show ink attributes (works only on mobile, opens up the shape menu)
+  - Off (disable double-tap)
+- **Interactive tool for merge conflict resolution.** When you edit the same whiteboard from multiple clients, it may result in a merge conflict. In such cases, when you open the whiteboard in the app, you will be prompted to select the desired version with the option to save all other versions (applies to Git/GitHub notebooks).
 
 ### Current limitations
 - Added library items do not persist between app restarts. This will be fixed in the upcoming version.
