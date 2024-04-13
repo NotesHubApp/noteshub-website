@@ -5,6 +5,8 @@ published: false
 image: .attachments/nh33-hero.webp
 ---
 
+Welcome to our huge 3.3 update, which touches many existing areas, improves the user experience, and unlocks new capabilities.
+
 ## Whiteboard
 There are situations when you have a spark in your head with a brilliant idea, and you want to write and draw it as quickly as possible until it's still in your head. In another situation, you create some awesome architecture diagram or sketch a wireframe for your next big thing. The common theme for those situations is that regular plain text notes may not help you much.
 
