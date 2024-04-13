@@ -36,7 +36,7 @@ Let's zoom out a little and look into how you can reference other resources in M
 ![Video playback](.attachments/nh33-video-playback.webp "Video playback")
 
 ## Audio recording
-Well, now we can play audio/video in your notes. What about recording? On a mobile phone, at least when you click _Attachment_ button, you have the option to take _Photo_ or _Video_, but there was no way to record just audio, well until now. With this update, if you would like to start an audio recording, click _Mic_ button. It will start the process immediately and when you are done, just press _Stop_ button and your recording will be inserted into the note as an attachment.
+Well, now we can play audio/video in your notes. What about recording? On a mobile phone, at least when you click _Attachment_ button, you have the option to take _Photo_ or _Video_, but there was no way to record just audio, well until now. With this update, if you would like to start an audio recording, click _Mic_ button on toolbar. It will start the process immediately and when you are done, just press _Stop_ button and your recording will be inserted into the note as an attachment.
 
 ![Audio recording](.attachments/nh33-audio-recording.webp "Recording in progress")
 
