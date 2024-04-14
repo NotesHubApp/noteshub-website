@@ -1,7 +1,7 @@
 ---
 description: Introducing whiteboard as a new supported content type and plenty more
 postedOn: 04/14/2024
-published: false
+published: true
 image: .attachments/nh33-hero.webp
 ---
 
