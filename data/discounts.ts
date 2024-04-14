@@ -1,8 +1,8 @@
 import { Discounts } from 'models/Discounts';
 
 export const discounts: Discounts = {
-  amount: undefined,
+  amount: 25,
   forAppStore: true,
   forPlayStore: false,
-  forWindowsStore: true
+  forWindowsStore: false
 }
