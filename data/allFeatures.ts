@@ -16,6 +16,7 @@ export const allFeatures = {
     'Syntax highlighting of code blocks',
     'Support of Mermaid diagrams',
     'Support of math expressions using LaTeX notation',
+    'Support of ABC musical notation',
     'Drag-and-drop files to make attachments',
     'Embed YouTube videos and tweets',
     'Search/replace inside notes',
@@ -25,11 +26,14 @@ export const allFeatures = {
     'Attach/upload files from local disk/storage',
     'Convert HTML content to Markdown on paste from clipboard',
     'Editor toolbar with all necessary commands (bold, list, table, etc.)',
-    'Automatic merge conflicts resolution'
+    'Auto-generated table of contents (TOC)',
+    'Automatic merge conflicts resolution',
   ],
   newFeatures: [
-    'Auto-generated table of contents (TOC)',
-    'Support of ABC musical notation'
+    'Whiteboards',
+    'Slash commands',
+    'Audio recording',
+    'Accent color picker'
   ],
   nonReleasedFeatures: [
   ]
