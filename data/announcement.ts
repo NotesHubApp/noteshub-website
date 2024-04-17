@@ -15,4 +15,4 @@ const productHuntAnnouncement: Announcement = {
   postSlug: 'noteshub-3-3'
 }
 
-export default productHuntAnnouncement
+export default postAnnouncement
