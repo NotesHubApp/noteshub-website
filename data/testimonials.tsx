@@ -102,17 +102,31 @@ const testimonials: Testimonial[] = [
 
   {
     author: {
-      name: 'Coroeanu Andrei'
+      name: 'Ying Shen Tsai'
     },
     content: (
       <>
-        It works really great. Syncing works flawlessly, and the markdown preview helps a lot in making sure the content is displayed as intended. Even if on web the app is free, I chose to buy it since there's no other app on the market that does this so effortlessly. Kudos to the devs, it's a great job!
+        The purchase is worth more than the price! This app is easy to use but not simple, minimalistic yet rich in features. The dev was responsive to my question and seemed willing to polish this product based on user feedback. This is truly a rare gem hidden in the already crowded knowledge management market.
       </>
     ),
     rating: 5,
-    date: new Date('Oct 2, 2023'),
+    date: new Date('May 3, 2024'),
     origin: 'PlayStore'
   },
+
+  // {
+  //   author: {
+  //     name: 'Coroeanu Andrei'
+  //   },
+  //   content: (
+  //     <>
+  //       It works really great. Syncing works flawlessly, and the markdown preview helps a lot in making sure the content is displayed as intended. Even if on web the app is free, I chose to buy it since there's no other app on the market that does this so effortlessly. Kudos to the devs, it's a great job!
+  //     </>
+  //   ),
+  //   rating: 5,
+  //   date: new Date('Oct 2, 2023'),
+  //   origin: 'PlayStore'
+  // },
 
   // {
   //   author: {
