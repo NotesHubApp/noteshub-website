@@ -38,7 +38,7 @@ To make it more clear, a simple request like `Hello World` is equivalent to `(na
 - `task` - matches for a specified text inside of the task in any state (completed or not).
 - `todo` - matches for a specified text inside of the task that is not completed.
 - `done` - matches for a specified text inside of the task with the completed state.
-- `attachment` - searches for attachments inside of the file with a specified type; accepted values are _image_, _audio_, _video_, and _location_.
+- `attachment` (`att`) - searches for attachments inside of the file with a specified type; accepted values are _image_, _audio_, _video_, and _location_.
 
 ### Scoring
 
