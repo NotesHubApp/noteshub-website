@@ -19,7 +19,7 @@ As a quick search option, you have:
 
 ### Query syntax
 Search queries consist of search terms, comprising text you want to search for, and filters, which narrow down the search.
-A bare term with no filters will match either the content of a file or the file's name.
+A bare term with no filter will match either the content of a file or the file's name.
 To make it more clear, a simple request like `Hello World` is equivalent to `(name:Hello OR content:Hello) AND (name:World OR content:World)`
 
 - Exact string match
