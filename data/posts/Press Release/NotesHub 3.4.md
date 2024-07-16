@@ -15,7 +15,7 @@ The search dialog has a main query input field and 3 sections for a quick search
 As a quick search option, you have:
 - **Recent searches** - queries will appear here once you have navigated to documents from the corresponding queries.
 - **Favorite searches** - here you can find your favorite search queryes, which for convenience, have friendly names; you can add a new favorite search query after performing the search and navigating to `...` then _Add to Favorites_.
-- **Tags** - in the final section, you can find all available hashtags for the giving scope; once selected, the search for a specific hashtag will be performed.
+- **Tags** - in the final section, you can find all available hashtags for the giving scope; nested tags will be represented in the hierarchical structure; once selected, the search for a specific hashtag will be performed.
 
 ### Query syntax
 Search queries consist of search terms, comprising text you want to search for, and qualifiers, which narrow down the search.
