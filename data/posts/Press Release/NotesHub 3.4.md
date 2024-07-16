@@ -15,29 +15,30 @@ The search dialog has a main query input field and 3 sections for a quick search
 As a quick search option, you have:
 - **Recent searches** - queries will appear here once you have navigated to documents from the corresponding queries.
 - **Favorite searches** - here you can find your favorite search queryes, which for convenience, have friendly names; you can add a new favorite search query after performing the search and navigating to `...` then _Add to Favorites_.
-- **Tags** - in the final section, you can find all available hashtags for the giving scope; nested tags will be represented in the hierarchical structure; once selected, the search for a specific hashtag will be performed.
+- **Tags** - in the final section, you can find all available hashtags for the giving scope; nested tags will be represented in the hierarchical structure; once selected, the search will be performed for a specific hashtag.
 
 ### Query syntax
-Search queries consist of search terms, comprising text you want to search for, and qualifiers, which narrow down the search.
+Search queries consist of search terms, comprising text you want to search for, and filters, which narrow down the search.
 A bare term with no filters will match either the content of a file or the file's name.
+To make it more clear, a simple request like `Hello World` is equivalent to `(name:Hello OR content:Hello) AND (name:World OR content:World)`
 
 - Exact string match
 - Regular expressions
 -
 
 ### Filters
-- `name` -
-- `type` - type of the document, acceptd values are _note_, _kanban_, _whiteboard_.
-- `path` -
-- `notebook` -
-- `content` -
-- `heading`, `heading1`...`heading6` (`h`, `h1`...`h6`) -
-- `tag` -
-- `listitem` (`li`) -
-- `task` -
-- `todo` -
-- `done` -
-- `attachment` - accepted values are: _image_, _audio_, _video_, _location_.
+- `name` - matches for a specified text inside of a file's name (without extension).
+- `type` - matches the type of the file, accepted values are _note_, _kanban_, _whiteboard_.
+- `path` - matches for a specified text inside of the folder path of the file.
+- `notebook` - matches for a specified text inside of the notebook name where the file is located.
+- `content` - matches for a specified text inside of the content of the file.
+- `heading`, `heading1`...`heading6` (`h`, `h1`...`h6`) - matches for a specified text inside of the heading element.
+- `tag` - matches for a specified text inside of a hashtag.
+- `listitem` (`li`) - matches for a specified text inside of list item.
+- `task` - matches for a specified text inside of the task in any state (completed or not).
+- `todo` - matches for a specified text inside of the task that is not completed.
+- `done` - matches for a specified text inside of the task with the completed state.
+- `attachment` - searches for attachments inside of the file with a specified type; accepted values are _image_, _audio_, _video_, and _location_.
 
 ### Scoring
 
@@ -48,7 +49,7 @@ A bare term with no filters will match either the content of a file or the file'
 ## Filters (Kanban boards)
 
 
-## Highlight tool improvements
+## Multicolored highlight tool
 
 ## Rich link previews
 
