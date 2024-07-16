@@ -26,7 +26,7 @@ To make it more clear, a simple request like `Hello World` is equivalent to `(na
 - Regular expressions
 -
 
-### Filters
+### Query filters
 - `name` - matches for a specified text inside of a file's name (without extension).
 - `type` - matches the type of the file, accepted values are _note_, _kanban_, _whiteboard_.
 - `path` - matches for a specified text inside of the folder path of the file.
@@ -48,6 +48,14 @@ To make it more clear, a simple request like `Hello World` is equivalent to `(na
 
 ## Filters (Kanban boards)
 
+### Query filters
+- `title` - matches for a specified text inside of a card's title.
+- `details` -
+- `tag` -
+- `due` - accepted values are _completed_, _overdue_, _day_, _week_, _month_.
+- `tasks` - accepted values are _todo_, _inprogress_, _done_.
+- `has` - accepted values are _details_, _tags_, _tasks_, _due_, _estimates_.
+- `is` - accepted value is _completed_.
 
 ## Multicolored highlight tool
 
