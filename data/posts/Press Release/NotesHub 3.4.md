@@ -50,12 +50,12 @@ To make it more clear, a simple request like `Hello World` is equivalent to `(na
 
 ### Query filters
 - `title` - matches for a specified text inside of a card's title.
-- `details` -
-- `tag` -
-- `due` - accepted values are _completed_, _overdue_, _day_, _week_, _month_.
-- `tasks` - accepted values are _todo_, _inprogress_, _done_.
-- `has` - accepted values are _details_, _tags_, _tasks_, _due_, _estimates_.
-- `is` - accepted value is _completed_.
+- `details` - matches for a specified text inside of a card's details content.
+- `tag` - matches for a specified text inside of a card's tags.
+- `due` - matches for a card's due date state; accepted values are _completed_, _overdue_, _day_, _week_, _month_.
+- `tasks` - matches for a card's sub-tasks state; accepted values are _todo_, _inprogress_, _done_.
+- `has` - matches for the presence of specified card's field; accepted values are _details_, _tags_, _tasks_, _due_, _estimates_.
+- `is` - matches for a specfied card's state; accepted value is _completed_.
 
 ## Multicolored highlight tool
 
