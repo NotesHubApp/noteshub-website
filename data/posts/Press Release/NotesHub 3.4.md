@@ -9,9 +9,9 @@ Finally, the most requested feature is here. **Search** was one of the few funda
 
 ## Search
 
-To start searching for content across all of your files, tap the corresponding icon in the upper right corner. The functionality is available from the notebooks and folder views. When performing the search from inside the folder, you narrow the scope of the operation to that specific folder and all of its subfolders.
+To start searching for content across all of your files, tap the corresponding icon in the upper right corner. The functionality is available from the notebooks and folder views. When performing the search from inside the folder, you narrow the scope of the operation to that specific folder and all of its subfolders. We also made sure that the search would understand the semantic differences between different types of documents. For instance, for whiteboards, we will look only into text nodes, ignoring all other SVG elements.
 
-The search dialog has a main query input field and 3 sections for a quick search that are visable any time when query is empty.
+The search dialog has a query input field and 3 sections for a quick search that are visable any time when query is empty.
 As a quick search option, you have:
 - **Recent searches** - queries will appear here once you have navigated to documents from the corresponding queries.
 - **Favorite searches** - here you can find your favorite search queryes, which for convenience, have friendly names; you can add a new favorite search query after performing the search and navigating to `...` then _Add to Favorites_.
