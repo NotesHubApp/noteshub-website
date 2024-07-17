@@ -27,10 +27,15 @@ The search engine supports the following three operators:
 - `OR` - returns a combined result when left or right subqueries return something.
 - `NOT` (`-`) - negation unary operator returns the opposite result of the right subquery.
 
-???
-- Exact string match
+Since different operators have different priorities, like `AND` has precedence over `OR` operator, you can manage priorities by enclosing your subqueries into parenthesis `()`.
+
+To search for the exact phrase, including whitespaces, you can surround the string in quotes. For example:
+```
+"Hello World"
+```
+This will ensure those terms are found together and in the right order.
+
 - Regular expressions
--
 
 ### Query filters
 - `name` - matches for a specified text inside of a file's name (without extension).
