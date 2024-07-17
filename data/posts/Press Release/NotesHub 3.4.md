@@ -11,7 +11,7 @@ Finally, the most requested feature is here. **Search** was one of the few funda
 
 To start searching for content across all of your files, tap the corresponding icon in the upper right corner. The functionality is available from the notebooks and folder views. When performing the search from inside the folder, you narrow the scope of the operation to that specific folder and all of its subfolders. We also made sure that the search would understand the semantic differences between different types of documents. For instance, for whiteboards, we will look only into text nodes, ignoring all other SVG elements.
 
-The search dialog has a query input field and 3 sections for a quick search that are visable any time when query is empty.
+The search dialog has a query input field and three sections for quick searches, which are visible at any time when the query is empty.
 As a quick search option, you have:
 - **Recent searches** - queries will appear here once you have navigated to documents from the corresponding queries.
 - **Favorite searches** - here you can find your favorite search queryes, which for convenience, have friendly names; you can add a new favorite search query after performing the search and navigating to `...` then _Add to Favorites_.
@@ -22,6 +22,12 @@ Search queries consist of search terms, comprising text you want to search for, 
 A bare term with no filter will match either the content of a file or the file's name.
 To make it more clear, a simple request like `Hello World` is equivalent to `(name:Hello OR content:Hello) AND (name:World OR content:World)`
 
+The search engine supports the following three operators:
+- `AND` - returns a combined result only when both left and right subqueries return something; this is a default operator inserted implicitly when there is no other operator between terms.
+- `OR` - returns a combined result when left or right subqueries return something.
+- `NOT` (`-`) - negation unary operator returns the opposite result of the right subquery.
+
+???
 - Exact string match
 - Regular expressions
 -
