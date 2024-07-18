@@ -49,7 +49,11 @@ The pattern above will match ISO 8601 date and time string, such as `2020-12-03T
 To include forward slashes (`/`) in your regular expression, escape them with backslash. For example `/\d{2}\/\d{2}\/\d{4}/`.
 
 #### Query filters
+Filters help to narrow down the search by looking only at specific fields or sections of the file.
+To specify a filter, prepend the term with the filter name followed by colon.
+For instance `type:kanban task:"My first task"` will search for Kanban boards containing "My first task" text inside of a task.
 
+Below you can find the full list of all supported query filters:
 - `name` - matches for a specified text inside of a file's name (without extension).
 - `type` - matches the type of the file, accepted values are _note_, _kanban_, _whiteboard_.
 - `path` - matches for a specified text inside of the folder path of the file.
