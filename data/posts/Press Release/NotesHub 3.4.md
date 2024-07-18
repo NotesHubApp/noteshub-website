@@ -30,12 +30,16 @@ The search engine supports the following three operators:
 Since different operators have different priorities, like `AND` has precedence over `OR` operator, you can manage priorities by enclosing your subqueries into parenthesis `()`.
 
 To search for the exact phrase, including whitespaces, you can surround the string in quotes. For example:
-```
+```js
 "Hello World"
 ```
 This will ensure those terms are found together and in the right order.
 
-- Regular expressions
+For more advanced scenarios we offer regular expressions support, by surrounding the expression in forward slashes. For example:
+```js
+/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/
+```
+The pattern above will match ISO 8601 date and time string, such as `2020-12-03T15:52:34.000Z`.
 
 ### Query filters
 - `name` - matches for a specified text inside of a file's name (without extension).
