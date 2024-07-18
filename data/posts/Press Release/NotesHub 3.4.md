@@ -79,10 +79,14 @@ The search dialog, as previously discussed, contains a dedicated section where y
 ## Find in note
 
 Previously, if you wanted to find some text inside a note file, you would need to go to edit mode first.
-With this release, this functionality is available even in preview mode. Press `Cmd+F` (`Ctrl+F` on Windows) or go to _... -> Find_ menu to display a Find panel with familiar functionality.
+With this release, this functionality is available even in preview mode. Press `Cmd+F` (`Ctrl+F` on Windows) or go to _... -> Find_ to display a Find panel with familiar functionality.
 
 ## Filters (Kanban boards)
-When you have a lot of cards on your Kanban board, it could be problematic to find the right one. Sometimes, you want to see all overdue cards, all completed ones, or those with a particular tag. We have a good solution for you: press `Cmd+F` (`Ctrl+F` on Windows) or go to _... -> Filter_ menu to see a Filter panel.
+When you have a lot of cards on your Kanban board, it could be problematic to find the right one. Sometimes, you want to see all overdue cards, all completed ones, or those with a particular tag. We have a good solution for you: press `Cmd+F` (`Ctrl+F` on Windows) or go to _... -> Filter_ to open up a Filter panel.
+
+From there, you can use the input search field to filter by text or use the menus on the right side for a quick filtration by tags, due dates, tasks, etc.
+
+The input search field is powered by the same search engine as the main search functionality. It means that you can use all of the boolean operators, regular expressions, and so on. The difference is only in supported query filters, which, in this case, are tailored for Kanban cards.
 
 ### Query filters
 - `title` - matches for a specified text inside of a card's title.
