@@ -68,6 +68,7 @@ Below you can find the full list of all supported query filters:
 - `attachment` (`att`) - searches for attachments inside of the file with a specified type; accepted values are _image_, _audio_, _video_, and _location_.
 
 ### Scoring
+The search results are sorted by relevance, driven by a scoring system. The score is calculated based on the density of matches in a particular field (name, type, content, etc.) multiplied by the field boost (name has a higher boost than content, for instance).
 
 ## Tags
 
