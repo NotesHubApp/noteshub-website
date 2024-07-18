@@ -78,6 +78,9 @@ The search dialog, as previously discussed, contains a dedicated section where y
 
 ## Find in note
 
+Previously, if you wanted to find some text inside a note file, you would need to go to edit mode first.
+With this release, this functionality is available even in preview mode. Press `Cmd+F` (`Ctrl+F` on Windows) or go to _... -> Find_ to display a Find panel with familiar functionality.
+
 ## Filters (Kanban boards)
 
 ### Query filters
