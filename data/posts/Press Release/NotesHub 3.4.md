@@ -37,12 +37,16 @@ To search for the exact phrase, including whitespaces, you can surround the stri
 ```
 This will ensure those terms are found together and in the right order.
 
+To include quotes (`"`) in your query, escape them with backslash `\`. For example `"\"cats\""`.
+
 #### Regular expressions
 For more advanced scenarios we offer regular expressions support, by surrounding the expression in forward slashes. For example:
 ```js
 /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/
 ```
 The pattern above will match ISO 8601 date and time string, such as `2020-12-03T15:52:34.000Z`.
+
+To include forward slashes (`/`) in your regular expression, escape them with backslash. For example `/\d{2}\/\d{2}\/\d{4}/`.
 
 #### Query filters
 
