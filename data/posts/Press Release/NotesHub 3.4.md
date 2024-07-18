@@ -72,6 +72,10 @@ The search results are sorted by relevance, driven by a scoring system. The scor
 
 ## Tags
 
+With the introduction of search, we also added a tagging system that enables cross-referencing content by topic or theme.
+The tag starts with `#` symbol followed by alphanumeric characters (the first character must be alpha). To use nested tags, separate them with a forward slash, for example `#recipe/vegan`.
+The search dialog, as previously discussed, contains a dedicated section where you can see all available tags for a quick search.
+
 ## Find in note
 
 ## Filters (Kanban boards)
