@@ -81,8 +81,12 @@ The search dialog, as previously discussed, contains a dedicated section where y
 Previously, if you wanted to find some text inside a note file, you would need to go to edit mode first.
 With this release, this functionality is available even in preview mode. Press `Cmd+F` (`Ctrl+F` on Windows) or go to _... -> Find_ to display a Find panel with familiar functionality.
 
+![Find in note](.attachments/nh34-find-in-note.webp "Find in note")
+
 ## Filters (Kanban boards)
 When you have a lot of cards on your Kanban board, it could be problematic to find the right one. Sometimes, you want to see all overdue cards, all completed ones, or those with a particular tag. We have a good solution for you: press `Cmd+F` (`Ctrl+F` on Windows) or go to _... -> Filter_ to open up a Filter panel.
+
+![Filters (Kanban boards)](.attachments/nh34-kanban-filters.webp "Filters (Kanban boards)")
 
 From there, you can use the input search field to filter by text or use the menus on the right side for a quick filtration by tags, due dates, tasks, etc.
 
@@ -101,6 +105,8 @@ The input search field is powered by the same search engine as the main search f
 
 The highlight tool got supercharged with the support of different highlighting colors.
 To specify a non-default color, insert a corresponding one-character code between two `=` characters of the front marker. For example: `Sample of =l=lime highlight==`.
+
+![Multicolored highlight tool](.attachments/nh34-colored-highlight-tool.webp "Multicolored highlight tool")
 
 Below, you will find the list of all supported color codes:
 
@@ -123,6 +129,8 @@ y | Yellow
 ## Rich link previews
 
 With this release, we once again extend what Markdown image elements can do. By specifying a regular web page URL as an image source, the app will auto-generate a rich link preview with a title, description, and image to help you visualize what is hiding behind the URL.
+
+![Rich link previews](.attachments/nh34-rich-link-previews.webp "Rich link previews")
 
 ## Other notable features
 
