@@ -99,6 +99,27 @@ The input search field is powered by the same search engine as the main search f
 
 ## Multicolored highlight tool
 
+The highlight tool got supercharged with the support of different highlighting colors.
+To specify a non-default color, insert a corresponding one-character code between two `=` characters of the front marker. For example: `Sample of =l=lime highlight==`.
+
+Below, you will find the list of all supported color codes:
+
+Code | Color
+--|--
+b | Blue
+c | Cyan
+g | Green
+h | Hotpink
+l | Lime
+m | Magenta
+o | Orange
+p | Pink
+r | Red
+s | Silver
+t | Teal
+v | Violet
+y | Yellow
+
 ## Rich link previews
 
 ## Other notable features

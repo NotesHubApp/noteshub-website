@@ -32,6 +32,9 @@
   --codeBlock-borderColor: #ccc;
   --codeBlock-backgroundColor: #f5f5f5;
 
+  --nh-palette-table-alternateRawBackgroundColor: #f9f9f9;
+  --nh-palette-table-alternateRawBorderColor: #ddd;
+
   /* Code blocks */
   /* HTML */
   --nh-palette-code-tok-tag: #800000;
@@ -79,6 +82,9 @@
     --codeBlock-textColor: #cccccc;
     --codeBlock-borderColor: #464646;
     --codeBlock-backgroundColor: #1e1e1e;
+
+    --nh-palette-table-alternateRawBackgroundColor: #232323;
+    --nh-palette-table-alternateRawBorderColor: #3c3c3c;
 
     /* Code blocks */
     /* HTML */
@@ -212,6 +218,34 @@ code {
 
 .blog-post-content a:hover {
   text-decoration: none;
+}
+
+.blog-post-content .table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-spacing: 0;
+}
+
+.blog-post-content .table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid var(--nh-palette-table-alternateRawBorderColor);
+}
+
+.blog-post-content .table > tbody > tr:nth-of-type(odd) > td, table > tbody > tr:nth-of-type(odd) > th {
+  background-color: var(--nh-palette-table-alternateRawBackgroundColor);
+}
+
+.blog-post-content .table thead > tr > th {
+  border-top: 0;
+  text-align: left;
+  word-break: initial;
+}
+
+.blog-post-content .table th, td {
+  padding: 8px;
+  vertical-align: top;
+  border-top: 1px solid var(--nh-palette-table-alternateRawBorderColor);
 }
 
 .mermaid {
