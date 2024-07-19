@@ -17,6 +17,10 @@ As a quick search option, you have:
 - **Favorite searches** - here you can find your favorite search queryes, which for convenience, have friendly names; you can add a new favorite search query after performing the search and navigating to `...` then _Add to Favorites_.
 - **Tags** - in the final section, you can find all available hashtags for the giving scope; nested tags will be represented in the hierarchical structure; once selected, the search will be performed for a specific hashtag.
 
+![Search dialog (empty query)](.attachments/nh34-search-empty-query.webp "Search dialog (empty query)")
+
+![Search dialog (with results)](.attachments/nh34-search-with-results.webp "Search dialog (with results)")
+
 ### Query syntax
 Search queries consist of search terms, comprising text you want to search for, and filters, which narrow down the search.
 A bare term with no filter will match either the content of a file or the file's name.
@@ -75,6 +79,8 @@ The search results are sorted by relevance, driven by a scoring system. The scor
 With the introduction of search, we also added a tagging system that enables cross-referencing content by topic or theme.
 The tag starts with `#` symbol followed by alphanumeric characters (the first character must be alpha). To use nested tags, separate them with a forward slash, for example `#recipe/vegan`.
 The search dialog, as previously discussed, contains a dedicated section where you can see all available tags for a quick search.
+
+![Tags explorer](.attachments/nh34-tags.webp "Tags explorer")
 
 ## Find in note
 
