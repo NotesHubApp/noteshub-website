@@ -122,6 +122,8 @@ y | Yellow
 
 ## Rich link previews
 
+With this release, we once again extend what Markdown image elements can do. By specifying a regular web page URL as an image source, the app will auto-generate a rich link preview with a title, description, and image to help you visualize what is hiding behind the URL.
+
 ## Other notable features
 
 - Links in whiteboards can be used for internal navigation to different documents.
