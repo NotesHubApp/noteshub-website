@@ -1,7 +1,6 @@
 import {
   EmailIcon,
   FacebookIcon,
-  InstagramIcon,
   LinkedInIcon,
   RedditIcon,
   RssIcon,
