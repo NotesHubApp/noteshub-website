@@ -35,3 +35,7 @@ We are introducing a few new hotkeys and a hotkey manager. With this addition, y
 - Adds syntax highlighting for Pascal language in code blocks for preview.
 
 ## Important fixes
+- Improves network status detection for iOS and Android.
+- Fixes unquoting a block with empty lines.
+- Now, code blocks will always have wrapped lines on the print.
+- Accessibility improvements for using the app with voice-over (narrator) and a keyboard.
