@@ -11,11 +11,27 @@ NotesHub was available for Apple Vision Pro via an iPad-compatible version from 
 With the new app, you can open files in separate windows to take advantage of the enormous Apple Vision Pro real estate. Windows are resizable now, which can be really handy for Kanban boards or whiteboards. Images in notes could be previewed in full size with the ability to zoom. Lastly, eye tracking works better on menus and other items.
 
 ## Hotkey manager
+We are introducing a few new hotkeys and a hotkey manager. With this addition, you can tailor the hotkeys to your needs and even have multiple of them per action.
 
 ## Network status banner
+
 
 ## Media element captions
 
 ## Other notable features
+- View a Markdown image in fullscreen by clicking on it.
+- _Open Link in New Window_ action for iPad and Apple Vision Pro.
+- Adds File System notebook provider for Android.
+- Adds German localization (special thanks to Sven M. for volunteering to work on this).
+- Auto-pairing of backticks in Markdown.
+- New key-bindings:
+  - `1` - navigate to notebooks
+  - `2` - navigate to favorites
+  - `3` - navigate to recents
+  - `D` - create folder
+  - `N` - create new note
+  - `K` - create new Kanban board
+  - `W` - create new whiteboard
+- Adds syntax highlighting for Pascal language in code blocks for preview.
 
 ## Important fixes
