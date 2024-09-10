@@ -14,9 +14,10 @@ With the new app, you can open files in separate windows to take advantage of th
 We are introducing a few new hotkeys and a hotkey manager. With this addition, you can tailor the hotkeys to your needs and even have multiple of them per action.
 
 ## Network status banner
-
+In situations with no network connectivity, to better understand whether data sync is going to happen, we are introducing a network status banner that will show up when the application goes into offline mode.
 
 ## Media element captions
+Once again, we are extending what Markdown image elements can do. This time, we are leveraging the standard title image syntax to display them as captions. This works for audio and video elements, too.
 
 ## Other notable features
 - View a Markdown image in fullscreen by clicking on it.
@@ -32,7 +33,7 @@ We are introducing a few new hotkeys and a hotkey manager. With this addition, y
   - `N` - create new note
   - `K` - create new Kanban board
   - `W` - create new whiteboard
-- Adds syntax highlighting for Pascal language in code blocks for preview.
+- Adds syntax highlighting for `pascal` language in code blocks for preview.
 
 ## Important fixes
 - Improves network status detection for iOS and Android.
