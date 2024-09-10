@@ -190,6 +190,7 @@ code {
 .blog-post-content .img-responsive {
   display: block;
   max-width: 100%;
+  max-height: var(--max-content-width);
   margin: 0 auto;
   border-radius: 10px;
 }

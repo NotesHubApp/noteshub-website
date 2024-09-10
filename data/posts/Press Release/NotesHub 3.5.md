@@ -18,6 +18,8 @@ We are introducing a few new hotkeys and a hotkey manager. With this addition, y
 ## Network status banner
 In situations with no network connectivity, to better understand whether data sync is going to happen, we are introducing a network status banner that will show up when the application goes into offline mode.
 
+![Network status](.attachments/nh35-network-status.webp "Network status banner")
+
 ## Media element captions
 Once again, we are extending what Markdown image elements can do. This time, we are leveraging the standard title image syntax to display them as captions. To specify the title/caption, add an optional text enclosed in quotes after the image URL/path separated by space `![ALT_TEXT](IMAGE_URL "YOUR_CAPTION_HERE")`. This works for audio and video elements, too.
 
