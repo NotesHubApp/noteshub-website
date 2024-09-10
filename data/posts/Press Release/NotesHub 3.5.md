@@ -13,11 +13,15 @@ With the new app, you can open files in separate windows to take advantage of th
 ## Hotkey manager
 We are introducing a few new hotkeys and a hotkey manager. With this addition, you can tailor the hotkeys to your needs and even have multiple of them per action.
 
+![Hotkey manager](.attachments/nh35-shortcuts.webp "Hotkey manager")
+
 ## Network status banner
 In situations with no network connectivity, to better understand whether data sync is going to happen, we are introducing a network status banner that will show up when the application goes into offline mode.
 
 ## Media element captions
-Once again, we are extending what Markdown image elements can do. This time, we are leveraging the standard title image syntax to display them as captions. This works for audio and video elements, too.
+Once again, we are extending what Markdown image elements can do. This time, we are leveraging the standard title image syntax to display them as captions. To specify the title/caption, add an optional text enclosed in quotes after the image URL/path separated by space `![ALT_TEXT](IMAGE_URL "YOUR_CAPTION_HERE")`. This works for audio and video elements, too.
+
+![Media element captions](.attachments/nh35-captions.webp "Image caption")
 
 ## Other notable features
 - View a Markdown image in fullscreen by clicking on it.
