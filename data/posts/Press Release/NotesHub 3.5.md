@@ -10,6 +10,8 @@ NotesHub was available for Apple Vision Pro via an iPad-compatible version from 
 
 With the new app, you can open files in separate windows to take advantage of the enormous Apple Vision Pro real estate. Windows are resizable now, which can be really handy for Kanban boards or whiteboards. Images in notes could be previewed in full size with the ability to zoom. Lastly, eye tracking works better on menus and other items.
 
+![Vision Pro](.attachments/nh35-visionpro.webp "Multiple windows in Apple Vision Pro")
+
 ## Hotkey manager
 We are introducing a few new hotkeys and a hotkey manager. With this addition, you can tailor the hotkeys to your needs and even have multiple of them per action.
 
