@@ -47,4 +47,5 @@ Once again, we are extending what Markdown image elements can do. This time, we 
 - Improves network status detection for iOS and Android.
 - Fixes unquoting a block with empty lines.
 - Now, code blocks will always have wrapped lines on the print.
+- Improves Kanban cards and lists dragging behaviour by removing the delay when drag is activated.
 - Accessibility improvements for using the app with voice-over (narrator) and a keyboard.
