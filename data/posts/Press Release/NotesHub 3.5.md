@@ -1,6 +1,6 @@
 ---
 description: Immerse into NotesHub with Apple Vision Pro
-postedOn: 09/15/2024
+postedOn: 09/20/2024
 published: false
 image: .attachments/nh35-hero.webp
 ---
@@ -28,6 +28,15 @@ Once again, we are extending what Markdown image elements can do. This time, we 
 ![Media element captions](.attachments/nh35-captions.webp "Image caption")
 
 ## Other notable features
+- Whiteboard library items are now persisted between app restarts.
+- Updated Excalidraw library brings a ton of quality life improvements to whiteboards:
+  - [Editable element dimensions from stats panel](https://x.com/excalidraw/status/1800969505142698422)
+  - [Elbow arrows](https://x.com/excalidraw/status/1819084086222393554)
+  - [Keyboard shortcuts to create flowcharts](https://x.com/excalidraw/status/1823079626156961937)
+  - [Customizable grid steps from the Canvas properties](https://x.com/excalidraw/status/1823805702122709300)
+  - [Smaller file sizes for whiteboards with text](https://x.com/excalidraw/status/1830640148255543604)
+  - [Text search](https://x.com/excalidraw/status/1834254530025779450)
+  - Performance improvements and much more...
 - View a Markdown image in fullscreen by clicking on it.
 - _Open Link in New Window_ action for iPad and Apple Vision Pro.
 - Adds File System notebook provider for Android.
@@ -47,5 +56,5 @@ Once again, we are extending what Markdown image elements can do. This time, we 
 - Improves network status detection for iOS and Android.
 - Fixes unquoting a block with empty lines.
 - Now, code blocks will always have wrapped lines on the print.
-- Improves Kanban cards and lists dragging behaviour by removing the delay when drag is activated.
+- Improves Kanban cards and lists dragging behaviour by removing the delay for drag activation.
 - Accessibility improvements for using the app with voice-over (narrator) and a keyboard.
