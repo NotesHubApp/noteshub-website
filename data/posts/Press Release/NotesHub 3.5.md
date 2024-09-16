@@ -1,6 +1,6 @@
 ---
 description: Immerse into NotesHub with Apple Vision Pro
-postedOn: 09/20/2024
+postedOn: 09/16/2024
 published: false
 image: .attachments/nh35-hero.webp
 ---
