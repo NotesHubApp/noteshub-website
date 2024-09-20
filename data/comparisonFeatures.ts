@@ -27,7 +27,7 @@ const features: ComparisonFeatureModel[] = [
     name: 'File System Notebooks',
     web: 'present',
     iOS: 'absent',
-    android: 'absent',
+    android: 'present',
     windows: 'present'
   },
   {
