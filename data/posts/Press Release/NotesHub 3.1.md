@@ -22,7 +22,7 @@ MIDI playback is also supported with ability to play/pause and seek.
 ![ABC Notation](.attachments/nh31-abc.webp "ABC Notation")
 
 ## Pan & zoom support for Mermaid diagrams
-Mermaid is a great library for defining diagrams in simple text format. The problem however can arise while previewing large complex diagrams and especially when screen real estate is limited (smartphones, etc). Since the library does not have any build-in solution for this we came up with our own. Simply by clicking on diagram's preview will open full-window sized dialog where you can pan and zoom the diagram and it works even with touch screen devices using your fingers.
+Mermaid is a great library for defining diagrams in simple text format. The problem however can arise while previewing large complex diagrams and especially when screen real estate is limited (smartphones, etc). Since the library does not have any built-in solution for this we came up with our own. Simply by clicking on diagram's preview will open full-window sized dialog where you can pan and zoom the diagram and it works even with touch screen devices using your fingers.
 
 ![Pan & Zoom for Mermaid](.attachments/nh31-mermaid_pan_zoom.webp "Pan & Zoom for Mermaid")
 
@@ -37,7 +37,7 @@ Many studies show the importance of limiting maximum line length in the text for
 With this release we are introducing new setting **Optimal Line Length** which is turned on by default and will limit lines to 75 characters. You can turn it off in _Settings -> Appearance -> Optimal Line Length_.
 
 ## Multi-window support
-There are situations when you want to have multiple notes side by side in order to compare content or copy/paste some parts, etc. Before Today it was particularly challanging operations in native versions of NotesHub (macOS, Windows). There are several posible solutions to this problem. One of them is using tabs, but in order to preserve the minimalizm and simplicity of the app this solutions was dismissed. Another most obvious solution is to use multiple windows. When using Web app this works out of the box since all browsers can do this, but it was not the option for native apps. Now you have two options to open a new window: select _Create a new window_ from Dock/Taskbar for the app, or click _Open Link in New Window_ for any internal link in the app.
+There are situations when you want to have multiple notes side by side in order to compare content or copy/paste some parts, etc. Before Today it was particularly challenging operations in native versions of NotesHub (macOS, Windows). There are several possible solutions to this problem. One of them is using tabs, but in order to preserve the minimalizm and simplicity of the app this solutions was dismissed. Another most obvious solution is to use multiple windows. When using Web app this works out of the box since all browsers can do this, but it was not the option for native apps. Now you have two options to open a new window: select _Create a new window_ from Dock/Taskbar for the app, or click _Open Link in New Window_ for any internal link in the app.
 
 ## Other notable features
 - Settings such as theme, language, and others are now synced between tabs/windows on change.

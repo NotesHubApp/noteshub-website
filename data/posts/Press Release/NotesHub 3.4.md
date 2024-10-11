@@ -105,7 +105,7 @@ The input search field is powered by the same search engine as the primary searc
 - `due` — matches the card's due date state; accepted values are _completed_, _overdue_, _day_, _week_, _month_.
 - `tasks` — matches the card's subtasks state; accepted values are _todo_, _inprogress_, _done_.
 - `has` — matches the presence of the specified card's field; accepted values are _details_, _tags_, _tasks_, _due_, _estimates_.
-- `is` — matches the specfied card's state; accepted value is _completed_.
+- `is` — matches the specified card's state; accepted value is _completed_.
 
 ## Multicolored highlight tool
 

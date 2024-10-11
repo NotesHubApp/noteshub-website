@@ -45,7 +45,7 @@ Once again, we are extending what Markdown image elements can do. This time, we 
 - New key-bindings:
   - `1` - navigate to notebooks
   - `2` - navigate to favorites
-  - `3` - navigate to recents
+  - `3` - navigate to recent
   - `D` - create folder
   - `N` - create new note
   - `K` - create new Kanban board
