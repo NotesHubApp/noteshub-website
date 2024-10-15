@@ -52,7 +52,10 @@ const faq: FaqModel[] = [
     'question': 'Can I connect only specific GitHub repositories instead of the whole account?',
     'answer': (
       <div>
-        To accomplish this scenario select generic <strong>Git notebook provider</strong> (instead of GitHub) and for the password field put <a href="https://github.blog/2022-10-18-introducing-fine-grained-personal-access-tokens-for-github" target="_blank" rel="noopener noreferrer">fine-grained personal access token</a> which can be generated to have access only to certain repositories.
+        <p>
+          To accomplish this scenario select generic <strong>Git notebook provider</strong> (instead of GitHub) and for the password field put <a href="https://github.blog/2022-10-18-introducing-fine-grained-personal-access-tokens-for-github" target="_blank" rel="noopener noreferrer">fine-grained personal access token</a> which can be generated to have access only to certain repositories. In terms of permissions set, only <strong>Contents: read and write</strong> is required.
+          If you try to use empty pre-created repository from GitHub, make sure to push any file first, this will force GitHub to create a default branch which is a requirement.
+        </p>
       </div>
     )
   },
