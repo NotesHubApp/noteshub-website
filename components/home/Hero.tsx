@@ -105,6 +105,7 @@ export default function Hero({ announcement }: HeroProps) {
       </p>
 
       <div className={classes.linksContainer}>
+        {/* TODO: Restore once the web app if fixed. */}
         {/* <ExternalLink
           className={ classes.webAppLink }
           title="Web App"
