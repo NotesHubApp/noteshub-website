@@ -81,9 +81,9 @@ const useStyles = createUseStyles({
   },
   truncatedContent: {
     // Make ellipsis on long content
-    display: 'box',
-    lineClamp: 10,
-    boxOrient: 'vertical',
+    display: '-webkit-box',
+    '-webkit-line-clamp': 10,
+    '-webkit-box-orient': 'vertical',
     overflow: 'hidden'
   },
   postedOn: {
