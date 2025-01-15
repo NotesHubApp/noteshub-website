@@ -1,13 +1,14 @@
-import { createUseStyles } from 'react-jss';
 import { ComparisonFeatureModel, FeatureStatus } from 'models/ComparisonFeatureModel';
-import allFeatures from 'data/comparisonFeatures';
-import { discounts as allDiscounts } from 'data/discounts'
+import { RecommendedIcon, SaleIcon } from 'components/icons';
+
+import { Discounts } from 'models/Discounts';
 import { ExternalLink } from '../common/ExternalLink';
 import { Hint } from '../common/Hint';
 import { Section } from './Section';
 import { SectionTitle } from './SectionTitle';
-import { RecommendedIcon, SaleIcon } from 'components/icons';
-import { Discounts } from 'models/Discounts';
+import { discounts as allDiscounts } from 'data/discounts'
+import allFeatures from 'data/comparisonFeatures';
+import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
   tableWrap: {
@@ -131,10 +132,10 @@ export default function FeatureComparison(
                     { feature.hint && <Hint>{ feature.hint }</Hint> }
                   </div>
                 </th>
-                <td><FeatureStatus status={ feature.web } /></td>
-                <td><FeatureStatus status={ feature.iOS } /></td>
-                <td><FeatureStatus status={ feature.android } /></td>
-                <td><FeatureStatus status={ feature.windows } /></td>
+                <td><FeatureStatusIcon status={ feature.web } /></td>
+                <td><FeatureStatusIcon status={ feature.iOS } /></td>
+                <td><FeatureStatusIcon status={ feature.android } /></td>
+                <td><FeatureStatusIcon status={ feature.windows } /></td>
               </tr>
             )) }
           </tbody>
@@ -144,7 +145,7 @@ export default function FeatureComparison(
   )
 }
 
-function FeatureStatus(props: { status: FeatureStatus }) {
+function FeatureStatusIcon(props: { status: FeatureStatus }) {
   const classes = useStyles();
 
   const Present = (
