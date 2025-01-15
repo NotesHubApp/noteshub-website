@@ -1,6 +1,7 @@
 import {
   AndroidIcon,
   AppleIcon,
+  LinuxIcon,
   WebIcon,
   WindowsIcon
 } from 'components/icons';
@@ -84,6 +85,14 @@ const useStyles = createUseStyles({
     '&:hover svg': {
       fill: '#A3AAAE'
     }
+  },
+  linuxAppLink: {
+    '& svg': {
+      fill: 'currentColor'
+    },
+    '&:hover svg': {
+      fill: 'gray'
+    }
   }
 });
 
@@ -136,6 +145,14 @@ export default function Hero({ announcement }: HeroProps) {
           href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL }
         >
           <WindowsIcon />
+        </ExternalLink>
+
+        <ExternalLink
+          className={ classes.linuxAppLink }
+          title="Linux App"
+          href={ process.env.NEXT_PUBLIC_LINUX_APPURL }
+        >
+          <LinuxIcon />
         </ExternalLink>
       </div>
 

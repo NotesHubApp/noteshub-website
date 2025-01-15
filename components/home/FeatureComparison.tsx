@@ -114,7 +114,7 @@ export default function FeatureComparison(
               <th>
                 <div className={ classes.columnCaption }>
                   <ExternalLink href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL } className={ classes.platformLink }>
-                    Windows
+                    Windows / Linux
                   </ExternalLink>
                   { discounts.amount && discounts.forWindowsStore ? <SaleBadge /> : <RecommendedBadge /> }
                 </div>
