@@ -92,9 +92,9 @@ export default function FeatureComparison(
             <tr>
               <th>Included Features</th>
               <th>
-                <ExternalLink href={ process.env.NEXT_PUBLIC_APPURL } className={ classes.platformLink }>
+                {/* <ExternalLink href={ process.env.NEXT_PUBLIC_APPURL } className={ classes.platformLink }> */}
                   Web
-                </ExternalLink>
+                {/* </ExternalLink> */}
               </th>
               <th>
                 <div className={ classes.columnCaption }>
@@ -115,7 +115,11 @@ export default function FeatureComparison(
               <th>
                 <div className={ classes.columnCaption }>
                   <ExternalLink href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL } className={ classes.platformLink }>
-                    Windows / Linux
+                    Windows
+                  </ExternalLink>
+                   /
+                  <ExternalLink href={ process.env.NEXT_PUBLIC_LINUX_APPURL } className={ classes.platformLink }>
+                    Linux
                   </ExternalLink>
                   { discounts.amount && discounts.forWindowsStore ? <SaleBadge /> : <RecommendedBadge /> }
                 </div>
