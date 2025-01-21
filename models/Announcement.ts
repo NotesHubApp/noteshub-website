@@ -4,6 +4,12 @@ export type PostAnnouncement = {
   url: string
 }
 
+export type ExternalLinkAnnouncement = {
+  type: 'externalLink'
+  title: string
+  url: string
+}
+
 export type ProductHuntAnnouncement = {
   type: 'productHunt'
   postId: string
@@ -12,4 +18,5 @@ export type ProductHuntAnnouncement = {
 
 export type Announcement =
   | PostAnnouncement
+  | ExternalLinkAnnouncement
   | ProductHuntAnnouncement

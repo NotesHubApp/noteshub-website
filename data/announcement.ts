@@ -9,10 +9,16 @@ const postAnnouncement: Announcement | undefined = latestPost ? {
   url: Routes.blogPost(latestPost)
 } : undefined
 
+const externalLinkAnnouncement: Announcement = {
+  type: 'externalLink',
+  title: 'Interview with Website Planet',
+  url: 'https://www.websiteplanet.com/blog/noteshub-interview'
+}
+
 const productHuntAnnouncement: Announcement = {
   type: 'productHunt',
   postId: '451685',
   postSlug: 'noteshub-3-3'
 }
 
-export default postAnnouncement
+export default externalLinkAnnouncement

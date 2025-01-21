@@ -67,6 +67,15 @@ export function AnnouncementBadge({ announcement }: AnnouncementBadgeProps) {
           </Link>
         )
 
+      case 'externalLink':
+        return (
+          <Link className={ classes.announcementContainer } href={ announcement.url } target="_blank" rel="noopener">
+            <div className={ classes.announcementIndicator } />
+            <span className={ classes.announcementText }>{ announcement.title }</span>
+            <ArrowCircleRightIcon />
+          </Link>
+        )
+
       case 'productHunt':
         return (
           <ProductHuntAnnouncementBadge
