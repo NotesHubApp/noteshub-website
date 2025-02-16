@@ -114,14 +114,13 @@ export default function Hero({ announcement }: HeroProps) {
       </p>
 
       <div className={classes.linksContainer}>
-        {/* TODO: Restore once the web app if fixed. */}
-        {/* <ExternalLink
+        <ExternalLink
           className={ classes.webAppLink }
           title="Web App"
           href={process.env.NEXT_PUBLIC_APPURL}
         >
           <WebIcon />
-        </ExternalLink> */}
+        </ExternalLink>
 
         <ExternalLink
           className={ classes.appleAppLink }

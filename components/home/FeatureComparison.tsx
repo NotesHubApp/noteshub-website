@@ -92,9 +92,9 @@ export default function FeatureComparison(
             <tr>
               <th>Included Features</th>
               <th>
-                {/* <ExternalLink href={ process.env.NEXT_PUBLIC_APPURL } className={ classes.platformLink }> */}
+                <ExternalLink href={ process.env.NEXT_PUBLIC_APPURL } className={ classes.platformLink }>
                   Web
-                {/* </ExternalLink> */}
+                </ExternalLink>
               </th>
               <th>
                 <div className={ classes.columnCaption }>

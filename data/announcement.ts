@@ -21,4 +21,4 @@ const productHuntAnnouncement: Announcement = {
   postSlug: 'noteshub-3-3'
 }
 
-export default externalLinkAnnouncement
+export default postAnnouncement
