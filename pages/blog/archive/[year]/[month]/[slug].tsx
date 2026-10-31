@@ -1,6 +1,7 @@
 import * as env from 'utils/env';
 
 import { BlogPost } from 'models/BlogPost'
+import { BlogDownloadBlock } from 'components/blog/BlogDownloadBlock';
 import BlogPostContent from 'components/blog/BlogPostContent';
 import { BlogPostInfo } from 'components/blog/BlogPostInfo';
 import { Layout } from 'components/Layout'
@@ -78,6 +79,8 @@ export default function BlogPostPage(props: BlogPost) {
           <img className={ classes.heroImage } src={ `${props.image}` } alt="Hero image" />
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
         </article>
+
+        <BlogDownloadBlock />
 
         <div className={ classes.postFooter }>
           <BlogPostInfo post={ props } />

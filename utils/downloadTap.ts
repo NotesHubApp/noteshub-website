@@ -1,5 +1,5 @@
 export type DownloadStore = 'web' | 'app-store' | 'google-play' | 'windows' | 'linux';
-export type DownloadPlacement = 'hero' | 'comparison' | 'testimonials';
+export type DownloadPlacement = 'hero' | 'comparison' | 'testimonials' | 'blog';
 
 // Umami counts a tap on any element carrying these attributes, with no script of
 // our own. One event for every link, the store and placement as its properties: a
