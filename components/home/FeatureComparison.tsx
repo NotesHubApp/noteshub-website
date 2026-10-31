@@ -9,6 +9,7 @@ import { SectionTitle } from './SectionTitle';
 import { discounts as allDiscounts } from 'data/discounts'
 import allFeatures from 'data/comparisonFeatures';
 import { createUseStyles } from 'react-jss';
+import { downloadTap } from 'utils/downloadTap';
 
 const useStyles = createUseStyles({
   tableWrap: {
@@ -92,13 +93,13 @@ export default function FeatureComparison(
             <tr>
               <th>Included Features</th>
               <th>
-                <ExternalLink href={ process.env.NEXT_PUBLIC_APPURL } className={ classes.platformLink }>
+                <ExternalLink href={ process.env.NEXT_PUBLIC_APPURL } className={ classes.platformLink } { ...downloadTap('web', 'comparison') }>
                   Web
                 </ExternalLink>
               </th>
               <th>
                 <div className={ classes.columnCaption }>
-                  <ExternalLink href={ process.env.NEXT_PUBLIC_APPSTORE_APPURL } className={ classes.platformLink }>
+                  <ExternalLink href={ process.env.NEXT_PUBLIC_APPSTORE_APPURL } className={ classes.platformLink } { ...downloadTap('app-store', 'comparison') }>
                     iOS / macOS
                   </ExternalLink>
                   { discounts.amount && discounts.forAppStore ? <SaleBadge /> : <RecommendedBadge /> }
@@ -106,7 +107,7 @@ export default function FeatureComparison(
               </th>
               <th>
                 <div className={ classes.columnCaption }>
-                  <ExternalLink href={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL } className={ classes.platformLink }>
+                  <ExternalLink href={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL } className={ classes.platformLink } { ...downloadTap('google-play', 'comparison') }>
                     Android
                   </ExternalLink>
                   { discounts.amount && discounts.forPlayStore ? <SaleBadge /> : <RecommendedBadge /> }
@@ -114,11 +115,11 @@ export default function FeatureComparison(
               </th>
               <th>
                 <div className={ classes.columnCaption }>
-                  <ExternalLink href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL } className={ classes.platformLink }>
+                  <ExternalLink href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL } className={ classes.platformLink } { ...downloadTap('windows', 'comparison') }>
                     Windows
                   </ExternalLink>
                    /
-                  <ExternalLink href={ process.env.NEXT_PUBLIC_LINUX_APPURL } className={ classes.platformLink }>
+                  <ExternalLink href={ process.env.NEXT_PUBLIC_LINUX_APPURL } className={ classes.platformLink } { ...downloadTap('linux', 'comparison') }>
                     Linux
                   </ExternalLink>
                   { discounts.amount && discounts.forWindowsStore ? <SaleBadge /> : <RecommendedBadge /> }

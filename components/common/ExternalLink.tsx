@@ -6,16 +6,14 @@ type ExternalLinkProps = {
   className?: string
 }
 
-export function ExternalLink(props: PropsWithChildren<ExternalLinkProps>) {
+export function ExternalLink({ children, ...rest }: PropsWithChildren<ExternalLinkProps>) {
   return (
     <a
-      href={ props.href }
-      title={ props.title }
-      className={ props.className }
       target="_blank"
       rel="noopener noreferrer"
+      { ...rest }
     >
-      { props.children }
+      { children }
     </a>
   )
 }

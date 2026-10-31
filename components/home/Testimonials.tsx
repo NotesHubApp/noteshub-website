@@ -18,6 +18,7 @@ import { SectionTitle } from './SectionTitle';
 import { Spacer } from 'components/common/Spacer';
 import clsx from 'clsx';
 import { createUseStyles } from 'react-jss';
+import { DownloadStore, downloadTap } from 'utils/downloadTap';
 import testimonials from 'data/testimonials';
 
 const useStyles = createUseStyles({
@@ -199,21 +200,21 @@ function TestimonialSource(props: TestimonialSourceProps) {
   switch (props.origin) {
     case 'AppStore':
       return (
-        <IconWithLink url={ process.env.NEXT_PUBLIC_APPSTORE_APPURL }>
+        <IconWithLink url={ process.env.NEXT_PUBLIC_APPSTORE_APPURL } store='app-store'>
           <AppStoreIcon />
         </IconWithLink>
       )
 
     case 'PlayStore':
       return (
-        <IconWithLink url={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL }>
+        <IconWithLink url={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL } store='google-play'>
           <GooglePlayIcon />
         </IconWithLink>
       )
 
     case 'WindowsStore':
       return (
-        <IconWithLink url={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL }>
+        <IconWithLink url={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL } store='windows'>
           <WindowsStoreIcon />
         </IconWithLink>
       )
@@ -222,7 +223,7 @@ function TestimonialSource(props: TestimonialSourceProps) {
   return null;
 }
 
-function IconWithLink(props: PropsWithChildren<{ url?: string}>) {
+function IconWithLink(props: PropsWithChildren<{ url?: string, store: DownloadStore }>) {
   const classes = useStyles();
 
   const onLinkClick = (e: MouseEvent) => {
@@ -235,6 +236,7 @@ function IconWithLink(props: PropsWithChildren<{ url?: string}>) {
       href={ props.url }
       onClick={ onLinkClick }
       target='_blank' rel='noopener noreferrer'
+      { ...downloadTap(props.store, 'testimonials') }
     >
       { props.children }
     </a>

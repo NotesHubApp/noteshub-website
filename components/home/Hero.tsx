@@ -10,6 +10,7 @@ import { Announcement } from 'models/Announcement';
 import { AnnouncementBadge } from './AnnouncementBadge';
 import { ExternalLink } from '../common/ExternalLink';
 import { createUseStyles } from 'react-jss';
+import { downloadTap } from 'utils/downloadTap';
 
 const useStyles = createUseStyles({
   heroContainer: {
@@ -118,6 +119,7 @@ export default function Hero({ announcement }: HeroProps) {
           className={ classes.webAppLink }
           title="Web App"
           href={process.env.NEXT_PUBLIC_APPURL}
+          { ...downloadTap('web', 'hero') }
         >
           <WebIcon />
         </ExternalLink>
@@ -126,6 +128,7 @@ export default function Hero({ announcement }: HeroProps) {
           className={ classes.appleAppLink }
           title="Apple App"
           href={ process.env.NEXT_PUBLIC_APPSTORE_APPURL }
+          { ...downloadTap('app-store', 'hero') }
         >
           <AppleIcon />
         </ExternalLink>
@@ -134,6 +137,7 @@ export default function Hero({ announcement }: HeroProps) {
           className={ classes.androidAppLink }
           title="Android App"
           href={ process.env.NEXT_PUBLIC_GOOGLEPLAY_APPURL }
+          { ...downloadTap('google-play', 'hero') }
         >
           <AndroidIcon />
         </ExternalLink>
@@ -142,6 +146,7 @@ export default function Hero({ announcement }: HeroProps) {
           className={ classes.windowsAppLink }
           title="Windows App"
           href={ process.env.NEXT_PUBLIC_WINDOWSSTORE_APPURL }
+          { ...downloadTap('windows', 'hero') }
         >
           <WindowsIcon />
         </ExternalLink>
@@ -150,6 +155,7 @@ export default function Hero({ announcement }: HeroProps) {
           className={ classes.linuxAppLink }
           title="Linux App"
           href={ process.env.NEXT_PUBLIC_LINUX_APPURL }
+          { ...downloadTap('linux', 'hero') }
         >
           <LinuxIcon />
         </ExternalLink>

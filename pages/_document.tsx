@@ -38,16 +38,12 @@ export default class MyDocument extends Document {
           <meta property="artykul:site_description" content="The latest news about NotesHub app"></meta>
           <meta property="artykul:site_icon" content="/images/app/artykul-icon.png"></meta>
 
-          {/* Global site tag (gtag.js) - Google Analytics */}
-          <script async src={ `https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}` }></script>
-
-          <script dangerouslySetInnerHTML={{__html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
-          `}} />
+          {/* Umami analytics. data-domains keeps local development out of the numbers. */}
+          <script
+            defer
+            src={ process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL }
+            data-website-id={ process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID }
+            data-domains={ new URL(process.env.NEXT_PUBLIC_LANDING_PAGE_URL!).hostname }></script>
 
           <script dangerouslySetInnerHTML={{__html: `
             (function () {
