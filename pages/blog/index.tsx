@@ -12,7 +12,11 @@ export async function getStaticProps() {
   const feed = blogRepository.generateFeed();
   fs.writeFileSync('./public/feed.xml', feed);
 
+  const sitemap = blogRepository.generateSitemap();
+  fs.writeFileSync('./public/sitemap.xml', sitemap);
+
   blogRepository.copyAssets();
+  await blogRepository.generateSocialImages();
 
   const posts = blogRepository.getAllPublishedPostAnnotations();
   return { props: { posts } };
@@ -23,6 +27,7 @@ export default function BlogPage(props: BlogProps) {
     <Layout
       pageId="blog"
       pageTitle="Blog"
+      canonicalUrl="/blog"
     >
       <BlogPostsList subtitle="Latest Posts" posts={ props.posts } />
     </Layout>

@@ -3,11 +3,14 @@ import { glob } from 'glob'
 import { Feed } from 'feed'
 import path from 'path'
 import matter from 'gray-matter'
+import sharp from 'sharp'
 import { BlogPostAnnotation, BlogPost } from 'models/BlogPost'
 import { BlogCategory } from 'models/BlogCategory'
 import { BlogTag } from 'models/BlogTag'
+import { dateToIsoString } from 'utils/dateUtils'
 import { fileNameToUrlSlug, getDirectoryName, getFileNameWithoutExtension } from 'utils/pathUtils'
 import { Lazy } from 'utils/Lazy'
+import { Routes, socialImageSize } from 'utils/Routes'
 
 
 export type BlogFeedConfig = {
@@ -19,6 +22,10 @@ export type BlogFeedConfig = {
   postUrlGenerator: (post: BlogPost) => string
 }
 
+export type BlogSitemapConfig = {
+  pages: string[]
+}
+
 export type BlogRepositoryConfig = {
   postsFilePattern: string
   assetsFilePattern: string
@@ -27,6 +34,7 @@ export type BlogRepositoryConfig = {
   categories: BlogCategory[]
   tags: BlogTag[]
   feed: BlogFeedConfig
+  sitemap: BlogSitemapConfig
 }
 
 export class BlogRepository {
@@ -136,6 +144,7 @@ export class BlogRepository {
       id: metadata['id'] ?? urlSlug,
       title: title,
       urlSlug: urlSlug,
+      canonicalUrl: metadata['canonicalUrl'] ?? null,
       image: metadata['image'] || metadata['preview'] || metadata['hero'] || null,
       published: (/true/i).test(metadata['published']) || (/false/i).test(metadata['draft']),
       postedOn: metadata['postedOn'] || metadata['pubDate'] || metadata['date'] || null,
@@ -171,6 +180,27 @@ export class BlogRepository {
     return feed.rss2();
   }
 
+  public generateSitemap(): string {
+    const pages = this.config.sitemap.pages.map(url => `  <url><loc>${url}</loc></url>`);
+
+    const posts = this.blogPosts.value
+      .filter(x => x.published && !x.canonicalUrl)
+      .map(post => {
+        const url = this.config.feed.postUrlGenerator(post).replaceAll('&', '&amp;');
+        const lastModified = dateToIsoString(parseDate(post.modified || post.postedOn));
+        return `  <url><loc>${url}</loc><lastmod>${lastModified}</lastmod></url>`;
+      });
+
+    return [
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      ...pages,
+      ...posts,
+      '</urlset>',
+      ''
+    ].join('\n');
+  }
+
   public copyAssets() {
     fs.mkdirSync(this.config.assetsDestination, { recursive: true });
 
@@ -178,6 +208,21 @@ export class BlogRepository {
       const fileName = path.basename(filePath);
       fs.copyFileSync(filePath, path.join(this.config.assetsDestination, fileName));
     });
+  }
+
+  // Run after copyAssets, which puts the hero images in the assets destination.
+  public async generateSocialImages() {
+    for (const post of this.blogPosts.value) {
+      const socialImage = Routes.socialImage(post.image);
+
+      if (post.image && socialImage && socialImage !== post.image) {
+        await sharp(path.join(this.config.assetsDestination, path.basename(post.image)))
+          .resize(socialImageSize)
+          .flatten({ background: '#ffffff' })
+          .jpeg({ quality: 85 })
+          .toFile(path.join(this.config.assetsDestination, path.basename(socialImage)));
+      }
+    }
   }
 
   private getAllPosts(): BlogPost[] {

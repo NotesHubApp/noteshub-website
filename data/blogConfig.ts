@@ -25,6 +25,9 @@ const blogConfig: BlogRepositoryConfig = {
     copyright: `${new Date().getFullYear()} TALEX All rights reserved`,
     language: 'en-US',
     postUrlGenerator: (post) => Routes.blogPost(post, true)
+  },
+  sitemap: {
+    pages: ['/', '/blog', '/about'].map(page => new URL(page, env.baseUrl).href)
   }
 }
 
