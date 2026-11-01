@@ -16,7 +16,6 @@ export async function getStaticProps() {
   fs.writeFileSync('./public/sitemap.xml', sitemap);
 
   blogRepository.copyAssets();
-  await blogRepository.generateSocialImages();
 
   const posts = blogRepository.getAllPublishedPostAnnotations();
   return { props: { posts } };

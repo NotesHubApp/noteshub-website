@@ -35,7 +35,7 @@ export default function Home(props: HomeProps) {
       pageId="home"
       pageTitle={ `${process.env.NEXT_PUBLIC_APPNAME} - ${process.env.NEXT_PUBLIC_APPTITLE}` }
       canonicalUrl="/"
-      imageUrl={ `${process.env.NEXT_PUBLIC_LANDING_PAGE_URL}/images/promo-banner.jpg` }
+      imageUrl={ `${process.env.NEXT_PUBLIC_LANDING_PAGE_URL}/images/promo-banner.webp` }
       className={ classes.home }
     >
       <Hero announcement={ props.announcement } />

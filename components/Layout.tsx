@@ -18,7 +18,6 @@ import { ThemeSwitcher } from './common/ThemeSwitcher'
 import clsx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import { discounts } from 'data/discounts'
-import { socialImageSize } from 'utils/Routes'
 
 const useStyles = createUseStyles({
   pageContainer: {
@@ -110,7 +109,7 @@ type LayoutProps = {
   canonicalUrl: string // absolute or relative to the site root
   mediaTitle?: string
   description?: string
-  imageUrl?: string // an image of socialImageSize
+  imageUrl?: string
   article?: {
     publishedTime: string
     modifiedTime: string
@@ -153,8 +152,6 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
         <meta property="og:title" content={ props.mediaTitle || process.env.NEXT_PUBLIC_APPSLOGAN } />
         <meta property="og:description" content={ pageDescription } />
         { props.imageUrl && <meta property="og:image" content={ props.imageUrl } /> }
-        { props.imageUrl && <meta property="og:image:width" content={ `${socialImageSize.width}` } /> }
-        { props.imageUrl && <meta property="og:image:height" content={ `${socialImageSize.height}` } /> }
         { props.article && <meta property="article:published_time" content={ props.article.publishedTime } /> }
         { props.article && <meta property="article:modified_time" content={ props.article.modifiedTime } /> }
 

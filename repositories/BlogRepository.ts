@@ -3,14 +3,12 @@ import { glob } from 'glob'
 import { Feed } from 'feed'
 import path from 'path'
 import matter from 'gray-matter'
-import sharp from 'sharp'
 import { BlogPostAnnotation, BlogPost } from 'models/BlogPost'
 import { BlogCategory } from 'models/BlogCategory'
 import { BlogTag } from 'models/BlogTag'
 import { dateToIsoString } from 'utils/dateUtils'
 import { fileNameToUrlSlug, getDirectoryName, getFileNameWithoutExtension } from 'utils/pathUtils'
 import { Lazy } from 'utils/Lazy'
-import { Routes, socialImageSize } from 'utils/Routes'
 
 
 export type BlogFeedConfig = {
@@ -208,21 +206,6 @@ export class BlogRepository {
       const fileName = path.basename(filePath);
       fs.copyFileSync(filePath, path.join(this.config.assetsDestination, fileName));
     });
-  }
-
-  // Run after copyAssets, which puts the hero images in the assets destination.
-  public async generateSocialImages() {
-    for (const post of this.blogPosts.value) {
-      const socialImage = Routes.socialImage(post.image);
-
-      if (post.image && socialImage && socialImage !== post.image) {
-        await sharp(path.join(this.config.assetsDestination, path.basename(post.image)))
-          .resize(socialImageSize)
-          .flatten({ background: '#ffffff' })
-          .jpeg({ quality: 85 })
-          .toFile(path.join(this.config.assetsDestination, path.basename(socialImage)));
-      }
-    }
   }
 
   private getAllPosts(): BlogPost[] {

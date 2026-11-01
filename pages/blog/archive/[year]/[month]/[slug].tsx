@@ -78,7 +78,7 @@ export default function BlogPostPage(props: BlogPost) {
       canonicalUrl={ canonicalUrl }
       mediaTitle={ props.title }
       description={ props.description }
-      imageUrl={ getImageUrl(Routes.socialImage(props.image)) }
+      imageUrl={ getImageUrl(props.image) }
       article={{ publishedTime, modifiedTime }}
     >
       <Head>
