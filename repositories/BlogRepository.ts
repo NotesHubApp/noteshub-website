@@ -136,6 +136,7 @@ export class BlogRepository {
       id: metadata['id'] ?? urlSlug,
       title: title,
       urlSlug: urlSlug,
+      canonicalUrl: metadata['canonicalUrl'] ?? null,
       image: metadata['image'] || metadata['preview'] || metadata['hero'] || null,
       published: (/true/i).test(metadata['published']) || (/false/i).test(metadata['draft']),
       postedOn: metadata['postedOn'] || metadata['pubDate'] || metadata['date'] || null,

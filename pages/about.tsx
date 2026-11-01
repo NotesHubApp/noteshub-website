@@ -37,6 +37,7 @@ export default function About() {
     <Layout
       pageId="about"
       pageTitle="About"
+      canonicalUrl="/about"
     >
       <div className={ classes.container }>
         <section id="content">

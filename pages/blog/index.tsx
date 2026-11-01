@@ -23,6 +23,7 @@ export default function BlogPage(props: BlogProps) {
     <Layout
       pageId="blog"
       pageTitle="Blog"
+      canonicalUrl="/blog"
     >
       <BlogPostsList subtitle="Latest Posts" posts={ props.posts } />
     </Layout>

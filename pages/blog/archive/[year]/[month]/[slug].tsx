@@ -4,11 +4,13 @@ import { BlogPost } from 'models/BlogPost'
 import { BlogDownloadBlock } from 'components/blog/BlogDownloadBlock';
 import BlogPostContent from 'components/blog/BlogPostContent';
 import { BlogPostInfo } from 'components/blog/BlogPostInfo';
+import Head from 'next/head';
 import { Layout } from 'components/Layout'
 import { Routes } from 'utils/Routes';
 import { Sharesheet } from 'components/common/Sharesheet';
 import { blogRepository } from 'data/blogConfig';
 import { createUseStyles } from 'react-jss';
+import { dateToIsoString } from 'utils/dateUtils';
 
 const useStyles = createUseStyles({
   container: {
@@ -64,19 +66,33 @@ export async function getStaticProps({ params }: { params: PageParams }) {
 
 export default function BlogPostPage(props: BlogPost) {
   const classes = useStyles();
+  const canonicalUrl = props.canonicalUrl ?? Routes.blogPost(props, true);
+  const publishedTime = dateToIsoString(new Date(props.postedOn));
+  const modifiedTime = props.modified ? dateToIsoString(new Date(props.modified)) : publishedTime;
+  const structuredData = getStructuredData(props, canonicalUrl, publishedTime, modifiedTime);
 
   return (
     <Layout
       pageId="blog"
       pageTitle={ `${props.title} - Blog` }
+      canonicalUrl={ canonicalUrl }
       mediaTitle={ props.title }
       description={ props.description }
       imageUrl={ getImageUrl(props.image) }
+      article={{ publishedTime, modifiedTime }}
     >
-      <div className={ classes.container } itemScope itemType="http://schema.org/BlogPosting">
+      <Head>
+        {/* "<" is escaped so that text from a post can't close the script tag. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}
+        />
+      </Head>
+
+      <div className={ classes.container }>
         <article>
-          <h1 className={ classes.postTitle } itemProp="name">{props.title}</h1>
-          <img className={ classes.heroImage } src={ `${props.image}` } alt="Hero image" />
+          <h1 className={ classes.postTitle }>{props.title}</h1>
+          <img className={ classes.heroImage } src={ `${props.image}` } alt={ props.title } />
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
         </article>
 
@@ -105,4 +121,27 @@ function getImageUrl(image?: string) {
   }
 
   return new URL(image, env.baseUrl).href;
+}
+
+function getStructuredData(post: BlogPost, canonicalUrl: string, publishedTime: string, modifiedTime: string) {
+  const organization = {
+    '@type': 'Organization',
+    name: process.env.NEXT_PUBLIC_APPNAME,
+    url: env.baseUrl,
+    logo: `${env.baseUrl}/images/app/icon-512.png`
+  };
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    mainEntityOfPage: canonicalUrl,
+    headline: post.title,
+    description: post.description,
+    image: getImageUrl(post.image),
+    datePublished: publishedTime,
+    dateModified: modifiedTime,
+    articleSection: post.category.name,
+    author: organization,
+    publisher: organization
+  };
 }

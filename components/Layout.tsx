@@ -1,3 +1,5 @@
+import * as env from 'utils/env';
+
 import {
   EmailIcon,
   FacebookIcon,
@@ -104,15 +106,21 @@ const useStyles = createUseStyles({
 type LayoutProps = {
   pageId: string
   pageTitle: string
+  canonicalUrl: string // absolute or relative to the site root
   mediaTitle?: string
   description?: string
   imageUrl?: string
+  article?: {
+    publishedTime: string
+    modifiedTime: string
+  }
   className?: string
 }
 
 export function Layout(props: PropsWithChildren<LayoutProps>) {
   const classes = useStyles();
   const pageDescription = props.description || process.env.NEXT_PUBLIC_APPDESC;
+  const canonicalUrl = new URL(props.canonicalUrl, env.baseUrl).href;
 
   useEffect(() => {
     selectMenuItem('#main-menu', props.pageId, 'active');
@@ -135,11 +143,17 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
       <Head>
         <title>{ props.pageTitle }</title>
         <meta name="description" content={ pageDescription } />
+        <link rel="canonical" href={ canonicalUrl } />
 
         {/* Open Graph / Facebook */}
+        <meta property="og:type" content={ props.article ? 'article' : 'website' } />
+        <meta property="og:url" content={ canonicalUrl } />
+        <meta property="og:site_name" content={ process.env.NEXT_PUBLIC_APPNAME } />
         <meta property="og:title" content={ props.mediaTitle || process.env.NEXT_PUBLIC_APPSLOGAN } />
         <meta property="og:description" content={ pageDescription } />
         { props.imageUrl && <meta property="og:image" content={ props.imageUrl } /> }
+        { props.article && <meta property="article:published_time" content={ props.article.publishedTime } /> }
+        { props.article && <meta property="article:modified_time" content={ props.article.modifiedTime } /> }
 
         {/* Twitter */}
         <meta property="twitter:card" content={ props.imageUrl ? 'summary_large_image' : 'summary' } />

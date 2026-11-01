@@ -132,7 +132,7 @@ function PostCard(props: { post: BlogPostAnnotation }) {
       <div className={ classes.postCardContainer }>
         { props.post.image && (
           <div className={ classes.postHeroContainer }>
-            <img className={ classes.postHero } src={ props.post.image } />
+            <img className={ classes.postHero } src={ props.post.image } alt={ props.post.title } />
           </div>
         )}
 
