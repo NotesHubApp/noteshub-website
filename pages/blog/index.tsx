@@ -12,9 +12,6 @@ export async function getStaticProps() {
   const feed = blogRepository.generateFeed();
   fs.writeFileSync('./public/feed.xml', feed);
 
-  const sitemap = blogRepository.generateSitemap();
-  fs.writeFileSync('./public/sitemap.xml', sitemap);
-
   blogRepository.copyAssets();
 
   const posts = blogRepository.getAllPublishedPostAnnotations();

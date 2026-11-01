@@ -10,6 +10,8 @@ import React from 'react'
 import Testimonials from 'components/home/Testimonials'
 import announcement from 'data/announcement'
 import { createUseStyles } from 'react-jss'
+import fs from 'fs'
+import sitemap from 'data/sitemap'
 
 const useStyles = createUseStyles({
   home: {
@@ -20,6 +22,8 @@ const useStyles = createUseStyles({
 });
 
 export async function getStaticProps() {
+  fs.writeFileSync('./public/sitemap.xml', sitemap);
+
   return { props: { announcement: announcement } }
 }
 

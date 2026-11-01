@@ -6,7 +6,6 @@ import matter from 'gray-matter'
 import { BlogPostAnnotation, BlogPost } from 'models/BlogPost'
 import { BlogCategory } from 'models/BlogCategory'
 import { BlogTag } from 'models/BlogTag'
-import { dateToIsoString } from 'utils/dateUtils'
 import { fileNameToUrlSlug, getDirectoryName, getFileNameWithoutExtension } from 'utils/pathUtils'
 import { Lazy } from 'utils/Lazy'
 
@@ -20,10 +19,6 @@ export type BlogFeedConfig = {
   postUrlGenerator: (post: BlogPost) => string
 }
 
-export type BlogSitemapConfig = {
-  pages: string[]
-}
-
 export type BlogRepositoryConfig = {
   postsFilePattern: string
   assetsFilePattern: string
@@ -32,7 +27,6 @@ export type BlogRepositoryConfig = {
   categories: BlogCategory[]
   tags: BlogTag[]
   feed: BlogFeedConfig
-  sitemap: BlogSitemapConfig
 }
 
 export class BlogRepository {
@@ -176,27 +170,6 @@ export class BlogRepository {
     });
 
     return feed.rss2();
-  }
-
-  public generateSitemap(): string {
-    const pages = this.config.sitemap.pages.map(url => `  <url><loc>${url}</loc></url>`);
-
-    const posts = this.blogPosts.value
-      .filter(x => x.published && !x.canonicalUrl)
-      .map(post => {
-        const url = this.config.feed.postUrlGenerator(post).replaceAll('&', '&amp;');
-        const lastModified = dateToIsoString(parseDate(post.modified || post.postedOn));
-        return `  <url><loc>${url}</loc><lastmod>${lastModified}</lastmod></url>`;
-      });
-
-    return [
-      '<?xml version="1.0" encoding="UTF-8"?>',
-      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-      ...pages,
-      ...posts,
-      '</urlset>',
-      ''
-    ].join('\n');
   }
 
   public copyAssets() {
