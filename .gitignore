@@ -15,7 +15,6 @@
 # production
 /build
 /public/feed.xml
-/public/sitemap.xml
 /public/posts/
 
 # misc

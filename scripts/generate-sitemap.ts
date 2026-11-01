@@ -1,8 +1,9 @@
 import * as env from 'utils/env';
 
 import { Routes } from 'utils/Routes';
-import { blogRepository } from './blogConfig';
+import { blogRepository } from 'data/blogConfig';
 import { dateToIsoString } from 'utils/dateUtils';
+import fs from 'fs';
 
 const sitePages = ['/', '/blog', '/about'].map(page => (
   `  <url><loc>${new URL(page, env.baseUrl).href}</loc></url>`
@@ -26,4 +27,4 @@ const sitemap = [
   ''
 ].join('\n');
 
-export default sitemap
+fs.writeFileSync('out/sitemap.xml', sitemap);
