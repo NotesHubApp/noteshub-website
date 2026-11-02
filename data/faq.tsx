@@ -68,6 +68,14 @@ const faq: FaqModel[] = [
     )
   },
   {
+    'question': 'Can I use NotesHub with AI agents like Claude or Codex?',
+    'answer': (
+      <div>
+        Yes, with our free and open-source agent skill for NotesHub. It runs in your agent, not in the app, and works on the same repositories and folders that NotesHub reads, so Claude, Codex, Cursor and other agents can edit your Markdown notes, Kanban boards and whiteboards. Follow the install steps in our GitHub repository <a href="https://github.com/NotesHubApp/noteshub-skills" target="_blank" rel="noopener noreferrer">NotesHubApp/noteshub-skills</a>.
+      </div>
+    )
+  },
+  {
     'question': 'Why should I pay for the native NotesHub application if I can use the web version for free?',
     'answer': 'With the native application, you will get more platform-specific features like iCloud Drive support and better integration with the system. Moreover, the web version has a limitation on the size of Git/GitHub notebooks, which is not the case for the native application.'
   }
