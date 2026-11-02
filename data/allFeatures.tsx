@@ -32,7 +32,7 @@ export const allFeatures = {
     'Audio recording',
     'Auto-generated table of contents (TOC)',
     'Automatic merge conflicts resolution',
-    <>Free <a href="/blog/archive/2026/11/noteshub-agent-skill" target="_blank" rel="noopener noreferrer">agent skill for NotesHub</a> that lets AI agents like Claude or Codex edit your notes</>,
+    <>Free <a href="https://github.com/NotesHubApp/noteshub-skills" target="_blank" rel="noopener noreferrer">agent skill for NotesHub</a> that lets AI agents like Claude or Codex edit your notes</>,
   ],
   newFeatures: [
     'Search',
