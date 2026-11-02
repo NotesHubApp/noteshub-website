@@ -8,7 +8,7 @@ image: .attachments/agent-skill-hero.webp
 
 In this post, we will learn how to let Claude, Codex, Cursor and other AI agents manage your notes using our free and open-source **agent skill for [NotesHub](/)**.
 
-If you just want the skill, head straight to our GitHub repository [NotesHubApp/noteshub-skills](https://github.com/NotesHubApp/noteshub-skills), which has the install steps.
+> **If you just want the skill, head straight to our GitHub repository [NotesHubApp/noteshub-skills](https://github.com/NotesHubApp/noteshub-skills), which has the install steps.**
 
 Let's start with why you may want this. Your AI agent can plan a trip, summarize a meeting or break a project into tasks, but then the result stays in the chat, and you are the one who copies it into your notes and updates the board. With the skill installed, you just ask:
 
