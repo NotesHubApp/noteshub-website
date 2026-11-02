@@ -29,6 +29,10 @@ const useStyles = createUseStyles({
         marginLeft: '-1em',
         fontWeight: 'bold'
       }
+    },
+
+    '& a': {
+      textDecoration: 'underline'
     }
   },
   label: {
@@ -49,7 +53,7 @@ const useStyles = createUseStyles({
 
 type AllFeaturesProps = {
   data?: {
-    features: string[]
+    features: (string | JSX.Element)[]
     newFeatures: string[]
     nonReleasedFeatures: string[]
   }
