@@ -40,12 +40,13 @@ export const SITE = {
   /** NotesHub's own accounts: the footer, the structured data's `sameAs` and llms.txt read them from here. */
   social: {
     facebook: 'https://www.facebook.com/noteshubapp',
-    x: 'https://twitter.com/noteshubapp',
-    threads: 'https://www.threads.net/@noteshubapp',
+    x: 'https://x.com/noteshubapp',
+    threads: 'https://www.threads.com/@noteshubapp',
     reddit: 'https://www.reddit.com/r/noteshub',
     linkedin: 'https://www.linkedin.com/company/noteshubapp',
   },
-  twitterHandle: 'noteshubapp',
+  /** For the `twitter:site` tag, which X still reads under that name, and the share link's `via`. */
+  xHandle: 'noteshubapp',
 
   /** The skill that lets AI agents edit NotesHub notebooks. */
   skillsRepoUrl: 'https://github.com/NotesHubApp/noteshub-skills',
