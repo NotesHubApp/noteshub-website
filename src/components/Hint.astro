@@ -1,0 +1,87 @@
+---
+/**
+ * A question mark that explains a row of the comparison table: shown on hover
+ * or focus (a tap focuses it on a phone), in the dark bubble the old
+ * rc-tooltip drew. CSS only.
+ */
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<span class="hint">
+  <button type="button" class="trigger" aria-label={text}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"
+      ></path>
+    </svg>
+  </button>
+  <span class="bubble" role="tooltip">{text}</span>
+</span>
+
+<style>
+  .hint {
+    position: relative;
+    display: inline-flex;
+  }
+
+  .trigger {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    color: rgb(176, 176, 176);
+    opacity: 0.5;
+  }
+
+  .trigger:hover,
+  .trigger:focus-visible {
+    opacity: 1;
+  }
+
+  /* rc-tooltip's bootstrap theme: a dark bubble above, with an arrow. */
+  .bubble {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1070;
+    width: max-content;
+    max-width: min(250px, 80vw);
+    padding: 8px 10px;
+    border-radius: 6px;
+    background-color: #373737;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: left;
+    white-space: normal;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s;
+  }
+
+  .bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border: 5px solid transparent;
+    border-top-color: #373737;
+  }
+
+  .hint:hover .bubble,
+  .trigger:focus-visible + .bubble,
+  .trigger:focus + .bubble {
+    opacity: 0.9;
+    visibility: visible;
+  }
+</style>

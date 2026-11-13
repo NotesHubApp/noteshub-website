@@ -1,0 +1,54 @@
+---
+/**
+ * A link to a store or the web app. Every download button on the site is one,
+ * so every one is attributed the same way:
+ *
+ * - the store's own campaign tag, `web-<placement>` (src/lib/stores.ts), so
+ *   App Store Connect, Play Console and Partner Center say which button sent
+ *   an install;
+ * - `data-store`, which src/scripts/campaign.ts reads to swap in the campaign
+ *   a visitor arrived with, so an install from a promotion is credited to it
+ *   rather than to the button;
+ * - Umami's "Download tap" event, with the store and the placement;
+ * - no `noreferrer`: the store sees that the visitor came from this site, which
+ *   App Store Connect lists among its web referrers. The Referrer-Policy header
+ *   sends the origin only, never the page.
+ */
+import { isAnalyticsConfigured } from '@/consts';
+import { storeUrl, type Store } from '@/lib/stores';
+
+export type Placement = 'hero' | 'comparison' | 'testimonials' | 'blog';
+
+interface Props {
+  store: Store;
+  placement: Placement;
+  class?: string;
+  title?: string;
+}
+
+const { store, placement, class: className, title } = Astro.props;
+const href = storeUrl(store, { campaign: `web-${placement}` });
+
+// Umami counts a tap on any element carrying these attributes, with no script
+// of ours. One event for every link, the store and placement as properties: a
+// goal or funnel takes one event name, and Umami breaks it down by them.
+const tap = isAnalyticsConfigured()
+  ? {
+      'data-umami-event': 'Download tap',
+      'data-umami-event-store': store,
+      'data-umami-event-placement': placement,
+    }
+  : {};
+---
+
+<a
+  href={href}
+  class={className}
+  title={title}
+  target="_blank"
+  rel="noopener"
+  data-store={store}
+  data-placement={placement}
+  data-astro-prefetch="false"
+  {...tap}><slot /></a
+>

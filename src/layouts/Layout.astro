@@ -1,0 +1,262 @@
+---
+/**
+ * Every page: the head (title, description, canonical, link previews,
+ * structured data, the theme and analytics scripts), the header, and the
+ * footer — the Next.js site's Layout.tsx and _document.tsx in one.
+ */
+import { getImage } from 'astro:assets';
+import promoBanner from '@/assets/promo-banner.webp';
+import DiscountLabel from '@/components/DiscountLabel.astro';
+import Footer from '@/components/Footer.astro';
+import { BLOG, NAV_LINKS, SITE, isAnalyticsConfigured } from '@/consts';
+import { DISCOUNTS } from '@/data/features';
+import { canonicalPath, structuredData, type Thing } from '@/lib/seo';
+import { APP_STORE } from '@/lib/stores';
+import '@/styles/globals.css';
+
+/** A link preview image of the page's own. */
+export interface PreviewImage {
+  /** Absolute. */
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  /** Its MIME type, such as `image/jpeg`. */
+  type: string;
+}
+
+interface Props {
+  /** The whole <title>. */
+  title: string;
+  /** The headline link previews show; the title when not given. */
+  socialTitle?: string;
+  description?: string;
+  /** Which header link is the current page. */
+  pageId?: 'home' | 'blog' | 'about';
+  /** The home page lays its sections out in one centred column. */
+  home?: boolean;
+  /** Keeps the page out of search results: drafts and the 404. */
+  noindex?: boolean;
+  /** The page's own link preview, a post's cover; the promo banner otherwise. */
+  image?: PreviewImage;
+  /** Marks the page an article for link previews, with its dates and section. */
+  article?: { published: string; modified: string; section: string };
+  /** What the home page adds to the structured data: the app and the FAQ. */
+  app?: { features: ReadonlyArray<string> };
+  faq?: ReadonlyArray<{ question: string; answer: string }>;
+  /** More nodes for the structured data: a post, its breadcrumbs. */
+  graph?: ReadonlyArray<Thing>;
+}
+
+const {
+  title,
+  socialTitle = title,
+  description = SITE.description,
+  pageId,
+  home = false,
+  noindex = false,
+  image,
+  article,
+  app,
+  faq,
+  graph = [],
+} = Astro.props;
+
+const site = Astro.site ?? new URL(SITE.url);
+const canonical = new URL(canonicalPath(Astro.url.pathname), site);
+const blockIndexing = noindex || !SITE.indexable;
+
+// The site's card: the promo banner as a JPEG, which every app that draws a
+// link preview can decode, at its own proportions so nothing is cropped away.
+const banner = await getImage({ src: promoBanner, width: 1200, format: 'jpeg', quality: 85 });
+const preview: PreviewImage = image ?? {
+  src: new URL(banner.src, site).toString(),
+  alt: `${SITE.name}: ${SITE.tagline}`,
+  width: Number(banner.attributes.width),
+  height: Number(banner.attributes.height),
+  type: 'image/jpeg',
+};
+
+const analytics = isAnalyticsConfigured() && import.meta.env.PROD;
+const jsonLd = structuredData({
+  app: app && { features: app.features, image: preview.src },
+  faq,
+  graph,
+});
+const currentPath = canonicalPath(Astro.url.pathname);
+---
+
+<!doctype html>
+<html lang="en" data-color-scheme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {/* A page that asks not to be indexed names no canonical: the two would tell a crawler opposite things. */}
+    {!noindex && <link rel="canonical" href={canonical} />}
+    {
+      blockIndexing ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+      )
+    }
+
+    <link rel="icon" href="/images/app/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/app/icon-512.png" />
+    <link rel="apple-touch-icon" href="/images/app/apple-touch-icon.png" />
+
+    {/* Open Graph */}
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    {!noindex && <meta property="og:url" content={canonical} />}
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={socialTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={preview.src} />
+    <meta property="og:image:type" content={preview.type} />
+    <meta property="og:image:width" content={String(preview.width)} />
+    <meta property="og:image:height" content={String(preview.height)} />
+    <meta property="og:image:alt" content={preview.alt} />
+    {
+      article && (
+        <>
+          <meta property="article:published_time" content={article.published} />
+          <meta property="article:modified_time" content={article.modified} />
+          <meta property="article:section" content={article.section} />
+        </>
+      )
+    }
+
+    {/* X, and the apps that read its tags */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={`@${SITE.twitterHandle}`} />
+    <meta name="twitter:title" content={socialTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={preview.src} />
+    <meta name="twitter:image:alt" content={preview.alt} />
+
+    {/* Safari's Smart App Banner: Apple's own install prompt. */}
+    <meta name="apple-itunes-app" content={`app-id=${APP_STORE.id}`} />
+
+    <meta property="artykul:site_name" content={SITE.name} />
+    <meta property="artykul:site_description" content={`The latest news about ${SITE.name} app`} />
+    <meta property="artykul:site_icon" content="/images/app/artykul-icon.png" />
+
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.name}'s blog feed`} href={new URL(BLOG.feed, site)} />
+
+    {/* A data block, not a script: the browser never runs it, so the CSP doesn't apply. */}
+    <script is:inline type="application/ld+json" set:html={jsonLd} />
+
+    {/* Applies the stored theme before first paint. A same-origin file, so
+        `script-src 'self'` covers it; `is:inline` only stops Astro bundling it. */}
+    <script is:inline src="/theme.js"></script>
+
+    {/* Umami, in production builds only, counting only the live hostname, so
+        `astro dev`, `astro preview` and preview deployments count nothing. */}
+    {
+      analytics && (
+        <script
+          is:inline
+          defer
+          src={SITE.analytics.umamiSrc}
+          data-website-id={SITE.analytics.umamiWebsiteId}
+          data-domains={new URL(SITE.url).hostname}
+        />
+      )
+    }
+  </head>
+
+  <body>
+    <div class="page-container">
+      <header class="header">
+        <nav id="main-menu" aria-label="Main">
+          <ul class="nav-list">
+            {
+              NAV_LINKS.map((link) => {
+                const id = link.href === '/' ? 'home' : link.href.slice(1);
+                const active = id === pageId;
+                return (
+                  <li class:list={[active && 'active']}>
+                    <a href={link.href} aria-current={active && link.href === currentPath ? 'page' : undefined}>
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </nav>
+      </header>
+
+      {DISCOUNTS.amount && <DiscountLabel value={DISCOUNTS.amount} />}
+
+      <main class:list={['main', home && 'home']}>
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
+
+    <script>
+      import '@/scripts/campaign';
+    </script>
+  </body>
+</html>
+
+<style>
+  .page-container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: var(--header-height);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: saturate(180%) blur(5px);
+    border-bottom: 1px solid var(--divider-color);
+    background: var(--header-bg);
+    color: gray;
+    gap: 20px;
+    z-index: 200;
+  }
+
+  .nav-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+
+  .nav-list .active {
+    color: var(--theme-color);
+  }
+
+  .nav-list li {
+    opacity: 0.8;
+    font-weight: 500;
+  }
+
+  .nav-list li:hover {
+    opacity: 1;
+  }
+
+  .main {
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  .main.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>

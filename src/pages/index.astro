@@ -1,0 +1,40 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AllFeatures from '@/components/home/AllFeatures.astro';
+import type { Announcement } from '@/components/home/AnnouncementBadge.astro';
+import Donation from '@/components/home/Donation.astro';
+import Faq from '@/components/home/Faq.astro';
+import FeatureComparison from '@/components/home/FeatureComparison.astro';
+import Hero from '@/components/home/Hero.astro';
+import Highlights from '@/components/home/Highlights.astro';
+import Testimonials from '@/components/home/Testimonials.astro';
+import { SITE } from '@/consts';
+import { FAQ_ITEMS } from '@/data/faq';
+import { featureNames } from '@/data/features';
+import { getPosts, postPath } from '@/lib/blog';
+
+// The pill under the hero points at the latest post.
+const [latest] = await getPosts();
+const announcement: Announcement | undefined = latest && {
+  type: 'post',
+  title: latest.data.title,
+  url: postPath(latest),
+};
+---
+
+<Layout
+  title={`${SITE.name} - ${SITE.title}`}
+  socialTitle={SITE.slogan}
+  pageId="home"
+  home
+  app={{ features: featureNames() }}
+  faq={FAQ_ITEMS}
+>
+  <Hero announcement={announcement} />
+  <Highlights />
+  <AllFeatures />
+  <FeatureComparison />
+  <Testimonials />
+  <Faq />
+  <Donation />
+</Layout>

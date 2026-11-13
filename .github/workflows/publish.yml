@@ -1,3 +1,10 @@
+# Serves about.noteshub.app from GitHub Pages until the noteshub.app zone moves
+# to Cloudflare and the site is served by Workers (wrangler.jsonc). Delete this
+# file, and public/CNAME, once that's done: two hosts deploying from `main`
+# would be two copies of the site. See README, "Moving to Cloudflare".
+#
+# GitHub Pages ignores dist/_headers and runs no Worker, so until then the
+# security headers and the /get links are Cloudflare-only.
 name: 'Publish to Github Pages'
 on:
   push:
@@ -20,13 +27,11 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
-        with:
-          submodules: 'true'
 
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version-file: .node-version
           cache: 'npm'
 
       - name: Setup Pages ⚙️
@@ -35,13 +40,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build with Next.js 🏗️
+      - name: Build with Astro 🏗️
         run: npm run build
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./dist
 
   deploy:
     environment:

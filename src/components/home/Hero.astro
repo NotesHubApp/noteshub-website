@@ -1,0 +1,109 @@
+---
+import { SITE } from '@/consts';
+import Icon from '@/components/Icon.astro';
+import StoreLink from '@/components/StoreLink.astro';
+import AnnouncementBadge, { type Announcement } from './AnnouncementBadge.astro';
+
+interface Props {
+  announcement?: Announcement;
+}
+
+const { announcement } = Astro.props;
+---
+
+<div class="hero">
+  <h1 class="title">
+    Welcome to <span class="app-name">{SITE.name}</span>
+  </h1>
+
+  <p class="description">{SITE.tagline}</p>
+
+  <div class="links">
+    <StoreLink class="web" title="Web App" store="web" placement="hero"><Icon name="Web" /></StoreLink>
+    <StoreLink class="apple" title="Apple App" store="app-store" placement="hero"><Icon name="Apple" /></StoreLink>
+    <StoreLink class="android" title="Android App" store="google-play" placement="hero"><Icon name="Android" /></StoreLink>
+    <StoreLink class="windows" title="Windows App" store="windows" placement="hero"><Icon name="Windows" /></StoreLink>
+    <StoreLink class="linux" title="Linux App" store="linux" placement="hero"><Icon name="Linux" /></StoreLink>
+  </div>
+
+  <AnnouncementBadge announcement={announcement} />
+</div>
+
+<style>
+  .hero {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--header-height));
+    justify-content: center;
+    margin: 0 30px;
+  }
+
+  /* Safari only: its 100vh includes the toolbar. */
+  @supports (-webkit-touch-callout: none) {
+    .hero {
+      height: -webkit-fill-available;
+    }
+  }
+
+  .title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  @media (max-width: 500px) {
+    .title {
+      font-size: 3.5rem;
+    }
+  }
+
+  .app-name {
+    color: var(--theme-color);
+  }
+
+  .description {
+    line-height: 1.5;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  .links :global(a) {
+    padding: 0 10px;
+  }
+
+  .links :global(.web:hover svg) {
+    fill: var(--theme-color);
+  }
+
+  .links :global(.android svg),
+  .links :global(.windows svg),
+  .links :global(.apple svg),
+  .links :global(.linux svg) {
+    fill: currentColor;
+  }
+
+  .links :global(.android:hover svg) {
+    fill: #78c257;
+  }
+
+  .links :global(.windows:hover svg) {
+    fill: #01a6f0;
+  }
+
+  .links :global(.apple:hover svg) {
+    fill: #a3aaae;
+  }
+
+  .links :global(.linux:hover svg) {
+    fill: gray;
+  }
+</style>

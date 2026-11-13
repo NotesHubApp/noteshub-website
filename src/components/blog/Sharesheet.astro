@@ -1,0 +1,145 @@
+---
+/**
+ * Sharing a post: each network's own page for writing a post, the address
+ * and title filled in, opened in a small window as before; email; and the
+ * system share sheet, or a copied link where there is none.
+ *
+ * Plain links, so nothing from any network loads here until a reader clicks,
+ * and they still work with no script. A tap is counted as Umami's "Post share"
+ * event, with the network.
+ */
+import { SITE, isAnalyticsConfigured } from '@/consts';
+import Icon from '@/components/Icon.astro';
+
+interface Props {
+  /** The post's canonical address. */
+  url: string;
+  title: string;
+}
+
+const { url, title } = Astro.props;
+const e = encodeURIComponent;
+
+const share = (method: string) =>
+  isAnalyticsConfigured() ? { 'data-umami-event': 'Post share', 'data-umami-event-method': method } : {};
+
+const NETWORKS = [
+  { name: 'Facebook', icon: 'Facebook', tone: 'facebook', popup: '550x400', href: `https://www.facebook.com/sharer/sharer.php?u=${e(url)}` },
+  {
+    name: 'X',
+    icon: 'X',
+    tone: 'plain',
+    popup: '550x400',
+    href: `https://x.com/intent/post?url=${e(url)}&text=${e(title)}&via=${e(SITE.twitterHandle)}`,
+  },
+  {
+    name: 'LinkedIn',
+    icon: 'LinkedIn',
+    tone: 'linkedin',
+    popup: '750x600',
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${e(url)}`,
+  },
+  { name: 'Reddit', icon: 'Reddit', tone: 'reddit', popup: '660x460', href: `https://www.reddit.com/submit?url=${e(url)}&title=${e(title)}` },
+] as const;
+---
+
+<ul class="share-list" aria-label="Share this post">
+  {
+    NETWORKS.map((network) => (
+      <li class={network.tone}>
+        <a href={network.href} target="_blank" rel="noopener noreferrer" data-popup={network.popup} title={`Share on ${network.name}`} {...share(network.icon.toLowerCase())}>
+          <Icon name={network.icon} />
+          <span class="sr-only">Share on {network.name}</span>
+        </a>
+      </li>
+    ))
+  }
+  <li>
+    <a href={`mailto:?subject=${e(title)}&body=${e(url)}`} title="Share by email" {...share('email')}>
+      <Icon name="Email" />
+      <span class="sr-only">Share by email</span>
+    </a>
+  </li>
+  <li>
+    <button type="button" data-share-native data-url={url} data-title={title} title="Share" {...share('share sheet')}>
+      <Icon name="Share" />
+      <span class="sr-only">Share</span>
+    </button>
+  </li>
+</ul>
+
+<script>
+  // The networks' pages open in a small window centred on this one, as they did.
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('a[data-popup]')) {
+    link.addEventListener('click', (event) => {
+      const [w, h] = (link.dataset.popup ?? '550x400').split('x').map(Number);
+      const left = window.outerWidth / 2 + (window.screenX || window.screenLeft || 0) - w / 2;
+      const top = window.outerHeight / 2 + (window.screenY || window.screenTop || 0) - h / 2;
+      const opened = window.open(link.href, '', `width=${w}, height=${h}, left=${left}, top=${top}, scrollbars=yes`);
+      if (opened) event.preventDefault();
+    });
+  }
+
+  for (const button of document.querySelectorAll<HTMLButtonElement>('[data-share-native]')) {
+    button.addEventListener('click', async () => {
+      const url = button.dataset.url ?? location.href;
+      const title = button.dataset.title ?? document.title;
+      if (navigator.share) {
+        try {
+          await navigator.share({ url, title });
+        } catch {
+          // Dismissed.
+        }
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(url);
+        window.alert('Url has been copied to the clipboard.');
+      }
+    });
+  }
+</script>
+
+<style>
+  .share-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.9em;
+  }
+
+  .share-list a {
+    display: inline-flex;
+  }
+
+  .share-list button {
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .share-list :global(svg) {
+    width: 20px;
+    height: 20px;
+    color: var(--text-primary);
+    opacity: 0.5;
+  }
+
+  .share-list :global(svg:hover) {
+    opacity: 1;
+  }
+
+  .facebook :global(:hover) {
+    color: var(--facebook-color);
+  }
+
+  .linkedin :global(:hover) {
+    color: var(--linkedin-color);
+  }
+
+  .reddit :global(:hover) {
+    color: var(--reddit-color);
+  }
+</style>

@@ -1,0 +1,38 @@
+# Response headers, served by Cloudflare Workers static assets (wrangler.jsonc).
+# GitHub Pages ignores this file. The Content-Security-Policy is added
+# into the `/*` rule at build by astro.config.mjs, from the same setting that
+# loads analytics.
+
+/*
+  # Stop browsers guessing a MIME type different from the declared one.
+  X-Content-Type-Options: nosniff
+
+  # Send only the origin to other sites, and nothing when downgrading from HTTPS.
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # This site needs none of these capabilities.
+  Permissions-Policy: accelerometer=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), browsing-topics=()
+
+  # Two years. No includeSubDomains: www.noteshub.app and other subdomains are
+  # served elsewhere, and this file speaks only for about.noteshub.app.
+  Strict-Transport-Security: max-age=63072000
+
+  Cross-Origin-Opener-Policy: same-origin
+
+# Astro fingerprints everything under /_astro, so it can be cached forever.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Not fingerprinted, and it gates first paint: a short lifetime, refreshed in
+# the background, so an edit arrives by the next view without each page
+# waiting a round trip to ask whether it changed.
+/theme.js
+  Cache-Control: public, max-age=300, stale-while-revalidate=604800
+
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Served as plain `text/plain` with no charset, a browser reads the file as
+# Windows-1252 and every curly apostrophe turns into "â€™".
+/llms.txt
+  Content-Type: text/plain; charset=utf-8

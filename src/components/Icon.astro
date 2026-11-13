@@ -1,0 +1,33 @@
+---
+/**
+ * One of the site's icons (src/lib/icons.ts), as inline SVG. `class` lands on
+ * the <svg> itself; since the markup isn't Astro's, a parent's scoped style
+ * reaches it only through `:global()`. Decorative unless given a `title`.
+ */
+import { ICONS, type IconName } from '@/lib/icons';
+
+interface Props {
+  name: IconName;
+  class?: string;
+  title?: string;
+}
+
+const { name, class: className, title } = Astro.props;
+const svg: string = ICONS[name];
+const escape = (text: string) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+
+const attributes = [
+  className && `class="${escape(className)}"`,
+  !title && !svg.includes('aria-hidden') && 'aria-hidden="true"',
+  !svg.includes('focusable') && 'focusable="false"',
+  title && 'role="img"',
+]
+  .filter(Boolean)
+  .join(' ');
+
+const markup = svg
+  .replace(/<title>[^<]*<\/title>/, '')
+  .replace(/^<svg\b([^>]*?)\s*>/, (_, rest: string) => `<svg${rest} ${attributes}>${title ? `<title>${escape(title)}</title>` : ''}`);
+---
+
+<Fragment set:html={markup} />

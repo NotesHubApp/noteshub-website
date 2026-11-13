@@ -1,0 +1,52 @@
+---
+/** A post's category and date, on its tile and under its text. */
+import Icon from '@/components/Icon.astro';
+import { CATEGORY_LABELS, formatDate, isoDate, type Post } from '@/lib/blog';
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+---
+
+<div class="post-info">
+  <div class="category">{CATEGORY_LABELS[post.data.category]}</div>
+  <div class="posted-on">
+    <Icon name="Time" />
+    <time datetime={isoDate(post.data.published)}>{formatDate(post.data.published)}</time>
+    {post.data.draft && <span class="draft">Draft</span>}
+  </div>
+</div>
+
+<style>
+  .post-info {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+    color: #7f919e;
+    fill: #7f919e;
+    font-size: 0.8em;
+  }
+
+  .post-info :global(svg) {
+    width: 1em;
+  }
+
+  .category {
+    text-transform: uppercase;
+  }
+
+  .posted-on {
+    display: flex;
+    gap: 3px;
+  }
+
+  .draft {
+    margin-left: 7px;
+    text-transform: uppercase;
+    color: var(--theme-color);
+  }
+</style>

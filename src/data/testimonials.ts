@@ -1,0 +1,102 @@
+/**
+ * The Wall of Love: store reviews, quoted as written. Paragraphs are separated
+ * by a blank line and drawn with line breaks rather than <p> elements, because
+ * Safari's `-webkit-line-clamp` doesn't clamp block children.
+ */
+export type TestimonialOrigin = 'AppStore' | 'PlayStore' | 'WindowsStore';
+
+export interface Testimonial {
+  author: string;
+  content: string;
+  rating: number;
+  /** A calendar date. */
+  date: string;
+  origin: TestimonialOrigin;
+}
+
+export const TESTIMONIALS: ReadonlyArray<Testimonial> = [
+  // App Store
+  {
+    author: 'Monbun123',
+    content:
+      'I’ve been using this app for a while now and it’s amazing. Has so many great features and I’m able to sync it with all my devices. Highly recommend for anyone who needs an efficient notes app!',
+    rating: 5,
+    date: '2023-10-23',
+    origin: 'AppStore',
+  },
+  {
+    author: 'Mmemonic4',
+    content:
+      'Lightweight, intuitive, and highly functional. In my experience, it outperforms many other applications I have tried, particularly when it comes to executing the Kanban board and organizing notes in separate folders.',
+    rating: 5,
+    date: '2023-06-19',
+    origin: 'AppStore',
+  },
+  {
+    author: 'SammyDuck',
+    content: `If you like the sharing and security advantages of storing your notes in GitHub repositories, you likely will feel at home in this versatile notetaker/organizer/keeper. From there you can use your notes to feed a public website or blog. For those who prefer iCloud Drive, that option is available as well.
+
+You’ll find yourself quickly and easily setting up a hierarchical folder structure and navigating it by simply tapping oval icons in a horizontal row at the top of your screen. Couldn’t be more intuitive. In that structure you can store almost anything: text, images and photos, names, addresses, phone numbers, geolocations, dates and times, etc. You could even set up a zettelkasten, a knowledge management database in hierarchical form—for business record keeping, research, study, or just personal reference.
+
+The markdown editor is fully featured and included is a primer that you can refer to as you write. Tables, code blocks, html tags, even footnotes are all supported.
+
+What attracted me initially was the kanban board feature. I experimented by setting up an archplot structure “template” for novel plotting using the “Save the Cat” method. I simply brainstorm and add event summaries or setting descriptions or dialogue or whatever in vertical columns below each horizontal plot element. Don’t know how much that will help me yet, but so far I’m pleased with the results.
+
+Lots of potential with this NotesHub app, and the one-time purchase price can’t be beat.`,
+    rating: 5,
+    date: '2023-04-25',
+    origin: 'AppStore',
+  },
+  {
+    author: 'Phrodide',
+    content: `I manage a group of volunteers for a non profit and they recently came to me and said they wanted to start blogging on the website. We use Cloudflare and static pages so this meant integrating into the JAMStack. With the GitHub integration this became possible for the non-technical volunteers.
+
+What even better? They can insert pictures and they also upload to GitHub and link properly. Looks right on the website, looks right on this app.`,
+    rating: 5,
+    date: '2023-03-08',
+    origin: 'AppStore',
+  },
+  {
+    author: 'Med Kay',
+    content: 'This app is great for even text-heavy writing. And it keeps getting better!',
+    rating: 5,
+    date: '2023-03-03',
+    origin: 'AppStore',
+  },
+
+  // Play Store
+  {
+    author: 'Ruben Maxwell',
+    content:
+      "INCREDIBLE. This app is criminally underrated. It's unbelievable that an Obsidian competitor of this quality exists for a tiny ONE-TIME cost when everything else is $50-$100 yearly to sync. Noteshub is truly cross-platform, it's on EVERY app store and it's free in the browser. It has all the essential features in a clean modern UI, and it appears the dev is actively improving it and building on this solid foundation.",
+    rating: 5,
+    date: '2024-01-17',
+    origin: 'PlayStore',
+  },
+  {
+    author: 'Ying Shen Tsai',
+    content:
+      'The purchase is worth more than the price! This app is easy to use but not simple, minimalistic yet rich in features. The dev was responsive to my question and seemed willing to polish this product based on user feedback. This is truly a rare gem hidden in the already crowded knowledge management market.',
+    rating: 5,
+    date: '2024-05-03',
+    origin: 'PlayStore',
+  },
+
+  // Microsoft Store
+  {
+    author: 'Luuk',
+    content:
+      "I love the simplicity of this app. All you need is a git repository somewhere (I use GitHub) and you can start writing markdown. No worrying about your data only being available from a single vendor somewhere in the cloud; even if this app would become unavailable, your data is safe. It's not super rich in features, but if you just need markdown support (including images!) and/or simple Kanban it's perfect.",
+    rating: 5,
+    date: '2023-07-27',
+    origin: 'WindowsStore',
+  },
+  {
+    author: 'Emeka Michael Dante',
+    content:
+      'Amazing note taking app, with lots of optionality in how you take notes, highlight important parts and add visual aids to your notes.',
+    rating: 5,
+    date: '2023-06-08',
+    origin: 'WindowsStore',
+  },
+];

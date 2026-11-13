@@ -1,0 +1,90 @@
+---
+import { HIGHLIGHTS } from '@/data/features';
+import FeatureImage from './FeatureImage.astro';
+---
+
+<div class="highlights">
+  <h2 class="home-section-title">Highlights</h2>
+
+  {
+    HIGHLIGHTS.map((highlight, index) => (
+      <div class:list={['feature-card', index % 2 === 1 && 'alternate']}>
+        <div class="column">
+          <h3 class="title">{highlight.title}</h3>
+          <p class="description">{highlight.content}</p>
+        </div>
+
+        <div class="column">
+          <FeatureImage
+            file={highlight.image}
+            alt={highlight.alt}
+            class={highlight.disableImageShadow ? 'image no-shadow' : 'image'}
+          />
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .highlights {
+    width: 100%;
+  }
+
+  .feature-card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .feature-card.alternate {
+    flex-direction: row-reverse;
+    background: var(--alternative-raw-color);
+  }
+
+  .column {
+    flex: 50%;
+    align-self: center;
+    margin: 0 30px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .feature-card,
+    .feature-card.alternate {
+      flex-direction: column;
+    }
+
+    .column {
+      margin: 0;
+    }
+  }
+
+  .column :global(.image) {
+    display: block;
+    margin: 30px auto;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: min(80vh, 600px);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+  }
+
+  .column :global(.no-shadow) {
+    box-shadow: none;
+  }
+
+  /* An h3 under the section's h2, at the size the old h2 had. */
+  .title {
+    text-align: center;
+    margin: 20px 30px;
+    font-size: 1.5em;
+  }
+
+  .description {
+    font-size: 1.3em;
+    padding: 0 30px;
+    text-indent: 20px;
+    line-height: 1.5;
+  }
+</style>

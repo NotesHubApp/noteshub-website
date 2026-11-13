@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "noteshub-website",
+  "compatibility_date": "2026-11-01",
+
+  // The custom domain, about.noteshub.app, is the only public origin for
+  // production. It is attached in the dashboard once the noteshub.app zone is
+  // on Cloudflare (README, "Moving to Cloudflare").
+  "workers_dev": false,
+
+  // `preview_urls` defaults to whatever `workers_dev` is, so turning the line
+  // above off would silently take branch preview URLs with it. Set explicitly:
+  // every branch gets a versioned *.workers.dev link to check before merging.
+  "preview_urls": true,
+
+  // The build belongs here rather than in the dashboard's Build command field,
+  // which can be left unset without warning. Honoured by both `wrangler
+  // deploy` and `wrangler versions upload`.
+  "build": {
+    "command": "npm run build"
+  },
+
+  // Static assets plus one script route. Every request is served straight
+  // from the build output — dist/_headers honoured — except the short links,
+  // the only paths that run the script (worker/index.ts). Asset requests are
+  // free and unmetered; the script's count against the free plan's 100,000 a
+  // day, and if they ever ran out only the short links would go, never a page.
+  "main": "worker/index.ts",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/get", "/get/*", "/download"]
+  }
+}

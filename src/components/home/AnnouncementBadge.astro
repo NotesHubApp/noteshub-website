@@ -1,0 +1,73 @@
+---
+/**
+ * The pill under the hero: the latest post by default, or a link elsewhere.
+ */
+import Icon from '@/components/Icon.astro';
+
+export type Announcement =
+  | { type: 'post'; title: string; url: string }
+  | { type: 'externalLink'; title: string; url: string };
+
+interface Props {
+  announcement?: Announcement;
+}
+
+const { announcement } = Astro.props;
+const external = announcement?.type === 'externalLink';
+---
+
+{
+  announcement && (
+    <a
+      class="announcement"
+      href={announcement.url}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener' : undefined}
+    >
+      <div class="indicator" />
+      <span class="text">{announcement.title}</span>
+      <Icon name="ArrowCircleRight" />
+    </a>
+  )
+}
+
+<style>
+  .announcement {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 5px 7px;
+    border-radius: 9999px;
+    border-color: var(--divider-color);
+    border-style: solid;
+    border-width: 1px;
+    color: gray;
+    margin: 20px;
+  }
+
+  .announcement :global(svg) {
+    width: 14px;
+    height: 14px;
+  }
+
+  .announcement:hover {
+    border-color: gray;
+  }
+
+  .indicator {
+    border-radius: 100%;
+    background-color: var(--theme-color);
+    width: 8px;
+    height: 8px;
+  }
+
+  .text {
+    font-size: 80%;
+    max-width: 250px;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+</style>

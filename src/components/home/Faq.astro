@@ -1,0 +1,119 @@
+---
+/**
+ * The questions, as native <details>: they open with no script, and their
+ * answers are in the page for search engines and the FAQPage structured data
+ * to read. They open and close with the old accordion's height animation where
+ * the browser can animate `::details-content`, and at once elsewhere.
+ */
+import { FAQ_ITEMS } from '@/data/faq';
+---
+
+<div id="faq" class="home-section">
+  <h2 class="home-section-title">Frequently Asked Questions</h2>
+
+  <ul class="faq">
+    {
+      FAQ_ITEMS.map((item) => (
+        <li class="panel">
+          <details>
+            <summary class="heading">
+              <h3 class="question">{item.question}</h3>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="sign plus" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="sign minus" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z" />
+              </svg>
+            </summary>
+            <div class="answer" set:html={item.answer} />
+          </details>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .faq {
+    text-align: left;
+    padding-left: 0;
+  }
+
+  .panel {
+    list-style: none;
+  }
+
+  .heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--alternative-raw-color);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    font-size: initial;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    list-style: none;
+  }
+
+  .heading::-webkit-details-marker {
+    display: none;
+  }
+
+  .heading:focus-visible {
+    outline: 2px solid var(--theme-color);
+    outline-offset: -2px;
+  }
+
+  .heading:hover {
+    filter: contrast(0.9);
+  }
+
+  /* A heading for the page's outline, drawn as the old accordion's button text. */
+  .question {
+    flex-grow: 1;
+    filter: contrast(0.5);
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  .sign {
+    stroke: var(--theme-color);
+    stroke-width: 2px;
+    flex-shrink: 0;
+  }
+
+  details[open] .plus,
+  details:not([open]) .minus {
+    display: none;
+  }
+
+  details::details-content {
+    background-color: var(--background-paper);
+    overflow: hidden;
+    block-size: 0;
+    transition:
+      block-size 0.2s ease-out,
+      content-visibility 0.2s allow-discrete;
+  }
+
+  details[open]::details-content {
+    block-size: auto;
+  }
+
+  .answer {
+    padding: 10px 18px;
+    line-height: 1.5em;
+    background-color: var(--background-paper);
+  }
+
+  .answer :global(a) {
+    text-decoration: underline;
+  }
+</style>
