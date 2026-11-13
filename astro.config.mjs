@@ -5,7 +5,7 @@ import { unified } from '@astrojs/markdown-remark';
 import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
 
-import { SITE, analyticsOrigins } from './src/consts';
+import { SITE, analyticsOrigins, recordsHeatmaps } from './src/consts';
 import { remarkFigureCaption } from './src/lib/markdown/remark-figure-caption';
 import { rehypeCodeBlocks } from './src/lib/markdown/rehype-code-blocks';
 import { rehypePostImages } from './src/lib/markdown/rehype-post-images';
@@ -35,7 +35,9 @@ function contentSecurityPolicy() {
           `connect-src 'self' ${analyticsOrigins().join(' ')}`.trim(),
           "object-src 'none'",
           "base-uri 'self'",
-          "frame-ancestors 'none'",
+          // Umami's dashboard draws its heatmaps over the live page in a frame;
+          // nothing else may embed the site.
+          `frame-ancestors ${recordsHeatmaps() ? SITE.analytics.umamiDashboard : "'none'"}`,
           "form-action 'none'",
           'upgrade-insecure-requests',
         ].join('; ');

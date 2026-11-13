@@ -8,7 +8,8 @@ import { getImage } from 'astro:assets';
 import promoBanner from '@/assets/promo-banner.webp';
 import DiscountLabel from '@/components/DiscountLabel.astro';
 import Footer from '@/components/Footer.astro';
-import { BLOG, NAV_LINKS, SITE, isAnalyticsConfigured } from '@/consts';
+import HeatmapRecorder from '@/components/HeatmapRecorder.astro';
+import { BLOG, NAV_LINKS, SITE, isAnalyticsConfigured, recordsHeatmaps } from '@/consts';
 import { DISCOUNTS } from '@/data/features';
 import { canonicalPath, structuredData, type Thing } from '@/lib/seo';
 import { APP_STORE } from '@/lib/stores';
@@ -202,6 +203,8 @@ const currentPath = canonicalPath(Astro.url.pathname);
     <script>
       import '@/scripts/campaign';
     </script>
+
+    {analytics && recordsHeatmaps() && <HeatmapRecorder />}
   </body>
 </html>
 

@@ -194,3 +194,11 @@ and `noteshub.app` is at Porkbun today, so:
 Umami on our own server (`SITE.analytics` in `src/consts.ts`), cookieless, in
 production builds only, and counting only `about.noteshub.app`. Events: "Download
 tap" (store, placement) and "Post share" (method).
+
+Heatmaps (`SITE.analytics.heatmaps`) add Umami's recorder: where visitors click
+and how far they scroll, seen in the dashboard only as a map over all visits.
+It loads once the page is idle, and only on `about.noteshub.app`. Its sample
+rate and the Replays switch, which stays off, are in Umami's website settings.
+The recorder needs `/recorder.js`, `/api/websites/<id>/recorder` and
+`/api/record` open on `stats.alextitarenko.me`, and the dashboard's origin may
+frame the site so it can draw the map over the page.
