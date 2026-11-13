@@ -1,0 +1,47 @@
+---
+/**
+ * Umami's heatmap recorder (`recordsHeatmaps()` in src/consts.ts).
+ *
+ * Loaded by the script below rather than a tag in <head>: it is about 58 KB
+ * compressed, several times the rest of the page's JavaScript, so it waits
+ * until the page has loaded and the browser is idle, and never delays the page.
+ * Umami's tracker has `data-domains`; the recorder doesn't, so the script
+ * checks the hostname itself: `astro preview` and preview deployments run the
+ * production build, and would otherwise send their clicks under the live
+ * site's ID. Its settings — the sample rate, and Replays left off — come from
+ * Umami's website settings.
+ *
+ * The values ride on the element below, so the script needn't import the
+ * site's config into the browser.
+ */
+import { SITE } from '@/consts';
+---
+
+<span
+  hidden
+  data-heatmap-recorder
+  data-src={SITE.analytics.umamiRecorderSrc}
+  data-website-id={SITE.analytics.umamiWebsiteId}
+  data-hostname={new URL(SITE.url).hostname}></span>
+
+<script>
+  const config = document.querySelector<HTMLElement>('[data-heatmap-recorder]')?.dataset;
+
+  function load() {
+    if (!config?.src || !config.websiteId) return;
+    const script = document.createElement('script');
+    script.src = config.src;
+    script.dataset.websiteId = config.websiteId;
+    document.head.append(script);
+  }
+
+  function whenIdle() {
+    if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 3000 });
+    else setTimeout(load, 1000);
+  }
+
+  if (config && location.hostname === config.hostname) {
+    if (document.readyState === 'complete') whenIdle();
+    else addEventListener('load', whenIdle, { once: true });
+  }
+</script>

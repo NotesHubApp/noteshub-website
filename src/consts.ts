@@ -66,6 +66,18 @@ export const SITE = {
      */
     umamiWebsiteId: '5b2bd91d-9002-424c-a389-f47cb37bc38b',
     umamiSrc: 'https://stats.alextitarenko.me/script.js',
+
+    /**
+     * Umami's heatmaps: where on a page visitors click and how far they scroll,
+     * shown in the dashboard only as a map summed over every visit. Replays,
+     * which record single visits, stay off in Umami's settings. The recorder
+     * comes from the same public host as the tracker; the dashboard lives at
+     * `umamiDashboard`, behind a login, and may frame the site to draw the map
+     * over it (`frame-ancestors` in astro.config.mjs).
+     */
+    heatmaps: true,
+    umamiRecorderSrc: 'https://stats.alextitarenko.me/recorder.js',
+    umamiDashboard: 'https://analytics.alextitarenko.me',
   },
 } as const;
 
@@ -87,6 +99,11 @@ export const NAV_LINKS: ReadonlyArray<{ href: string; label: string }> = [
 /** Whether the Umami script ships, and with it the tap events and the CSP allowance. */
 export function isAnalyticsConfigured(): boolean {
   return SITE.analytics.umamiWebsiteId.length > 0;
+}
+
+/** Whether Umami's heatmap recorder ships: with analytics, in production builds. */
+export function recordsHeatmaps(): boolean {
+  return isAnalyticsConfigured() && SITE.analytics.heatmaps;
 }
 
 /** Origins the analytics script loads from and sends to: the CSP in astro.config.mjs reads them. */
