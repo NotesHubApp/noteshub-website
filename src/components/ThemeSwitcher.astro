@@ -1,0 +1,67 @@
+---
+/**
+ * Light, system or dark. Markup only: public/theme.js applies the choice and
+ * marks the active button through `data-theme-choice` on <html>, before first
+ * paint, so the switcher never shows the wrong state while the page loads.
+ */
+import Icon from './Icon.astro';
+
+const OPTIONS = [
+  { value: 'light', icon: 'Sun', label: 'Light theme' },
+  { value: 'system', icon: 'Desktop', label: 'System theme' },
+  { value: 'dark', icon: 'Moon', label: 'Dark theme' },
+] as const;
+---
+
+<div role="radiogroup" aria-label="Theme" class="theme-switcher">
+  {
+    OPTIONS.map((option) => (
+      <button type="button" role="radio" aria-checked="false" aria-label={option.label} data-theme-option={option.value}>
+        <Icon name={option.icon} />
+      </button>
+    ))
+  }
+</div>
+
+<style>
+  .theme-switcher {
+    display: flex;
+    border: 1px solid #d6d6d6;
+    border-radius: 9999px;
+    width: fit-content;
+    padding: 3px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    gap: 6px;
+  }
+
+  button {
+    width: 28px;
+    height: 28px;
+    border: 0;
+    border-radius: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    filter: contrast(0.2);
+  }
+
+  :global([data-theme-choice='light']) [data-theme-option='light'],
+  :global([data-theme-choice='system']) [data-theme-option='system'],
+  :global([data-theme-choice='dark']) [data-theme-option='dark'] {
+    background-color: #7c7c7c4d;
+  }
+
+  button:hover {
+    filter: none;
+  }
+
+  button :global(svg) {
+    fill: var(--text-primary);
+    height: 16px;
+  }
+</style>

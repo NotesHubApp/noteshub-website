@@ -1,0 +1,96 @@
+---
+/**
+ * Shown at the end of every post, so a reader who got here from search has a
+ * next step. Its links are credited to `web-blog`, apart from the home page's.
+ */
+import { SITE } from '@/consts';
+import Icon from '@/components/Icon.astro';
+import StoreLink from '@/components/StoreLink.astro';
+import type { IconName } from '@/lib/icons';
+import type { Store } from '@/lib/stores';
+
+const OPTIONS: ReadonlyArray<{ store: Store; label: string; icon: IconName }> = [
+  { store: 'web', label: 'Web', icon: 'Web' },
+  { store: 'app-store', label: 'iOS & macOS', icon: 'Apple' },
+  { store: 'google-play', label: 'Android', icon: 'Android' },
+  { store: 'windows', label: 'Windows', icon: 'Windows' },
+  { store: 'linux', label: 'Linux', icon: 'Linux' },
+];
+---
+
+<aside class="download" aria-label={`Get ${SITE.name}`}>
+  <h2 class="title">Try <span class="app-name">{SITE.name}</span></h2>
+  <p class="description">{SITE.tagline}.</p>
+  <ul class="links">
+    {
+      OPTIONS.map((option) => (
+        <li>
+          <StoreLink class="link" store={option.store} placement="blog" title={`${SITE.name} for ${option.label}`}>
+            <Icon name={option.icon} />
+            {option.label}
+          </StoreLink>
+        </li>
+      ))
+    }
+  </ul>
+</aside>
+
+<style>
+  .download {
+    margin-top: 30px;
+    padding: 25px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--divider-color);
+    background: var(--alternative-raw-color);
+    text-align: center;
+  }
+
+  .title {
+    margin: 0 0 8px 0;
+    font-size: 1.5rem;
+  }
+
+  .app-name {
+    color: var(--theme-color);
+  }
+
+  .description {
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .links :global(.link) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--divider-color);
+    background: var(--background-paper);
+    color: var(--text-primary);
+    fill: currentColor;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .links :global(.link svg) {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+  }
+
+  .links :global(.link:hover) {
+    border-color: var(--theme-color);
+    color: var(--theme-color);
+  }
+</style>

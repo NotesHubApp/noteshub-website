@@ -1,0 +1,197 @@
+---
+/**
+ * The Wall of Love. A card shows the first ten lines of a review; a tap opens
+ * the whole review in a dialog, a copy of the card made by the script below.
+ */
+import { TESTIMONIALS, type TestimonialOrigin } from '@/data/testimonials';
+import Icon from '@/components/Icon.astro';
+import StoreLink from '@/components/StoreLink.astro';
+import type { Store } from '@/lib/stores';
+import type { IconName } from '@/lib/icons';
+
+const SOURCES: Record<TestimonialOrigin, { store: Store; icon: IconName; label: string }> = {
+  AppStore: { store: 'app-store', icon: 'AppStore', label: 'App Store' },
+  PlayStore: { store: 'google-play', icon: 'GooglePlay', label: 'Google Play' },
+  WindowsStore: { store: 'windows', icon: 'WindowsStore', label: 'Microsoft Store' },
+};
+
+const mediumDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeZone: 'UTC' });
+const escape = (text: string) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const paragraphs = (text: string) => text.split(/\n\n/).map(escape).join('<br><br>');
+---
+
+<div id="testimonials" class="home-section">
+  <h2 class="home-section-title">Wall of Love</h2>
+  <ul class="list">
+    {
+      TESTIMONIALS.map((testimonial) => {
+        const source = SOURCES[testimonial.origin];
+        return (
+          <li class="card-wrapper" data-testimonial>
+            <article class="card">
+              <header>
+                <div class="header-line">
+                  <h3 class="author">{testimonial.author}</h3>
+                  <div class="spacer" />
+                  <StoreLink class="source" store={source.store} placement="testimonials" title={source.label}>
+                    <Icon name={source.icon} />
+                  </StoreLink>
+                </div>
+                <div class="rating" role="img" aria-label={`${testimonial.rating} out of 5 stars`}>
+                  {[1, 2, 3, 4, 5].map((n) => (
+                    <span class="star" data-checked={String(n <= testimonial.rating)} />
+                  ))}
+                </div>
+              </header>
+              <div class="content truncated" set:html={paragraphs(testimonial.content)} />
+              <footer class="posted-on">
+                <time datetime={testimonial.date}>{mediumDate.format(new Date(testimonial.date))}</time>
+              </footer>
+            </article>
+          </li>
+        );
+      })
+    }
+  </ul>
+
+  <dialog class="full-card" data-testimonial-dialog></dialog>
+</div>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-testimonial-dialog]');
+
+  for (const item of document.querySelectorAll<HTMLElement>('[data-testimonial]')) {
+    item.addEventListener('click', (event) => {
+      // A tap on the store's icon follows the link instead.
+      if ((event.target as Element).closest('a') || !dialog) return;
+      const card = item.querySelector('article')?.cloneNode(true) as HTMLElement | undefined;
+      if (!card) return;
+      card.querySelector('.truncated')?.classList.remove('truncated');
+      dialog.replaceChildren(card);
+      dialog.showModal();
+      document.documentElement.style.overflowY = 'hidden';
+    });
+  }
+
+  dialog?.addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('close', () => {
+    document.documentElement.style.overflowY = 'auto';
+    dialog.replaceChildren();
+  });
+</script>
+
+<style>
+  .list {
+    display: block;
+    column-count: 3;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+  }
+
+  @media (max-width: 750px) {
+  .list {
+      column-count: 2;
+    }
+  }
+
+  @media (max-width: 500px) {
+  .list {
+      column-count: 1;
+    }
+  }
+
+  .card-wrapper {
+    break-inside: avoid;
+    /* Keeps the cards' shadows whole in Safari's columns. */
+    padding: 5px;
+  }
+
+  .card-wrapper .card {
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  /* The dialog's copy of a card keeps the card's scoped attributes, so these rules style both. */
+  .card {
+    display: flex;
+    flex-direction: column;
+    text-align: initial;
+    box-shadow: var(--box-shadow);
+    background: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .author {
+    margin: 0;
+  }
+
+  .header-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .spacer {
+    flex-grow: 1;
+  }
+
+  .header-line :global(.source svg) {
+    width: 1.7em;
+    height: 1.7em;
+    opacity: 0.3;
+  }
+
+  .header-line :global(.source svg:hover) {
+    opacity: 1;
+  }
+
+  .rating {
+    display: flex;
+    gap: 0.3em;
+    font-size: 1.2em;
+  }
+
+  .star::after {
+    content: '★';
+  }
+
+  .star[data-checked='true'] {
+    color: gold;
+  }
+
+  .content {
+    line-height: 1.5;
+    margin: 10px 0;
+    overflow: auto;
+  }
+
+  .truncated {
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .posted-on {
+    font-size: 90%;
+    color: gray;
+  }
+
+  .full-card {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--max-content-width);
+    border: none;
+    outline: none;
+    padding: 0;
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+  }
+
+  .full-card:not([open]) {
+    display: none;
+  }
+</style>

@@ -1,0 +1,175 @@
+---
+/** The blog's index, `/blog`: every post this build shows, newest first. */
+import { getImage } from 'astro:assets';
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/Icon.astro';
+import PostInfo from '@/components/blog/PostInfo.astro';
+import { BLOG, SITE } from '@/consts';
+import { getPosts, isoDate, postPath } from '@/lib/blog';
+import { blog } from '@/lib/seo';
+
+const posts = await getPosts();
+const site = Astro.site ?? new URL(SITE.url);
+const absolute = (path: string) => new URL(path, site).toString();
+
+const cards = await Promise.all(
+  posts.map(async (post, index) => ({
+    post,
+    image: await getImage({
+      src: post.data.cover,
+      widths: [400, 700, 1000],
+      sizes: '(max-width: 550px) calc(100vw - 30px), 348px',
+      format: 'webp',
+      // The first tile is in view as the page opens.
+      loading: index === 0 ? 'eager' : 'lazy',
+      fetchpriority: index === 0 ? 'high' : 'auto',
+    }),
+  })),
+);
+---
+
+<Layout
+  title={`Blog - ${SITE.name}`}
+  socialTitle={BLOG.title}
+  description={BLOG.description}
+  pageId="blog"
+  graph={[
+    blog(posts.map((post) => ({ url: absolute(postPath(post)), title: post.data.title, published: isoDate(post.data.published) }))),
+  ]}
+>
+  <div class="container">
+    <section id="content">
+      <h1 class="list-subtitle">
+        <span>Latest Posts</span>
+        <a href={BLOG.feed} title="Blog feed" data-astro-prefetch="false">
+          <Icon name="Rss" />
+          <span class="sr-only">Blog feed</span>
+        </a>
+      </h1>
+
+      <ul class="posts">
+        {
+          cards.map(({ post, image }) => (
+            <li class="post-item">
+              <a title={post.data.title} href={postPath(post)}>
+                <div class="card">
+                  <div class="hero">
+                    <img
+                      class="hero-image"
+                      src={image.src}
+                      alt={post.data.coverAlt}
+                      {...image.attributes}
+                      srcset={image.srcSet.attribute}
+                    />
+                  </div>
+
+                  <article class="content">
+                    <h2 class="title">{post.data.title}</h2>
+                    <PostInfo post={post} />
+                    <p class="description">{post.data.description}</p>
+                  </article>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: var(--max-content-width);
+    padding: 15px 15px;
+    margin: 0 auto;
+  }
+
+  .list-subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2em;
+    font-size: var(--heading1-size);
+  }
+
+  .list-subtitle a {
+    height: 1em;
+  }
+
+  .list-subtitle :global(svg) {
+    width: 1em;
+  }
+
+  .posts {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .post-item {
+    margin-bottom: 30px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--card-background);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 550px) {
+    .card {
+      flex-direction: column;
+    }
+  }
+
+  .card:hover {
+    --scale: 1.03;
+  }
+
+  .hero {
+    overflow: hidden;
+    width: 40%;
+    min-width: 40%;
+  }
+
+  @media (max-width: 550px) {
+    .hero {
+      width: 100%;
+      min-width: 100%;
+      aspect-ratio: 16/9;
+    }
+  }
+
+  /* Inline, as before: the line it sits on sets the card's height by a few pixels. */
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+    transform: scale(var(--scale));
+    transition:
+      transform 400ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
+      opacity 1s cubic-bezier(0.4, 0, 0.25, 1) 0ms;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .title {
+    color: var(--theme-color);
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    font-size: 1.2em;
+    line-height: 1.5;
+  }
+</style>

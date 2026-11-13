@@ -1,0 +1,49 @@
+---
+/** The corner ribbon shown during a sale (`DISCOUNTS.amount` in src/data/features.ts). */
+interface Props {
+  value: number;
+}
+
+const { value } = Astro.props;
+---
+
+<a href="/#feature-comparison">
+  <div class="container">
+    <div class="line">
+      <span>{value}%</span>
+      <span class="off">OFF</span>
+    </div>
+  </div>
+</a>
+
+<style>
+  .container {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    right: 0;
+    transform: rotate(45deg) translateX(25px) translateY(-100px);
+    transform-origin: bottom left;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: var(--background-paper);
+    background: var(--theme-color);
+    padding: 3px 0;
+    font-weight: bold;
+  }
+
+  .line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .off {
+    text-transform: uppercase;
+    font-size: 0.7em;
+  }
+</style>

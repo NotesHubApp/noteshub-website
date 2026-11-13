@@ -1,0 +1,107 @@
+---
+import { BLOG, SITE } from '@/consts';
+import Icon from './Icon.astro';
+import ThemeSwitcher from './ThemeSwitcher.astro';
+
+const LINKS = [
+  { title: 'Facebook page', href: SITE.social.facebook, icon: 'Facebook', tone: 'facebook' },
+  { title: 'Twitter page', href: SITE.social.x, icon: 'X', tone: 'plain' },
+  { title: 'Threads page', href: SITE.social.threads, icon: 'Threads', tone: 'plain' },
+  { title: 'Reddit', href: SITE.social.reddit, icon: 'Reddit', tone: 'reddit' },
+  { title: 'LinkedIn', href: SITE.social.linkedin, icon: 'LinkedIn', tone: 'linkedin' },
+  { title: 'Contact/support', href: `mailto:${SITE.contactEmail}`, icon: 'Email', tone: 'plain' },
+  { title: 'Blog feed', href: BLOG.feed, icon: 'Rss', tone: 'plain' },
+] as const;
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="copyright">
+    <p>&copy; {year} {SITE.company} All rights reserved.</p>
+  </div>
+  <ul class="social" id="contacts">
+    {
+      LINKS.map((link) => {
+        const external = /^https?:/.test(link.href);
+        return (
+          <li>
+            <a
+              href={link.href}
+              title={link.title}
+              class={link.tone}
+              target="_blank"
+              rel={external ? 'noopener noreferrer' : undefined}
+              data-astro-prefetch={external ? undefined : 'false'}
+            >
+              <Icon name={link.icon} />
+              <span class="sr-only">{link.title}</span>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+
+  <ThemeSwitcher />
+</footer>
+
+<style>
+  .footer {
+    padding: 10px;
+    width: 100%;
+    border-top: 1px solid var(--divider-color);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .copyright {
+    color: #787878;
+  }
+
+  .social {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .social li {
+    padding: 0;
+    display: inline-block;
+  }
+
+  .social li a {
+    margin: 0 8px;
+  }
+
+  .social li :global(svg) {
+    width: 23px;
+    height: 23px;
+  }
+
+  .social li :global(svg:hover) {
+    filter: brightness(60%);
+  }
+
+  .facebook {
+    color: var(--facebook-color);
+  }
+
+  .plain {
+    color: currentColor;
+  }
+
+  .reddit {
+    color: var(--reddit-color);
+  }
+
+  .linkedin {
+    color: var(--linkedin-color);
+  }
+</style>

@@ -1,0 +1,135 @@
+---
+/**
+ * A post, at the address the Next.js site gave it:
+ * `/blog/archive/<year>/<month>/<folder>` (`postPath()` in src/lib/blog.ts).
+ */
+import { getImage } from 'astro:assets';
+import { render } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import DownloadBlock from '@/components/blog/DownloadBlock.astro';
+import PostInfo from '@/components/blog/PostInfo.astro';
+import Sharesheet from '@/components/blog/Sharesheet.astro';
+import { BLOG, SITE } from '@/consts';
+import { CATEGORY_LABELS, getPosts, isoDate, modifiedDate, postParams, postPath, type Post } from '@/lib/blog';
+import { blog, blogPosting, breadcrumbs } from '@/lib/seo';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: postParams(post), props: { post } }));
+}
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const { title, seoTitle, description, category, published, cover, coverAlt, draft } = post.data;
+const { Content } = await render(post);
+
+const site = Astro.site ?? new URL(SITE.url);
+const absolute = (path: string) => new URL(path, site).toString();
+const url = absolute(postPath(post));
+const section = CATEGORY_LABELS[category];
+const dates = { published: isoDate(published), modified: isoDate(modifiedDate(post)) };
+
+// The link preview: the cover 1200 pixels wide, as Open Graph and Google ask,
+// as JPEG, which every app that draws a preview can decode. A narrower cover
+// would be scaled up for it, so it fails the build instead.
+if (cover.width < 1200) {
+  throw new Error(`src/content/blog/${post.id}: the cover is ${cover.width} pixels wide; it needs at least 1200.`);
+}
+const preview = await getImage({ src: cover, width: 1200, format: 'jpeg', quality: 85 });
+const previewImage = {
+  src: absolute(preview.src),
+  alt: coverAlt,
+  width: Number(preview.attributes.width),
+  height: Number(preview.attributes.height),
+  type: 'image/jpeg',
+};
+
+// The hero, as wide as the text column.
+const hero = await getImage({
+  src: cover,
+  widths: [480, 870, 1200, 1740].filter((width) => width <= cover.width),
+  sizes: 'min(870px, calc(100vw - 30px))',
+  width: 870,
+  format: 'webp',
+  loading: 'eager',
+  fetchpriority: 'high',
+});
+---
+
+<Layout
+  title={`${seoTitle ?? title} - ${BLOG.title}`}
+  socialTitle={seoTitle ?? title}
+  description={description}
+  pageId="blog"
+  noindex={draft}
+  image={previewImage}
+  article={{ ...dates, section }}
+  graph={[
+    blog(),
+    blogPosting({
+      url,
+      title,
+      description,
+      section,
+      ...dates,
+      image: { url: previewImage.src, width: previewImage.width, height: previewImage.height },
+    }),
+    breadcrumbs([
+      { name: SITE.name, url: absolute('/') },
+      { name: 'Blog', url: absolute(BLOG.path) },
+      { name: title, url },
+    ]),
+  ]}
+>
+  <div class="container">
+    <article>
+      <h1 class="post-title">{title}</h1>
+      <img class="hero-image" src={hero.src} srcset={hero.srcSet.attribute} alt={coverAlt} {...hero.attributes} />
+      <div class="blog-post-content">
+        <Content />
+      </div>
+    </article>
+
+    <DownloadBlock />
+
+    <div class="post-footer">
+      <PostInfo post={post} />
+      <Sharesheet url={url} title={title} />
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import '@/scripts/code-blocks';
+</script>
+
+<style>
+  .container {
+    max-width: var(--max-content-width);
+    padding: 15px 15px;
+    margin: 0 auto;
+  }
+
+  .post-title {
+    text-align: center;
+    font-size: var(--heading1-size);
+  }
+
+  /* Inline, as before, so the space under it is unchanged. */
+  .hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+
+  .post-footer {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+</style>

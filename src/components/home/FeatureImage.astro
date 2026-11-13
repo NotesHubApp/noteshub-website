@@ -1,0 +1,97 @@
+---
+/**
+ * A Highlights screenshot: the phone shot up to 800px wide and the desktop shot
+ * above, each in the light and the dark theme, as resized WebP.
+ *
+ * Both themes are in the page and CSS shows the one that matches
+ * `data-color-scheme`, so there is no flash of the light image before a script
+ * swaps it, as there was on the Next.js site. Both are lazy, and a browser
+ * never fetches a lazy image it isn't showing.
+ *
+ * `sizes` is never smaller than the image can be drawn, so the stylesheet's
+ * `max-width` and `max-height` decide its size exactly as they did when the
+ * page showed the original PNGs.
+ */
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  /** The file name in src/assets/features/{desktop,mobile}/. */
+  file: string;
+  alt: string;
+  class?: string;
+}
+
+const { file, alt, class: className } = Astro.props;
+
+const assets = import.meta.glob<{ default: ImageMetadata }>('/src/assets/features/*/*.png', { eager: true });
+function asset(kind: 'desktop' | 'mobile', name: string): ImageMetadata {
+  const found = assets[`/src/assets/features/${kind}/${name}`];
+  if (!found) throw new Error(`src/assets/features/${kind}/${name} is missing.`);
+  return found.default;
+}
+
+/** Widths for the srcset: steps below the original, and the original itself. */
+function widths(image: ImageMetadata, steps: number[]): number[] {
+  return [...steps.filter((step) => step < image.width), image.width];
+}
+
+// The tallest the stylesheet lets a screenshot be (`max-height`).
+const MAX_HEIGHT = 600;
+
+async function variant(name: string) {
+  const desktop = asset('desktop', name);
+  const mobile = asset('mobile', name);
+  const mobileSizes = `${Math.ceil((MAX_HEIGHT * mobile.width) / mobile.height)}px`;
+  const [wide, narrow] = await Promise.all([
+    getImage({ src: desktop, widths: widths(desktop, [600, 900, 1200]), sizes: '50vw', format: 'webp' }),
+    getImage({ src: mobile, widths: widths(mobile, [400, 800, 1200]), sizes: mobileSizes, format: 'webp' }),
+  ]);
+  return { wide, narrow, desktop, mobile, mobileSizes };
+}
+
+const themes = [
+  { tone: 'light', image: await variant(file) },
+  { tone: 'dark', image: await variant(file.replace(/\.png$/, '-dark.png')) },
+];
+---
+
+{
+  themes.map(({ tone, image }) => (
+    <picture class={`theme-${tone}`}>
+      <source
+        media="(max-width: 800px)"
+        type="image/webp"
+        srcset={image.narrow.srcSet.attribute}
+        sizes={image.mobileSizes}
+        width={image.mobile.width}
+        height={image.mobile.height}
+      />
+      <img
+        src={image.wide.src}
+        srcset={image.wide.srcSet.attribute}
+        sizes="50vw"
+        width={image.desktop.width}
+        height={image.desktop.height}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        class={className}
+      />
+    </picture>
+  ))
+}
+
+<style>
+  .theme-dark {
+    display: none;
+  }
+
+  :global([data-color-scheme='dark']) .theme-dark {
+    display: inline;
+  }
+
+  :global([data-color-scheme='dark']) .theme-light {
+    display: none;
+  }
+</style>

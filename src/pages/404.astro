@@ -1,0 +1,32 @@
+---
+/** Served by Cloudflare for any address with no page (`not_found_handling` in wrangler.jsonc), and by GitHub Pages as 404.html. */
+import Layout from '@/layouts/Layout.astro';
+import { SITE } from '@/consts';
+---
+
+<Layout title={`Page not found - ${SITE.name}`} description="This page could not be found." noindex>
+  <div class="container">
+    <h1 class="code">404</h1>
+    <p>This page could not be found.</p>
+    <p><a href="/">Go to the home page</a> or read the <a href="/blog">blog</a>.</p>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: var(--max-content-width);
+    padding: 15vh 15px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  .code {
+    font-size: var(--heading1-size);
+    margin: 0;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+</style>

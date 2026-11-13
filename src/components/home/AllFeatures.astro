@@ -1,0 +1,88 @@
+---
+import { ALL_FEATURES } from '@/data/features';
+---
+
+<div id="all-features" class="home-section">
+  <h2 class="home-section-title">All Features</h2>
+
+  <ul class="features">
+    {
+      ALL_FEATURES.newFeatures.map((feature) => (
+        <li>
+          <Fragment set:html={feature} />
+          <span class="label" title="This feature just released">
+            new
+          </span>
+        </li>
+      ))
+    }
+    {
+      ALL_FEATURES.features.map((feature) => (
+        <li>
+          <Fragment set:html={feature} />
+        </li>
+      ))
+    }
+    {
+      ALL_FEATURES.nonReleasedFeatures.map((feature) => (
+        <li>
+          <Fragment set:html={feature} />
+          <span class="label coming" title="This feature planned to be released in future release">
+            coming
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .features {
+    column-count: 2;
+    column-gap: 50px;
+    text-align: start;
+    list-style: none;
+    padding: 0 20px;
+    font-size: 1.1em;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .features {
+      column-count: 1;
+    }
+  }
+
+  .features li {
+    line-height: 200%;
+    padding-left: 30px;
+  }
+
+  .features li::before {
+    display: inline-block;
+    content: '•';
+    color: var(--theme-color);
+    width: 1em;
+    margin-left: -1em;
+    font-weight: bold;
+  }
+
+  .features :global(a) {
+    text-decoration: underline;
+  }
+
+  .label {
+    cursor: help;
+    font-size: 60%;
+    color: white;
+    background: var(--theme-color);
+    border-radius: 10px;
+    padding: 2px 7px;
+    margin-left: 5px;
+    vertical-align: bottom;
+    text-transform: uppercase;
+  }
+
+  .coming {
+    background: gray;
+  }
+</style>
