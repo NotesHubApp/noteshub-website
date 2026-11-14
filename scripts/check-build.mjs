@@ -18,6 +18,8 @@ const PUBLISHED = [
   '/',
   '/about',
   '/blog',
+  // Moved here from alextitarenko.me, which redirects its old address to this one.
+  '/blog/archive/2021/6/noteshub-the-story-behind-a-new-note-taking-app',
   '/blog/archive/2023/10/noteshub-30',
   '/blog/archive/2023/12/noteshub-31',
   '/blog/archive/2024/1/noteshub-32',

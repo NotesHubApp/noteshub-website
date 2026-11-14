@@ -275,6 +275,16 @@ code {
   border-top: 1px solid var(--nh-palette-table-alternateRawBorderColor);
 }
 
+/* On a narrow screen a wide table scrolls inside the text column instead of
+   widening the page. Not on wider ones: as a block, a table no longer
+   stretches its rows to the column's width. */
+@media (max-width: 700px) {
+  .blog-post-content table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
 /* A post's code block and its buttons (src/lib/markdown/rehype-code-blocks.ts). */
 .code-block {
   position: relative;
